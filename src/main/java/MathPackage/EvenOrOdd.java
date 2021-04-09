@@ -3,6 +3,11 @@ package MathPackage;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Generating EvenOrOdd worksheets for primary school (1-4 grade)
+ * Author: Grigorii Andreev
+ * Date: 02 February 2021
+ */
 public class EvenOrOdd {
 
     String gradeRus;
@@ -57,6 +62,8 @@ public class EvenOrOdd {
     public static void main(String[] args) throws Exception {
 
         List<EvenOrOdd> evenOrOdd = new ArrayList<>();
+
+        General.emptyAllFolders();
 
         evenOrOdd.add(new EvenOrOdd(
                 "&ensp;", "&nbsp;",

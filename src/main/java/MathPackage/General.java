@@ -129,8 +129,17 @@ public class General {
     // Empty destination folder. Old version
         public static void emptyFolder(String folder) throws Exception {
 
-            for (File file: new File(folder).listFiles())
+            for (File file: new File(folder).listFiles()) {
                 if (file.isFile()) file.delete();
+            }
         }
+
+    public static void emptyAllFolders() throws Exception {
+
+        emptyFolder("d:/Java_Math/Temp/");
+        emptyFolder("d:/Java_Math/ReadyWorksheets/");
+        emptyFolder("d:/Java_Math/Pdf/");
+        emptyFolder("d:/Java_Math/Html/");
+    }
 
 }
