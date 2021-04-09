@@ -1,0 +1,4 @@
+#exlude following irectories from indexing
+target/
+bin/
+target/
