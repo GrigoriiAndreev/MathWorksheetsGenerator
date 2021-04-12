@@ -62,7 +62,7 @@ public class ComparingNumbers {
         General.emptyFolder(General.readyFilesFolderPdf);
         General.emptyFolder(General.readyFilesFolderHtml);
 
-//Сравнение чисел
+//Comparing numbers
 
         List<ComparingNumbers> comparingNumbers = new ArrayList<>();
 
@@ -1016,7 +1016,5 @@ public class ComparingNumbers {
                 comparingNumbers.get(16).shortProblemDescriptionEng, comparingNumbers.get(16).longProblemDescriptionEng);
         Matrix.finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, comparingNumbers.get(16).gradeEng, comparingNumbers.get(16).totalPageOfWorksheets, comparingNumbers.get(16).topicEng,
                 comparingNumbers.get(16).h2Eng, comparingNumbers.get(16).shortProblemDescriptionEng, comparingNumbers.get(16).longProblemDescriptionEng);
-
     }
-
 }

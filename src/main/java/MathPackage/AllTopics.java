@@ -1,6 +1,10 @@
 package MathPackage;
 
-//import java.io.IOException;
+/**
+ *  Developing initial classes for basic math topics
+ *  Author: Grigorii Andreev
+ *  Date: 7 November 2020
+ */
 
 public class AllTopics {
 
@@ -54,11 +58,13 @@ public class AllTopics {
 
     public static void main(String[] args) throws Exception {
 
-
+// Refactoring!!! Move all codes to appropriate classes
+/*
         General.emptyFolder(General.workingFolder);
         General.emptyFolder(General.readyFilesFolder);
         General.emptyFolder(General.readyFilesFolderPdf);
         General.emptyFolder(General.readyFilesFolderHtml);
+*/
 
 //Деление чисел в столбик
 /*
@@ -5395,7 +5401,7 @@ public class AllTopics {
                 "", "&nbsp",
                 "Операции на умножение чисел в столбик.","Complete multiplication problems. Multiply numbers in column.",
                 "Операции на умножение чисел в столбик. Задачи с ответами. Скачать pdf или jpg.",
-                "Complete multiplication problems:<br />Mltiply numbers in column. Worksheets with answers. Download pdf or jpg.",
+                "Complete multiplication problems:<br />Multiply numbers in column. Worksheets with answers. Download pdf or jpg.",
                 "", "",
                 "Выполни операции умножения. Примеры на умножение чисел в столбик.",
                 "Complete multiplication problems. Multiply numbers in column.",
@@ -5748,8 +5754,6 @@ public class AllTopics {
 
 
 */
-
-
 
 
         //Сложение или вычитание в строчку - Сделано!
@@ -6862,7 +6866,7 @@ public class AllTopics {
                 "Примеры на сложение и вычитание чисел в столбик.",
                 "Problems examples of addition and subtraction in column.",
                 "Реши примеры на сложение или вычитание числа в столбик. ",
-                "Solve the problems of addition or subtracttion of numbers in column.",
+                "Solve the problems of addition or subtraction of numbers in column.",
                 0, 99, 6));
 
         allTopicsAddSubtractColumn.add( new AllTopics(
@@ -9029,7 +9033,6 @@ public class AllTopics {
                 allTopicsSubtract.get(12).h2Eng, allTopicsSubtract.get(12).shortProblemDescriptionEng, allTopicsSubtract.get(12).longProblemDescriptionEng);
 */
 
-
         //Вычитание в столбик
 /*
 
@@ -10174,6 +10177,7 @@ public class AllTopics {
 
 // Сложение - закончено
 /*
+
         List<AllTopics> allTopicsAdd = new ArrayList<>();
 
         allTopicsAdd.add( new AllTopics(
@@ -10211,8 +10215,6 @@ public class AllTopics {
                 "Сложи двузначные числа.",
                 "Add two-digit numbers.",
                 10, 99, 6));
-
-//Сложение столбиком
 
         allTopicsAdd.add( new AllTopics(
                 "", "&nbsp",
@@ -10404,10 +10406,7 @@ public class AllTopics {
 
 
 
-        Matrix.emptyFolder(General.workingFolder);
-        Matrix.emptyFolder(General.readyFilesFolder);
-        Matrix.emptyFolder(General.readyFilesFolderPdf);
-        Matrix.emptyFolder(General.readyFilesFolderHtml);
+        General.emptyAllFolders();
 
 // Сложение в строчку
         Matrix.topWorksheet(General.workingFolder, allTopicsAdd.get(0).gradeRus, allTopicsAdd.get(0).totalPageOfWorksheets,
@@ -11203,12 +11202,12 @@ public class AllTopics {
                 allTopicsAdd.get(17).shortProblemDescriptionEng, allTopicsAdd.get(17).longProblemDescriptionEng);
         Matrix.finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, allTopicsAdd.get(17).gradeEng, allTopicsAdd.get(17).totalPageOfWorksheets, allTopicsAdd.get(17).topicEng,
                 allTopicsAdd.get(17).h2Eng, allTopicsAdd.get(17).shortProblemDescriptionEng, allTopicsAdd.get(17).longProblemDescriptionEng);
-
 */
 
-//  Округление чисел - закончено
+
+//  Numbers Rounding
 /*
-        List<AllTopics> allTopicsEvenOdd = new ArrayList<>();
+
         List<AllTopics> allTopics = new ArrayList<>();
 
         allTopics.add( new AllTopics(
@@ -11331,10 +11330,7 @@ public class AllTopics {
                 "Round numbers to the nearest thousand. Numbers up tо 1000000.",
                 10_000, 1000000, 6));
 
-        Matrix.emptyFolder(General.workingFolder);
-        Matrix.emptyFolder(General.readyFilesFolder);
-        Matrix.emptyFolder(General.readyFilesFolderPdf);
-        Matrix.emptyFolder(General.readyFilesFolderHtml);
+        General.emptyAllFolders();
 
         Matrix.topWorksheet(General.workingFolder, allTopics.get(0).gradeRus, allTopics.get(0).totalPageOfWorksheets,
                 allTopics.get(0).shortProblemDescriptionRus, allTopics.get(0).longProblemDescriptionRus );
@@ -11778,6 +11774,7 @@ public class AllTopics {
                 allTopics.get(9).shortProblemDescriptionEng, allTopics.get(9).longProblemDescriptionEng);
         Matrix.finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, allTopics.get(9).gradeEng, allTopics.get(9).totalPageOfWorksheets, allTopics.get(9).topicEng,
                 allTopics.get(9).h2Eng, allTopics.get(9).shortProblemDescriptionEng, allTopics.get(9).longProblemDescriptionEng);
+
 */
 
     }

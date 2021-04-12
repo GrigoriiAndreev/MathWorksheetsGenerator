@@ -11,7 +11,7 @@ import java.io.*;
 import java.io.File;
 
 
-public class Converters {
+public class ConvertersDel {
 
     public static void generatePDFFromHTML(String filename) throws IOException, DocumentException {
         Document document = new Document();

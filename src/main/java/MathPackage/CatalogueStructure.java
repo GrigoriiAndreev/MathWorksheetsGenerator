@@ -4,8 +4,6 @@ package MathPackage;
 There are the methods for creating folders and files structure and archiving all kind of important files
  */
 
-//import org.apache.xmlbeans.impl.xb.xsdschema.Public;
-
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;

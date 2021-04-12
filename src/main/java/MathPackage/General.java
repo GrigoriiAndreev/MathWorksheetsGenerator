@@ -2,14 +2,14 @@ package MathPackage;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-//import java.util.*;
+
+/**
+ * Class contains all general settings and utils for all classes
+ */
 
 public class General {
 
     //Static important date for project
-
     static public String mathSiteNameRu = "https://mathematics-tests.com";
     static public String mathSiteNameEn = "https://mathematics-tests.com";
     static public String shopSiteName = "https://magazin-integral.ru";
@@ -20,8 +20,8 @@ public class General {
     static public String readyFilesFolderHtml = "d:/Java_Math/Html/";
     static public String googleDrive = "https://drive.google.com/drive/folders/1qZ8_2nDdjA7_e9EpdQaJTQIqehY4E5s0?usp=sharing";
     static public String yandexDisk = "https://disk.yandex.ru/d/VYRDjGJEYcxGKA?w=1";
-    static public String readyObjectsFolder = "d:/Java_Math/savedObjects/";
-    static public String googleAdsHtmlBlock = "googleAdsHtmlBlock.txt";
+//    static public String readyObjectsFolder = "d:/Java_Math/savedObjects/";
+//    static public String googleAdsHtmlBlock = "googleAdsHtmlBlock.txt";
 
 
 
