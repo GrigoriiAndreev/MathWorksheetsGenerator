@@ -4,7 +4,7 @@ package MathPackage;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Grade2AllTopics {
+public class Grade2AllTopicsDelete {
 
     String gradeRus;
     String gradeEng;
@@ -22,7 +22,7 @@ public class Grade2AllTopics {
     int numbersRangeEnd;
     int totalPageOfWorksheets;
 
-    public Grade2AllTopics(
+    public Grade2AllTopicsDelete(
             String gradeRus,
             String gradeEng,
             String topicRus,

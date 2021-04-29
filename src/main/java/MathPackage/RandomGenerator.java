@@ -17,7 +17,7 @@ public class RandomGenerator{
     public static void main(String[] args) {
 
         List<Integer> numbers;
-        numbers = intNumbersRandomRangeArray(20, 150, 300);
+        numbers = intNumbersRandomRangeArrayList(20, 150, 300);
         System.out.println(numbers);
 
         List<Integer> numbers2;
@@ -35,7 +35,7 @@ public class RandomGenerator{
     }
 
     // Random repeating integer numbers in given range.
-    public static List<Integer> intNumbersRandomRangeArray(int totalNumbers, int rangeStart, int rangeEnd) {
+    public static List<Integer> intNumbersRandomRangeArrayList(int totalNumbers, int rangeStart, int rangeEnd) {
         List<Integer> intNumber = new ArrayList<>();
 
         for (int i = 0; i < totalNumbers; i++ ) {
@@ -44,7 +44,7 @@ public class RandomGenerator{
         return intNumber;
     }
 
-    // Random repeating integer numbers.
+    // Random repeating not ordered integer numbers.
     public static List<Integer> intNumbersRandomRangeArray2(int totalNumbers, int rangeStart, int rangeEnd) {
         List<Integer> intNumber = new LinkedList<>();
 
@@ -54,18 +54,18 @@ public class RandomGenerator{
         return intNumber;
     }
 
-    //Random not repeating int numbers set.
-    public static Set<Integer> intNumbersRandomRangeSet(int totalNumbers, int rangeStart, int rangeEnd) {
-        Set<Integer> intNumber = new HashSet<>();
+    //Random not ordered not repeating int numbers set.
+    public static HashSet intNumbersRandomRangeSet(int totalNumbers, int rangeStart, int rangeEnd) {
+        Set<Integer> intNumber = new LinkedHashSet<>();
 
         while (!(intNumber.size() == totalNumbers))
          {
             intNumber.add((int) (Math.random() * (rangeEnd - rangeStart) + rangeStart));
         }
-        return intNumber;
+        return (HashSet) intNumber;
     }
 
-    //Random ordered (ascending) int not repeated numbers.
+    //Random ordered (ascending) not repeating int numbers.
     public static Set<Integer> intNumbersRandomRangeTreeSet(int totalNumbers, int rangeStart, int rangeEnd) {
         Set<Integer> intNumber = new TreeSet<>();
 

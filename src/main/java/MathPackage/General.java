@@ -2,6 +2,7 @@ package MathPackage;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Scanner;
 
 /**
  * Class contains all general settings and utils for all classes
@@ -20,10 +21,65 @@ public class General {
     static public String readyFilesFolderHtml = "d:/Java_Math/Html/";
     static public String googleDrive = "https://drive.google.com/drive/folders/1qZ8_2nDdjA7_e9EpdQaJTQIqehY4E5s0?usp=sharing";
     static public String yandexDisk = "https://disk.yandex.ru/d/VYRDjGJEYcxGKA?w=1";
-//    static public String readyObjectsFolder = "d:/Java_Math/savedObjects/";
-//    static public String googleAdsHtmlBlock = "googleAdsHtmlBlock.txt";
+
+        public final static String x1="один";
+        public final static String xx1="одина";
+
+        public final static String x2="два";
+        public final static String xx2="две";
 
 
+        public final static String x3="три";
+        public final static String x4="четыре";
+        public final static String x5="пять";
+        public final static String x6="шесть";
+        public final static String x7="семь";
+        public final static String x8="восемь";
+        public final static String x9="девять";
+        public final static String x10="десять";
+
+        public final static String x11="одинадцать";
+        public final static String x12="двенадцать";
+        public final static String x13="тринадцать";
+        public final static String x14="четырнадцать";
+        public final static String x15="пятнадцать";
+        public final static String x16="шеснадцать";
+        public final static String x17="сернадцать";
+        public final static String x18="восемнадцать";
+        public final static String x19="девятнадцать";
+
+        public final static String x20="двадцать";
+        public final static String x30="тридцать";
+        public final static String x40="сорок";
+        public final static String x50="пятдесят";
+        public final static String x60="шесдесят";
+        public final static String x70="семдесят";
+        public final static String x80="восемдесят";
+        public final static String x90="девяноста";
+
+        public final static String x100="сто";
+        public final static String x200="двести";
+        public final static String x300="триста";
+        public final static String x400="четыреста";
+        public final static String x500="пятсот";
+        public final static String x600="шестсот";
+        public final static String x700="семсот";
+        public final static String x800="восемсот";
+        public final static String x900="девятсот";
+
+        public final static String x1000="тысяча";
+        public final static String xx1000="тысячи";
+        public final static String xхx1000="тысяч";
+
+    public static final String[] BELOW_TWENTY = { "ноль", "один", "два", "три", "четыре", "пять", "шесть", "семь", "восемь", "девять", "десять", "одинадцать", "двенадцадь", "тринадцать", "четырнадцать", "пятнадцать", "шестнадцать", "семнадцать", "восемнадцать", "девятнадцать" };
+    public static final String[] TENS = { "сто", "десять", "двадцать", "тридцать", "сорок", "пятьдесят", "шестьдесят", "семьдесят", "восемьдесят", "девяносто" };
+    public static final String[] HUNDREDS = { "сто", "двести", "триста", "четыреста", "пятьсот", "шестьсот", "семьсот", "восемьсот", "деятьсот", "тысяча" };
+
+
+    public static void main(String[] args) throws IOException {
+        finalRenameFiles("d:/Java_Math/Html/");
+        finalRenameFiles("D:\\Java_Math\\Pdf");
+    }
 
 
     public static double stringEvaluate(final String str) {
@@ -127,13 +183,14 @@ public class General {
 
 
     // Empty destination folder. Old version
-        public static void emptyFolder(String folder) throws Exception {
+    public static void emptyFolder(String folder) throws Exception {
 
             for (File file: new File(folder).listFiles()) {
                 if (file.isFile()) file.delete();
             }
         }
 
+    //Empty all destination folders. New version
     public static void emptyAllFolders() throws Exception {
 
         emptyFolder("d:/Java_Math/Temp/");
@@ -141,5 +198,43 @@ public class General {
         emptyFolder("d:/Java_Math/Pdf/");
         emptyFolder("d:/Java_Math/Html/");
     }
+
+    //Remove extra spaces "&nbsp" and "&thinsp;" in filenames
+    public static void finalRenameFiles(String folder) throws IOException {
+        String newName, oldName = "";
+
+        for (final File fileEntry : new File(folder).listFiles()) {
+            oldName = fileEntry.toString();
+            if (oldName.contains("&nbsp ")) {
+                newName = oldName.replaceFirst("&nbsp ","");
+                fileEntry.renameTo(new File(newName));
+            }
+            if (oldName.contains("&thinsp; ")) {
+                newName = oldName.replaceFirst("&thinsp; ","");
+                fileEntry.renameTo(new File(newName));
+            }
+
+        }
+
+    }
+
+    //Convert digits to Words. Numbers up to 100
+/*
+    public static String digitToWord100Rus(int number) {
+
+        if ( number < 20 )
+             return BELOW_TWENTY[number];
+        else if ( number < 100 ) {
+            int high = number / 10;
+            int low = number % 10;
+            String text = TENS[high];
+            if ( low != 0 )
+                text = text + " " + BELOW_TWENTY[low];
+            return text;
+        }
+        else
+            return TENS[0];
+    }
+*/
 
 }

@@ -1,4 +1,8 @@
-package MathPackage;
+package MathPackage.additionsubtraction;
+
+import MathPackage.General;
+import MathPackage.Matrix;
+import MathPackage.WorksheetTemplate;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,13 +10,12 @@ import java.util.List;
 /**
  * Class generating Addition and Subtraction in column topics. Part 1
  * Author: Grigorii Andreev
- * Date: 03 January
+ * Date: 03 January 2021
  */
 
+public class AdditionSubtractionWorksheets extends WorksheetTemplate {
 
-public class AdditionAndSubtractionTopic extends MainAbstractClass {
-
-    public AdditionAndSubtractionTopic(
+    public AdditionSubtractionWorksheets(
             String gradeRus,
             String gradeEng,
             String topicRus,
@@ -43,29 +46,17 @@ public class AdditionAndSubtractionTopic extends MainAbstractClass {
         this.numbersRangeStart = numbersRangeStart;
         this.numbersRangeEnd = numbersRangeEnd;
         this.totalPageOfWorksheets = totalPageOfWorksheets;
-
-        readyFilesFolder = "d:/Java_Math/ReadyWorksheets/AdditionSubtraction";
-        readyFilesFolderPdf = "d:/Java_Math/Pdf/AdditionSubtraction";
-        readyFilesFolderHtml = "d:/Java_Math/Html/AdditionSubtraction";
     }
 
     public static void main(String[] args) throws Exception {
 
+        //Addition and Subtraction in line
 
-        //Сложение или вычитание в строчку - Сделано!
-
-        List<AllTopics> allTopicsAddSubtract = new ArrayList<>();
+        List<AdditionSubtractionWorksheets> additionSubtractionWorksheets = new ArrayList<>();
 
         General.emptyAllFolders();
 
-/*
-        Matrix.emptyFolder(General.workingFolder);
-        Matrix.emptyFolder(General.readyFilesFolder);
-        Matrix.emptyFolder(General.readyFilesFolderPdf);
-        Matrix.emptyFolder(General.readyFilesFolderHtml);
-*/
-
-        allTopicsAddSubtract.add(new AllTopics(
+        additionSubtractionWorksheets.add(new AdditionSubtractionWorksheets(
                 "", "&nbsp",
                 "Сложение и вычитание числа 0.", "Addition and subtraction 0 from a number.",
                 "Задачи по математике на тему:<br />Вычитание. Сложение и вычитание числа 0. Задачи с ответами. Скачать pdf или jpg.",
@@ -77,7 +68,7 @@ public class AdditionAndSubtractionTopic extends MainAbstractClass {
                 "Add or subtract 0 from a number.",
                 0, 99, 6));
 
-        allTopicsAddSubtract.add(new AllTopics(
+        additionSubtractionWorksheets.add(new AdditionSubtractionWorksheets(
                 "", "&nbsp",
                 "Сложение и вычитание числа 1.", "Addition and subtraction 1 from a number.",
                 "Задачи по математике на тему:<br />Вычитание. Сложение и вычитание числа 1. Задачи с ответами. Скачать pdf или jpg.",
@@ -89,7 +80,7 @@ public class AdditionAndSubtractionTopic extends MainAbstractClass {
                 "Add or subtract 1 from a number.",
                 1, 99, 6));
 
-        allTopicsAddSubtract.add(new AllTopics(
+        additionSubtractionWorksheets.add(new AdditionSubtractionWorksheets(
                 "", "&nbsp",
                 "Сложение и вычитание числа 2.", "Addition and subtraction 2 from a number.",
                 "Задачи по математике на тему:<br />Вычитание. Сложение и вычитание числа 2. Задачи с ответами. Скачать pdf или jpg.",
@@ -101,7 +92,7 @@ public class AdditionAndSubtractionTopic extends MainAbstractClass {
                 "Add or subtract 2 from a number.",
                 2, 99, 6));
 
-        allTopicsAddSubtract.add(new AllTopics(
+        additionSubtractionWorksheets.add(new AdditionSubtractionWorksheets(
                 "", "&nbsp",
                 "Сложение и вычитание числа 3.", "Addition and subtraction 3 from a number.",
                 "Задачи по математике на тему:<br />Вычитание. Сложение и вычитание числа 3. Задачи с ответами. Скачать pdf или jpg.",
@@ -113,7 +104,7 @@ public class AdditionAndSubtractionTopic extends MainAbstractClass {
                 "Add or subtract 3 from a number.",
                 3, 99, 6));
 
-        allTopicsAddSubtract.add(new AllTopics(
+        additionSubtractionWorksheets.add(new AdditionSubtractionWorksheets(
                 "", "&nbsp",
                 "Сложение и вычитание числа 4.", "Addition and subtraction 4 from a number.",
                 "Задачи по математике на тему:<br />Вычитание. Сложение и вычитание числа 4. Задачи с ответами. Скачать pdf или jpg.",
@@ -125,7 +116,7 @@ public class AdditionAndSubtractionTopic extends MainAbstractClass {
                 "Add or subtract 4 from a number.",
                 4, 99, 6));
 
-        allTopicsAddSubtract.add(new AllTopics(
+        additionSubtractionWorksheets.add(new AdditionSubtractionWorksheets(
                 "", "&nbsp",
                 "Сложение и вычитание числа 0.", "Addition and subtraction 5 from a number.",
                 "Задачи по математике на тему:<br />Вычитание. Сложение и вычитание числа 5. Задачи с ответами. Скачать pdf или jpg.",
@@ -137,7 +128,7 @@ public class AdditionAndSubtractionTopic extends MainAbstractClass {
                 "Add or subtract 5 from a number.",
                 5, 99, 6));
 
-        allTopicsAddSubtract.add(new AllTopics(
+        additionSubtractionWorksheets.add(new AdditionSubtractionWorksheets(
                 "", "&nbsp",
                 "Сложение и вычитание числа 0.", "Addition and subtraction 6 from a number.",
                 "Задачи по математике на тему:<br />Вычитание. Сложение и вычитание числа 6. Задачи с ответами. Скачать pdf или jpg.",
@@ -149,7 +140,7 @@ public class AdditionAndSubtractionTopic extends MainAbstractClass {
                 "Add or subtract 6 from a number.",
                 6, 99, 6));
 
-        allTopicsAddSubtract.add(new AllTopics(
+        additionSubtractionWorksheets.add(new AdditionSubtractionWorksheets(
                 "", "&nbsp",
                 "Сложение и вычитание числа 7.", "Addition and subtraction 7 from a number.",
                 "Задачи по математике на тему:<br />Вычитание. Сложение и вычитание числа 7. Задачи с ответами. Скачать pdf или jpg.",
@@ -161,7 +152,7 @@ public class AdditionAndSubtractionTopic extends MainAbstractClass {
                 "Add or subtract 7 from a number.",
                 7, 99, 6));
 
-        allTopicsAddSubtract.add(new AllTopics(
+        additionSubtractionWorksheets.add(new AdditionSubtractionWorksheets(
                 "", "&nbsp",
                 "Сложение и вычитание числа 8.", "Addition and subtraction 8 from a number.",
                 "Задачи по математике на тему:<br />Вычитание. Сложение и вычитание числа 8. Задачи с ответами. Скачать pdf или jpg.",
@@ -173,7 +164,7 @@ public class AdditionAndSubtractionTopic extends MainAbstractClass {
                 "Add or subtract 8 from a number.",
                 8, 99, 6));
 
-        allTopicsAddSubtract.add(new AllTopics(
+        additionSubtractionWorksheets.add(new AdditionSubtractionWorksheets(
                 "", "&nbsp",
                 "Сложение и вычитание числа 9.", "Addition and subtraction 9 from a number.",
                 "Задачи по математике на тему:<br />Вычитание. Сложение и вычитание числа 9. Задачи с ответами. Скачать pdf или jpg.",
@@ -185,7 +176,7 @@ public class AdditionAndSubtractionTopic extends MainAbstractClass {
                 "Add or subtract 9 from a number.",
                 9, 99, 6));
 
-        allTopicsAddSubtract.add(new AllTopics(
+        additionSubtractionWorksheets.add(new AdditionSubtractionWorksheets(
                 "", "&nbsp",
                 "Сложение и вычитание числа 10.", "Addition and subtraction 10 from a number.",
                 "Задачи по математике на тему:<br />Вычитание. Сложение и вычитание числа 10. Задачи с ответами. Скачать pdf или jpg.",
@@ -197,7 +188,7 @@ public class AdditionAndSubtractionTopic extends MainAbstractClass {
                 "Add or subtract 10 from a number.",
                 10, 99, 6));
 
-        allTopicsAddSubtract.add(new AllTopics(
+        additionSubtractionWorksheets.add(new AdditionSubtractionWorksheets(
                 "", "&nbsp",
                 "Сложение и вычитание чисел в пределах 10.", "Addition and subtraction numbers up to 10.",
                 "Задачи по математике на тему:<br />Вычитание. Сложение и вычитание чисел в пределах 10. Задачи с ответами. Скачать pdf или jpg.",
@@ -209,7 +200,7 @@ public class AdditionAndSubtractionTopic extends MainAbstractClass {
                 "Add or subtract numbers up to 10.",
                 0, 10, 6));
 
-        allTopicsAddSubtract.add(new AllTopics(
+        additionSubtractionWorksheets.add(new AdditionSubtractionWorksheets(
                 "", "&nbsp",
                 "Сложение и вычитание чисел в пределах 20.", "Addition and subtraction numbers up to 20.",
                 "Задачи по математике на тему:<br />Вычитание. Сложение и вычитание чисел в пределах 20. Задачи с ответами. Скачать pdf или jpg.",
@@ -222,7 +213,7 @@ public class AdditionAndSubtractionTopic extends MainAbstractClass {
                 0, 20, 6));
 
 
-        allTopicsAddSubtract.add(new AllTopics(
+        additionSubtractionWorksheets.add(new AdditionSubtractionWorksheets(
                 "", "&nbsp",
                 "Сложение и вычитание однозначных чисел.", "Addition and subtraction 1 digit numbers in columns.",
                 "Задачи по математике на тему:<br />Вычитание. Сложение и вычитание однозначных чисел. Задачи с ответами. Скачать pdf или jpg.",
@@ -234,7 +225,7 @@ public class AdditionAndSubtractionTopic extends MainAbstractClass {
                 "Add or subtract 1 digit numbers in columns.",
                 0, 9, 6));
 
-        allTopicsAddSubtract.add(new AllTopics(
+        additionSubtractionWorksheets.add(new AdditionSubtractionWorksheets(
                 "", "&nbsp",
                 "Устное сложение и вычитание чисел.", "Mental addition and subtraction.",
                 "Задачи по математике на тему:<br />Устное сложение и вычитание чисел. Задачи с ответами. Скачать pdf или jpg.",
@@ -248,685 +239,676 @@ public class AdditionAndSubtractionTopic extends MainAbstractClass {
 
 
 //Сложение или вычитание в строчку
-        Matrix.topWorksheet(General.workingFolder, allTopicsAddSubtract.get(0).gradeRus, allTopicsAddSubtract.get(0).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(0).shortProblemDescriptionRus, allTopicsAddSubtract.get(0).longProblemDescriptionRus);
-        Matrix.topWorksheetPdf(General.workingFolder, allTopicsAddSubtract.get(0).gradeRus, allTopicsAddSubtract.get(0).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(0).shortProblemDescriptionRus, allTopicsAddSubtract.get(0).longProblemDescriptionRus);
-        Matrix.topWorksheetHtmlAnswers(General.workingFolder, allTopicsAddSubtract.get(0).gradeRus, allTopicsAddSubtract.get(0).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(0).shortProblemDescriptionRus, allTopicsAddSubtract.get(0).longProblemDescriptionRus);
-        Matrix.addSubtractA1_B1LineWorksheetA4(General.workingFolder, allTopicsAddSubtract.get(0).gradeRus, allTopicsAddSubtract.get(0).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(0).shortProblemDescriptionRus, allTopicsAddSubtract.get(0).longProblemDescriptionRus,
-                allTopicsAddSubtract.get(0).numbersRangeStart, allTopicsAddSubtract.get(0).numbersRangeEnd, 10, 14, 5);
-        Matrix.bottomWorksheet(General.workingFolder, allTopicsAddSubtract.get(0).gradeRus, allTopicsAddSubtract.get(0).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(0).shortProblemDescriptionRus, allTopicsAddSubtract.get(0).longProblemDescriptionRus);
-        Matrix.fullWorksheet(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(0).gradeRus, allTopicsAddSubtract.get(0).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(0).shortProblemDescriptionRus, allTopicsAddSubtract.get(0).longProblemDescriptionRus);
-        Matrix.fullWorksheetPdf(General.workingFolder, General.readyFilesFolderPdf, allTopicsAddSubtract.get(0).gradeRus, allTopicsAddSubtract.get(0).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(0).shortProblemDescriptionRus, allTopicsAddSubtract.get(0).longProblemDescriptionRus);
-        Matrix.fullWorksheetHtmlAnswer(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(0).gradeRus, allTopicsAddSubtract.get(0).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(0).shortProblemDescriptionRus, allTopicsAddSubtract.get(0).longProblemDescriptionRus);
-        Matrix.allSameWorksheets(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(0).gradeRus, allTopicsAddSubtract.get(0).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(0).shortProblemDescriptionRus, allTopicsAddSubtract.get(0).longProblemDescriptionRus);
-        Matrix.finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(0).gradeRus, allTopicsAddSubtract.get(0).totalPageOfWorksheets, allTopicsAddSubtract.get(0).topicRus,
-                allTopicsAddSubtract.get(0).h2Rus, allTopicsAddSubtract.get(0).shortProblemDescriptionRus, allTopicsAddSubtract.get(0).longProblemDescriptionRus);
+        Matrix.topWorksheet(General.workingFolder, additionSubtractionWorksheets.get(0).gradeRus, additionSubtractionWorksheets.get(0).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(0).shortProblemDescriptionRus, additionSubtractionWorksheets.get(0).longProblemDescriptionRus);
+        Matrix.topWorksheetPdf(General.workingFolder, additionSubtractionWorksheets.get(0).gradeRus, additionSubtractionWorksheets.get(0).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(0).shortProblemDescriptionRus, additionSubtractionWorksheets.get(0).longProblemDescriptionRus);
+        Matrix.topWorksheetHtmlAnswers(General.workingFolder, additionSubtractionWorksheets.get(0).gradeRus, additionSubtractionWorksheets.get(0).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(0).shortProblemDescriptionRus, additionSubtractionWorksheets.get(0).longProblemDescriptionRus);
+        Matrix.addSubtractA1_B1LineWorksheetA4(General.workingFolder, additionSubtractionWorksheets.get(0).gradeRus, additionSubtractionWorksheets.get(0).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(0).shortProblemDescriptionRus, additionSubtractionWorksheets.get(0).longProblemDescriptionRus,
+                additionSubtractionWorksheets.get(0).numbersRangeStart, additionSubtractionWorksheets.get(0).numbersRangeEnd, 10, 14, 5);
+        Matrix.bottomWorksheet(General.workingFolder, additionSubtractionWorksheets.get(0).gradeRus, additionSubtractionWorksheets.get(0).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(0).shortProblemDescriptionRus, additionSubtractionWorksheets.get(0).longProblemDescriptionRus);
+        Matrix.fullWorksheet(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(0).gradeRus, additionSubtractionWorksheets.get(0).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(0).shortProblemDescriptionRus, additionSubtractionWorksheets.get(0).longProblemDescriptionRus);
+        Matrix.fullWorksheetPdf(General.workingFolder, General.readyFilesFolderPdf, additionSubtractionWorksheets.get(0).gradeRus, additionSubtractionWorksheets.get(0).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(0).shortProblemDescriptionRus, additionSubtractionWorksheets.get(0).longProblemDescriptionRus);
+        Matrix.fullWorksheetHtmlAnswer(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(0).gradeRus, additionSubtractionWorksheets.get(0).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(0).shortProblemDescriptionRus, additionSubtractionWorksheets.get(0).longProblemDescriptionRus);
+        Matrix.allSameWorksheets(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(0).gradeRus, additionSubtractionWorksheets.get(0).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(0).shortProblemDescriptionRus, additionSubtractionWorksheets.get(0).longProblemDescriptionRus);
+        Matrix.finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(0).gradeRus, additionSubtractionWorksheets.get(0).totalPageOfWorksheets, additionSubtractionWorksheets.get(0).topicRus,
+                additionSubtractionWorksheets.get(0).h2Rus, additionSubtractionWorksheets.get(0).shortProblemDescriptionRus, additionSubtractionWorksheets.get(0).longProblemDescriptionRus);
 
-        Matrix.topWorksheet(General.workingFolder, allTopicsAddSubtract.get(1).gradeRus, allTopicsAddSubtract.get(1).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(1).shortProblemDescriptionRus, allTopicsAddSubtract.get(1).longProblemDescriptionRus);
-        Matrix.topWorksheetPdf(General.workingFolder, allTopicsAddSubtract.get(1).gradeRus, allTopicsAddSubtract.get(1).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(1).shortProblemDescriptionRus, allTopicsAddSubtract.get(1).longProblemDescriptionRus);
-        Matrix.topWorksheetHtmlAnswers(General.workingFolder, allTopicsAddSubtract.get(1).gradeRus, allTopicsAddSubtract.get(1).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(1).shortProblemDescriptionRus, allTopicsAddSubtract.get(1).longProblemDescriptionRus);
-        Matrix.addSubtractA1_B1LineWorksheetA4(General.workingFolder, allTopicsAddSubtract.get(1).gradeRus, allTopicsAddSubtract.get(1).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(1).shortProblemDescriptionRus, allTopicsAddSubtract.get(1).longProblemDescriptionRus,
-                allTopicsAddSubtract.get(1).numbersRangeStart, allTopicsAddSubtract.get(1).numbersRangeEnd, 10, 14, 5);
-        Matrix.bottomWorksheet(General.workingFolder, allTopicsAddSubtract.get(1).gradeRus, allTopicsAddSubtract.get(1).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(1).shortProblemDescriptionRus, allTopicsAddSubtract.get(1).longProblemDescriptionRus);
-        Matrix.fullWorksheet(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(1).gradeRus, allTopicsAddSubtract.get(1).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(1).shortProblemDescriptionRus, allTopicsAddSubtract.get(1).longProblemDescriptionRus);
-        Matrix.fullWorksheetPdf(General.workingFolder, General.readyFilesFolderPdf, allTopicsAddSubtract.get(1).gradeRus, allTopicsAddSubtract.get(1).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(1).shortProblemDescriptionRus, allTopicsAddSubtract.get(1).longProblemDescriptionRus);
-        Matrix.fullWorksheetHtmlAnswer(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(1).gradeRus, allTopicsAddSubtract.get(1).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(1).shortProblemDescriptionRus, allTopicsAddSubtract.get(1).longProblemDescriptionRus);
-        Matrix.allSameWorksheets(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(1).gradeRus, allTopicsAddSubtract.get(1).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(1).shortProblemDescriptionRus, allTopicsAddSubtract.get(1).longProblemDescriptionRus);
-        Matrix.finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(1).gradeRus, allTopicsAddSubtract.get(1).totalPageOfWorksheets, allTopicsAddSubtract.get(1).topicRus,
-                allTopicsAddSubtract.get(1).h2Rus, allTopicsAddSubtract.get(1).shortProblemDescriptionRus, allTopicsAddSubtract.get(1).longProblemDescriptionRus);
+        Matrix.topWorksheet(General.workingFolder, additionSubtractionWorksheets.get(1).gradeRus, additionSubtractionWorksheets.get(1).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(1).shortProblemDescriptionRus, additionSubtractionWorksheets.get(1).longProblemDescriptionRus);
+        Matrix.topWorksheetPdf(General.workingFolder, additionSubtractionWorksheets.get(1).gradeRus, additionSubtractionWorksheets.get(1).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(1).shortProblemDescriptionRus, additionSubtractionWorksheets.get(1).longProblemDescriptionRus);
+        Matrix.topWorksheetHtmlAnswers(General.workingFolder, additionSubtractionWorksheets.get(1).gradeRus, additionSubtractionWorksheets.get(1).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(1).shortProblemDescriptionRus, additionSubtractionWorksheets.get(1).longProblemDescriptionRus);
+        Matrix.addSubtractA1_B1LineWorksheetA4(General.workingFolder, additionSubtractionWorksheets.get(1).gradeRus, additionSubtractionWorksheets.get(1).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(1).shortProblemDescriptionRus, additionSubtractionWorksheets.get(1).longProblemDescriptionRus,
+                additionSubtractionWorksheets.get(1).numbersRangeStart, additionSubtractionWorksheets.get(1).numbersRangeEnd, 10, 14, 5);
+        Matrix.bottomWorksheet(General.workingFolder, additionSubtractionWorksheets.get(1).gradeRus, additionSubtractionWorksheets.get(1).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(1).shortProblemDescriptionRus, additionSubtractionWorksheets.get(1).longProblemDescriptionRus);
+        Matrix.fullWorksheet(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(1).gradeRus, additionSubtractionWorksheets.get(1).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(1).shortProblemDescriptionRus, additionSubtractionWorksheets.get(1).longProblemDescriptionRus);
+        Matrix.fullWorksheetPdf(General.workingFolder, General.readyFilesFolderPdf, additionSubtractionWorksheets.get(1).gradeRus, additionSubtractionWorksheets.get(1).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(1).shortProblemDescriptionRus, additionSubtractionWorksheets.get(1).longProblemDescriptionRus);
+        Matrix.fullWorksheetHtmlAnswer(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(1).gradeRus, additionSubtractionWorksheets.get(1).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(1).shortProblemDescriptionRus, additionSubtractionWorksheets.get(1).longProblemDescriptionRus);
+        Matrix.allSameWorksheets(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(1).gradeRus, additionSubtractionWorksheets.get(1).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(1).shortProblemDescriptionRus, additionSubtractionWorksheets.get(1).longProblemDescriptionRus);
+        Matrix.finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(1).gradeRus, additionSubtractionWorksheets.get(1).totalPageOfWorksheets, additionSubtractionWorksheets.get(1).topicRus,
+                additionSubtractionWorksheets.get(1).h2Rus, additionSubtractionWorksheets.get(1).shortProblemDescriptionRus, additionSubtractionWorksheets.get(1).longProblemDescriptionRus);
 
-        Matrix.topWorksheet(General.workingFolder, allTopicsAddSubtract.get(2).gradeRus, allTopicsAddSubtract.get(2).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(2).shortProblemDescriptionRus, allTopicsAddSubtract.get(2).longProblemDescriptionRus);
-        Matrix.topWorksheetPdf(General.workingFolder, allTopicsAddSubtract.get(2).gradeRus, allTopicsAddSubtract.get(2).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(2).shortProblemDescriptionRus, allTopicsAddSubtract.get(2).longProblemDescriptionRus);
-        Matrix.topWorksheetHtmlAnswers(General.workingFolder, allTopicsAddSubtract.get(2).gradeRus, allTopicsAddSubtract.get(2).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(2).shortProblemDescriptionRus, allTopicsAddSubtract.get(2).longProblemDescriptionRus);
-        Matrix.addSubtractA1_B1LineWorksheetA4(General.workingFolder, allTopicsAddSubtract.get(2).gradeRus, allTopicsAddSubtract.get(2).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(2).shortProblemDescriptionRus, allTopicsAddSubtract.get(2).longProblemDescriptionRus,
-                allTopicsAddSubtract.get(2).numbersRangeStart, allTopicsAddSubtract.get(2).numbersRangeEnd, 10, 14, 5);
-        Matrix.bottomWorksheet(General.workingFolder, allTopicsAddSubtract.get(2).gradeRus, allTopicsAddSubtract.get(2).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(2).shortProblemDescriptionRus, allTopicsAddSubtract.get(2).longProblemDescriptionRus);
-        Matrix.fullWorksheet(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(2).gradeRus, allTopicsAddSubtract.get(2).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(2).shortProblemDescriptionRus, allTopicsAddSubtract.get(2).longProblemDescriptionRus);
-        Matrix.fullWorksheetPdf(General.workingFolder, General.readyFilesFolderPdf, allTopicsAddSubtract.get(2).gradeRus, allTopicsAddSubtract.get(2).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(2).shortProblemDescriptionRus, allTopicsAddSubtract.get(2).longProblemDescriptionRus);
-        Matrix.fullWorksheetHtmlAnswer(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(2).gradeRus, allTopicsAddSubtract.get(2).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(2).shortProblemDescriptionRus, allTopicsAddSubtract.get(2).longProblemDescriptionRus);
-        Matrix.allSameWorksheets(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(2).gradeRus, allTopicsAddSubtract.get(2).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(2).shortProblemDescriptionRus, allTopicsAddSubtract.get(2).longProblemDescriptionRus);
-        Matrix.finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(2).gradeRus, allTopicsAddSubtract.get(2).totalPageOfWorksheets, allTopicsAddSubtract.get(2).topicRus,
-                allTopicsAddSubtract.get(2).h2Rus, allTopicsAddSubtract.get(2).shortProblemDescriptionRus, allTopicsAddSubtract.get(2).longProblemDescriptionRus);
+        Matrix.topWorksheet(General.workingFolder, additionSubtractionWorksheets.get(2).gradeRus, additionSubtractionWorksheets.get(2).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(2).shortProblemDescriptionRus, additionSubtractionWorksheets.get(2).longProblemDescriptionRus);
+        Matrix.topWorksheetPdf(General.workingFolder, additionSubtractionWorksheets.get(2).gradeRus, additionSubtractionWorksheets.get(2).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(2).shortProblemDescriptionRus, additionSubtractionWorksheets.get(2).longProblemDescriptionRus);
+        Matrix.topWorksheetHtmlAnswers(General.workingFolder, additionSubtractionWorksheets.get(2).gradeRus, additionSubtractionWorksheets.get(2).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(2).shortProblemDescriptionRus, additionSubtractionWorksheets.get(2).longProblemDescriptionRus);
+        Matrix.addSubtractA1_B1LineWorksheetA4(General.workingFolder, additionSubtractionWorksheets.get(2).gradeRus, additionSubtractionWorksheets.get(2).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(2).shortProblemDescriptionRus, additionSubtractionWorksheets.get(2).longProblemDescriptionRus,
+                additionSubtractionWorksheets.get(2).numbersRangeStart, additionSubtractionWorksheets.get(2).numbersRangeEnd, 10, 14, 5);
+        Matrix.bottomWorksheet(General.workingFolder, additionSubtractionWorksheets.get(2).gradeRus, additionSubtractionWorksheets.get(2).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(2).shortProblemDescriptionRus, additionSubtractionWorksheets.get(2).longProblemDescriptionRus);
+        Matrix.fullWorksheet(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(2).gradeRus, additionSubtractionWorksheets.get(2).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(2).shortProblemDescriptionRus, additionSubtractionWorksheets.get(2).longProblemDescriptionRus);
+        Matrix.fullWorksheetPdf(General.workingFolder, General.readyFilesFolderPdf, additionSubtractionWorksheets.get(2).gradeRus, additionSubtractionWorksheets.get(2).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(2).shortProblemDescriptionRus, additionSubtractionWorksheets.get(2).longProblemDescriptionRus);
+        Matrix.fullWorksheetHtmlAnswer(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(2).gradeRus, additionSubtractionWorksheets.get(2).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(2).shortProblemDescriptionRus, additionSubtractionWorksheets.get(2).longProblemDescriptionRus);
+        Matrix.allSameWorksheets(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(2).gradeRus, additionSubtractionWorksheets.get(2).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(2).shortProblemDescriptionRus, additionSubtractionWorksheets.get(2).longProblemDescriptionRus);
+        Matrix.finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(2).gradeRus, additionSubtractionWorksheets.get(2).totalPageOfWorksheets, additionSubtractionWorksheets.get(2).topicRus,
+                additionSubtractionWorksheets.get(2).h2Rus, additionSubtractionWorksheets.get(2).shortProblemDescriptionRus, additionSubtractionWorksheets.get(2).longProblemDescriptionRus);
 
-        Matrix.topWorksheet(General.workingFolder, allTopicsAddSubtract.get(3).gradeRus, allTopicsAddSubtract.get(3).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(3).shortProblemDescriptionRus, allTopicsAddSubtract.get(3).longProblemDescriptionRus);
-        Matrix.topWorksheetPdf(General.workingFolder, allTopicsAddSubtract.get(3).gradeRus, allTopicsAddSubtract.get(3).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(3).shortProblemDescriptionRus, allTopicsAddSubtract.get(3).longProblemDescriptionRus);
-        Matrix.topWorksheetHtmlAnswers(General.workingFolder, allTopicsAddSubtract.get(3).gradeRus, allTopicsAddSubtract.get(3).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(3).shortProblemDescriptionRus, allTopicsAddSubtract.get(3).longProblemDescriptionRus);
-        Matrix.addSubtractA1_B1LineWorksheetA4(General.workingFolder, allTopicsAddSubtract.get(3).gradeRus, allTopicsAddSubtract.get(3).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(3).shortProblemDescriptionRus, allTopicsAddSubtract.get(3).longProblemDescriptionRus,
-                allTopicsAddSubtract.get(3).numbersRangeStart, allTopicsAddSubtract.get(3).numbersRangeEnd, 10, 14, 5);
-        Matrix.bottomWorksheet(General.workingFolder, allTopicsAddSubtract.get(3).gradeRus, allTopicsAddSubtract.get(3).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(3).shortProblemDescriptionRus, allTopicsAddSubtract.get(3).longProblemDescriptionRus);
-        Matrix.fullWorksheet(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(3).gradeRus, allTopicsAddSubtract.get(3).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(3).shortProblemDescriptionRus, allTopicsAddSubtract.get(3).longProblemDescriptionRus);
-        Matrix.fullWorksheetPdf(General.workingFolder, General.readyFilesFolderPdf, allTopicsAddSubtract.get(3).gradeRus, allTopicsAddSubtract.get(3).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(3).shortProblemDescriptionRus, allTopicsAddSubtract.get(3).longProblemDescriptionRus);
-        Matrix.fullWorksheetHtmlAnswer(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(3).gradeRus, allTopicsAddSubtract.get(3).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(3).shortProblemDescriptionRus, allTopicsAddSubtract.get(3).longProblemDescriptionRus);
-        Matrix.allSameWorksheets(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(3).gradeRus, allTopicsAddSubtract.get(3).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(3).shortProblemDescriptionRus, allTopicsAddSubtract.get(3).longProblemDescriptionRus);
-        Matrix.finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(3).gradeRus, allTopicsAddSubtract.get(3).totalPageOfWorksheets, allTopicsAddSubtract.get(3).topicRus,
-                allTopicsAddSubtract.get(3).h2Rus, allTopicsAddSubtract.get(3).shortProblemDescriptionRus, allTopicsAddSubtract.get(3).longProblemDescriptionRus);
+        Matrix.topWorksheet(General.workingFolder, additionSubtractionWorksheets.get(3).gradeRus, additionSubtractionWorksheets.get(3).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(3).shortProblemDescriptionRus, additionSubtractionWorksheets.get(3).longProblemDescriptionRus);
+        Matrix.topWorksheetPdf(General.workingFolder, additionSubtractionWorksheets.get(3).gradeRus, additionSubtractionWorksheets.get(3).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(3).shortProblemDescriptionRus, additionSubtractionWorksheets.get(3).longProblemDescriptionRus);
+        Matrix.topWorksheetHtmlAnswers(General.workingFolder, additionSubtractionWorksheets.get(3).gradeRus, additionSubtractionWorksheets.get(3).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(3).shortProblemDescriptionRus, additionSubtractionWorksheets.get(3).longProblemDescriptionRus);
+        Matrix.addSubtractA1_B1LineWorksheetA4(General.workingFolder, additionSubtractionWorksheets.get(3).gradeRus, additionSubtractionWorksheets.get(3).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(3).shortProblemDescriptionRus, additionSubtractionWorksheets.get(3).longProblemDescriptionRus,
+                additionSubtractionWorksheets.get(3).numbersRangeStart, additionSubtractionWorksheets.get(3).numbersRangeEnd, 10, 14, 5);
+        Matrix.bottomWorksheet(General.workingFolder, additionSubtractionWorksheets.get(3).gradeRus, additionSubtractionWorksheets.get(3).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(3).shortProblemDescriptionRus, additionSubtractionWorksheets.get(3).longProblemDescriptionRus);
+        Matrix.fullWorksheet(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(3).gradeRus, additionSubtractionWorksheets.get(3).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(3).shortProblemDescriptionRus, additionSubtractionWorksheets.get(3).longProblemDescriptionRus);
+        Matrix.fullWorksheetPdf(General.workingFolder, General.readyFilesFolderPdf, additionSubtractionWorksheets.get(3).gradeRus, additionSubtractionWorksheets.get(3).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(3).shortProblemDescriptionRus, additionSubtractionWorksheets.get(3).longProblemDescriptionRus);
+        Matrix.fullWorksheetHtmlAnswer(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(3).gradeRus, additionSubtractionWorksheets.get(3).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(3).shortProblemDescriptionRus, additionSubtractionWorksheets.get(3).longProblemDescriptionRus);
+        Matrix.allSameWorksheets(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(3).gradeRus, additionSubtractionWorksheets.get(3).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(3).shortProblemDescriptionRus, additionSubtractionWorksheets.get(3).longProblemDescriptionRus);
+        Matrix.finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(3).gradeRus, additionSubtractionWorksheets.get(3).totalPageOfWorksheets, additionSubtractionWorksheets.get(3).topicRus,
+                additionSubtractionWorksheets.get(3).h2Rus, additionSubtractionWorksheets.get(3).shortProblemDescriptionRus, additionSubtractionWorksheets.get(3).longProblemDescriptionRus);
 
-        Matrix.topWorksheet(General.workingFolder, allTopicsAddSubtract.get(4).gradeRus, allTopicsAddSubtract.get(4).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(4).shortProblemDescriptionRus, allTopicsAddSubtract.get(4).longProblemDescriptionRus);
-        Matrix.topWorksheetPdf(General.workingFolder, allTopicsAddSubtract.get(4).gradeRus, allTopicsAddSubtract.get(4).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(4).shortProblemDescriptionRus, allTopicsAddSubtract.get(4).longProblemDescriptionRus);
-        Matrix.topWorksheetHtmlAnswers(General.workingFolder, allTopicsAddSubtract.get(4).gradeRus, allTopicsAddSubtract.get(4).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(4).shortProblemDescriptionRus, allTopicsAddSubtract.get(4).longProblemDescriptionRus);
-        Matrix.addSubtractA1_B1LineWorksheetA4(General.workingFolder, allTopicsAddSubtract.get(4).gradeRus, allTopicsAddSubtract.get(4).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(4).shortProblemDescriptionRus, allTopicsAddSubtract.get(4).longProblemDescriptionRus,
-                allTopicsAddSubtract.get(4).numbersRangeStart, allTopicsAddSubtract.get(4).numbersRangeEnd, 10, 14, 5);
-        Matrix.bottomWorksheet(General.workingFolder, allTopicsAddSubtract.get(4).gradeRus, allTopicsAddSubtract.get(4).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(4).shortProblemDescriptionRus, allTopicsAddSubtract.get(4).longProblemDescriptionRus);
-        Matrix.fullWorksheet(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(4).gradeRus, allTopicsAddSubtract.get(4).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(4).shortProblemDescriptionRus, allTopicsAddSubtract.get(4).longProblemDescriptionRus);
-        Matrix.fullWorksheetPdf(General.workingFolder, General.readyFilesFolderPdf, allTopicsAddSubtract.get(4).gradeRus, allTopicsAddSubtract.get(4).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(4).shortProblemDescriptionRus, allTopicsAddSubtract.get(4).longProblemDescriptionRus);
-        Matrix.fullWorksheetHtmlAnswer(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(4).gradeRus, allTopicsAddSubtract.get(4).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(4).shortProblemDescriptionRus, allTopicsAddSubtract.get(4).longProblemDescriptionRus);
-        Matrix.allSameWorksheets(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(4).gradeRus, allTopicsAddSubtract.get(4).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(4).shortProblemDescriptionRus, allTopicsAddSubtract.get(4).longProblemDescriptionRus);
-        Matrix.finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(4).gradeRus, allTopicsAddSubtract.get(4).totalPageOfWorksheets, allTopicsAddSubtract.get(4).topicRus,
-                allTopicsAddSubtract.get(4).h2Rus, allTopicsAddSubtract.get(4).shortProblemDescriptionRus, allTopicsAddSubtract.get(4).longProblemDescriptionRus);
+        Matrix.topWorksheet(General.workingFolder, additionSubtractionWorksheets.get(4).gradeRus, additionSubtractionWorksheets.get(4).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(4).shortProblemDescriptionRus, additionSubtractionWorksheets.get(4).longProblemDescriptionRus);
+        Matrix.topWorksheetPdf(General.workingFolder, additionSubtractionWorksheets.get(4).gradeRus, additionSubtractionWorksheets.get(4).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(4).shortProblemDescriptionRus, additionSubtractionWorksheets.get(4).longProblemDescriptionRus);
+        Matrix.topWorksheetHtmlAnswers(General.workingFolder, additionSubtractionWorksheets.get(4).gradeRus, additionSubtractionWorksheets.get(4).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(4).shortProblemDescriptionRus, additionSubtractionWorksheets.get(4).longProblemDescriptionRus);
+        Matrix.addSubtractA1_B1LineWorksheetA4(General.workingFolder, additionSubtractionWorksheets.get(4).gradeRus, additionSubtractionWorksheets.get(4).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(4).shortProblemDescriptionRus, additionSubtractionWorksheets.get(4).longProblemDescriptionRus,
+                additionSubtractionWorksheets.get(4).numbersRangeStart, additionSubtractionWorksheets.get(4).numbersRangeEnd, 10, 14, 5);
+        Matrix.bottomWorksheet(General.workingFolder, additionSubtractionWorksheets.get(4).gradeRus, additionSubtractionWorksheets.get(4).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(4).shortProblemDescriptionRus, additionSubtractionWorksheets.get(4).longProblemDescriptionRus);
+        Matrix.fullWorksheet(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(4).gradeRus, additionSubtractionWorksheets.get(4).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(4).shortProblemDescriptionRus, additionSubtractionWorksheets.get(4).longProblemDescriptionRus);
+        Matrix.fullWorksheetPdf(General.workingFolder, General.readyFilesFolderPdf, additionSubtractionWorksheets.get(4).gradeRus, additionSubtractionWorksheets.get(4).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(4).shortProblemDescriptionRus, additionSubtractionWorksheets.get(4).longProblemDescriptionRus);
+        Matrix.fullWorksheetHtmlAnswer(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(4).gradeRus, additionSubtractionWorksheets.get(4).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(4).shortProblemDescriptionRus, additionSubtractionWorksheets.get(4).longProblemDescriptionRus);
+        Matrix.allSameWorksheets(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(4).gradeRus, additionSubtractionWorksheets.get(4).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(4).shortProblemDescriptionRus, additionSubtractionWorksheets.get(4).longProblemDescriptionRus);
+        Matrix.finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(4).gradeRus, additionSubtractionWorksheets.get(4).totalPageOfWorksheets, additionSubtractionWorksheets.get(4).topicRus,
+                additionSubtractionWorksheets.get(4).h2Rus, additionSubtractionWorksheets.get(4).shortProblemDescriptionRus, additionSubtractionWorksheets.get(4).longProblemDescriptionRus);
 
-        Matrix.topWorksheet(General.workingFolder, allTopicsAddSubtract.get(5).gradeRus, allTopicsAddSubtract.get(5).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(5).shortProblemDescriptionRus, allTopicsAddSubtract.get(5).longProblemDescriptionRus);
-        Matrix.topWorksheetPdf(General.workingFolder, allTopicsAddSubtract.get(5).gradeRus, allTopicsAddSubtract.get(5).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(5).shortProblemDescriptionRus, allTopicsAddSubtract.get(5).longProblemDescriptionRus);
-        Matrix.topWorksheetHtmlAnswers(General.workingFolder, allTopicsAddSubtract.get(5).gradeRus, allTopicsAddSubtract.get(5).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(5).shortProblemDescriptionRus, allTopicsAddSubtract.get(5).longProblemDescriptionRus);
-        Matrix.addSubtractA1_B1LineWorksheetA4(General.workingFolder, allTopicsAddSubtract.get(5).gradeRus, allTopicsAddSubtract.get(5).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(5).shortProblemDescriptionRus, allTopicsAddSubtract.get(5).longProblemDescriptionRus,
-                allTopicsAddSubtract.get(5).numbersRangeStart, allTopicsAddSubtract.get(5).numbersRangeEnd, 10, 14, 5);
-        Matrix.bottomWorksheet(General.workingFolder, allTopicsAddSubtract.get(5).gradeRus, allTopicsAddSubtract.get(5).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(5).shortProblemDescriptionRus, allTopicsAddSubtract.get(5).longProblemDescriptionRus);
-        Matrix.fullWorksheet(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(5).gradeRus, allTopicsAddSubtract.get(5).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(5).shortProblemDescriptionRus, allTopicsAddSubtract.get(5).longProblemDescriptionRus);
-        Matrix.fullWorksheetPdf(General.workingFolder, General.readyFilesFolderPdf, allTopicsAddSubtract.get(5).gradeRus, allTopicsAddSubtract.get(5).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(5).shortProblemDescriptionRus, allTopicsAddSubtract.get(5).longProblemDescriptionRus);
-        Matrix.fullWorksheetHtmlAnswer(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(5).gradeRus, allTopicsAddSubtract.get(5).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(5).shortProblemDescriptionRus, allTopicsAddSubtract.get(5).longProblemDescriptionRus);
-        Matrix.allSameWorksheets(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(5).gradeRus, allTopicsAddSubtract.get(5).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(5).shortProblemDescriptionRus, allTopicsAddSubtract.get(5).longProblemDescriptionRus);
-        Matrix.finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(5).gradeRus, allTopicsAddSubtract.get(5).totalPageOfWorksheets, allTopicsAddSubtract.get(5).topicRus,
-                allTopicsAddSubtract.get(5).h2Rus, allTopicsAddSubtract.get(5).shortProblemDescriptionRus, allTopicsAddSubtract.get(5).longProblemDescriptionRus);
+        Matrix.topWorksheet(General.workingFolder, additionSubtractionWorksheets.get(5).gradeRus, additionSubtractionWorksheets.get(5).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(5).shortProblemDescriptionRus, additionSubtractionWorksheets.get(5).longProblemDescriptionRus);
+        Matrix.topWorksheetPdf(General.workingFolder, additionSubtractionWorksheets.get(5).gradeRus, additionSubtractionWorksheets.get(5).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(5).shortProblemDescriptionRus, additionSubtractionWorksheets.get(5).longProblemDescriptionRus);
+        Matrix.topWorksheetHtmlAnswers(General.workingFolder, additionSubtractionWorksheets.get(5).gradeRus, additionSubtractionWorksheets.get(5).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(5).shortProblemDescriptionRus, additionSubtractionWorksheets.get(5).longProblemDescriptionRus);
+        Matrix.addSubtractA1_B1LineWorksheetA4(General.workingFolder, additionSubtractionWorksheets.get(5).gradeRus, additionSubtractionWorksheets.get(5).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(5).shortProblemDescriptionRus, additionSubtractionWorksheets.get(5).longProblemDescriptionRus,
+                additionSubtractionWorksheets.get(5).numbersRangeStart, additionSubtractionWorksheets.get(5).numbersRangeEnd, 10, 14, 5);
+        Matrix.bottomWorksheet(General.workingFolder, additionSubtractionWorksheets.get(5).gradeRus, additionSubtractionWorksheets.get(5).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(5).shortProblemDescriptionRus, additionSubtractionWorksheets.get(5).longProblemDescriptionRus);
+        Matrix.fullWorksheet(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(5).gradeRus, additionSubtractionWorksheets.get(5).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(5).shortProblemDescriptionRus, additionSubtractionWorksheets.get(5).longProblemDescriptionRus);
+        Matrix.fullWorksheetPdf(General.workingFolder, General.readyFilesFolderPdf, additionSubtractionWorksheets.get(5).gradeRus, additionSubtractionWorksheets.get(5).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(5).shortProblemDescriptionRus, additionSubtractionWorksheets.get(5).longProblemDescriptionRus);
+        Matrix.fullWorksheetHtmlAnswer(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(5).gradeRus, additionSubtractionWorksheets.get(5).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(5).shortProblemDescriptionRus, additionSubtractionWorksheets.get(5).longProblemDescriptionRus);
+        Matrix.allSameWorksheets(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(5).gradeRus, additionSubtractionWorksheets.get(5).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(5).shortProblemDescriptionRus, additionSubtractionWorksheets.get(5).longProblemDescriptionRus);
+        Matrix.finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(5).gradeRus, additionSubtractionWorksheets.get(5).totalPageOfWorksheets, additionSubtractionWorksheets.get(5).topicRus,
+                additionSubtractionWorksheets.get(5).h2Rus, additionSubtractionWorksheets.get(5).shortProblemDescriptionRus, additionSubtractionWorksheets.get(5).longProblemDescriptionRus);
 
-        Matrix.topWorksheet(General.workingFolder, allTopicsAddSubtract.get(6).gradeRus, allTopicsAddSubtract.get(6).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(6).shortProblemDescriptionRus, allTopicsAddSubtract.get(6).longProblemDescriptionRus);
-        Matrix.topWorksheetPdf(General.workingFolder, allTopicsAddSubtract.get(6).gradeRus, allTopicsAddSubtract.get(6).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(6).shortProblemDescriptionRus, allTopicsAddSubtract.get(6).longProblemDescriptionRus);
-        Matrix.topWorksheetHtmlAnswers(General.workingFolder, allTopicsAddSubtract.get(6).gradeRus, allTopicsAddSubtract.get(6).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(6).shortProblemDescriptionRus, allTopicsAddSubtract.get(6).longProblemDescriptionRus);
-        Matrix.addSubtractA1_B1LineWorksheetA4(General.workingFolder, allTopicsAddSubtract.get(6).gradeRus, allTopicsAddSubtract.get(6).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(6).shortProblemDescriptionRus, allTopicsAddSubtract.get(6).longProblemDescriptionRus,
-                allTopicsAddSubtract.get(6).numbersRangeStart, allTopicsAddSubtract.get(6).numbersRangeEnd, 10, 14, 5);
-        Matrix.bottomWorksheet(General.workingFolder, allTopicsAddSubtract.get(6).gradeRus, allTopicsAddSubtract.get(6).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(6).shortProblemDescriptionRus, allTopicsAddSubtract.get(6).longProblemDescriptionRus);
-        Matrix.fullWorksheet(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(6).gradeRus, allTopicsAddSubtract.get(6).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(6).shortProblemDescriptionRus, allTopicsAddSubtract.get(6).longProblemDescriptionRus);
-        Matrix.fullWorksheetPdf(General.workingFolder, General.readyFilesFolderPdf, allTopicsAddSubtract.get(6).gradeRus, allTopicsAddSubtract.get(6).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(6).shortProblemDescriptionRus, allTopicsAddSubtract.get(6).longProblemDescriptionRus);
-        Matrix.fullWorksheetHtmlAnswer(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(6).gradeRus, allTopicsAddSubtract.get(6).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(6).shortProblemDescriptionRus, allTopicsAddSubtract.get(6).longProblemDescriptionRus);
-        Matrix.allSameWorksheets(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(6).gradeRus, allTopicsAddSubtract.get(6).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(6).shortProblemDescriptionRus, allTopicsAddSubtract.get(6).longProblemDescriptionRus);
-        Matrix.finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(6).gradeRus, allTopicsAddSubtract.get(6).totalPageOfWorksheets, allTopicsAddSubtract.get(6).topicRus,
-                allTopicsAddSubtract.get(6).h2Rus, allTopicsAddSubtract.get(6).shortProblemDescriptionRus, allTopicsAddSubtract.get(6).longProblemDescriptionRus);
+        Matrix.topWorksheet(General.workingFolder, additionSubtractionWorksheets.get(6).gradeRus, additionSubtractionWorksheets.get(6).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(6).shortProblemDescriptionRus, additionSubtractionWorksheets.get(6).longProblemDescriptionRus);
+        Matrix.topWorksheetPdf(General.workingFolder, additionSubtractionWorksheets.get(6).gradeRus, additionSubtractionWorksheets.get(6).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(6).shortProblemDescriptionRus, additionSubtractionWorksheets.get(6).longProblemDescriptionRus);
+        Matrix.topWorksheetHtmlAnswers(General.workingFolder, additionSubtractionWorksheets.get(6).gradeRus, additionSubtractionWorksheets.get(6).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(6).shortProblemDescriptionRus, additionSubtractionWorksheets.get(6).longProblemDescriptionRus);
+        Matrix.addSubtractA1_B1LineWorksheetA4(General.workingFolder, additionSubtractionWorksheets.get(6).gradeRus, additionSubtractionWorksheets.get(6).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(6).shortProblemDescriptionRus, additionSubtractionWorksheets.get(6).longProblemDescriptionRus,
+                additionSubtractionWorksheets.get(6).numbersRangeStart, additionSubtractionWorksheets.get(6).numbersRangeEnd, 10, 14, 5);
+        Matrix.bottomWorksheet(General.workingFolder, additionSubtractionWorksheets.get(6).gradeRus, additionSubtractionWorksheets.get(6).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(6).shortProblemDescriptionRus, additionSubtractionWorksheets.get(6).longProblemDescriptionRus);
+        Matrix.fullWorksheet(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(6).gradeRus, additionSubtractionWorksheets.get(6).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(6).shortProblemDescriptionRus, additionSubtractionWorksheets.get(6).longProblemDescriptionRus);
+        Matrix.fullWorksheetPdf(General.workingFolder, General.readyFilesFolderPdf, additionSubtractionWorksheets.get(6).gradeRus, additionSubtractionWorksheets.get(6).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(6).shortProblemDescriptionRus, additionSubtractionWorksheets.get(6).longProblemDescriptionRus);
+        Matrix.fullWorksheetHtmlAnswer(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(6).gradeRus, additionSubtractionWorksheets.get(6).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(6).shortProblemDescriptionRus, additionSubtractionWorksheets.get(6).longProblemDescriptionRus);
+        Matrix.allSameWorksheets(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(6).gradeRus, additionSubtractionWorksheets.get(6).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(6).shortProblemDescriptionRus, additionSubtractionWorksheets.get(6).longProblemDescriptionRus);
+        Matrix.finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(6).gradeRus, additionSubtractionWorksheets.get(6).totalPageOfWorksheets, additionSubtractionWorksheets.get(6).topicRus,
+                additionSubtractionWorksheets.get(6).h2Rus, additionSubtractionWorksheets.get(6).shortProblemDescriptionRus, additionSubtractionWorksheets.get(6).longProblemDescriptionRus);
 
-        Matrix.topWorksheet(General.workingFolder, allTopicsAddSubtract.get(7).gradeRus, allTopicsAddSubtract.get(7).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(7).shortProblemDescriptionRus, allTopicsAddSubtract.get(7).longProblemDescriptionRus);
-        Matrix.topWorksheetPdf(General.workingFolder, allTopicsAddSubtract.get(7).gradeRus, allTopicsAddSubtract.get(7).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(7).shortProblemDescriptionRus, allTopicsAddSubtract.get(7).longProblemDescriptionRus);
-        Matrix.topWorksheetHtmlAnswers(General.workingFolder, allTopicsAddSubtract.get(7).gradeRus, allTopicsAddSubtract.get(7).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(7).shortProblemDescriptionRus, allTopicsAddSubtract.get(7).longProblemDescriptionRus);
-        Matrix.addSubtractA1_B1LineWorksheetA4(General.workingFolder, allTopicsAddSubtract.get(7).gradeRus, allTopicsAddSubtract.get(7).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(7).shortProblemDescriptionRus, allTopicsAddSubtract.get(7).longProblemDescriptionRus,
-                allTopicsAddSubtract.get(7).numbersRangeStart, allTopicsAddSubtract.get(7).numbersRangeEnd, 10, 14, 5);
-        Matrix.bottomWorksheet(General.workingFolder, allTopicsAddSubtract.get(7).gradeRus, allTopicsAddSubtract.get(7).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(7).shortProblemDescriptionRus, allTopicsAddSubtract.get(7).longProblemDescriptionRus);
-        Matrix.fullWorksheet(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(7).gradeRus, allTopicsAddSubtract.get(7).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(7).shortProblemDescriptionRus, allTopicsAddSubtract.get(7).longProblemDescriptionRus);
-        Matrix.fullWorksheetPdf(General.workingFolder, General.readyFilesFolderPdf, allTopicsAddSubtract.get(7).gradeRus, allTopicsAddSubtract.get(7).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(7).shortProblemDescriptionRus, allTopicsAddSubtract.get(7).longProblemDescriptionRus);
-        Matrix.fullWorksheetHtmlAnswer(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(7).gradeRus, allTopicsAddSubtract.get(7).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(7).shortProblemDescriptionRus, allTopicsAddSubtract.get(7).longProblemDescriptionRus);
-        Matrix.allSameWorksheets(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(7).gradeRus, allTopicsAddSubtract.get(7).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(7).shortProblemDescriptionRus, allTopicsAddSubtract.get(7).longProblemDescriptionRus);
-        Matrix.finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(7).gradeRus, allTopicsAddSubtract.get(7).totalPageOfWorksheets, allTopicsAddSubtract.get(7).topicRus,
-                allTopicsAddSubtract.get(7).h2Rus, allTopicsAddSubtract.get(7).shortProblemDescriptionRus, allTopicsAddSubtract.get(7).longProblemDescriptionRus);
+        Matrix.topWorksheet(General.workingFolder, additionSubtractionWorksheets.get(7).gradeRus, additionSubtractionWorksheets.get(7).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(7).shortProblemDescriptionRus, additionSubtractionWorksheets.get(7).longProblemDescriptionRus);
+        Matrix.topWorksheetPdf(General.workingFolder, additionSubtractionWorksheets.get(7).gradeRus, additionSubtractionWorksheets.get(7).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(7).shortProblemDescriptionRus, additionSubtractionWorksheets.get(7).longProblemDescriptionRus);
+        Matrix.topWorksheetHtmlAnswers(General.workingFolder, additionSubtractionWorksheets.get(7).gradeRus, additionSubtractionWorksheets.get(7).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(7).shortProblemDescriptionRus, additionSubtractionWorksheets.get(7).longProblemDescriptionRus);
+        Matrix.addSubtractA1_B1LineWorksheetA4(General.workingFolder, additionSubtractionWorksheets.get(7).gradeRus, additionSubtractionWorksheets.get(7).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(7).shortProblemDescriptionRus, additionSubtractionWorksheets.get(7).longProblemDescriptionRus,
+                additionSubtractionWorksheets.get(7).numbersRangeStart, additionSubtractionWorksheets.get(7).numbersRangeEnd, 10, 14, 5);
+        Matrix.bottomWorksheet(General.workingFolder, additionSubtractionWorksheets.get(7).gradeRus, additionSubtractionWorksheets.get(7).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(7).shortProblemDescriptionRus, additionSubtractionWorksheets.get(7).longProblemDescriptionRus);
+        Matrix.fullWorksheet(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(7).gradeRus, additionSubtractionWorksheets.get(7).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(7).shortProblemDescriptionRus, additionSubtractionWorksheets.get(7).longProblemDescriptionRus);
+        Matrix.fullWorksheetPdf(General.workingFolder, General.readyFilesFolderPdf, additionSubtractionWorksheets.get(7).gradeRus, additionSubtractionWorksheets.get(7).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(7).shortProblemDescriptionRus, additionSubtractionWorksheets.get(7).longProblemDescriptionRus);
+        Matrix.fullWorksheetHtmlAnswer(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(7).gradeRus, additionSubtractionWorksheets.get(7).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(7).shortProblemDescriptionRus, additionSubtractionWorksheets.get(7).longProblemDescriptionRus);
+        Matrix.allSameWorksheets(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(7).gradeRus, additionSubtractionWorksheets.get(7).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(7).shortProblemDescriptionRus, additionSubtractionWorksheets.get(7).longProblemDescriptionRus);
+        Matrix.finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(7).gradeRus, additionSubtractionWorksheets.get(7).totalPageOfWorksheets, additionSubtractionWorksheets.get(7).topicRus,
+                additionSubtractionWorksheets.get(7).h2Rus, additionSubtractionWorksheets.get(7).shortProblemDescriptionRus, additionSubtractionWorksheets.get(7).longProblemDescriptionRus);
 
-        Matrix.topWorksheet(General.workingFolder, allTopicsAddSubtract.get(8).gradeRus, allTopicsAddSubtract.get(8).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(8).shortProblemDescriptionRus, allTopicsAddSubtract.get(8).longProblemDescriptionRus);
-        Matrix.topWorksheetPdf(General.workingFolder, allTopicsAddSubtract.get(8).gradeRus, allTopicsAddSubtract.get(8).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(8).shortProblemDescriptionRus, allTopicsAddSubtract.get(8).longProblemDescriptionRus);
-        Matrix.topWorksheetHtmlAnswers(General.workingFolder, allTopicsAddSubtract.get(8).gradeRus, allTopicsAddSubtract.get(8).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(8).shortProblemDescriptionRus, allTopicsAddSubtract.get(8).longProblemDescriptionRus);
-        Matrix.addSubtractA1_B1LineWorksheetA4(General.workingFolder, allTopicsAddSubtract.get(8).gradeRus, allTopicsAddSubtract.get(8).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(8).shortProblemDescriptionRus, allTopicsAddSubtract.get(8).longProblemDescriptionRus,
-                allTopicsAddSubtract.get(8).numbersRangeStart, allTopicsAddSubtract.get(8).numbersRangeEnd, 10, 14, 5);
-        Matrix.bottomWorksheet(General.workingFolder, allTopicsAddSubtract.get(8).gradeRus, allTopicsAddSubtract.get(8).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(8).shortProblemDescriptionRus, allTopicsAddSubtract.get(8).longProblemDescriptionRus);
-        Matrix.fullWorksheet(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(8).gradeRus, allTopicsAddSubtract.get(8).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(8).shortProblemDescriptionRus, allTopicsAddSubtract.get(8).longProblemDescriptionRus);
-        Matrix.fullWorksheetPdf(General.workingFolder, General.readyFilesFolderPdf, allTopicsAddSubtract.get(8).gradeRus, allTopicsAddSubtract.get(8).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(8).shortProblemDescriptionRus, allTopicsAddSubtract.get(8).longProblemDescriptionRus);
-        Matrix.fullWorksheetHtmlAnswer(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(8).gradeRus, allTopicsAddSubtract.get(8).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(8).shortProblemDescriptionRus, allTopicsAddSubtract.get(8).longProblemDescriptionRus);
-        Matrix.allSameWorksheets(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(8).gradeRus, allTopicsAddSubtract.get(8).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(8).shortProblemDescriptionRus, allTopicsAddSubtract.get(8).longProblemDescriptionRus);
-        Matrix.finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(8).gradeRus, allTopicsAddSubtract.get(8).totalPageOfWorksheets, allTopicsAddSubtract.get(8).topicRus,
-                allTopicsAddSubtract.get(8).h2Rus, allTopicsAddSubtract.get(8).shortProblemDescriptionRus, allTopicsAddSubtract.get(8).longProblemDescriptionRus);
+        Matrix.topWorksheet(General.workingFolder, additionSubtractionWorksheets.get(8).gradeRus, additionSubtractionWorksheets.get(8).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(8).shortProblemDescriptionRus, additionSubtractionWorksheets.get(8).longProblemDescriptionRus);
+        Matrix.topWorksheetPdf(General.workingFolder, additionSubtractionWorksheets.get(8).gradeRus, additionSubtractionWorksheets.get(8).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(8).shortProblemDescriptionRus, additionSubtractionWorksheets.get(8).longProblemDescriptionRus);
+        Matrix.topWorksheetHtmlAnswers(General.workingFolder, additionSubtractionWorksheets.get(8).gradeRus, additionSubtractionWorksheets.get(8).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(8).shortProblemDescriptionRus, additionSubtractionWorksheets.get(8).longProblemDescriptionRus);
+        Matrix.addSubtractA1_B1LineWorksheetA4(General.workingFolder, additionSubtractionWorksheets.get(8).gradeRus, additionSubtractionWorksheets.get(8).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(8).shortProblemDescriptionRus, additionSubtractionWorksheets.get(8).longProblemDescriptionRus,
+                additionSubtractionWorksheets.get(8).numbersRangeStart, additionSubtractionWorksheets.get(8).numbersRangeEnd, 10, 14, 5);
+        Matrix.bottomWorksheet(General.workingFolder, additionSubtractionWorksheets.get(8).gradeRus, additionSubtractionWorksheets.get(8).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(8).shortProblemDescriptionRus, additionSubtractionWorksheets.get(8).longProblemDescriptionRus);
+        Matrix.fullWorksheet(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(8).gradeRus, additionSubtractionWorksheets.get(8).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(8).shortProblemDescriptionRus, additionSubtractionWorksheets.get(8).longProblemDescriptionRus);
+        Matrix.fullWorksheetPdf(General.workingFolder, General.readyFilesFolderPdf, additionSubtractionWorksheets.get(8).gradeRus, additionSubtractionWorksheets.get(8).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(8).shortProblemDescriptionRus, additionSubtractionWorksheets.get(8).longProblemDescriptionRus);
+        Matrix.fullWorksheetHtmlAnswer(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(8).gradeRus, additionSubtractionWorksheets.get(8).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(8).shortProblemDescriptionRus, additionSubtractionWorksheets.get(8).longProblemDescriptionRus);
+        Matrix.allSameWorksheets(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(8).gradeRus, additionSubtractionWorksheets.get(8).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(8).shortProblemDescriptionRus, additionSubtractionWorksheets.get(8).longProblemDescriptionRus);
+        Matrix.finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(8).gradeRus, additionSubtractionWorksheets.get(8).totalPageOfWorksheets, additionSubtractionWorksheets.get(8).topicRus,
+                additionSubtractionWorksheets.get(8).h2Rus, additionSubtractionWorksheets.get(8).shortProblemDescriptionRus, additionSubtractionWorksheets.get(8).longProblemDescriptionRus);
 
-        Matrix.topWorksheet(General.workingFolder, allTopicsAddSubtract.get(9).gradeRus, allTopicsAddSubtract.get(9).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(9).shortProblemDescriptionRus, allTopicsAddSubtract.get(9).longProblemDescriptionRus);
-        Matrix.topWorksheetPdf(General.workingFolder, allTopicsAddSubtract.get(9).gradeRus, allTopicsAddSubtract.get(9).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(9).shortProblemDescriptionRus, allTopicsAddSubtract.get(9).longProblemDescriptionRus);
-        Matrix.topWorksheetHtmlAnswers(General.workingFolder, allTopicsAddSubtract.get(9).gradeRus, allTopicsAddSubtract.get(9).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(9).shortProblemDescriptionRus, allTopicsAddSubtract.get(9).longProblemDescriptionRus);
-        Matrix.addSubtractA1_B1LineWorksheetA4(General.workingFolder, allTopicsAddSubtract.get(9).gradeRus, allTopicsAddSubtract.get(9).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(9).shortProblemDescriptionRus, allTopicsAddSubtract.get(9).longProblemDescriptionRus,
-                allTopicsAddSubtract.get(9).numbersRangeStart, allTopicsAddSubtract.get(9).numbersRangeEnd, 10, 14, 5);
-        Matrix.bottomWorksheet(General.workingFolder, allTopicsAddSubtract.get(9).gradeRus, allTopicsAddSubtract.get(9).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(9).shortProblemDescriptionRus, allTopicsAddSubtract.get(9).longProblemDescriptionRus);
-        Matrix.fullWorksheet(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(9).gradeRus, allTopicsAddSubtract.get(9).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(9).shortProblemDescriptionRus, allTopicsAddSubtract.get(9).longProblemDescriptionRus);
-        Matrix.fullWorksheetPdf(General.workingFolder, General.readyFilesFolderPdf, allTopicsAddSubtract.get(9).gradeRus, allTopicsAddSubtract.get(9).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(9).shortProblemDescriptionRus, allTopicsAddSubtract.get(9).longProblemDescriptionRus);
-        Matrix.fullWorksheetHtmlAnswer(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(9).gradeRus, allTopicsAddSubtract.get(9).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(9).shortProblemDescriptionRus, allTopicsAddSubtract.get(9).longProblemDescriptionRus);
-        Matrix.allSameWorksheets(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(9).gradeRus, allTopicsAddSubtract.get(9).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(9).shortProblemDescriptionRus, allTopicsAddSubtract.get(9).longProblemDescriptionRus);
-        Matrix.finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(9).gradeRus, allTopicsAddSubtract.get(9).totalPageOfWorksheets, allTopicsAddSubtract.get(9).topicRus,
-                allTopicsAddSubtract.get(9).h2Rus, allTopicsAddSubtract.get(9).shortProblemDescriptionRus, allTopicsAddSubtract.get(9).longProblemDescriptionRus);
+        Matrix.topWorksheet(General.workingFolder, additionSubtractionWorksheets.get(9).gradeRus, additionSubtractionWorksheets.get(9).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(9).shortProblemDescriptionRus, additionSubtractionWorksheets.get(9).longProblemDescriptionRus);
+        Matrix.topWorksheetPdf(General.workingFolder, additionSubtractionWorksheets.get(9).gradeRus, additionSubtractionWorksheets.get(9).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(9).shortProblemDescriptionRus, additionSubtractionWorksheets.get(9).longProblemDescriptionRus);
+        Matrix.topWorksheetHtmlAnswers(General.workingFolder, additionSubtractionWorksheets.get(9).gradeRus, additionSubtractionWorksheets.get(9).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(9).shortProblemDescriptionRus, additionSubtractionWorksheets.get(9).longProblemDescriptionRus);
+        Matrix.addSubtractA1_B1LineWorksheetA4(General.workingFolder, additionSubtractionWorksheets.get(9).gradeRus, additionSubtractionWorksheets.get(9).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(9).shortProblemDescriptionRus, additionSubtractionWorksheets.get(9).longProblemDescriptionRus,
+                additionSubtractionWorksheets.get(9).numbersRangeStart, additionSubtractionWorksheets.get(9).numbersRangeEnd, 10, 14, 5);
+        Matrix.bottomWorksheet(General.workingFolder, additionSubtractionWorksheets.get(9).gradeRus, additionSubtractionWorksheets.get(9).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(9).shortProblemDescriptionRus, additionSubtractionWorksheets.get(9).longProblemDescriptionRus);
+        Matrix.fullWorksheet(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(9).gradeRus, additionSubtractionWorksheets.get(9).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(9).shortProblemDescriptionRus, additionSubtractionWorksheets.get(9).longProblemDescriptionRus);
+        Matrix.fullWorksheetPdf(General.workingFolder, General.readyFilesFolderPdf, additionSubtractionWorksheets.get(9).gradeRus, additionSubtractionWorksheets.get(9).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(9).shortProblemDescriptionRus, additionSubtractionWorksheets.get(9).longProblemDescriptionRus);
+        Matrix.fullWorksheetHtmlAnswer(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(9).gradeRus, additionSubtractionWorksheets.get(9).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(9).shortProblemDescriptionRus, additionSubtractionWorksheets.get(9).longProblemDescriptionRus);
+        Matrix.allSameWorksheets(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(9).gradeRus, additionSubtractionWorksheets.get(9).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(9).shortProblemDescriptionRus, additionSubtractionWorksheets.get(9).longProblemDescriptionRus);
+        Matrix.finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(9).gradeRus, additionSubtractionWorksheets.get(9).totalPageOfWorksheets, additionSubtractionWorksheets.get(9).topicRus,
+                additionSubtractionWorksheets.get(9).h2Rus, additionSubtractionWorksheets.get(9).shortProblemDescriptionRus, additionSubtractionWorksheets.get(9).longProblemDescriptionRus);
 
-        Matrix.topWorksheet(General.workingFolder, allTopicsAddSubtract.get(10).gradeRus, allTopicsAddSubtract.get(10).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(10).shortProblemDescriptionRus, allTopicsAddSubtract.get(10).longProblemDescriptionRus);
-        Matrix.topWorksheetPdf(General.workingFolder, allTopicsAddSubtract.get(10).gradeRus, allTopicsAddSubtract.get(10).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(10).shortProblemDescriptionRus, allTopicsAddSubtract.get(10).longProblemDescriptionRus);
-        Matrix.topWorksheetHtmlAnswers(General.workingFolder, allTopicsAddSubtract.get(10).gradeRus, allTopicsAddSubtract.get(10).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(10).shortProblemDescriptionRus, allTopicsAddSubtract.get(10).longProblemDescriptionRus);
-        Matrix.addSubtractA1_B1LineWorksheetA4(General.workingFolder, allTopicsAddSubtract.get(10).gradeRus, allTopicsAddSubtract.get(10).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(10).shortProblemDescriptionRus, allTopicsAddSubtract.get(10).longProblemDescriptionRus,
-                allTopicsAddSubtract.get(10).numbersRangeStart, allTopicsAddSubtract.get(10).numbersRangeEnd, 10, 14, 5);
-        Matrix.bottomWorksheet(General.workingFolder, allTopicsAddSubtract.get(10).gradeRus, allTopicsAddSubtract.get(10).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(10).shortProblemDescriptionRus, allTopicsAddSubtract.get(10).longProblemDescriptionRus);
-        Matrix.fullWorksheet(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(10).gradeRus, allTopicsAddSubtract.get(10).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(10).shortProblemDescriptionRus, allTopicsAddSubtract.get(10).longProblemDescriptionRus);
-        Matrix.fullWorksheetPdf(General.workingFolder, General.readyFilesFolderPdf, allTopicsAddSubtract.get(10).gradeRus, allTopicsAddSubtract.get(10).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(10).shortProblemDescriptionRus, allTopicsAddSubtract.get(10).longProblemDescriptionRus);
-        Matrix.fullWorksheetHtmlAnswer(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(10).gradeRus, allTopicsAddSubtract.get(10).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(10).shortProblemDescriptionRus, allTopicsAddSubtract.get(10).longProblemDescriptionRus);
-        Matrix.allSameWorksheets(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(10).gradeRus, allTopicsAddSubtract.get(10).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(10).shortProblemDescriptionRus, allTopicsAddSubtract.get(10).longProblemDescriptionRus);
-        Matrix.finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(10).gradeRus, allTopicsAddSubtract.get(10).totalPageOfWorksheets, allTopicsAddSubtract.get(10).topicRus,
-                allTopicsAddSubtract.get(10).h2Rus, allTopicsAddSubtract.get(10).shortProblemDescriptionRus, allTopicsAddSubtract.get(10).longProblemDescriptionRus);
+        Matrix.topWorksheet(General.workingFolder, additionSubtractionWorksheets.get(10).gradeRus, additionSubtractionWorksheets.get(10).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(10).shortProblemDescriptionRus, additionSubtractionWorksheets.get(10).longProblemDescriptionRus);
+        Matrix.topWorksheetPdf(General.workingFolder, additionSubtractionWorksheets.get(10).gradeRus, additionSubtractionWorksheets.get(10).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(10).shortProblemDescriptionRus, additionSubtractionWorksheets.get(10).longProblemDescriptionRus);
+        Matrix.topWorksheetHtmlAnswers(General.workingFolder, additionSubtractionWorksheets.get(10).gradeRus, additionSubtractionWorksheets.get(10).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(10).shortProblemDescriptionRus, additionSubtractionWorksheets.get(10).longProblemDescriptionRus);
+        Matrix.addSubtractA1_B1LineWorksheetA4(General.workingFolder, additionSubtractionWorksheets.get(10).gradeRus, additionSubtractionWorksheets.get(10).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(10).shortProblemDescriptionRus, additionSubtractionWorksheets.get(10).longProblemDescriptionRus,
+                additionSubtractionWorksheets.get(10).numbersRangeStart, additionSubtractionWorksheets.get(10).numbersRangeEnd, 10, 14, 5);
+        Matrix.bottomWorksheet(General.workingFolder, additionSubtractionWorksheets.get(10).gradeRus, additionSubtractionWorksheets.get(10).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(10).shortProblemDescriptionRus, additionSubtractionWorksheets.get(10).longProblemDescriptionRus);
+        Matrix.fullWorksheet(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(10).gradeRus, additionSubtractionWorksheets.get(10).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(10).shortProblemDescriptionRus, additionSubtractionWorksheets.get(10).longProblemDescriptionRus);
+        Matrix.fullWorksheetPdf(General.workingFolder, General.readyFilesFolderPdf, additionSubtractionWorksheets.get(10).gradeRus, additionSubtractionWorksheets.get(10).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(10).shortProblemDescriptionRus, additionSubtractionWorksheets.get(10).longProblemDescriptionRus);
+        Matrix.fullWorksheetHtmlAnswer(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(10).gradeRus, additionSubtractionWorksheets.get(10).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(10).shortProblemDescriptionRus, additionSubtractionWorksheets.get(10).longProblemDescriptionRus);
+        Matrix.allSameWorksheets(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(10).gradeRus, additionSubtractionWorksheets.get(10).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(10).shortProblemDescriptionRus, additionSubtractionWorksheets.get(10).longProblemDescriptionRus);
+        Matrix.finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(10).gradeRus, additionSubtractionWorksheets.get(10).totalPageOfWorksheets, additionSubtractionWorksheets.get(10).topicRus,
+                additionSubtractionWorksheets.get(10).h2Rus, additionSubtractionWorksheets.get(10).shortProblemDescriptionRus, additionSubtractionWorksheets.get(10).longProblemDescriptionRus);
 
-        Matrix.topWorksheet(General.workingFolder, allTopicsAddSubtract.get(11).gradeRus, allTopicsAddSubtract.get(11).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(11).shortProblemDescriptionRus, allTopicsAddSubtract.get(11).longProblemDescriptionRus);
-        Matrix.topWorksheetPdf(General.workingFolder, allTopicsAddSubtract.get(11).gradeRus, allTopicsAddSubtract.get(11).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(11).shortProblemDescriptionRus, allTopicsAddSubtract.get(11).longProblemDescriptionRus);
-        Matrix.topWorksheetHtmlAnswers(General.workingFolder, allTopicsAddSubtract.get(11).gradeRus, allTopicsAddSubtract.get(11).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(11).shortProblemDescriptionRus, allTopicsAddSubtract.get(11).longProblemDescriptionRus);
-        Matrix.addSubtractA1_B1LineWorksheetA4(General.workingFolder, allTopicsAddSubtract.get(11).gradeRus, allTopicsAddSubtract.get(11).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(11).shortProblemDescriptionRus, allTopicsAddSubtract.get(11).longProblemDescriptionRus,
-                allTopicsAddSubtract.get(11).numbersRangeStart, allTopicsAddSubtract.get(11).numbersRangeEnd, 10, 14, 5);
-        Matrix.bottomWorksheet(General.workingFolder, allTopicsAddSubtract.get(11).gradeRus, allTopicsAddSubtract.get(11).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(11).shortProblemDescriptionRus, allTopicsAddSubtract.get(11).longProblemDescriptionRus);
-        Matrix.fullWorksheet(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(11).gradeRus, allTopicsAddSubtract.get(11).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(11).shortProblemDescriptionRus, allTopicsAddSubtract.get(11).longProblemDescriptionRus);
-        Matrix.fullWorksheetPdf(General.workingFolder, General.readyFilesFolderPdf, allTopicsAddSubtract.get(11).gradeRus, allTopicsAddSubtract.get(11).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(11).shortProblemDescriptionRus, allTopicsAddSubtract.get(11).longProblemDescriptionRus);
-        Matrix.fullWorksheetHtmlAnswer(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(11).gradeRus, allTopicsAddSubtract.get(11).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(11).shortProblemDescriptionRus, allTopicsAddSubtract.get(11).longProblemDescriptionRus);
-        Matrix.allSameWorksheets(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(11).gradeRus, allTopicsAddSubtract.get(11).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(11).shortProblemDescriptionRus, allTopicsAddSubtract.get(11).longProblemDescriptionRus);
-        Matrix.finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(11).gradeRus, allTopicsAddSubtract.get(11).totalPageOfWorksheets, allTopicsAddSubtract.get(11).topicRus,
-                allTopicsAddSubtract.get(11).h2Rus, allTopicsAddSubtract.get(11).shortProblemDescriptionRus, allTopicsAddSubtract.get(11).longProblemDescriptionRus);
+        Matrix.topWorksheet(General.workingFolder, additionSubtractionWorksheets.get(11).gradeRus, additionSubtractionWorksheets.get(11).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(11).shortProblemDescriptionRus, additionSubtractionWorksheets.get(11).longProblemDescriptionRus);
+        Matrix.topWorksheetPdf(General.workingFolder, additionSubtractionWorksheets.get(11).gradeRus, additionSubtractionWorksheets.get(11).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(11).shortProblemDescriptionRus, additionSubtractionWorksheets.get(11).longProblemDescriptionRus);
+        Matrix.topWorksheetHtmlAnswers(General.workingFolder, additionSubtractionWorksheets.get(11).gradeRus, additionSubtractionWorksheets.get(11).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(11).shortProblemDescriptionRus, additionSubtractionWorksheets.get(11).longProblemDescriptionRus);
+        Matrix.addSubtractA1_B1LineWorksheetA4(General.workingFolder, additionSubtractionWorksheets.get(11).gradeRus, additionSubtractionWorksheets.get(11).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(11).shortProblemDescriptionRus, additionSubtractionWorksheets.get(11).longProblemDescriptionRus,
+                additionSubtractionWorksheets.get(11).numbersRangeStart, additionSubtractionWorksheets.get(11).numbersRangeEnd, 10, 14, 5);
+        Matrix.bottomWorksheet(General.workingFolder, additionSubtractionWorksheets.get(11).gradeRus, additionSubtractionWorksheets.get(11).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(11).shortProblemDescriptionRus, additionSubtractionWorksheets.get(11).longProblemDescriptionRus);
+        Matrix.fullWorksheet(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(11).gradeRus, additionSubtractionWorksheets.get(11).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(11).shortProblemDescriptionRus, additionSubtractionWorksheets.get(11).longProblemDescriptionRus);
+        Matrix.fullWorksheetPdf(General.workingFolder, General.readyFilesFolderPdf, additionSubtractionWorksheets.get(11).gradeRus, additionSubtractionWorksheets.get(11).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(11).shortProblemDescriptionRus, additionSubtractionWorksheets.get(11).longProblemDescriptionRus);
+        Matrix.fullWorksheetHtmlAnswer(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(11).gradeRus, additionSubtractionWorksheets.get(11).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(11).shortProblemDescriptionRus, additionSubtractionWorksheets.get(11).longProblemDescriptionRus);
+        Matrix.allSameWorksheets(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(11).gradeRus, additionSubtractionWorksheets.get(11).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(11).shortProblemDescriptionRus, additionSubtractionWorksheets.get(11).longProblemDescriptionRus);
+        Matrix.finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(11).gradeRus, additionSubtractionWorksheets.get(11).totalPageOfWorksheets, additionSubtractionWorksheets.get(11).topicRus,
+                additionSubtractionWorksheets.get(11).h2Rus, additionSubtractionWorksheets.get(11).shortProblemDescriptionRus, additionSubtractionWorksheets.get(11).longProblemDescriptionRus);
 
-        Matrix.topWorksheet(General.workingFolder, allTopicsAddSubtract.get(12).gradeRus, allTopicsAddSubtract.get(12).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(12).shortProblemDescriptionRus, allTopicsAddSubtract.get(12).longProblemDescriptionRus);
-        Matrix.topWorksheetPdf(General.workingFolder, allTopicsAddSubtract.get(12).gradeRus, allTopicsAddSubtract.get(12).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(12).shortProblemDescriptionRus, allTopicsAddSubtract.get(12).longProblemDescriptionRus);
-        Matrix.topWorksheetHtmlAnswers(General.workingFolder, allTopicsAddSubtract.get(12).gradeRus, allTopicsAddSubtract.get(12).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(12).shortProblemDescriptionRus, allTopicsAddSubtract.get(12).longProblemDescriptionRus);
-        Matrix.addSubtractA1_B1LineWorksheetA4(General.workingFolder, allTopicsAddSubtract.get(12).gradeRus, allTopicsAddSubtract.get(12).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(12).shortProblemDescriptionRus, allTopicsAddSubtract.get(12).longProblemDescriptionRus,
-                allTopicsAddSubtract.get(12).numbersRangeStart, allTopicsAddSubtract.get(12).numbersRangeEnd, 10, 14, 5);
-        Matrix.bottomWorksheet(General.workingFolder, allTopicsAddSubtract.get(12).gradeRus, allTopicsAddSubtract.get(12).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(12).shortProblemDescriptionRus, allTopicsAddSubtract.get(12).longProblemDescriptionRus);
-        Matrix.fullWorksheet(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(12).gradeRus, allTopicsAddSubtract.get(12).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(12).shortProblemDescriptionRus, allTopicsAddSubtract.get(12).longProblemDescriptionRus);
-        Matrix.fullWorksheetPdf(General.workingFolder, General.readyFilesFolderPdf, allTopicsAddSubtract.get(12).gradeRus, allTopicsAddSubtract.get(12).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(12).shortProblemDescriptionRus, allTopicsAddSubtract.get(12).longProblemDescriptionRus);
-        Matrix.fullWorksheetHtmlAnswer(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(12).gradeRus, allTopicsAddSubtract.get(12).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(12).shortProblemDescriptionRus, allTopicsAddSubtract.get(12).longProblemDescriptionRus);
-        Matrix.allSameWorksheets(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(12).gradeRus, allTopicsAddSubtract.get(12).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(12).shortProblemDescriptionRus, allTopicsAddSubtract.get(12).longProblemDescriptionRus);
-        Matrix.finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(12).gradeRus, allTopicsAddSubtract.get(12).totalPageOfWorksheets, allTopicsAddSubtract.get(12).topicRus,
-                allTopicsAddSubtract.get(12).h2Rus, allTopicsAddSubtract.get(12).shortProblemDescriptionRus, allTopicsAddSubtract.get(12).longProblemDescriptionRus);
-
-
-        Matrix.topWorksheet(General.workingFolder, allTopicsAddSubtract.get(13).gradeRus, allTopicsAddSubtract.get(13).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(13).shortProblemDescriptionRus, allTopicsAddSubtract.get(13).longProblemDescriptionRus);
-        Matrix.topWorksheetPdf(General.workingFolder, allTopicsAddSubtract.get(13).gradeRus, allTopicsAddSubtract.get(13).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(13).shortProblemDescriptionRus, allTopicsAddSubtract.get(13).longProblemDescriptionRus);
-        Matrix.topWorksheetHtmlAnswers(General.workingFolder, allTopicsAddSubtract.get(13).gradeRus, allTopicsAddSubtract.get(13).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(13).shortProblemDescriptionRus, allTopicsAddSubtract.get(13).longProblemDescriptionRus);
-        Matrix.addSubtractA1_B1LineWorksheetA4(General.workingFolder, allTopicsAddSubtract.get(13).gradeRus, allTopicsAddSubtract.get(13).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(13).shortProblemDescriptionRus, allTopicsAddSubtract.get(13).longProblemDescriptionRus,
-                allTopicsAddSubtract.get(13).numbersRangeStart, allTopicsAddSubtract.get(13).numbersRangeEnd, 10, 14, 5);
-        Matrix.bottomWorksheet(General.workingFolder, allTopicsAddSubtract.get(13).gradeRus, allTopicsAddSubtract.get(13).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(13).shortProblemDescriptionRus, allTopicsAddSubtract.get(13).longProblemDescriptionRus);
-        Matrix.fullWorksheet(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(13).gradeRus, allTopicsAddSubtract.get(13).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(13).shortProblemDescriptionRus, allTopicsAddSubtract.get(13).longProblemDescriptionRus);
-        Matrix.fullWorksheetPdf(General.workingFolder, General.readyFilesFolderPdf, allTopicsAddSubtract.get(13).gradeRus, allTopicsAddSubtract.get(13).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(13).shortProblemDescriptionRus, allTopicsAddSubtract.get(13).longProblemDescriptionRus);
-        Matrix.fullWorksheetHtmlAnswer(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(13).gradeRus, allTopicsAddSubtract.get(13).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(13).shortProblemDescriptionRus, allTopicsAddSubtract.get(13).longProblemDescriptionRus);
-        Matrix.allSameWorksheets(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(13).gradeRus, allTopicsAddSubtract.get(13).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(13).shortProblemDescriptionRus, allTopicsAddSubtract.get(13).longProblemDescriptionRus);
-        Matrix.finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(13).gradeRus, allTopicsAddSubtract.get(13).totalPageOfWorksheets, allTopicsAddSubtract.get(13).topicRus,
-                allTopicsAddSubtract.get(13).h2Rus, allTopicsAddSubtract.get(13).shortProblemDescriptionRus, allTopicsAddSubtract.get(13).longProblemDescriptionRus);
+        Matrix.topWorksheet(General.workingFolder, additionSubtractionWorksheets.get(12).gradeRus, additionSubtractionWorksheets.get(12).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(12).shortProblemDescriptionRus, additionSubtractionWorksheets.get(12).longProblemDescriptionRus);
+        Matrix.topWorksheetPdf(General.workingFolder, additionSubtractionWorksheets.get(12).gradeRus, additionSubtractionWorksheets.get(12).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(12).shortProblemDescriptionRus, additionSubtractionWorksheets.get(12).longProblemDescriptionRus);
+        Matrix.topWorksheetHtmlAnswers(General.workingFolder, additionSubtractionWorksheets.get(12).gradeRus, additionSubtractionWorksheets.get(12).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(12).shortProblemDescriptionRus, additionSubtractionWorksheets.get(12).longProblemDescriptionRus);
+        Matrix.addSubtractA1_B1LineWorksheetA4(General.workingFolder, additionSubtractionWorksheets.get(12).gradeRus, additionSubtractionWorksheets.get(12).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(12).shortProblemDescriptionRus, additionSubtractionWorksheets.get(12).longProblemDescriptionRus,
+                additionSubtractionWorksheets.get(12).numbersRangeStart, additionSubtractionWorksheets.get(12).numbersRangeEnd, 10, 14, 5);
+        Matrix.bottomWorksheet(General.workingFolder, additionSubtractionWorksheets.get(12).gradeRus, additionSubtractionWorksheets.get(12).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(12).shortProblemDescriptionRus, additionSubtractionWorksheets.get(12).longProblemDescriptionRus);
+        Matrix.fullWorksheet(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(12).gradeRus, additionSubtractionWorksheets.get(12).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(12).shortProblemDescriptionRus, additionSubtractionWorksheets.get(12).longProblemDescriptionRus);
+        Matrix.fullWorksheetPdf(General.workingFolder, General.readyFilesFolderPdf, additionSubtractionWorksheets.get(12).gradeRus, additionSubtractionWorksheets.get(12).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(12).shortProblemDescriptionRus, additionSubtractionWorksheets.get(12).longProblemDescriptionRus);
+        Matrix.fullWorksheetHtmlAnswer(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(12).gradeRus, additionSubtractionWorksheets.get(12).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(12).shortProblemDescriptionRus, additionSubtractionWorksheets.get(12).longProblemDescriptionRus);
+        Matrix.allSameWorksheets(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(12).gradeRus, additionSubtractionWorksheets.get(12).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(12).shortProblemDescriptionRus, additionSubtractionWorksheets.get(12).longProblemDescriptionRus);
+        Matrix.finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(12).gradeRus, additionSubtractionWorksheets.get(12).totalPageOfWorksheets, additionSubtractionWorksheets.get(12).topicRus,
+                additionSubtractionWorksheets.get(12).h2Rus, additionSubtractionWorksheets.get(12).shortProblemDescriptionRus, additionSubtractionWorksheets.get(12).longProblemDescriptionRus);
 
 
-        Matrix.topWorksheet(General.workingFolder, allTopicsAddSubtract.get(14).gradeRus, allTopicsAddSubtract.get(14).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(14).shortProblemDescriptionRus, allTopicsAddSubtract.get(14).longProblemDescriptionRus);
-        Matrix.topWorksheetPdf(General.workingFolder, allTopicsAddSubtract.get(14).gradeRus, allTopicsAddSubtract.get(14).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(14).shortProblemDescriptionRus, allTopicsAddSubtract.get(14).longProblemDescriptionRus);
-        Matrix.topWorksheetHtmlAnswers(General.workingFolder, allTopicsAddSubtract.get(14).gradeRus, allTopicsAddSubtract.get(14).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(14).shortProblemDescriptionRus, allTopicsAddSubtract.get(14).longProblemDescriptionRus);
-        Matrix.addSubtractA1_B1LineWorksheetA4(General.workingFolder, allTopicsAddSubtract.get(14).gradeRus, allTopicsAddSubtract.get(14).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(14).shortProblemDescriptionRus, allTopicsAddSubtract.get(14).longProblemDescriptionRus,
-                allTopicsAddSubtract.get(14).numbersRangeStart, allTopicsAddSubtract.get(14).numbersRangeEnd, 10, 14, 5);
-        Matrix.bottomWorksheet(General.workingFolder, allTopicsAddSubtract.get(14).gradeRus, allTopicsAddSubtract.get(14).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(14).shortProblemDescriptionRus, allTopicsAddSubtract.get(14).longProblemDescriptionRus);
-        Matrix.fullWorksheet(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(14).gradeRus, allTopicsAddSubtract.get(14).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(14).shortProblemDescriptionRus, allTopicsAddSubtract.get(14).longProblemDescriptionRus);
-        Matrix.fullWorksheetPdf(General.workingFolder, General.readyFilesFolderPdf, allTopicsAddSubtract.get(14).gradeRus, allTopicsAddSubtract.get(14).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(14).shortProblemDescriptionRus, allTopicsAddSubtract.get(14).longProblemDescriptionRus);
-        Matrix.fullWorksheetHtmlAnswer(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(14).gradeRus, allTopicsAddSubtract.get(14).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(14).shortProblemDescriptionRus, allTopicsAddSubtract.get(14).longProblemDescriptionRus);
-        Matrix.allSameWorksheets(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(14).gradeRus, allTopicsAddSubtract.get(14).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(14).shortProblemDescriptionRus, allTopicsAddSubtract.get(14).longProblemDescriptionRus);
-        Matrix.finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(14).gradeRus, allTopicsAddSubtract.get(14).totalPageOfWorksheets, allTopicsAddSubtract.get(14).topicRus,
-                allTopicsAddSubtract.get(14).h2Rus, allTopicsAddSubtract.get(14).shortProblemDescriptionRus, allTopicsAddSubtract.get(14).longProblemDescriptionRus);
+        Matrix.topWorksheet(General.workingFolder, additionSubtractionWorksheets.get(13).gradeRus, additionSubtractionWorksheets.get(13).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(13).shortProblemDescriptionRus, additionSubtractionWorksheets.get(13).longProblemDescriptionRus);
+        Matrix.topWorksheetPdf(General.workingFolder, additionSubtractionWorksheets.get(13).gradeRus, additionSubtractionWorksheets.get(13).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(13).shortProblemDescriptionRus, additionSubtractionWorksheets.get(13).longProblemDescriptionRus);
+        Matrix.topWorksheetHtmlAnswers(General.workingFolder, additionSubtractionWorksheets.get(13).gradeRus, additionSubtractionWorksheets.get(13).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(13).shortProblemDescriptionRus, additionSubtractionWorksheets.get(13).longProblemDescriptionRus);
+        Matrix.addSubtractA1_B1LineWorksheetA4(General.workingFolder, additionSubtractionWorksheets.get(13).gradeRus, additionSubtractionWorksheets.get(13).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(13).shortProblemDescriptionRus, additionSubtractionWorksheets.get(13).longProblemDescriptionRus,
+                additionSubtractionWorksheets.get(13).numbersRangeStart, additionSubtractionWorksheets.get(13).numbersRangeEnd, 10, 14, 5);
+        Matrix.bottomWorksheet(General.workingFolder, additionSubtractionWorksheets.get(13).gradeRus, additionSubtractionWorksheets.get(13).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(13).shortProblemDescriptionRus, additionSubtractionWorksheets.get(13).longProblemDescriptionRus);
+        Matrix.fullWorksheet(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(13).gradeRus, additionSubtractionWorksheets.get(13).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(13).shortProblemDescriptionRus, additionSubtractionWorksheets.get(13).longProblemDescriptionRus);
+        Matrix.fullWorksheetPdf(General.workingFolder, General.readyFilesFolderPdf, additionSubtractionWorksheets.get(13).gradeRus, additionSubtractionWorksheets.get(13).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(13).shortProblemDescriptionRus, additionSubtractionWorksheets.get(13).longProblemDescriptionRus);
+        Matrix.fullWorksheetHtmlAnswer(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(13).gradeRus, additionSubtractionWorksheets.get(13).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(13).shortProblemDescriptionRus, additionSubtractionWorksheets.get(13).longProblemDescriptionRus);
+        Matrix.allSameWorksheets(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(13).gradeRus, additionSubtractionWorksheets.get(13).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(13).shortProblemDescriptionRus, additionSubtractionWorksheets.get(13).longProblemDescriptionRus);
+        Matrix.finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(13).gradeRus, additionSubtractionWorksheets.get(13).totalPageOfWorksheets, additionSubtractionWorksheets.get(13).topicRus,
+                additionSubtractionWorksheets.get(13).h2Rus, additionSubtractionWorksheets.get(13).shortProblemDescriptionRus, additionSubtractionWorksheets.get(13).longProblemDescriptionRus);
 
 
-        Matrix.topWorksheet(General.workingFolder, allTopicsAddSubtract.get(0).gradeEng, allTopicsAddSubtract.get(0).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(0).shortProblemDescriptionEng, allTopicsAddSubtract.get(0).longProblemDescriptionEng);
-        Matrix.topWorksheetPdf(General.workingFolder, allTopicsAddSubtract.get(0).gradeEng, allTopicsAddSubtract.get(0).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(0).shortProblemDescriptionEng, allTopicsAddSubtract.get(0).longProblemDescriptionEng);
-        Matrix.topWorksheetHtmlAnswers(General.workingFolder, allTopicsAddSubtract.get(0).gradeEng, allTopicsAddSubtract.get(0).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(0).shortProblemDescriptionEng, allTopicsAddSubtract.get(0).longProblemDescriptionEng);
-        Matrix.addSubtractA1_B1LineWorksheetA4(General.workingFolder, allTopicsAddSubtract.get(0).gradeEng, allTopicsAddSubtract.get(0).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(0).shortProblemDescriptionEng, allTopicsAddSubtract.get(0).longProblemDescriptionEng,
-                allTopicsAddSubtract.get(0).numbersRangeStart, allTopicsAddSubtract.get(0).numbersRangeEnd, 10, 15, 5);
-        Matrix.bottomWorksheet(General.workingFolder, allTopicsAddSubtract.get(0).gradeEng, allTopicsAddSubtract.get(0).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(0).shortProblemDescriptionEng, allTopicsAddSubtract.get(0).longProblemDescriptionEng);
-        Matrix.fullWorksheet(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(0).gradeEng, allTopicsAddSubtract.get(0).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(0).shortProblemDescriptionEng, allTopicsAddSubtract.get(0).longProblemDescriptionEng);
-        Matrix.fullWorksheetPdf(General.workingFolder, General.readyFilesFolderPdf, allTopicsAddSubtract.get(0).gradeEng, allTopicsAddSubtract.get(0).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(0).shortProblemDescriptionEng, allTopicsAddSubtract.get(0).longProblemDescriptionEng);
-        Matrix.fullWorksheetHtmlAnswer(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(0).gradeEng, allTopicsAddSubtract.get(0).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(0).shortProblemDescriptionEng, allTopicsAddSubtract.get(0).longProblemDescriptionEng);
-        Matrix.allSameWorksheets(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(0).gradeEng, allTopicsAddSubtract.get(0).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(0).shortProblemDescriptionEng, allTopicsAddSubtract.get(0).longProblemDescriptionEng);
-        Matrix.finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(0).gradeEng, allTopicsAddSubtract.get(0).totalPageOfWorksheets, allTopicsAddSubtract.get(0).topicEng,
-                allTopicsAddSubtract.get(0).h2Eng, allTopicsAddSubtract.get(0).shortProblemDescriptionEng, allTopicsAddSubtract.get(0).longProblemDescriptionEng);
-
-        Matrix.topWorksheet(General.workingFolder, allTopicsAddSubtract.get(1).gradeEng, allTopicsAddSubtract.get(1).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(1).shortProblemDescriptionEng, allTopicsAddSubtract.get(1).longProblemDescriptionEng);
-        Matrix.topWorksheetPdf(General.workingFolder, allTopicsAddSubtract.get(1).gradeEng, allTopicsAddSubtract.get(1).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(1).shortProblemDescriptionEng, allTopicsAddSubtract.get(1).longProblemDescriptionEng);
-        Matrix.topWorksheetHtmlAnswers(General.workingFolder, allTopicsAddSubtract.get(1).gradeEng, allTopicsAddSubtract.get(1).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(1).shortProblemDescriptionEng, allTopicsAddSubtract.get(1).longProblemDescriptionEng);
-        Matrix.addSubtractA1_B1LineWorksheetA4(General.workingFolder, allTopicsAddSubtract.get(1).gradeEng, allTopicsAddSubtract.get(1).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(1).shortProblemDescriptionEng, allTopicsAddSubtract.get(1).longProblemDescriptionEng,
-                allTopicsAddSubtract.get(1).numbersRangeStart, allTopicsAddSubtract.get(1).numbersRangeEnd, 10, 15, 5);
-        Matrix.bottomWorksheet(General.workingFolder, allTopicsAddSubtract.get(1).gradeEng, allTopicsAddSubtract.get(1).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(1).shortProblemDescriptionEng, allTopicsAddSubtract.get(1).longProblemDescriptionEng);
-        Matrix.fullWorksheet(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(1).gradeEng, allTopicsAddSubtract.get(1).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(1).shortProblemDescriptionEng, allTopicsAddSubtract.get(1).longProblemDescriptionEng);
-        Matrix.fullWorksheetPdf(General.workingFolder, General.readyFilesFolderPdf, allTopicsAddSubtract.get(1).gradeEng, allTopicsAddSubtract.get(1).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(1).shortProblemDescriptionEng, allTopicsAddSubtract.get(1).longProblemDescriptionEng);
-        Matrix.fullWorksheetHtmlAnswer(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(1).gradeEng, allTopicsAddSubtract.get(1).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(1).shortProblemDescriptionEng, allTopicsAddSubtract.get(1).longProblemDescriptionEng);
-        Matrix.allSameWorksheets(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(1).gradeEng, allTopicsAddSubtract.get(1).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(1).shortProblemDescriptionEng, allTopicsAddSubtract.get(1).longProblemDescriptionEng);
-        Matrix.finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(1).gradeEng, allTopicsAddSubtract.get(1).totalPageOfWorksheets, allTopicsAddSubtract.get(1).topicEng,
-                allTopicsAddSubtract.get(1).h2Eng, allTopicsAddSubtract.get(1).shortProblemDescriptionEng, allTopicsAddSubtract.get(1).longProblemDescriptionEng);
-
-        Matrix.topWorksheet(General.workingFolder, allTopicsAddSubtract.get(2).gradeEng, allTopicsAddSubtract.get(2).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(2).shortProblemDescriptionEng, allTopicsAddSubtract.get(2).longProblemDescriptionEng);
-        Matrix.topWorksheetPdf(General.workingFolder, allTopicsAddSubtract.get(2).gradeEng, allTopicsAddSubtract.get(2).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(2).shortProblemDescriptionEng, allTopicsAddSubtract.get(2).longProblemDescriptionEng);
-        Matrix.topWorksheetHtmlAnswers(General.workingFolder, allTopicsAddSubtract.get(2).gradeEng, allTopicsAddSubtract.get(2).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(2).shortProblemDescriptionEng, allTopicsAddSubtract.get(2).longProblemDescriptionEng);
-        Matrix.addSubtractA1_B1LineWorksheetA4(General.workingFolder, allTopicsAddSubtract.get(2).gradeEng, allTopicsAddSubtract.get(2).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(2).shortProblemDescriptionEng, allTopicsAddSubtract.get(2).longProblemDescriptionEng,
-                allTopicsAddSubtract.get(2).numbersRangeStart, allTopicsAddSubtract.get(2).numbersRangeEnd, 10, 14, 5);
-        Matrix.bottomWorksheet(General.workingFolder, allTopicsAddSubtract.get(2).gradeEng, allTopicsAddSubtract.get(2).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(2).shortProblemDescriptionEng, allTopicsAddSubtract.get(2).longProblemDescriptionEng);
-        Matrix.fullWorksheet(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(2).gradeEng, allTopicsAddSubtract.get(2).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(2).shortProblemDescriptionEng, allTopicsAddSubtract.get(2).longProblemDescriptionEng);
-        Matrix.fullWorksheetPdf(General.workingFolder, General.readyFilesFolderPdf, allTopicsAddSubtract.get(2).gradeEng, allTopicsAddSubtract.get(2).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(2).shortProblemDescriptionEng, allTopicsAddSubtract.get(2).longProblemDescriptionEng);
-        Matrix.fullWorksheetHtmlAnswer(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(2).gradeEng, allTopicsAddSubtract.get(2).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(2).shortProblemDescriptionEng, allTopicsAddSubtract.get(2).longProblemDescriptionEng);
-        Matrix.allSameWorksheets(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(2).gradeEng, allTopicsAddSubtract.get(2).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(2).shortProblemDescriptionEng, allTopicsAddSubtract.get(2).longProblemDescriptionEng);
-        Matrix.finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(2).gradeEng, allTopicsAddSubtract.get(2).totalPageOfWorksheets, allTopicsAddSubtract.get(2).topicEng,
-                allTopicsAddSubtract.get(2).h2Eng, allTopicsAddSubtract.get(2).shortProblemDescriptionEng, allTopicsAddSubtract.get(2).longProblemDescriptionEng);
-
-        Matrix.topWorksheet(General.workingFolder, allTopicsAddSubtract.get(3).gradeEng, allTopicsAddSubtract.get(3).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(3).shortProblemDescriptionEng, allTopicsAddSubtract.get(3).longProblemDescriptionEng);
-        Matrix.topWorksheetPdf(General.workingFolder, allTopicsAddSubtract.get(3).gradeEng, allTopicsAddSubtract.get(3).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(3).shortProblemDescriptionEng, allTopicsAddSubtract.get(3).longProblemDescriptionEng);
-        Matrix.topWorksheetHtmlAnswers(General.workingFolder, allTopicsAddSubtract.get(3).gradeEng, allTopicsAddSubtract.get(3).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(3).shortProblemDescriptionEng, allTopicsAddSubtract.get(3).longProblemDescriptionEng);
-        Matrix.addSubtractA1_B1LineWorksheetA4(General.workingFolder, allTopicsAddSubtract.get(3).gradeEng, allTopicsAddSubtract.get(3).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(3).shortProblemDescriptionEng, allTopicsAddSubtract.get(3).longProblemDescriptionEng,
-                allTopicsAddSubtract.get(3).numbersRangeStart, allTopicsAddSubtract.get(3).numbersRangeEnd, 10, 14, 5);
-        Matrix.bottomWorksheet(General.workingFolder, allTopicsAddSubtract.get(3).gradeEng, allTopicsAddSubtract.get(3).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(3).shortProblemDescriptionEng, allTopicsAddSubtract.get(3).longProblemDescriptionEng);
-        Matrix.fullWorksheet(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(3).gradeEng, allTopicsAddSubtract.get(3).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(3).shortProblemDescriptionEng, allTopicsAddSubtract.get(3).longProblemDescriptionEng);
-        Matrix.fullWorksheetPdf(General.workingFolder, General.readyFilesFolderPdf, allTopicsAddSubtract.get(3).gradeEng, allTopicsAddSubtract.get(3).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(3).shortProblemDescriptionEng, allTopicsAddSubtract.get(3).longProblemDescriptionEng);
-        Matrix.fullWorksheetHtmlAnswer(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(3).gradeEng, allTopicsAddSubtract.get(3).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(3).shortProblemDescriptionEng, allTopicsAddSubtract.get(3).longProblemDescriptionEng);
-        Matrix.allSameWorksheets(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(3).gradeEng, allTopicsAddSubtract.get(3).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(3).shortProblemDescriptionEng, allTopicsAddSubtract.get(3).longProblemDescriptionEng);
-        Matrix.finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(3).gradeEng, allTopicsAddSubtract.get(3).totalPageOfWorksheets, allTopicsAddSubtract.get(3).topicEng,
-                allTopicsAddSubtract.get(3).h2Eng, allTopicsAddSubtract.get(3).shortProblemDescriptionEng, allTopicsAddSubtract.get(3).longProblemDescriptionEng);
-
-        Matrix.topWorksheet(General.workingFolder, allTopicsAddSubtract.get(4).gradeEng, allTopicsAddSubtract.get(4).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(4).shortProblemDescriptionEng, allTopicsAddSubtract.get(4).longProblemDescriptionEng);
-        Matrix.topWorksheetPdf(General.workingFolder, allTopicsAddSubtract.get(4).gradeEng, allTopicsAddSubtract.get(4).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(4).shortProblemDescriptionEng, allTopicsAddSubtract.get(4).longProblemDescriptionEng);
-        Matrix.topWorksheetHtmlAnswers(General.workingFolder, allTopicsAddSubtract.get(4).gradeEng, allTopicsAddSubtract.get(4).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(4).shortProblemDescriptionEng, allTopicsAddSubtract.get(4).longProblemDescriptionEng);
-        Matrix.addSubtractA1_B1LineWorksheetA4(General.workingFolder, allTopicsAddSubtract.get(4).gradeEng, allTopicsAddSubtract.get(4).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(4).shortProblemDescriptionEng, allTopicsAddSubtract.get(4).longProblemDescriptionEng,
-                allTopicsAddSubtract.get(4).numbersRangeStart, allTopicsAddSubtract.get(4).numbersRangeEnd, 10, 14, 5);
-        Matrix.bottomWorksheet(General.workingFolder, allTopicsAddSubtract.get(4).gradeEng, allTopicsAddSubtract.get(4).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(4).shortProblemDescriptionEng, allTopicsAddSubtract.get(4).longProblemDescriptionEng);
-        Matrix.fullWorksheet(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(4).gradeEng, allTopicsAddSubtract.get(4).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(4).shortProblemDescriptionEng, allTopicsAddSubtract.get(4).longProblemDescriptionEng);
-        Matrix.fullWorksheetPdf(General.workingFolder, General.readyFilesFolderPdf, allTopicsAddSubtract.get(4).gradeEng, allTopicsAddSubtract.get(4).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(4).shortProblemDescriptionEng, allTopicsAddSubtract.get(4).longProblemDescriptionEng);
-        Matrix.fullWorksheetHtmlAnswer(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(4).gradeEng, allTopicsAddSubtract.get(4).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(4).shortProblemDescriptionEng, allTopicsAddSubtract.get(4).longProblemDescriptionEng);
-        Matrix.allSameWorksheets(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(4).gradeEng, allTopicsAddSubtract.get(4).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(4).shortProblemDescriptionEng, allTopicsAddSubtract.get(4).longProblemDescriptionEng);
-        Matrix.finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(4).gradeEng, allTopicsAddSubtract.get(4).totalPageOfWorksheets, allTopicsAddSubtract.get(4).topicEng,
-                allTopicsAddSubtract.get(4).h2Eng, allTopicsAddSubtract.get(4).shortProblemDescriptionEng, allTopicsAddSubtract.get(4).longProblemDescriptionEng);
-
-        Matrix.topWorksheet(General.workingFolder, allTopicsAddSubtract.get(5).gradeEng, allTopicsAddSubtract.get(5).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(5).shortProblemDescriptionEng, allTopicsAddSubtract.get(5).longProblemDescriptionEng);
-        Matrix.topWorksheetPdf(General.workingFolder, allTopicsAddSubtract.get(5).gradeEng, allTopicsAddSubtract.get(5).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(5).shortProblemDescriptionEng, allTopicsAddSubtract.get(5).longProblemDescriptionEng);
-        Matrix.topWorksheetHtmlAnswers(General.workingFolder, allTopicsAddSubtract.get(5).gradeEng, allTopicsAddSubtract.get(5).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(5).shortProblemDescriptionEng, allTopicsAddSubtract.get(5).longProblemDescriptionEng);
-        Matrix.addSubtractA1_B1LineWorksheetA4(General.workingFolder, allTopicsAddSubtract.get(5).gradeEng, allTopicsAddSubtract.get(5).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(5).shortProblemDescriptionEng, allTopicsAddSubtract.get(5).longProblemDescriptionEng,
-                allTopicsAddSubtract.get(5).numbersRangeStart, allTopicsAddSubtract.get(5).numbersRangeEnd, 10, 14, 5);
-        Matrix.bottomWorksheet(General.workingFolder, allTopicsAddSubtract.get(5).gradeEng, allTopicsAddSubtract.get(5).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(5).shortProblemDescriptionEng, allTopicsAddSubtract.get(5).longProblemDescriptionEng);
-        Matrix.fullWorksheet(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(5).gradeEng, allTopicsAddSubtract.get(5).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(5).shortProblemDescriptionEng, allTopicsAddSubtract.get(5).longProblemDescriptionEng);
-        Matrix.fullWorksheetPdf(General.workingFolder, General.readyFilesFolderPdf, allTopicsAddSubtract.get(5).gradeEng, allTopicsAddSubtract.get(5).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(5).shortProblemDescriptionEng, allTopicsAddSubtract.get(5).longProblemDescriptionEng);
-        Matrix.fullWorksheetHtmlAnswer(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(5).gradeEng, allTopicsAddSubtract.get(5).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(5).shortProblemDescriptionEng, allTopicsAddSubtract.get(5).longProblemDescriptionEng);
-        Matrix.allSameWorksheets(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(5).gradeEng, allTopicsAddSubtract.get(5).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(5).shortProblemDescriptionEng, allTopicsAddSubtract.get(5).longProblemDescriptionEng);
-        Matrix.finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(5).gradeEng, allTopicsAddSubtract.get(5).totalPageOfWorksheets, allTopicsAddSubtract.get(5).topicEng,
-                allTopicsAddSubtract.get(5).h2Eng, allTopicsAddSubtract.get(5).shortProblemDescriptionEng, allTopicsAddSubtract.get(5).longProblemDescriptionEng);
-
-        Matrix.topWorksheet(General.workingFolder, allTopicsAddSubtract.get(6).gradeEng, allTopicsAddSubtract.get(6).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(6).shortProblemDescriptionEng, allTopicsAddSubtract.get(6).longProblemDescriptionEng);
-        Matrix.topWorksheetPdf(General.workingFolder, allTopicsAddSubtract.get(6).gradeEng, allTopicsAddSubtract.get(6).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(6).shortProblemDescriptionEng, allTopicsAddSubtract.get(6).longProblemDescriptionEng);
-        Matrix.topWorksheetHtmlAnswers(General.workingFolder, allTopicsAddSubtract.get(6).gradeEng, allTopicsAddSubtract.get(6).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(6).shortProblemDescriptionEng, allTopicsAddSubtract.get(6).longProblemDescriptionEng);
-        Matrix.addSubtractA1_B1LineWorksheetA4(General.workingFolder, allTopicsAddSubtract.get(6).gradeEng, allTopicsAddSubtract.get(6).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(6).shortProblemDescriptionEng, allTopicsAddSubtract.get(6).longProblemDescriptionEng,
-                allTopicsAddSubtract.get(6).numbersRangeStart, allTopicsAddSubtract.get(6).numbersRangeEnd, 10, 14, 5);
-        Matrix.bottomWorksheet(General.workingFolder, allTopicsAddSubtract.get(6).gradeEng, allTopicsAddSubtract.get(6).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(6).shortProblemDescriptionEng, allTopicsAddSubtract.get(6).longProblemDescriptionEng);
-        Matrix.fullWorksheet(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(6).gradeEng, allTopicsAddSubtract.get(6).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(6).shortProblemDescriptionEng, allTopicsAddSubtract.get(6).longProblemDescriptionEng);
-        Matrix.fullWorksheetPdf(General.workingFolder, General.readyFilesFolderPdf, allTopicsAddSubtract.get(6).gradeEng, allTopicsAddSubtract.get(6).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(6).shortProblemDescriptionEng, allTopicsAddSubtract.get(6).longProblemDescriptionEng);
-        Matrix.fullWorksheetHtmlAnswer(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(6).gradeEng, allTopicsAddSubtract.get(6).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(6).shortProblemDescriptionEng, allTopicsAddSubtract.get(6).longProblemDescriptionEng);
-        Matrix.allSameWorksheets(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(6).gradeEng, allTopicsAddSubtract.get(6).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(6).shortProblemDescriptionEng, allTopicsAddSubtract.get(6).longProblemDescriptionEng);
-        Matrix.finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(6).gradeEng, allTopicsAddSubtract.get(6).totalPageOfWorksheets, allTopicsAddSubtract.get(6).topicEng,
-                allTopicsAddSubtract.get(6).h2Eng, allTopicsAddSubtract.get(6).shortProblemDescriptionEng, allTopicsAddSubtract.get(6).longProblemDescriptionEng);
-
-        Matrix.topWorksheet(General.workingFolder, allTopicsAddSubtract.get(7).gradeEng, allTopicsAddSubtract.get(7).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(7).shortProblemDescriptionEng, allTopicsAddSubtract.get(7).longProblemDescriptionEng);
-        Matrix.topWorksheetPdf(General.workingFolder, allTopicsAddSubtract.get(7).gradeEng, allTopicsAddSubtract.get(7).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(7).shortProblemDescriptionEng, allTopicsAddSubtract.get(7).longProblemDescriptionEng);
-        Matrix.topWorksheetHtmlAnswers(General.workingFolder, allTopicsAddSubtract.get(7).gradeEng, allTopicsAddSubtract.get(7).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(7).shortProblemDescriptionEng, allTopicsAddSubtract.get(7).longProblemDescriptionEng);
-        Matrix.addSubtractA1_B1LineWorksheetA4(General.workingFolder, allTopicsAddSubtract.get(7).gradeEng, allTopicsAddSubtract.get(7).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(7).shortProblemDescriptionEng, allTopicsAddSubtract.get(7).longProblemDescriptionEng,
-                allTopicsAddSubtract.get(7).numbersRangeStart, allTopicsAddSubtract.get(7).numbersRangeEnd, 10, 14, 5);
-        Matrix.bottomWorksheet(General.workingFolder, allTopicsAddSubtract.get(7).gradeEng, allTopicsAddSubtract.get(7).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(7).shortProblemDescriptionEng, allTopicsAddSubtract.get(7).longProblemDescriptionEng);
-        Matrix.fullWorksheet(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(7).gradeEng, allTopicsAddSubtract.get(7).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(7).shortProblemDescriptionEng, allTopicsAddSubtract.get(7).longProblemDescriptionEng);
-        Matrix.fullWorksheetPdf(General.workingFolder, General.readyFilesFolderPdf, allTopicsAddSubtract.get(7).gradeEng, allTopicsAddSubtract.get(7).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(7).shortProblemDescriptionEng, allTopicsAddSubtract.get(7).longProblemDescriptionEng);
-        Matrix.fullWorksheetHtmlAnswer(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(7).gradeEng, allTopicsAddSubtract.get(7).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(7).shortProblemDescriptionEng, allTopicsAddSubtract.get(7).longProblemDescriptionEng);
-        Matrix.allSameWorksheets(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(7).gradeEng, allTopicsAddSubtract.get(7).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(7).shortProblemDescriptionEng, allTopicsAddSubtract.get(7).longProblemDescriptionEng);
-        Matrix.finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(7).gradeEng, allTopicsAddSubtract.get(7).totalPageOfWorksheets, allTopicsAddSubtract.get(7).topicEng,
-                allTopicsAddSubtract.get(7).h2Eng, allTopicsAddSubtract.get(7).shortProblemDescriptionEng, allTopicsAddSubtract.get(7).longProblemDescriptionEng);
-
-        Matrix.topWorksheet(General.workingFolder, allTopicsAddSubtract.get(8).gradeEng, allTopicsAddSubtract.get(8).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(8).shortProblemDescriptionEng, allTopicsAddSubtract.get(8).longProblemDescriptionEng);
-        Matrix.topWorksheetPdf(General.workingFolder, allTopicsAddSubtract.get(8).gradeEng, allTopicsAddSubtract.get(8).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(8).shortProblemDescriptionEng, allTopicsAddSubtract.get(8).longProblemDescriptionEng);
-        Matrix.topWorksheetHtmlAnswers(General.workingFolder, allTopicsAddSubtract.get(8).gradeEng, allTopicsAddSubtract.get(8).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(8).shortProblemDescriptionEng, allTopicsAddSubtract.get(8).longProblemDescriptionEng);
-        Matrix.addSubtractA1_B1LineWorksheetA4(General.workingFolder, allTopicsAddSubtract.get(8).gradeEng, allTopicsAddSubtract.get(8).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(8).shortProblemDescriptionEng, allTopicsAddSubtract.get(8).longProblemDescriptionEng,
-                allTopicsAddSubtract.get(8).numbersRangeStart, allTopicsAddSubtract.get(8).numbersRangeEnd, 10, 14, 5);
-        Matrix.bottomWorksheet(General.workingFolder, allTopicsAddSubtract.get(8).gradeEng, allTopicsAddSubtract.get(8).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(8).shortProblemDescriptionEng, allTopicsAddSubtract.get(8).longProblemDescriptionEng);
-        Matrix.fullWorksheet(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(8).gradeEng, allTopicsAddSubtract.get(8).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(8).shortProblemDescriptionEng, allTopicsAddSubtract.get(8).longProblemDescriptionEng);
-        Matrix.fullWorksheetPdf(General.workingFolder, General.readyFilesFolderPdf, allTopicsAddSubtract.get(8).gradeEng, allTopicsAddSubtract.get(8).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(8).shortProblemDescriptionEng, allTopicsAddSubtract.get(8).longProblemDescriptionEng);
-        Matrix.fullWorksheetHtmlAnswer(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(8).gradeEng, allTopicsAddSubtract.get(8).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(8).shortProblemDescriptionEng, allTopicsAddSubtract.get(8).longProblemDescriptionEng);
-        Matrix.allSameWorksheets(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(8).gradeEng, allTopicsAddSubtract.get(8).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(8).shortProblemDescriptionEng, allTopicsAddSubtract.get(8).longProblemDescriptionEng);
-        Matrix.finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(8).gradeEng, allTopicsAddSubtract.get(8).totalPageOfWorksheets, allTopicsAddSubtract.get(8).topicEng,
-                allTopicsAddSubtract.get(8).h2Eng, allTopicsAddSubtract.get(8).shortProblemDescriptionEng, allTopicsAddSubtract.get(8).longProblemDescriptionEng);
-
-        Matrix.topWorksheet(General.workingFolder, allTopicsAddSubtract.get(9).gradeEng, allTopicsAddSubtract.get(9).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(9).shortProblemDescriptionEng, allTopicsAddSubtract.get(9).longProblemDescriptionEng);
-        Matrix.topWorksheetPdf(General.workingFolder, allTopicsAddSubtract.get(9).gradeEng, allTopicsAddSubtract.get(9).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(9).shortProblemDescriptionEng, allTopicsAddSubtract.get(9).longProblemDescriptionEng);
-        Matrix.topWorksheetHtmlAnswers(General.workingFolder, allTopicsAddSubtract.get(9).gradeEng, allTopicsAddSubtract.get(9).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(9).shortProblemDescriptionEng, allTopicsAddSubtract.get(9).longProblemDescriptionEng);
-        Matrix.addSubtractA1_B1LineWorksheetA4(General.workingFolder, allTopicsAddSubtract.get(9).gradeEng, allTopicsAddSubtract.get(9).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(9).shortProblemDescriptionEng, allTopicsAddSubtract.get(9).longProblemDescriptionEng,
-                allTopicsAddSubtract.get(9).numbersRangeStart, allTopicsAddSubtract.get(9).numbersRangeEnd, 10, 14, 5);
-        Matrix.bottomWorksheet(General.workingFolder, allTopicsAddSubtract.get(9).gradeEng, allTopicsAddSubtract.get(9).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(9).shortProblemDescriptionEng, allTopicsAddSubtract.get(9).longProblemDescriptionEng);
-        Matrix.fullWorksheet(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(9).gradeEng, allTopicsAddSubtract.get(9).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(9).shortProblemDescriptionEng, allTopicsAddSubtract.get(9).longProblemDescriptionEng);
-        Matrix.fullWorksheetPdf(General.workingFolder, General.readyFilesFolderPdf, allTopicsAddSubtract.get(9).gradeEng, allTopicsAddSubtract.get(9).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(9).shortProblemDescriptionEng, allTopicsAddSubtract.get(9).longProblemDescriptionEng);
-        Matrix.fullWorksheetHtmlAnswer(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(9).gradeEng, allTopicsAddSubtract.get(9).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(9).shortProblemDescriptionEng, allTopicsAddSubtract.get(9).longProblemDescriptionEng);
-        Matrix.allSameWorksheets(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(9).gradeEng, allTopicsAddSubtract.get(9).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(9).shortProblemDescriptionEng, allTopicsAddSubtract.get(9).longProblemDescriptionEng);
-        Matrix.finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(9).gradeEng, allTopicsAddSubtract.get(9).totalPageOfWorksheets, allTopicsAddSubtract.get(9).topicEng,
-                allTopicsAddSubtract.get(9).h2Eng, allTopicsAddSubtract.get(9).shortProblemDescriptionEng, allTopicsAddSubtract.get(9).longProblemDescriptionEng);
-
-        Matrix.topWorksheet(General.workingFolder, allTopicsAddSubtract.get(10).gradeEng, allTopicsAddSubtract.get(10).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(10).shortProblemDescriptionEng, allTopicsAddSubtract.get(10).longProblemDescriptionEng);
-        Matrix.topWorksheetPdf(General.workingFolder, allTopicsAddSubtract.get(10).gradeEng, allTopicsAddSubtract.get(10).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(10).shortProblemDescriptionEng, allTopicsAddSubtract.get(10).longProblemDescriptionEng);
-        Matrix.topWorksheetHtmlAnswers(General.workingFolder, allTopicsAddSubtract.get(10).gradeEng, allTopicsAddSubtract.get(10).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(10).shortProblemDescriptionEng, allTopicsAddSubtract.get(10).longProblemDescriptionEng);
-        Matrix.addSubtractA1_B1LineWorksheetA4(General.workingFolder, allTopicsAddSubtract.get(10).gradeEng, allTopicsAddSubtract.get(10).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(10).shortProblemDescriptionEng, allTopicsAddSubtract.get(10).longProblemDescriptionEng,
-                allTopicsAddSubtract.get(10).numbersRangeStart, allTopicsAddSubtract.get(10).numbersRangeEnd, 10, 14, 5);
-        Matrix.bottomWorksheet(General.workingFolder, allTopicsAddSubtract.get(10).gradeEng, allTopicsAddSubtract.get(10).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(10).shortProblemDescriptionEng, allTopicsAddSubtract.get(10).longProblemDescriptionEng);
-        Matrix.fullWorksheet(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(10).gradeEng, allTopicsAddSubtract.get(10).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(10).shortProblemDescriptionEng, allTopicsAddSubtract.get(10).longProblemDescriptionEng);
-        Matrix.fullWorksheetPdf(General.workingFolder, General.readyFilesFolderPdf, allTopicsAddSubtract.get(10).gradeEng, allTopicsAddSubtract.get(10).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(10).shortProblemDescriptionEng, allTopicsAddSubtract.get(10).longProblemDescriptionEng);
-        Matrix.fullWorksheetHtmlAnswer(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(10).gradeEng, allTopicsAddSubtract.get(10).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(10).shortProblemDescriptionEng, allTopicsAddSubtract.get(10).longProblemDescriptionEng);
-        Matrix.allSameWorksheets(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(10).gradeEng, allTopicsAddSubtract.get(10).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(10).shortProblemDescriptionEng, allTopicsAddSubtract.get(10).longProblemDescriptionEng);
-        Matrix.finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(10).gradeEng, allTopicsAddSubtract.get(10).totalPageOfWorksheets, allTopicsAddSubtract.get(10).topicEng,
-                allTopicsAddSubtract.get(10).h2Eng, allTopicsAddSubtract.get(10).shortProblemDescriptionEng, allTopicsAddSubtract.get(10).longProblemDescriptionEng);
-
-        Matrix.topWorksheet(General.workingFolder, allTopicsAddSubtract.get(11).gradeEng, allTopicsAddSubtract.get(11).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(11).shortProblemDescriptionEng, allTopicsAddSubtract.get(11).longProblemDescriptionEng);
-        Matrix.topWorksheetPdf(General.workingFolder, allTopicsAddSubtract.get(11).gradeEng, allTopicsAddSubtract.get(11).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(11).shortProblemDescriptionEng, allTopicsAddSubtract.get(11).longProblemDescriptionEng);
-        Matrix.topWorksheetHtmlAnswers(General.workingFolder, allTopicsAddSubtract.get(11).gradeEng, allTopicsAddSubtract.get(11).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(11).shortProblemDescriptionEng, allTopicsAddSubtract.get(11).longProblemDescriptionEng);
-        Matrix.addSubtractA1_B1LineWorksheetA4(General.workingFolder, allTopicsAddSubtract.get(11).gradeEng, allTopicsAddSubtract.get(11).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(11).shortProblemDescriptionEng, allTopicsAddSubtract.get(11).longProblemDescriptionEng,
-                allTopicsAddSubtract.get(11).numbersRangeStart, allTopicsAddSubtract.get(11).numbersRangeEnd, 10, 14, 5);
-        Matrix.bottomWorksheet(General.workingFolder, allTopicsAddSubtract.get(11).gradeEng, allTopicsAddSubtract.get(11).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(11).shortProblemDescriptionEng, allTopicsAddSubtract.get(11).longProblemDescriptionEng);
-        Matrix.fullWorksheet(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(11).gradeEng, allTopicsAddSubtract.get(11).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(11).shortProblemDescriptionEng, allTopicsAddSubtract.get(11).longProblemDescriptionEng);
-        Matrix.fullWorksheetPdf(General.workingFolder, General.readyFilesFolderPdf, allTopicsAddSubtract.get(11).gradeEng, allTopicsAddSubtract.get(11).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(11).shortProblemDescriptionEng, allTopicsAddSubtract.get(11).longProblemDescriptionEng);
-        Matrix.fullWorksheetHtmlAnswer(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(11).gradeEng, allTopicsAddSubtract.get(11).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(11).shortProblemDescriptionEng, allTopicsAddSubtract.get(11).longProblemDescriptionEng);
-        Matrix.allSameWorksheets(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(11).gradeEng, allTopicsAddSubtract.get(11).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(11).shortProblemDescriptionEng, allTopicsAddSubtract.get(11).longProblemDescriptionEng);
-        Matrix.finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(11).gradeEng, allTopicsAddSubtract.get(11).totalPageOfWorksheets, allTopicsAddSubtract.get(11).topicEng,
-                allTopicsAddSubtract.get(11).h2Eng, allTopicsAddSubtract.get(11).shortProblemDescriptionEng, allTopicsAddSubtract.get(11).longProblemDescriptionEng);
-
-        Matrix.topWorksheet(General.workingFolder, allTopicsAddSubtract.get(12).gradeEng, allTopicsAddSubtract.get(12).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(12).shortProblemDescriptionEng, allTopicsAddSubtract.get(12).longProblemDescriptionEng);
-        Matrix.topWorksheetPdf(General.workingFolder, allTopicsAddSubtract.get(12).gradeEng, allTopicsAddSubtract.get(12).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(12).shortProblemDescriptionEng, allTopicsAddSubtract.get(12).longProblemDescriptionEng);
-        Matrix.topWorksheetHtmlAnswers(General.workingFolder, allTopicsAddSubtract.get(12).gradeEng, allTopicsAddSubtract.get(12).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(12).shortProblemDescriptionEng, allTopicsAddSubtract.get(12).longProblemDescriptionEng);
-        Matrix.addSubtractA1_B1LineWorksheetA4(General.workingFolder, allTopicsAddSubtract.get(12).gradeEng, allTopicsAddSubtract.get(12).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(12).shortProblemDescriptionEng, allTopicsAddSubtract.get(12).longProblemDescriptionEng,
-                allTopicsAddSubtract.get(12).numbersRangeStart, allTopicsAddSubtract.get(12).numbersRangeEnd, 10, 14, 5);
-        Matrix.bottomWorksheet(General.workingFolder, allTopicsAddSubtract.get(12).gradeEng, allTopicsAddSubtract.get(12).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(12).shortProblemDescriptionEng, allTopicsAddSubtract.get(12).longProblemDescriptionEng);
-        Matrix.fullWorksheet(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(12).gradeEng, allTopicsAddSubtract.get(12).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(12).shortProblemDescriptionEng, allTopicsAddSubtract.get(12).longProblemDescriptionEng);
-        Matrix.fullWorksheetPdf(General.workingFolder, General.readyFilesFolderPdf, allTopicsAddSubtract.get(12).gradeEng, allTopicsAddSubtract.get(12).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(12).shortProblemDescriptionEng, allTopicsAddSubtract.get(12).longProblemDescriptionEng);
-        Matrix.fullWorksheetHtmlAnswer(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(12).gradeEng, allTopicsAddSubtract.get(12).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(12).shortProblemDescriptionEng, allTopicsAddSubtract.get(12).longProblemDescriptionEng);
-        Matrix.allSameWorksheets(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(12).gradeEng, allTopicsAddSubtract.get(12).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(12).shortProblemDescriptionEng, allTopicsAddSubtract.get(12).longProblemDescriptionEng);
-        Matrix.finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(12).gradeEng, allTopicsAddSubtract.get(12).totalPageOfWorksheets, allTopicsAddSubtract.get(12).topicEng,
-                allTopicsAddSubtract.get(12).h2Eng, allTopicsAddSubtract.get(12).shortProblemDescriptionEng, allTopicsAddSubtract.get(12).longProblemDescriptionEng);
+        Matrix.topWorksheet(General.workingFolder, additionSubtractionWorksheets.get(14).gradeRus, additionSubtractionWorksheets.get(14).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(14).shortProblemDescriptionRus, additionSubtractionWorksheets.get(14).longProblemDescriptionRus);
+        Matrix.topWorksheetPdf(General.workingFolder, additionSubtractionWorksheets.get(14).gradeRus, additionSubtractionWorksheets.get(14).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(14).shortProblemDescriptionRus, additionSubtractionWorksheets.get(14).longProblemDescriptionRus);
+        Matrix.topWorksheetHtmlAnswers(General.workingFolder, additionSubtractionWorksheets.get(14).gradeRus, additionSubtractionWorksheets.get(14).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(14).shortProblemDescriptionRus, additionSubtractionWorksheets.get(14).longProblemDescriptionRus);
+        Matrix.addSubtractA1_B1LineWorksheetA4(General.workingFolder, additionSubtractionWorksheets.get(14).gradeRus, additionSubtractionWorksheets.get(14).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(14).shortProblemDescriptionRus, additionSubtractionWorksheets.get(14).longProblemDescriptionRus,
+                additionSubtractionWorksheets.get(14).numbersRangeStart, additionSubtractionWorksheets.get(14).numbersRangeEnd, 10, 14, 5);
+        Matrix.bottomWorksheet(General.workingFolder, additionSubtractionWorksheets.get(14).gradeRus, additionSubtractionWorksheets.get(14).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(14).shortProblemDescriptionRus, additionSubtractionWorksheets.get(14).longProblemDescriptionRus);
+        Matrix.fullWorksheet(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(14).gradeRus, additionSubtractionWorksheets.get(14).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(14).shortProblemDescriptionRus, additionSubtractionWorksheets.get(14).longProblemDescriptionRus);
+        Matrix.fullWorksheetPdf(General.workingFolder, General.readyFilesFolderPdf, additionSubtractionWorksheets.get(14).gradeRus, additionSubtractionWorksheets.get(14).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(14).shortProblemDescriptionRus, additionSubtractionWorksheets.get(14).longProblemDescriptionRus);
+        Matrix.fullWorksheetHtmlAnswer(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(14).gradeRus, additionSubtractionWorksheets.get(14).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(14).shortProblemDescriptionRus, additionSubtractionWorksheets.get(14).longProblemDescriptionRus);
+        Matrix.allSameWorksheets(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(14).gradeRus, additionSubtractionWorksheets.get(14).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(14).shortProblemDescriptionRus, additionSubtractionWorksheets.get(14).longProblemDescriptionRus);
+        Matrix.finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(14).gradeRus, additionSubtractionWorksheets.get(14).totalPageOfWorksheets, additionSubtractionWorksheets.get(14).topicRus,
+                additionSubtractionWorksheets.get(14).h2Rus, additionSubtractionWorksheets.get(14).shortProblemDescriptionRus, additionSubtractionWorksheets.get(14).longProblemDescriptionRus);
 
 
-        Matrix.topWorksheet(General.workingFolder, allTopicsAddSubtract.get(13).gradeEng, allTopicsAddSubtract.get(13).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(13).shortProblemDescriptionEng, allTopicsAddSubtract.get(13).longProblemDescriptionEng);
-        Matrix.topWorksheetPdf(General.workingFolder, allTopicsAddSubtract.get(13).gradeEng, allTopicsAddSubtract.get(13).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(13).shortProblemDescriptionEng, allTopicsAddSubtract.get(13).longProblemDescriptionEng);
-        Matrix.topWorksheetHtmlAnswers(General.workingFolder, allTopicsAddSubtract.get(13).gradeEng, allTopicsAddSubtract.get(13).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(13).shortProblemDescriptionEng, allTopicsAddSubtract.get(13).longProblemDescriptionEng);
-        Matrix.addSubtractA1_B1LineWorksheetA4(General.workingFolder, allTopicsAddSubtract.get(13).gradeEng, allTopicsAddSubtract.get(13).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(13).shortProblemDescriptionEng, allTopicsAddSubtract.get(13).longProblemDescriptionEng,
-                allTopicsAddSubtract.get(13).numbersRangeStart, allTopicsAddSubtract.get(13).numbersRangeEnd, 10, 14, 5);
-        Matrix.bottomWorksheet(General.workingFolder, allTopicsAddSubtract.get(13).gradeEng, allTopicsAddSubtract.get(13).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(13).shortProblemDescriptionEng, allTopicsAddSubtract.get(13).longProblemDescriptionEng);
-        Matrix.fullWorksheet(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(13).gradeEng, allTopicsAddSubtract.get(13).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(13).shortProblemDescriptionEng, allTopicsAddSubtract.get(13).longProblemDescriptionEng);
-        Matrix.fullWorksheetPdf(General.workingFolder, General.readyFilesFolderPdf, allTopicsAddSubtract.get(13).gradeEng, allTopicsAddSubtract.get(13).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(13).shortProblemDescriptionEng, allTopicsAddSubtract.get(13).longProblemDescriptionEng);
-        Matrix.fullWorksheetHtmlAnswer(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(13).gradeEng, allTopicsAddSubtract.get(13).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(13).shortProblemDescriptionEng, allTopicsAddSubtract.get(13).longProblemDescriptionEng);
-        Matrix.allSameWorksheets(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(13).gradeEng, allTopicsAddSubtract.get(13).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(13).shortProblemDescriptionEng, allTopicsAddSubtract.get(13).longProblemDescriptionEng);
-        Matrix.finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(13).gradeEng, allTopicsAddSubtract.get(13).totalPageOfWorksheets, allTopicsAddSubtract.get(13).topicEng,
-                allTopicsAddSubtract.get(13).h2Eng, allTopicsAddSubtract.get(13).shortProblemDescriptionEng, allTopicsAddSubtract.get(13).longProblemDescriptionEng);
+        Matrix.topWorksheet(General.workingFolder, additionSubtractionWorksheets.get(0).gradeEng, additionSubtractionWorksheets.get(0).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(0).shortProblemDescriptionEng, additionSubtractionWorksheets.get(0).longProblemDescriptionEng);
+        Matrix.topWorksheetPdf(General.workingFolder, additionSubtractionWorksheets.get(0).gradeEng, additionSubtractionWorksheets.get(0).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(0).shortProblemDescriptionEng, additionSubtractionWorksheets.get(0).longProblemDescriptionEng);
+        Matrix.topWorksheetHtmlAnswers(General.workingFolder, additionSubtractionWorksheets.get(0).gradeEng, additionSubtractionWorksheets.get(0).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(0).shortProblemDescriptionEng, additionSubtractionWorksheets.get(0).longProblemDescriptionEng);
+        Matrix.addSubtractA1_B1LineWorksheetA4(General.workingFolder, additionSubtractionWorksheets.get(0).gradeEng, additionSubtractionWorksheets.get(0).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(0).shortProblemDescriptionEng, additionSubtractionWorksheets.get(0).longProblemDescriptionEng,
+                additionSubtractionWorksheets.get(0).numbersRangeStart, additionSubtractionWorksheets.get(0).numbersRangeEnd, 10, 15, 5);
+        Matrix.bottomWorksheet(General.workingFolder, additionSubtractionWorksheets.get(0).gradeEng, additionSubtractionWorksheets.get(0).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(0).shortProblemDescriptionEng, additionSubtractionWorksheets.get(0).longProblemDescriptionEng);
+        Matrix.fullWorksheet(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(0).gradeEng, additionSubtractionWorksheets.get(0).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(0).shortProblemDescriptionEng, additionSubtractionWorksheets.get(0).longProblemDescriptionEng);
+        Matrix.fullWorksheetPdf(General.workingFolder, General.readyFilesFolderPdf, additionSubtractionWorksheets.get(0).gradeEng, additionSubtractionWorksheets.get(0).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(0).shortProblemDescriptionEng, additionSubtractionWorksheets.get(0).longProblemDescriptionEng);
+        Matrix.fullWorksheetHtmlAnswer(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(0).gradeEng, additionSubtractionWorksheets.get(0).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(0).shortProblemDescriptionEng, additionSubtractionWorksheets.get(0).longProblemDescriptionEng);
+        Matrix.allSameWorksheets(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(0).gradeEng, additionSubtractionWorksheets.get(0).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(0).shortProblemDescriptionEng, additionSubtractionWorksheets.get(0).longProblemDescriptionEng);
+        Matrix.finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(0).gradeEng, additionSubtractionWorksheets.get(0).totalPageOfWorksheets, additionSubtractionWorksheets.get(0).topicEng,
+                additionSubtractionWorksheets.get(0).h2Eng, additionSubtractionWorksheets.get(0).shortProblemDescriptionEng, additionSubtractionWorksheets.get(0).longProblemDescriptionEng);
+
+        Matrix.topWorksheet(General.workingFolder, additionSubtractionWorksheets.get(1).gradeEng, additionSubtractionWorksheets.get(1).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(1).shortProblemDescriptionEng, additionSubtractionWorksheets.get(1).longProblemDescriptionEng);
+        Matrix.topWorksheetPdf(General.workingFolder, additionSubtractionWorksheets.get(1).gradeEng, additionSubtractionWorksheets.get(1).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(1).shortProblemDescriptionEng, additionSubtractionWorksheets.get(1).longProblemDescriptionEng);
+        Matrix.topWorksheetHtmlAnswers(General.workingFolder, additionSubtractionWorksheets.get(1).gradeEng, additionSubtractionWorksheets.get(1).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(1).shortProblemDescriptionEng, additionSubtractionWorksheets.get(1).longProblemDescriptionEng);
+        Matrix.addSubtractA1_B1LineWorksheetA4(General.workingFolder, additionSubtractionWorksheets.get(1).gradeEng, additionSubtractionWorksheets.get(1).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(1).shortProblemDescriptionEng, additionSubtractionWorksheets.get(1).longProblemDescriptionEng,
+                additionSubtractionWorksheets.get(1).numbersRangeStart, additionSubtractionWorksheets.get(1).numbersRangeEnd, 10, 15, 5);
+        Matrix.bottomWorksheet(General.workingFolder, additionSubtractionWorksheets.get(1).gradeEng, additionSubtractionWorksheets.get(1).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(1).shortProblemDescriptionEng, additionSubtractionWorksheets.get(1).longProblemDescriptionEng);
+        Matrix.fullWorksheet(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(1).gradeEng, additionSubtractionWorksheets.get(1).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(1).shortProblemDescriptionEng, additionSubtractionWorksheets.get(1).longProblemDescriptionEng);
+        Matrix.fullWorksheetPdf(General.workingFolder, General.readyFilesFolderPdf, additionSubtractionWorksheets.get(1).gradeEng, additionSubtractionWorksheets.get(1).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(1).shortProblemDescriptionEng, additionSubtractionWorksheets.get(1).longProblemDescriptionEng);
+        Matrix.fullWorksheetHtmlAnswer(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(1).gradeEng, additionSubtractionWorksheets.get(1).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(1).shortProblemDescriptionEng, additionSubtractionWorksheets.get(1).longProblemDescriptionEng);
+        Matrix.allSameWorksheets(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(1).gradeEng, additionSubtractionWorksheets.get(1).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(1).shortProblemDescriptionEng, additionSubtractionWorksheets.get(1).longProblemDescriptionEng);
+        Matrix.finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(1).gradeEng, additionSubtractionWorksheets.get(1).totalPageOfWorksheets, additionSubtractionWorksheets.get(1).topicEng,
+                additionSubtractionWorksheets.get(1).h2Eng, additionSubtractionWorksheets.get(1).shortProblemDescriptionEng, additionSubtractionWorksheets.get(1).longProblemDescriptionEng);
+
+        Matrix.topWorksheet(General.workingFolder, additionSubtractionWorksheets.get(2).gradeEng, additionSubtractionWorksheets.get(2).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(2).shortProblemDescriptionEng, additionSubtractionWorksheets.get(2).longProblemDescriptionEng);
+        Matrix.topWorksheetPdf(General.workingFolder, additionSubtractionWorksheets.get(2).gradeEng, additionSubtractionWorksheets.get(2).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(2).shortProblemDescriptionEng, additionSubtractionWorksheets.get(2).longProblemDescriptionEng);
+        Matrix.topWorksheetHtmlAnswers(General.workingFolder, additionSubtractionWorksheets.get(2).gradeEng, additionSubtractionWorksheets.get(2).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(2).shortProblemDescriptionEng, additionSubtractionWorksheets.get(2).longProblemDescriptionEng);
+        Matrix.addSubtractA1_B1LineWorksheetA4(General.workingFolder, additionSubtractionWorksheets.get(2).gradeEng, additionSubtractionWorksheets.get(2).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(2).shortProblemDescriptionEng, additionSubtractionWorksheets.get(2).longProblemDescriptionEng,
+                additionSubtractionWorksheets.get(2).numbersRangeStart, additionSubtractionWorksheets.get(2).numbersRangeEnd, 10, 14, 5);
+        Matrix.bottomWorksheet(General.workingFolder, additionSubtractionWorksheets.get(2).gradeEng, additionSubtractionWorksheets.get(2).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(2).shortProblemDescriptionEng, additionSubtractionWorksheets.get(2).longProblemDescriptionEng);
+        Matrix.fullWorksheet(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(2).gradeEng, additionSubtractionWorksheets.get(2).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(2).shortProblemDescriptionEng, additionSubtractionWorksheets.get(2).longProblemDescriptionEng);
+        Matrix.fullWorksheetPdf(General.workingFolder, General.readyFilesFolderPdf, additionSubtractionWorksheets.get(2).gradeEng, additionSubtractionWorksheets.get(2).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(2).shortProblemDescriptionEng, additionSubtractionWorksheets.get(2).longProblemDescriptionEng);
+        Matrix.fullWorksheetHtmlAnswer(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(2).gradeEng, additionSubtractionWorksheets.get(2).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(2).shortProblemDescriptionEng, additionSubtractionWorksheets.get(2).longProblemDescriptionEng);
+        Matrix.allSameWorksheets(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(2).gradeEng, additionSubtractionWorksheets.get(2).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(2).shortProblemDescriptionEng, additionSubtractionWorksheets.get(2).longProblemDescriptionEng);
+        Matrix.finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(2).gradeEng, additionSubtractionWorksheets.get(2).totalPageOfWorksheets, additionSubtractionWorksheets.get(2).topicEng,
+                additionSubtractionWorksheets.get(2).h2Eng, additionSubtractionWorksheets.get(2).shortProblemDescriptionEng, additionSubtractionWorksheets.get(2).longProblemDescriptionEng);
+
+        Matrix.topWorksheet(General.workingFolder, additionSubtractionWorksheets.get(3).gradeEng, additionSubtractionWorksheets.get(3).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(3).shortProblemDescriptionEng, additionSubtractionWorksheets.get(3).longProblemDescriptionEng);
+        Matrix.topWorksheetPdf(General.workingFolder, additionSubtractionWorksheets.get(3).gradeEng, additionSubtractionWorksheets.get(3).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(3).shortProblemDescriptionEng, additionSubtractionWorksheets.get(3).longProblemDescriptionEng);
+        Matrix.topWorksheetHtmlAnswers(General.workingFolder, additionSubtractionWorksheets.get(3).gradeEng, additionSubtractionWorksheets.get(3).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(3).shortProblemDescriptionEng, additionSubtractionWorksheets.get(3).longProblemDescriptionEng);
+        Matrix.addSubtractA1_B1LineWorksheetA4(General.workingFolder, additionSubtractionWorksheets.get(3).gradeEng, additionSubtractionWorksheets.get(3).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(3).shortProblemDescriptionEng, additionSubtractionWorksheets.get(3).longProblemDescriptionEng,
+                additionSubtractionWorksheets.get(3).numbersRangeStart, additionSubtractionWorksheets.get(3).numbersRangeEnd, 10, 14, 5);
+        Matrix.bottomWorksheet(General.workingFolder, additionSubtractionWorksheets.get(3).gradeEng, additionSubtractionWorksheets.get(3).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(3).shortProblemDescriptionEng, additionSubtractionWorksheets.get(3).longProblemDescriptionEng);
+        Matrix.fullWorksheet(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(3).gradeEng, additionSubtractionWorksheets.get(3).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(3).shortProblemDescriptionEng, additionSubtractionWorksheets.get(3).longProblemDescriptionEng);
+        Matrix.fullWorksheetPdf(General.workingFolder, General.readyFilesFolderPdf, additionSubtractionWorksheets.get(3).gradeEng, additionSubtractionWorksheets.get(3).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(3).shortProblemDescriptionEng, additionSubtractionWorksheets.get(3).longProblemDescriptionEng);
+        Matrix.fullWorksheetHtmlAnswer(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(3).gradeEng, additionSubtractionWorksheets.get(3).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(3).shortProblemDescriptionEng, additionSubtractionWorksheets.get(3).longProblemDescriptionEng);
+        Matrix.allSameWorksheets(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(3).gradeEng, additionSubtractionWorksheets.get(3).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(3).shortProblemDescriptionEng, additionSubtractionWorksheets.get(3).longProblemDescriptionEng);
+        Matrix.finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(3).gradeEng, additionSubtractionWorksheets.get(3).totalPageOfWorksheets, additionSubtractionWorksheets.get(3).topicEng,
+                additionSubtractionWorksheets.get(3).h2Eng, additionSubtractionWorksheets.get(3).shortProblemDescriptionEng, additionSubtractionWorksheets.get(3).longProblemDescriptionEng);
+
+        Matrix.topWorksheet(General.workingFolder, additionSubtractionWorksheets.get(4).gradeEng, additionSubtractionWorksheets.get(4).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(4).shortProblemDescriptionEng, additionSubtractionWorksheets.get(4).longProblemDescriptionEng);
+        Matrix.topWorksheetPdf(General.workingFolder, additionSubtractionWorksheets.get(4).gradeEng, additionSubtractionWorksheets.get(4).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(4).shortProblemDescriptionEng, additionSubtractionWorksheets.get(4).longProblemDescriptionEng);
+        Matrix.topWorksheetHtmlAnswers(General.workingFolder, additionSubtractionWorksheets.get(4).gradeEng, additionSubtractionWorksheets.get(4).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(4).shortProblemDescriptionEng, additionSubtractionWorksheets.get(4).longProblemDescriptionEng);
+        Matrix.addSubtractA1_B1LineWorksheetA4(General.workingFolder, additionSubtractionWorksheets.get(4).gradeEng, additionSubtractionWorksheets.get(4).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(4).shortProblemDescriptionEng, additionSubtractionWorksheets.get(4).longProblemDescriptionEng,
+                additionSubtractionWorksheets.get(4).numbersRangeStart, additionSubtractionWorksheets.get(4).numbersRangeEnd, 10, 14, 5);
+        Matrix.bottomWorksheet(General.workingFolder, additionSubtractionWorksheets.get(4).gradeEng, additionSubtractionWorksheets.get(4).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(4).shortProblemDescriptionEng, additionSubtractionWorksheets.get(4).longProblemDescriptionEng);
+        Matrix.fullWorksheet(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(4).gradeEng, additionSubtractionWorksheets.get(4).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(4).shortProblemDescriptionEng, additionSubtractionWorksheets.get(4).longProblemDescriptionEng);
+        Matrix.fullWorksheetPdf(General.workingFolder, General.readyFilesFolderPdf, additionSubtractionWorksheets.get(4).gradeEng, additionSubtractionWorksheets.get(4).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(4).shortProblemDescriptionEng, additionSubtractionWorksheets.get(4).longProblemDescriptionEng);
+        Matrix.fullWorksheetHtmlAnswer(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(4).gradeEng, additionSubtractionWorksheets.get(4).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(4).shortProblemDescriptionEng, additionSubtractionWorksheets.get(4).longProblemDescriptionEng);
+        Matrix.allSameWorksheets(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(4).gradeEng, additionSubtractionWorksheets.get(4).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(4).shortProblemDescriptionEng, additionSubtractionWorksheets.get(4).longProblemDescriptionEng);
+        Matrix.finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(4).gradeEng, additionSubtractionWorksheets.get(4).totalPageOfWorksheets, additionSubtractionWorksheets.get(4).topicEng,
+                additionSubtractionWorksheets.get(4).h2Eng, additionSubtractionWorksheets.get(4).shortProblemDescriptionEng, additionSubtractionWorksheets.get(4).longProblemDescriptionEng);
+
+        Matrix.topWorksheet(General.workingFolder, additionSubtractionWorksheets.get(5).gradeEng, additionSubtractionWorksheets.get(5).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(5).shortProblemDescriptionEng, additionSubtractionWorksheets.get(5).longProblemDescriptionEng);
+        Matrix.topWorksheetPdf(General.workingFolder, additionSubtractionWorksheets.get(5).gradeEng, additionSubtractionWorksheets.get(5).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(5).shortProblemDescriptionEng, additionSubtractionWorksheets.get(5).longProblemDescriptionEng);
+        Matrix.topWorksheetHtmlAnswers(General.workingFolder, additionSubtractionWorksheets.get(5).gradeEng, additionSubtractionWorksheets.get(5).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(5).shortProblemDescriptionEng, additionSubtractionWorksheets.get(5).longProblemDescriptionEng);
+        Matrix.addSubtractA1_B1LineWorksheetA4(General.workingFolder, additionSubtractionWorksheets.get(5).gradeEng, additionSubtractionWorksheets.get(5).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(5).shortProblemDescriptionEng, additionSubtractionWorksheets.get(5).longProblemDescriptionEng,
+                additionSubtractionWorksheets.get(5).numbersRangeStart, additionSubtractionWorksheets.get(5).numbersRangeEnd, 10, 14, 5);
+        Matrix.bottomWorksheet(General.workingFolder, additionSubtractionWorksheets.get(5).gradeEng, additionSubtractionWorksheets.get(5).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(5).shortProblemDescriptionEng, additionSubtractionWorksheets.get(5).longProblemDescriptionEng);
+        Matrix.fullWorksheet(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(5).gradeEng, additionSubtractionWorksheets.get(5).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(5).shortProblemDescriptionEng, additionSubtractionWorksheets.get(5).longProblemDescriptionEng);
+        Matrix.fullWorksheetPdf(General.workingFolder, General.readyFilesFolderPdf, additionSubtractionWorksheets.get(5).gradeEng, additionSubtractionWorksheets.get(5).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(5).shortProblemDescriptionEng, additionSubtractionWorksheets.get(5).longProblemDescriptionEng);
+        Matrix.fullWorksheetHtmlAnswer(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(5).gradeEng, additionSubtractionWorksheets.get(5).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(5).shortProblemDescriptionEng, additionSubtractionWorksheets.get(5).longProblemDescriptionEng);
+        Matrix.allSameWorksheets(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(5).gradeEng, additionSubtractionWorksheets.get(5).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(5).shortProblemDescriptionEng, additionSubtractionWorksheets.get(5).longProblemDescriptionEng);
+        Matrix.finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(5).gradeEng, additionSubtractionWorksheets.get(5).totalPageOfWorksheets, additionSubtractionWorksheets.get(5).topicEng,
+                additionSubtractionWorksheets.get(5).h2Eng, additionSubtractionWorksheets.get(5).shortProblemDescriptionEng, additionSubtractionWorksheets.get(5).longProblemDescriptionEng);
+
+        Matrix.topWorksheet(General.workingFolder, additionSubtractionWorksheets.get(6).gradeEng, additionSubtractionWorksheets.get(6).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(6).shortProblemDescriptionEng, additionSubtractionWorksheets.get(6).longProblemDescriptionEng);
+        Matrix.topWorksheetPdf(General.workingFolder, additionSubtractionWorksheets.get(6).gradeEng, additionSubtractionWorksheets.get(6).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(6).shortProblemDescriptionEng, additionSubtractionWorksheets.get(6).longProblemDescriptionEng);
+        Matrix.topWorksheetHtmlAnswers(General.workingFolder, additionSubtractionWorksheets.get(6).gradeEng, additionSubtractionWorksheets.get(6).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(6).shortProblemDescriptionEng, additionSubtractionWorksheets.get(6).longProblemDescriptionEng);
+        Matrix.addSubtractA1_B1LineWorksheetA4(General.workingFolder, additionSubtractionWorksheets.get(6).gradeEng, additionSubtractionWorksheets.get(6).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(6).shortProblemDescriptionEng, additionSubtractionWorksheets.get(6).longProblemDescriptionEng,
+                additionSubtractionWorksheets.get(6).numbersRangeStart, additionSubtractionWorksheets.get(6).numbersRangeEnd, 10, 14, 5);
+        Matrix.bottomWorksheet(General.workingFolder, additionSubtractionWorksheets.get(6).gradeEng, additionSubtractionWorksheets.get(6).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(6).shortProblemDescriptionEng, additionSubtractionWorksheets.get(6).longProblemDescriptionEng);
+        Matrix.fullWorksheet(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(6).gradeEng, additionSubtractionWorksheets.get(6).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(6).shortProblemDescriptionEng, additionSubtractionWorksheets.get(6).longProblemDescriptionEng);
+        Matrix.fullWorksheetPdf(General.workingFolder, General.readyFilesFolderPdf, additionSubtractionWorksheets.get(6).gradeEng, additionSubtractionWorksheets.get(6).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(6).shortProblemDescriptionEng, additionSubtractionWorksheets.get(6).longProblemDescriptionEng);
+        Matrix.fullWorksheetHtmlAnswer(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(6).gradeEng, additionSubtractionWorksheets.get(6).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(6).shortProblemDescriptionEng, additionSubtractionWorksheets.get(6).longProblemDescriptionEng);
+        Matrix.allSameWorksheets(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(6).gradeEng, additionSubtractionWorksheets.get(6).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(6).shortProblemDescriptionEng, additionSubtractionWorksheets.get(6).longProblemDescriptionEng);
+        Matrix.finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(6).gradeEng, additionSubtractionWorksheets.get(6).totalPageOfWorksheets, additionSubtractionWorksheets.get(6).topicEng,
+                additionSubtractionWorksheets.get(6).h2Eng, additionSubtractionWorksheets.get(6).shortProblemDescriptionEng, additionSubtractionWorksheets.get(6).longProblemDescriptionEng);
+
+        Matrix.topWorksheet(General.workingFolder, additionSubtractionWorksheets.get(7).gradeEng, additionSubtractionWorksheets.get(7).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(7).shortProblemDescriptionEng, additionSubtractionWorksheets.get(7).longProblemDescriptionEng);
+        Matrix.topWorksheetPdf(General.workingFolder, additionSubtractionWorksheets.get(7).gradeEng, additionSubtractionWorksheets.get(7).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(7).shortProblemDescriptionEng, additionSubtractionWorksheets.get(7).longProblemDescriptionEng);
+        Matrix.topWorksheetHtmlAnswers(General.workingFolder, additionSubtractionWorksheets.get(7).gradeEng, additionSubtractionWorksheets.get(7).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(7).shortProblemDescriptionEng, additionSubtractionWorksheets.get(7).longProblemDescriptionEng);
+        Matrix.addSubtractA1_B1LineWorksheetA4(General.workingFolder, additionSubtractionWorksheets.get(7).gradeEng, additionSubtractionWorksheets.get(7).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(7).shortProblemDescriptionEng, additionSubtractionWorksheets.get(7).longProblemDescriptionEng,
+                additionSubtractionWorksheets.get(7).numbersRangeStart, additionSubtractionWorksheets.get(7).numbersRangeEnd, 10, 14, 5);
+        Matrix.bottomWorksheet(General.workingFolder, additionSubtractionWorksheets.get(7).gradeEng, additionSubtractionWorksheets.get(7).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(7).shortProblemDescriptionEng, additionSubtractionWorksheets.get(7).longProblemDescriptionEng);
+        Matrix.fullWorksheet(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(7).gradeEng, additionSubtractionWorksheets.get(7).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(7).shortProblemDescriptionEng, additionSubtractionWorksheets.get(7).longProblemDescriptionEng);
+        Matrix.fullWorksheetPdf(General.workingFolder, General.readyFilesFolderPdf, additionSubtractionWorksheets.get(7).gradeEng, additionSubtractionWorksheets.get(7).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(7).shortProblemDescriptionEng, additionSubtractionWorksheets.get(7).longProblemDescriptionEng);
+        Matrix.fullWorksheetHtmlAnswer(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(7).gradeEng, additionSubtractionWorksheets.get(7).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(7).shortProblemDescriptionEng, additionSubtractionWorksheets.get(7).longProblemDescriptionEng);
+        Matrix.allSameWorksheets(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(7).gradeEng, additionSubtractionWorksheets.get(7).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(7).shortProblemDescriptionEng, additionSubtractionWorksheets.get(7).longProblemDescriptionEng);
+        Matrix.finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(7).gradeEng, additionSubtractionWorksheets.get(7).totalPageOfWorksheets, additionSubtractionWorksheets.get(7).topicEng,
+                additionSubtractionWorksheets.get(7).h2Eng, additionSubtractionWorksheets.get(7).shortProblemDescriptionEng, additionSubtractionWorksheets.get(7).longProblemDescriptionEng);
+
+        Matrix.topWorksheet(General.workingFolder, additionSubtractionWorksheets.get(8).gradeEng, additionSubtractionWorksheets.get(8).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(8).shortProblemDescriptionEng, additionSubtractionWorksheets.get(8).longProblemDescriptionEng);
+        Matrix.topWorksheetPdf(General.workingFolder, additionSubtractionWorksheets.get(8).gradeEng, additionSubtractionWorksheets.get(8).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(8).shortProblemDescriptionEng, additionSubtractionWorksheets.get(8).longProblemDescriptionEng);
+        Matrix.topWorksheetHtmlAnswers(General.workingFolder, additionSubtractionWorksheets.get(8).gradeEng, additionSubtractionWorksheets.get(8).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(8).shortProblemDescriptionEng, additionSubtractionWorksheets.get(8).longProblemDescriptionEng);
+        Matrix.addSubtractA1_B1LineWorksheetA4(General.workingFolder, additionSubtractionWorksheets.get(8).gradeEng, additionSubtractionWorksheets.get(8).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(8).shortProblemDescriptionEng, additionSubtractionWorksheets.get(8).longProblemDescriptionEng,
+                additionSubtractionWorksheets.get(8).numbersRangeStart, additionSubtractionWorksheets.get(8).numbersRangeEnd, 10, 14, 5);
+        Matrix.bottomWorksheet(General.workingFolder, additionSubtractionWorksheets.get(8).gradeEng, additionSubtractionWorksheets.get(8).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(8).shortProblemDescriptionEng, additionSubtractionWorksheets.get(8).longProblemDescriptionEng);
+        Matrix.fullWorksheet(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(8).gradeEng, additionSubtractionWorksheets.get(8).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(8).shortProblemDescriptionEng, additionSubtractionWorksheets.get(8).longProblemDescriptionEng);
+        Matrix.fullWorksheetPdf(General.workingFolder, General.readyFilesFolderPdf, additionSubtractionWorksheets.get(8).gradeEng, additionSubtractionWorksheets.get(8).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(8).shortProblemDescriptionEng, additionSubtractionWorksheets.get(8).longProblemDescriptionEng);
+        Matrix.fullWorksheetHtmlAnswer(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(8).gradeEng, additionSubtractionWorksheets.get(8).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(8).shortProblemDescriptionEng, additionSubtractionWorksheets.get(8).longProblemDescriptionEng);
+        Matrix.allSameWorksheets(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(8).gradeEng, additionSubtractionWorksheets.get(8).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(8).shortProblemDescriptionEng, additionSubtractionWorksheets.get(8).longProblemDescriptionEng);
+        Matrix.finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(8).gradeEng, additionSubtractionWorksheets.get(8).totalPageOfWorksheets, additionSubtractionWorksheets.get(8).topicEng,
+                additionSubtractionWorksheets.get(8).h2Eng, additionSubtractionWorksheets.get(8).shortProblemDescriptionEng, additionSubtractionWorksheets.get(8).longProblemDescriptionEng);
+
+        Matrix.topWorksheet(General.workingFolder, additionSubtractionWorksheets.get(9).gradeEng, additionSubtractionWorksheets.get(9).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(9).shortProblemDescriptionEng, additionSubtractionWorksheets.get(9).longProblemDescriptionEng);
+        Matrix.topWorksheetPdf(General.workingFolder, additionSubtractionWorksheets.get(9).gradeEng, additionSubtractionWorksheets.get(9).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(9).shortProblemDescriptionEng, additionSubtractionWorksheets.get(9).longProblemDescriptionEng);
+        Matrix.topWorksheetHtmlAnswers(General.workingFolder, additionSubtractionWorksheets.get(9).gradeEng, additionSubtractionWorksheets.get(9).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(9).shortProblemDescriptionEng, additionSubtractionWorksheets.get(9).longProblemDescriptionEng);
+        Matrix.addSubtractA1_B1LineWorksheetA4(General.workingFolder, additionSubtractionWorksheets.get(9).gradeEng, additionSubtractionWorksheets.get(9).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(9).shortProblemDescriptionEng, additionSubtractionWorksheets.get(9).longProblemDescriptionEng,
+                additionSubtractionWorksheets.get(9).numbersRangeStart, additionSubtractionWorksheets.get(9).numbersRangeEnd, 10, 14, 5);
+        Matrix.bottomWorksheet(General.workingFolder, additionSubtractionWorksheets.get(9).gradeEng, additionSubtractionWorksheets.get(9).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(9).shortProblemDescriptionEng, additionSubtractionWorksheets.get(9).longProblemDescriptionEng);
+        Matrix.fullWorksheet(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(9).gradeEng, additionSubtractionWorksheets.get(9).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(9).shortProblemDescriptionEng, additionSubtractionWorksheets.get(9).longProblemDescriptionEng);
+        Matrix.fullWorksheetPdf(General.workingFolder, General.readyFilesFolderPdf, additionSubtractionWorksheets.get(9).gradeEng, additionSubtractionWorksheets.get(9).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(9).shortProblemDescriptionEng, additionSubtractionWorksheets.get(9).longProblemDescriptionEng);
+        Matrix.fullWorksheetHtmlAnswer(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(9).gradeEng, additionSubtractionWorksheets.get(9).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(9).shortProblemDescriptionEng, additionSubtractionWorksheets.get(9).longProblemDescriptionEng);
+        Matrix.allSameWorksheets(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(9).gradeEng, additionSubtractionWorksheets.get(9).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(9).shortProblemDescriptionEng, additionSubtractionWorksheets.get(9).longProblemDescriptionEng);
+        Matrix.finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(9).gradeEng, additionSubtractionWorksheets.get(9).totalPageOfWorksheets, additionSubtractionWorksheets.get(9).topicEng,
+                additionSubtractionWorksheets.get(9).h2Eng, additionSubtractionWorksheets.get(9).shortProblemDescriptionEng, additionSubtractionWorksheets.get(9).longProblemDescriptionEng);
+
+        Matrix.topWorksheet(General.workingFolder, additionSubtractionWorksheets.get(10).gradeEng, additionSubtractionWorksheets.get(10).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(10).shortProblemDescriptionEng, additionSubtractionWorksheets.get(10).longProblemDescriptionEng);
+        Matrix.topWorksheetPdf(General.workingFolder, additionSubtractionWorksheets.get(10).gradeEng, additionSubtractionWorksheets.get(10).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(10).shortProblemDescriptionEng, additionSubtractionWorksheets.get(10).longProblemDescriptionEng);
+        Matrix.topWorksheetHtmlAnswers(General.workingFolder, additionSubtractionWorksheets.get(10).gradeEng, additionSubtractionWorksheets.get(10).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(10).shortProblemDescriptionEng, additionSubtractionWorksheets.get(10).longProblemDescriptionEng);
+        Matrix.addSubtractA1_B1LineWorksheetA4(General.workingFolder, additionSubtractionWorksheets.get(10).gradeEng, additionSubtractionWorksheets.get(10).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(10).shortProblemDescriptionEng, additionSubtractionWorksheets.get(10).longProblemDescriptionEng,
+                additionSubtractionWorksheets.get(10).numbersRangeStart, additionSubtractionWorksheets.get(10).numbersRangeEnd, 10, 14, 5);
+        Matrix.bottomWorksheet(General.workingFolder, additionSubtractionWorksheets.get(10).gradeEng, additionSubtractionWorksheets.get(10).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(10).shortProblemDescriptionEng, additionSubtractionWorksheets.get(10).longProblemDescriptionEng);
+        Matrix.fullWorksheet(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(10).gradeEng, additionSubtractionWorksheets.get(10).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(10).shortProblemDescriptionEng, additionSubtractionWorksheets.get(10).longProblemDescriptionEng);
+        Matrix.fullWorksheetPdf(General.workingFolder, General.readyFilesFolderPdf, additionSubtractionWorksheets.get(10).gradeEng, additionSubtractionWorksheets.get(10).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(10).shortProblemDescriptionEng, additionSubtractionWorksheets.get(10).longProblemDescriptionEng);
+        Matrix.fullWorksheetHtmlAnswer(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(10).gradeEng, additionSubtractionWorksheets.get(10).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(10).shortProblemDescriptionEng, additionSubtractionWorksheets.get(10).longProblemDescriptionEng);
+        Matrix.allSameWorksheets(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(10).gradeEng, additionSubtractionWorksheets.get(10).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(10).shortProblemDescriptionEng, additionSubtractionWorksheets.get(10).longProblemDescriptionEng);
+        Matrix.finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(10).gradeEng, additionSubtractionWorksheets.get(10).totalPageOfWorksheets, additionSubtractionWorksheets.get(10).topicEng,
+                additionSubtractionWorksheets.get(10).h2Eng, additionSubtractionWorksheets.get(10).shortProblemDescriptionEng, additionSubtractionWorksheets.get(10).longProblemDescriptionEng);
+
+        Matrix.topWorksheet(General.workingFolder, additionSubtractionWorksheets.get(11).gradeEng, additionSubtractionWorksheets.get(11).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(11).shortProblemDescriptionEng, additionSubtractionWorksheets.get(11).longProblemDescriptionEng);
+        Matrix.topWorksheetPdf(General.workingFolder, additionSubtractionWorksheets.get(11).gradeEng, additionSubtractionWorksheets.get(11).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(11).shortProblemDescriptionEng, additionSubtractionWorksheets.get(11).longProblemDescriptionEng);
+        Matrix.topWorksheetHtmlAnswers(General.workingFolder, additionSubtractionWorksheets.get(11).gradeEng, additionSubtractionWorksheets.get(11).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(11).shortProblemDescriptionEng, additionSubtractionWorksheets.get(11).longProblemDescriptionEng);
+        Matrix.addSubtractA1_B1LineWorksheetA4(General.workingFolder, additionSubtractionWorksheets.get(11).gradeEng, additionSubtractionWorksheets.get(11).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(11).shortProblemDescriptionEng, additionSubtractionWorksheets.get(11).longProblemDescriptionEng,
+                additionSubtractionWorksheets.get(11).numbersRangeStart, additionSubtractionWorksheets.get(11).numbersRangeEnd, 10, 14, 5);
+        Matrix.bottomWorksheet(General.workingFolder, additionSubtractionWorksheets.get(11).gradeEng, additionSubtractionWorksheets.get(11).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(11).shortProblemDescriptionEng, additionSubtractionWorksheets.get(11).longProblemDescriptionEng);
+        Matrix.fullWorksheet(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(11).gradeEng, additionSubtractionWorksheets.get(11).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(11).shortProblemDescriptionEng, additionSubtractionWorksheets.get(11).longProblemDescriptionEng);
+        Matrix.fullWorksheetPdf(General.workingFolder, General.readyFilesFolderPdf, additionSubtractionWorksheets.get(11).gradeEng, additionSubtractionWorksheets.get(11).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(11).shortProblemDescriptionEng, additionSubtractionWorksheets.get(11).longProblemDescriptionEng);
+        Matrix.fullWorksheetHtmlAnswer(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(11).gradeEng, additionSubtractionWorksheets.get(11).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(11).shortProblemDescriptionEng, additionSubtractionWorksheets.get(11).longProblemDescriptionEng);
+        Matrix.allSameWorksheets(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(11).gradeEng, additionSubtractionWorksheets.get(11).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(11).shortProblemDescriptionEng, additionSubtractionWorksheets.get(11).longProblemDescriptionEng);
+        Matrix.finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(11).gradeEng, additionSubtractionWorksheets.get(11).totalPageOfWorksheets, additionSubtractionWorksheets.get(11).topicEng,
+                additionSubtractionWorksheets.get(11).h2Eng, additionSubtractionWorksheets.get(11).shortProblemDescriptionEng, additionSubtractionWorksheets.get(11).longProblemDescriptionEng);
+
+        Matrix.topWorksheet(General.workingFolder, additionSubtractionWorksheets.get(12).gradeEng, additionSubtractionWorksheets.get(12).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(12).shortProblemDescriptionEng, additionSubtractionWorksheets.get(12).longProblemDescriptionEng);
+        Matrix.topWorksheetPdf(General.workingFolder, additionSubtractionWorksheets.get(12).gradeEng, additionSubtractionWorksheets.get(12).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(12).shortProblemDescriptionEng, additionSubtractionWorksheets.get(12).longProblemDescriptionEng);
+        Matrix.topWorksheetHtmlAnswers(General.workingFolder, additionSubtractionWorksheets.get(12).gradeEng, additionSubtractionWorksheets.get(12).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(12).shortProblemDescriptionEng, additionSubtractionWorksheets.get(12).longProblemDescriptionEng);
+        Matrix.addSubtractA1_B1LineWorksheetA4(General.workingFolder, additionSubtractionWorksheets.get(12).gradeEng, additionSubtractionWorksheets.get(12).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(12).shortProblemDescriptionEng, additionSubtractionWorksheets.get(12).longProblemDescriptionEng,
+                additionSubtractionWorksheets.get(12).numbersRangeStart, additionSubtractionWorksheets.get(12).numbersRangeEnd, 10, 14, 5);
+        Matrix.bottomWorksheet(General.workingFolder, additionSubtractionWorksheets.get(12).gradeEng, additionSubtractionWorksheets.get(12).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(12).shortProblemDescriptionEng, additionSubtractionWorksheets.get(12).longProblemDescriptionEng);
+        Matrix.fullWorksheet(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(12).gradeEng, additionSubtractionWorksheets.get(12).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(12).shortProblemDescriptionEng, additionSubtractionWorksheets.get(12).longProblemDescriptionEng);
+        Matrix.fullWorksheetPdf(General.workingFolder, General.readyFilesFolderPdf, additionSubtractionWorksheets.get(12).gradeEng, additionSubtractionWorksheets.get(12).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(12).shortProblemDescriptionEng, additionSubtractionWorksheets.get(12).longProblemDescriptionEng);
+        Matrix.fullWorksheetHtmlAnswer(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(12).gradeEng, additionSubtractionWorksheets.get(12).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(12).shortProblemDescriptionEng, additionSubtractionWorksheets.get(12).longProblemDescriptionEng);
+        Matrix.allSameWorksheets(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(12).gradeEng, additionSubtractionWorksheets.get(12).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(12).shortProblemDescriptionEng, additionSubtractionWorksheets.get(12).longProblemDescriptionEng);
+        Matrix.finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(12).gradeEng, additionSubtractionWorksheets.get(12).totalPageOfWorksheets, additionSubtractionWorksheets.get(12).topicEng,
+                additionSubtractionWorksheets.get(12).h2Eng, additionSubtractionWorksheets.get(12).shortProblemDescriptionEng, additionSubtractionWorksheets.get(12).longProblemDescriptionEng);
 
 
-        Matrix.topWorksheet(General.workingFolder, allTopicsAddSubtract.get(14).gradeEng, allTopicsAddSubtract.get(14).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(14).shortProblemDescriptionEng, allTopicsAddSubtract.get(14).longProblemDescriptionEng);
-        Matrix.topWorksheetPdf(General.workingFolder, allTopicsAddSubtract.get(14).gradeEng, allTopicsAddSubtract.get(14).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(14).shortProblemDescriptionEng, allTopicsAddSubtract.get(14).longProblemDescriptionEng);
-        Matrix.topWorksheetHtmlAnswers(General.workingFolder, allTopicsAddSubtract.get(14).gradeEng, allTopicsAddSubtract.get(14).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(14).shortProblemDescriptionEng, allTopicsAddSubtract.get(14).longProblemDescriptionEng);
-        Matrix.addSubtractA1_B1LineWorksheetA4(General.workingFolder, allTopicsAddSubtract.get(14).gradeEng, allTopicsAddSubtract.get(14).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(14).shortProblemDescriptionEng, allTopicsAddSubtract.get(14).longProblemDescriptionEng,
-                allTopicsAddSubtract.get(14).numbersRangeStart, allTopicsAddSubtract.get(14).numbersRangeEnd, 10, 14, 5);
-        Matrix.bottomWorksheet(General.workingFolder, allTopicsAddSubtract.get(14).gradeEng, allTopicsAddSubtract.get(14).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(14).shortProblemDescriptionEng, allTopicsAddSubtract.get(14).longProblemDescriptionEng);
-        Matrix.fullWorksheet(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(14).gradeEng, allTopicsAddSubtract.get(14).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(14).shortProblemDescriptionEng, allTopicsAddSubtract.get(14).longProblemDescriptionEng);
-        Matrix.fullWorksheetPdf(General.workingFolder, General.readyFilesFolderPdf, allTopicsAddSubtract.get(14).gradeEng, allTopicsAddSubtract.get(14).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(14).shortProblemDescriptionEng, allTopicsAddSubtract.get(14).longProblemDescriptionEng);
-        Matrix.fullWorksheetHtmlAnswer(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(14).gradeEng, allTopicsAddSubtract.get(14).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(14).shortProblemDescriptionEng, allTopicsAddSubtract.get(14).longProblemDescriptionEng);
-        Matrix.allSameWorksheets(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(14).gradeEng, allTopicsAddSubtract.get(14).totalPageOfWorksheets,
-                allTopicsAddSubtract.get(14).shortProblemDescriptionEng, allTopicsAddSubtract.get(14).longProblemDescriptionEng);
-        Matrix.finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtract.get(14).gradeEng, allTopicsAddSubtract.get(14).totalPageOfWorksheets, allTopicsAddSubtract.get(14).topicEng,
-                allTopicsAddSubtract.get(14).h2Eng, allTopicsAddSubtract.get(14).shortProblemDescriptionEng, allTopicsAddSubtract.get(14).longProblemDescriptionEng);
+        Matrix.topWorksheet(General.workingFolder, additionSubtractionWorksheets.get(13).gradeEng, additionSubtractionWorksheets.get(13).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(13).shortProblemDescriptionEng, additionSubtractionWorksheets.get(13).longProblemDescriptionEng);
+        Matrix.topWorksheetPdf(General.workingFolder, additionSubtractionWorksheets.get(13).gradeEng, additionSubtractionWorksheets.get(13).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(13).shortProblemDescriptionEng, additionSubtractionWorksheets.get(13).longProblemDescriptionEng);
+        Matrix.topWorksheetHtmlAnswers(General.workingFolder, additionSubtractionWorksheets.get(13).gradeEng, additionSubtractionWorksheets.get(13).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(13).shortProblemDescriptionEng, additionSubtractionWorksheets.get(13).longProblemDescriptionEng);
+        Matrix.addSubtractA1_B1LineWorksheetA4(General.workingFolder, additionSubtractionWorksheets.get(13).gradeEng, additionSubtractionWorksheets.get(13).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(13).shortProblemDescriptionEng, additionSubtractionWorksheets.get(13).longProblemDescriptionEng,
+                additionSubtractionWorksheets.get(13).numbersRangeStart, additionSubtractionWorksheets.get(13).numbersRangeEnd, 10, 14, 5);
+        Matrix.bottomWorksheet(General.workingFolder, additionSubtractionWorksheets.get(13).gradeEng, additionSubtractionWorksheets.get(13).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(13).shortProblemDescriptionEng, additionSubtractionWorksheets.get(13).longProblemDescriptionEng);
+        Matrix.fullWorksheet(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(13).gradeEng, additionSubtractionWorksheets.get(13).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(13).shortProblemDescriptionEng, additionSubtractionWorksheets.get(13).longProblemDescriptionEng);
+        Matrix.fullWorksheetPdf(General.workingFolder, General.readyFilesFolderPdf, additionSubtractionWorksheets.get(13).gradeEng, additionSubtractionWorksheets.get(13).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(13).shortProblemDescriptionEng, additionSubtractionWorksheets.get(13).longProblemDescriptionEng);
+        Matrix.fullWorksheetHtmlAnswer(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(13).gradeEng, additionSubtractionWorksheets.get(13).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(13).shortProblemDescriptionEng, additionSubtractionWorksheets.get(13).longProblemDescriptionEng);
+        Matrix.allSameWorksheets(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(13).gradeEng, additionSubtractionWorksheets.get(13).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(13).shortProblemDescriptionEng, additionSubtractionWorksheets.get(13).longProblemDescriptionEng);
+        Matrix.finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(13).gradeEng, additionSubtractionWorksheets.get(13).totalPageOfWorksheets, additionSubtractionWorksheets.get(13).topicEng,
+                additionSubtractionWorksheets.get(13).h2Eng, additionSubtractionWorksheets.get(13).shortProblemDescriptionEng, additionSubtractionWorksheets.get(13).longProblemDescriptionEng);
 
 
-        //Сложение или вычитание в столбик - завершено
+        Matrix.topWorksheet(General.workingFolder, additionSubtractionWorksheets.get(14).gradeEng, additionSubtractionWorksheets.get(14).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(14).shortProblemDescriptionEng, additionSubtractionWorksheets.get(14).longProblemDescriptionEng);
+        Matrix.topWorksheetPdf(General.workingFolder, additionSubtractionWorksheets.get(14).gradeEng, additionSubtractionWorksheets.get(14).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(14).shortProblemDescriptionEng, additionSubtractionWorksheets.get(14).longProblemDescriptionEng);
+        Matrix.topWorksheetHtmlAnswers(General.workingFolder, additionSubtractionWorksheets.get(14).gradeEng, additionSubtractionWorksheets.get(14).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(14).shortProblemDescriptionEng, additionSubtractionWorksheets.get(14).longProblemDescriptionEng);
+        Matrix.addSubtractA1_B1LineWorksheetA4(General.workingFolder, additionSubtractionWorksheets.get(14).gradeEng, additionSubtractionWorksheets.get(14).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(14).shortProblemDescriptionEng, additionSubtractionWorksheets.get(14).longProblemDescriptionEng,
+                additionSubtractionWorksheets.get(14).numbersRangeStart, additionSubtractionWorksheets.get(14).numbersRangeEnd, 10, 14, 5);
+        Matrix.bottomWorksheet(General.workingFolder, additionSubtractionWorksheets.get(14).gradeEng, additionSubtractionWorksheets.get(14).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(14).shortProblemDescriptionEng, additionSubtractionWorksheets.get(14).longProblemDescriptionEng);
+        Matrix.fullWorksheet(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(14).gradeEng, additionSubtractionWorksheets.get(14).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(14).shortProblemDescriptionEng, additionSubtractionWorksheets.get(14).longProblemDescriptionEng);
+        Matrix.fullWorksheetPdf(General.workingFolder, General.readyFilesFolderPdf, additionSubtractionWorksheets.get(14).gradeEng, additionSubtractionWorksheets.get(14).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(14).shortProblemDescriptionEng, additionSubtractionWorksheets.get(14).longProblemDescriptionEng);
+        Matrix.fullWorksheetHtmlAnswer(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(14).gradeEng, additionSubtractionWorksheets.get(14).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(14).shortProblemDescriptionEng, additionSubtractionWorksheets.get(14).longProblemDescriptionEng);
+        Matrix.allSameWorksheets(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(14).gradeEng, additionSubtractionWorksheets.get(14).totalPageOfWorksheets,
+                additionSubtractionWorksheets.get(14).shortProblemDescriptionEng, additionSubtractionWorksheets.get(14).longProblemDescriptionEng);
+        Matrix.finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, additionSubtractionWorksheets.get(14).gradeEng, additionSubtractionWorksheets.get(14).totalPageOfWorksheets, additionSubtractionWorksheets.get(14).topicEng,
+                additionSubtractionWorksheets.get(14).h2Eng, additionSubtractionWorksheets.get(14).shortProblemDescriptionEng, additionSubtractionWorksheets.get(14).longProblemDescriptionEng);
 
-        List<AllTopics> allTopicsAddSubtractColumn = new ArrayList<>();
+        //Addition and subtraction in column
 
-/*
-        Matrix.emptyFolder(General.workingFolder);
-        Matrix.emptyFolder(General.readyFilesFolder);
-        Matrix.emptyFolder(General.readyFilesFolderPdf);
-        Matrix.emptyFolder(General.readyFilesFolderHtml);
-*/
+        List<AdditionSubtractionWorksheets> allTopicsAddSubtractColumn = new ArrayList<>();
 
-
-        allTopicsAddSubtractColumn.add( new AllTopics(
+        allTopicsAddSubtractColumn.add( new AdditionSubtractionWorksheets(
                 "", "&nbsp",
                 "Сложение и вычитание числа 0 в столбик.","Addition and subtraction 0 from a number in column.",
                 "Задачи по математике на тему:<br />Сложение и вычитание числа 0 в столбик. Задачи с ответами. Скачать pdf или jpg.",
@@ -938,7 +920,7 @@ public class AdditionAndSubtractionTopic extends MainAbstractClass {
                 "Add or subtract 0 from a number in column.",
                 0, 99, 6));
 
-        allTopicsAddSubtractColumn.add( new AllTopics(
+        allTopicsAddSubtractColumn.add( new AdditionSubtractionWorksheets(
                 "", "&nbsp",
                 "Сложение и вычитание числа 1 в столбик.","Addition and subtraction 1 from a number in column.",
                 "Задачи по математике на тему:<br />Сложение и вычитание числа 1 в столбик. Задачи с ответами. Скачать pdf или jpg.",
@@ -950,7 +932,7 @@ public class AdditionAndSubtractionTopic extends MainAbstractClass {
                 "Add or subtract 1 from a number in column.",
                 1, 99, 6));
 
-        allTopicsAddSubtractColumn.add( new AllTopics(
+        allTopicsAddSubtractColumn.add( new AdditionSubtractionWorksheets(
                 "", "&nbsp",
                 "Сложение и вычитание числа 2 в столбик.","Addition and subtraction 2 from a number in column.",
                 "Задачи по математике на тему:<br />Сложение и вычитание числа 2 в столбик. Задачи с ответами. Скачать pdf или jpg.",
@@ -962,7 +944,7 @@ public class AdditionAndSubtractionTopic extends MainAbstractClass {
                 "Add or subtract 2 from a number in column.",
                 2, 99, 6));
 
-        allTopicsAddSubtractColumn.add( new AllTopics(
+        allTopicsAddSubtractColumn.add( new AdditionSubtractionWorksheets(
                 "", "&nbsp",
                 "Сложение и вычитание числа 3 в столбик.","Addition and subtraction 3 from a number in column.",
                 "Задачи по математике на тему:<br />Сложение и вычитание числа 3 в столбик. Задачи с ответами. Скачать pdf или jpg.",
@@ -974,7 +956,7 @@ public class AdditionAndSubtractionTopic extends MainAbstractClass {
                 "Add or subtract 3 from a number in column.",
                 3, 99, 6));
 
-        allTopicsAddSubtractColumn.add( new AllTopics(
+        allTopicsAddSubtractColumn.add( new AdditionSubtractionWorksheets(
                 "", "&nbsp",
                 "Сложение и вычитание числа 4 в столбик.","Addition and subtraction 4 from a number in column.",
                 "Задачи по математике на тему:<br />Сложение и вычитание числа 4 в столбик. Задачи с ответами. Скачать pdf или jpg.",
@@ -986,7 +968,7 @@ public class AdditionAndSubtractionTopic extends MainAbstractClass {
                 "Add or subtract 4 from a number in column.",
                 4, 99, 6));
 
-        allTopicsAddSubtractColumn.add( new AllTopics(
+        allTopicsAddSubtractColumn.add( new AdditionSubtractionWorksheets(
                 "", "&nbsp",
                 "Сложение и вычитание числа 5 в столбик.","Addition and subtraction 5 from a number in column.",
                 "Задачи по математике на тему:<br />Сложение и вычитание числа 5 в столбик. Задачи с ответами. Скачать pdf или jpg.",
@@ -998,7 +980,7 @@ public class AdditionAndSubtractionTopic extends MainAbstractClass {
                 "Add or subtract 5 from a number in column.",
                 5, 99, 6));
 
-        allTopicsAddSubtractColumn.add( new AllTopics(
+        allTopicsAddSubtractColumn.add( new AdditionSubtractionWorksheets(
                 "", "&nbsp",
                 "Сложение и вычитание числа 6 в столбик.","Addition and subtraction 6 from a number in column.",
                 "Задачи по математике на тему:<br />Сложение и вычитание числа 6 в столбик. Задачи с ответами. Скачать pdf или jpg.",
@@ -1010,7 +992,7 @@ public class AdditionAndSubtractionTopic extends MainAbstractClass {
                 "Add or subtract 6 from a number in column.",
                 6, 99, 6));
 
-        allTopicsAddSubtractColumn.add( new AllTopics(
+        allTopicsAddSubtractColumn.add( new AdditionSubtractionWorksheets(
                 "", "&nbsp",
                 "Сложение и вычитание числа 7 в столбик.","Addition and subtraction 7 from a number in column.",
                 "Задачи по математике на тему:<br />Сложение и вычитание числа 7 в столбик. Задачи с ответами. Скачать pdf или jpg.",
@@ -1022,7 +1004,7 @@ public class AdditionAndSubtractionTopic extends MainAbstractClass {
                 "Add or subtract 7 from a number in column.",
                 7, 99, 6));
 
-        allTopicsAddSubtractColumn.add( new AllTopics(
+        allTopicsAddSubtractColumn.add( new AdditionSubtractionWorksheets(
                 "", "&nbsp",
                 "Сложение и вычитание числа 8 в столбик.","Addition and subtraction 8 from a number in column.",
                 "Задачи по математике на тему:<br />Сложение и вычитание числа 8 в столбик. Задачи с ответами. Скачать pdf или jpg.",
@@ -1034,7 +1016,7 @@ public class AdditionAndSubtractionTopic extends MainAbstractClass {
                 "Add or subtract 8 from a number in column.",
                 8, 99, 6));
 
-        allTopicsAddSubtractColumn.add( new AllTopics(
+        allTopicsAddSubtractColumn.add( new AdditionSubtractionWorksheets(
                 "", "&nbsp",
                 "Сложение и вычитание числа 9 в столбик.","Addition and subtraction 9 from a number in column.",
                 "Задачи по математике на тему:<br />Сложение и вычитание числа 9 в столбик. Задачи с ответами. Скачать pdf или jpg.",
@@ -1046,7 +1028,7 @@ public class AdditionAndSubtractionTopic extends MainAbstractClass {
                 "Add or subtract 9 from a number in column.",
                 9, 99, 6));
 
-        allTopicsAddSubtractColumn.add( new AllTopics(
+        allTopicsAddSubtractColumn.add( new AdditionSubtractionWorksheets(
                 "", "&nbsp",
                 "Сложение и вычитание числа 10 в столбик.","Addition and subtraction 10 from a number in column.",
                 "Задачи по математике на тему:<br />Сложение и вычитание числа 10 в столбик. Задачи с ответами. Скачать pdf или jpg.",
@@ -1058,7 +1040,7 @@ public class AdditionAndSubtractionTopic extends MainAbstractClass {
                 "Add or subtract 10 from a number in column.",
                 10, 99, 6));
 
-        allTopicsAddSubtractColumn.add( new AllTopics(
+        allTopicsAddSubtractColumn.add( new AdditionSubtractionWorksheets(
                 "", "&nbsp",
                 "Сложение и вычитание чисел в пределах 10.","Addition and subtraction numbers up to 10.",
                 "Задачи по математике на тему:<br />Сложение и вычитание чисел в пределах 10. Задачи с ответами. Скачать pdf или jpg.",
@@ -1070,7 +1052,7 @@ public class AdditionAndSubtractionTopic extends MainAbstractClass {
                 "Add or subtract numbers up to 10 in column.",
                 0, 9, 6));
 
-        allTopicsAddSubtractColumn.add( new AllTopics(
+        allTopicsAddSubtractColumn.add( new AdditionSubtractionWorksheets(
                 "", "&nbsp",
                 "Сложение и вычитание чисел в пределах 100.","Addition and subtraction numbers up to 100 in column.",
                 "Задачи по математике на тему:<br />Сложение и вычитание чисел в пределах 100. Задачи с ответами. Скачать pdf или jpg.",
@@ -1082,7 +1064,7 @@ public class AdditionAndSubtractionTopic extends MainAbstractClass {
                 "Add or subtract numbers up to 100 in column.",
                 10, 99, 6));
 
-        allTopicsAddSubtractColumn.add( new AllTopics(
+        allTopicsAddSubtractColumn.add( new AdditionSubtractionWorksheets(
                 "", "&nbsp",
                 "Сложение и вычитание чисел в пределах 1000.","Addition and subtraction numbers up to 1000 in column.",
                 "Задачи по математике на тему:<br />Сложение и вычитание чисел в пределах 1000 в столбик. Задачи с ответами. Скачать pdf или jpg.",
@@ -1094,7 +1076,7 @@ public class AdditionAndSubtractionTopic extends MainAbstractClass {
                 "Add or subtract numbers up to 1000 in column.",
                 100, 999, 6));
 
-        allTopicsAddSubtractColumn.add( new AllTopics(
+        allTopicsAddSubtractColumn.add( new AdditionSubtractionWorksheets(
                 "", "&nbsp",
                 "Распечатать примеры на сложение и вычитание.","Print addition and subtraction problems.",
                 "Распечатать задачи по математике на тему:<br />Сложение и вычитание. Задачи с ответами. Скачать pdf или jpg.",
@@ -1106,7 +1088,7 @@ public class AdditionAndSubtractionTopic extends MainAbstractClass {
                 "Add or subtract numbers up to 200 in column.",
                 10, 200, 11));
 
-        allTopicsAddSubtractColumn.add( new AllTopics(
+        allTopicsAddSubtractColumn.add( new AdditionSubtractionWorksheets(
                 "", "&nbsp",
                 "Тренажер на сложение и вычитание чисел.","Skills building. Addition and subtraction numbers in column.",
                 "Тренажер по математике на тему:<br />Сложение и вычитание чисел в столбик. Задачи с ответами. Скачать pdf или jpg.",
@@ -1118,7 +1100,7 @@ public class AdditionAndSubtractionTopic extends MainAbstractClass {
                 "Add or subtract number up to 500.",
                 10, 500, 11));
 
-        allTopicsAddSubtractColumn.add( new AllTopics(
+        allTopicsAddSubtractColumn.add( new AdditionSubtractionWorksheets(
                 "", "&nbsp",
                 "Действие на сложение и вычитание чисел.","Addition and subtraction ---.",
                 "Задачи по математике на тему:<br />Действие на сложение и вычитание чисел. Задачи с ответами. Скачать pdf или jpg.",
@@ -1130,7 +1112,7 @@ public class AdditionAndSubtractionTopic extends MainAbstractClass {
                 "Add or subtract 0 from ---.",
                 0, 99, 6));
 
-        allTopicsAddSubtractColumn.add( new AllTopics(
+        allTopicsAddSubtractColumn.add( new AdditionSubtractionWorksheets(
                 "", "&nbsp",
                 "Сложение и вычитание чисел.","Addition and subtraction numbers.",
                 "Задачи по математике на тему:<br />Сложение и вычитание чисел в столбик. Задачи с ответами. Скачать pdf или jpg.",
@@ -1142,7 +1124,7 @@ public class AdditionAndSubtractionTopic extends MainAbstractClass {
                 "Add or subtract numbers u to 1000.",
                 0, 99, 16));
 
-        allTopicsAddSubtractColumn.add( new AllTopics(
+        allTopicsAddSubtractColumn.add( new AdditionSubtractionWorksheets(
                 "", "&nbsp",
                 "Операции на сложение и вычитание чисел.","Addition and subtraction operations with numbers.",
                 "Операции на тему:<br />Сложение и вычитание чисел в столбик. Задачи с ответами. Скачать pdf или jpg.",
@@ -1154,7 +1136,7 @@ public class AdditionAndSubtractionTopic extends MainAbstractClass {
                 "Complete the add or subtract operation with numbers.",
                 0, 99, 16));
 
-        allTopicsAddSubtractColumn.add( new AllTopics(
+        allTopicsAddSubtractColumn.add( new AdditionSubtractionWorksheets(
                 "", "&nbsp",
                 "Примеры на сложение и вычитание чисел.","Addition and subtraction numbers examples.",
                 "Примеры по математике на тему:<br />Сложение и вычитание чисел в столбик. Задачи с ответами. Скачать pdf или jpg.",
@@ -1166,7 +1148,7 @@ public class AdditionAndSubtractionTopic extends MainAbstractClass {
                 "Solve the problems of addition or subtraction of numbers in column.",
                 0, 99, 6));
 
-        allTopicsAddSubtractColumn.add( new AllTopics(
+        allTopicsAddSubtractColumn.add( new AdditionSubtractionWorksheets(
                 "", "&nbsp",
                 "Сложение и вычитание чисел до 20.","Addition and subtraction numbers up to 20.",
                 "Примеры по математике на тему:<br />Сложение и вычитание чисел до 20. столбик. Задачи с ответами. Скачать pdf или jpg.",
@@ -1178,7 +1160,7 @@ public class AdditionAndSubtractionTopic extends MainAbstractClass {
                 "Add or subtract numbers up to 20 in column.",
                 0, 20, 6));
 
-        allTopicsAddSubtractColumn.add( new AllTopics(
+        allTopicsAddSubtractColumn.add( new AdditionSubtractionWorksheets(
                 "", "&nbsp",
                 "Сложение и вычитание однозначных чисел.","Addition and subtraction 1 digit numbers in columns.",
                 "Примеры по математике на тему:<br />Сложение и вычитание однозначных чисел в столбик. Задачи с ответами. Скачать pdf или jpg.",
@@ -1190,7 +1172,7 @@ public class AdditionAndSubtractionTopic extends MainAbstractClass {
                 "Add or subtract 1 digit numbers in columns.",
                 0, 9, 6));
 
-        allTopicsAddSubtractColumn.add( new AllTopics(
+        allTopicsAddSubtractColumn.add( new AdditionSubtractionWorksheets(
                 "", "&nbsp",
                 "Сложение и вычитание двузначных чисел.","Addition and subtraction 2 digit numbers.",
                 "Примеры по математике на тему:<br />Сложение и вычитание двузначных чисел в столбик. Задачи с ответами. Скачать pdf или jpg.",
@@ -1202,7 +1184,7 @@ public class AdditionAndSubtractionTopic extends MainAbstractClass {
                 "Add or subtract 2 digit numbers.",
                 10, 99, 6));
 
-        allTopicsAddSubtractColumn.add( new AllTopics(
+        allTopicsAddSubtractColumn.add( new AdditionSubtractionWorksheets(
                 "", "&nbsp",
                 "Сложение и вычитание трехзначных чисел.","Addition and subtraction 3 digit numbers.",
                 "Примеры по математике на тему:<br />Сложение и вычитание трехзначных чисел в столбик. Задачи с ответами. Скачать pdf или jpg.",
@@ -1214,7 +1196,7 @@ public class AdditionAndSubtractionTopic extends MainAbstractClass {
                 "Add or subtract 3 digit numbers.",
                 100, 999, 6));
 
-        allTopicsAddSubtractColumn.add( new AllTopics(
+        allTopicsAddSubtractColumn.add( new AdditionSubtractionWorksheets(
                 "", "&nbsp",
                 "Сложение и вычитание многозначных чисел.","Addition and subtraction multi digit numbers.",
                 "Примеры по математике на тему:<br />Сложение и вычитание многозначных чисел в столбик. Задачи с ответами. Скачать pdf или jpg.",
@@ -1226,7 +1208,7 @@ public class AdditionAndSubtractionTopic extends MainAbstractClass {
                 "Add or subtract multi digit numbers.",
                 1000, 9999, 6));
 
-        allTopicsAddSubtractColumn.add( new AllTopics(
+        allTopicsAddSubtractColumn.add( new AdditionSubtractionWorksheets(
                 "", "&nbsp",
                 "Карточки на сложение и вычитание чисел.","Addition and subtraction ------.",
                 "Карточки по математике на тему:<br />Сложение и вычитание чисел в столбик. Задачи с ответами. Скачать pdf или jpg.",
@@ -1238,7 +1220,7 @@ public class AdditionAndSubtractionTopic extends MainAbstractClass {
                 "Add or subtract numbers ------.",
                 100, 1000, 11));
 
-        allTopicsAddSubtractColumn.add( new AllTopics(
+        allTopicsAddSubtractColumn.add( new AdditionSubtractionWorksheets(
                 "", "&nbsp",
                 "Задания на закрепление сложения и вычитания чисел.","Revision of addition and subtraction numbers.",
                 "Задания на закрепление сложения и вычитания чисел. С ответами. Скачать pdf или jpg.",
@@ -1250,7 +1232,7 @@ public class AdditionAndSubtractionTopic extends MainAbstractClass {
                 "Numbers up to 1000. Add or subtract numbers.",
                 10, 999, 11));
 
-        allTopicsAddSubtractColumn.add( new AllTopics(
+        allTopicsAddSubtractColumn.add( new AdditionSubtractionWorksheets(
                 "", "&nbsp",
 
                 "Примеры на сложение и вычитание чисел.","Addition and subtraction numbers examples.",
@@ -1263,7 +1245,7 @@ public class AdditionAndSubtractionTopic extends MainAbstractClass {
                 "Problems with numbers up to 100. Add or subtract numbers in column.",
                 0, 99, 6));
 
-        allTopicsAddSubtractColumn.add( new AllTopics(
+        allTopicsAddSubtractColumn.add( new AdditionSubtractionWorksheets(
                 "", "&nbsp",
                 "Устное сложение и вычитание чисел.","Mental arithmetics. Addition and subtraction numbers examples.",
                 "Устное сложение и вычитание чисел в столбик. Задачи с ответами. Скачать pdf или jpg.",
@@ -1274,8 +1256,6 @@ public class AdditionAndSubtractionTopic extends MainAbstractClass {
                 "Устно сложи или вычти числа в столбик.",
                 "Mental arithmetic. Add or subtract numbers.",
                 0, 99, 11));
-
-
 
 
         Matrix.topWorksheet(General.workingFolder, allTopicsAddSubtractColumn.get(0).gradeRus, allTopicsAddSubtractColumn.get(0).totalPageOfWorksheets,
@@ -2585,5 +2565,8 @@ public class AdditionAndSubtractionTopic extends MainAbstractClass {
                 allTopicsAddSubtractColumn.get(28).shortProblemDescriptionEng, allTopicsAddSubtractColumn.get(28).longProblemDescriptionEng);
         Matrix.finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, allTopicsAddSubtractColumn.get(28).gradeEng, allTopicsAddSubtractColumn.get(28).totalPageOfWorksheets, allTopicsAddSubtractColumn.get(28).topicEng,
                 allTopicsAddSubtractColumn.get(28).h2Eng, allTopicsAddSubtractColumn.get(28).shortProblemDescriptionEng, allTopicsAddSubtractColumn.get(28).longProblemDescriptionEng);
+
+        General.finalRenameFiles("d:/Java_Math/Html/");
+        General.finalRenameFiles("D:\\Java_Math\\Pdf");
     }
 }

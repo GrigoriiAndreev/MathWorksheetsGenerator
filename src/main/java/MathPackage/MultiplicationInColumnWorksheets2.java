@@ -1,5 +1,7 @@
 package MathPackage;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,25 +11,25 @@ import java.util.List;
  * Date: 03 January
  */
 
-public class MultiplicationInColumnTopic2 {
+public class MultiplicationInColumnWorksheets2 extends WorksheetTemplate {
 
-    String gradeRus;
-    String gradeEng;
-    String topicRus;
-    String topicEng;
-    String h2Rus;
-    String h2Eng;
-    String numberRus;
-    String numberEng;
-    String shortProblemDescriptionRus;
-    String shortProblemDescriptionEng;
-    String longProblemDescriptionRus;
-    String longProblemDescriptionEng;
-    int numbersRangeStart;
-    int numbersRangeEnd;
-    int totalPageOfWorksheets;
-
-    public MultiplicationInColumnTopic2(
+//    String gradeRus;
+//    String gradeEng;
+//    String topicRus;
+//    String topicEng;
+//    String h2Rus;
+//    String h2Eng;
+//    String numberRus;
+//    String numberEng;
+//    String shortProblemDescriptionRus;
+//    String shortProblemDescriptionEng;
+//    String longProblemDescriptionRus;
+//    String longProblemDescriptionEng;
+//    int numbersRangeStart;
+//    int numbersRangeEnd;
+//    int totalPageOfWorksheets;
+//
+    public MultiplicationInColumnWorksheets2(
             String gradeRus,
             String gradeEng,
             String topicRus,
@@ -64,12 +66,6 @@ public class MultiplicationInColumnTopic2 {
 
         General.emptyAllFolders();
 //Multiplication in columns. Part 2
-/*
-        Matrix.emptyFolder(General.workingFolder);
-        Matrix.emptyFolder(General.readyFilesFolder);
-        Matrix.emptyFolder(General.readyFilesFolderPdf);
-        Matrix.emptyFolder(General.readyFilesFolderHtml);
-*/
 
         List<AllTopics> allTopicsMultiplyColumn2 = new ArrayList<>();
 
@@ -213,7 +209,7 @@ public class MultiplicationInColumnTopic2 {
                 allTopicsMultiplyColumn2.get(0).shortProblemDescriptionRus, allTopicsMultiplyColumn2.get(0).longProblemDescriptionRus );
         Matrix.topWorksheetHtmlAnswers(General.workingFolder, allTopicsMultiplyColumn2.get(0).gradeRus, allTopicsMultiplyColumn2.get(0).totalPageOfWorksheets,
                 allTopicsMultiplyColumn2.get(0).shortProblemDescriptionRus, allTopicsMultiplyColumn2.get(0).longProblemDescriptionRus );
-        Matrix.multiplyA1_B1ColumnWorksheetA4(General.workingFolder, allTopicsMultiplyColumn2.get(0).gradeRus, allTopicsMultiplyColumn2.get(0).totalPageOfWorksheets,
+        multiplyA1_B1ColumnWorksheetA4(General.workingFolder, allTopicsMultiplyColumn2.get(0).gradeRus, allTopicsMultiplyColumn2.get(0).totalPageOfWorksheets,
                 allTopicsMultiplyColumn2.get(0).shortProblemDescriptionRus, allTopicsMultiplyColumn2.get(0).longProblemDescriptionRus,
                 allTopicsMultiplyColumn2.get(0).numbersRangeStart, allTopicsMultiplyColumn2.get(0).numbersRangeEnd, 10, 7, 9);
         Matrix.bottomWorksheet(General.workingFolder, allTopicsMultiplyColumn2.get(0).gradeRus, allTopicsMultiplyColumn2.get(0).totalPageOfWorksheets,
@@ -235,7 +231,7 @@ public class MultiplicationInColumnTopic2 {
                 allTopicsMultiplyColumn2.get(1).shortProblemDescriptionRus, allTopicsMultiplyColumn2.get(1).longProblemDescriptionRus );
         Matrix.topWorksheetHtmlAnswers(General.workingFolder, allTopicsMultiplyColumn2.get(1).gradeRus, allTopicsMultiplyColumn2.get(1).totalPageOfWorksheets,
                 allTopicsMultiplyColumn2.get(1).shortProblemDescriptionRus, allTopicsMultiplyColumn2.get(1).longProblemDescriptionRus );
-        Matrix.multiplyA1_B1ColumnWorksheetA4(General.workingFolder, allTopicsMultiplyColumn2.get(1).gradeRus, allTopicsMultiplyColumn2.get(1).totalPageOfWorksheets,
+        multiplyA1_B1ColumnWorksheetA4(General.workingFolder, allTopicsMultiplyColumn2.get(1).gradeRus, allTopicsMultiplyColumn2.get(1).totalPageOfWorksheets,
                 allTopicsMultiplyColumn2.get(1).shortProblemDescriptionRus, allTopicsMultiplyColumn2.get(1).longProblemDescriptionRus,
                 allTopicsMultiplyColumn2.get(1).numbersRangeStart, allTopicsMultiplyColumn2.get(1).numbersRangeEnd, 10, 7, 9);
         Matrix.bottomWorksheet(General.workingFolder, allTopicsMultiplyColumn2.get(1).gradeRus, allTopicsMultiplyColumn2.get(1).totalPageOfWorksheets,
@@ -257,7 +253,7 @@ public class MultiplicationInColumnTopic2 {
                 allTopicsMultiplyColumn2.get(2).shortProblemDescriptionRus, allTopicsMultiplyColumn2.get(2).longProblemDescriptionRus );
         Matrix.topWorksheetHtmlAnswers(General.workingFolder, allTopicsMultiplyColumn2.get(2).gradeRus, allTopicsMultiplyColumn2.get(2).totalPageOfWorksheets,
                 allTopicsMultiplyColumn2.get(2).shortProblemDescriptionRus, allTopicsMultiplyColumn2.get(2).longProblemDescriptionRus );
-        Matrix.multiplyA1_B1ColumnWorksheetA4(General.workingFolder, allTopicsMultiplyColumn2.get(2).gradeRus, allTopicsMultiplyColumn2.get(2).totalPageOfWorksheets,
+        multiplyA1_B1ColumnWorksheetA4(General.workingFolder, allTopicsMultiplyColumn2.get(2).gradeRus, allTopicsMultiplyColumn2.get(2).totalPageOfWorksheets,
                 allTopicsMultiplyColumn2.get(2).shortProblemDescriptionRus, allTopicsMultiplyColumn2.get(2).longProblemDescriptionRus,
                 allTopicsMultiplyColumn2.get(2).numbersRangeStart, allTopicsMultiplyColumn2.get(2).numbersRangeEnd, 10, 7, 9);
         Matrix.bottomWorksheet(General.workingFolder, allTopicsMultiplyColumn2.get(2).gradeRus, allTopicsMultiplyColumn2.get(2).totalPageOfWorksheets,
@@ -279,7 +275,7 @@ public class MultiplicationInColumnTopic2 {
                 allTopicsMultiplyColumn2.get(3).shortProblemDescriptionRus, allTopicsMultiplyColumn2.get(3).longProblemDescriptionRus );
         Matrix.topWorksheetHtmlAnswers(General.workingFolder, allTopicsMultiplyColumn2.get(3).gradeRus, allTopicsMultiplyColumn2.get(3).totalPageOfWorksheets,
                 allTopicsMultiplyColumn2.get(3).shortProblemDescriptionRus, allTopicsMultiplyColumn2.get(3).longProblemDescriptionRus );
-        Matrix.multiplyA1_B1ColumnWorksheetA4(General.workingFolder, allTopicsMultiplyColumn2.get(3).gradeRus, allTopicsMultiplyColumn2.get(3).totalPageOfWorksheets,
+        multiplyA1_B1ColumnWorksheetA4(General.workingFolder, allTopicsMultiplyColumn2.get(3).gradeRus, allTopicsMultiplyColumn2.get(3).totalPageOfWorksheets,
                 allTopicsMultiplyColumn2.get(3).shortProblemDescriptionRus, allTopicsMultiplyColumn2.get(3).longProblemDescriptionRus,
                 allTopicsMultiplyColumn2.get(3).numbersRangeStart, allTopicsMultiplyColumn2.get(3).numbersRangeEnd, 10, 7, 9);
         Matrix.bottomWorksheet(General.workingFolder, allTopicsMultiplyColumn2.get(3).gradeRus, allTopicsMultiplyColumn2.get(3).totalPageOfWorksheets,
@@ -301,7 +297,7 @@ public class MultiplicationInColumnTopic2 {
                 allTopicsMultiplyColumn2.get(4).shortProblemDescriptionRus, allTopicsMultiplyColumn2.get(4).longProblemDescriptionRus );
         Matrix.topWorksheetHtmlAnswers(General.workingFolder, allTopicsMultiplyColumn2.get(4).gradeRus, allTopicsMultiplyColumn2.get(4).totalPageOfWorksheets,
                 allTopicsMultiplyColumn2.get(4).shortProblemDescriptionRus, allTopicsMultiplyColumn2.get(4).longProblemDescriptionRus );
-        Matrix.multiplyA1_B1ColumnWorksheetA4(General.workingFolder, allTopicsMultiplyColumn2.get(4).gradeRus, allTopicsMultiplyColumn2.get(4).totalPageOfWorksheets,
+        multiplyA1_B1ColumnWorksheetA4(General.workingFolder, allTopicsMultiplyColumn2.get(4).gradeRus, allTopicsMultiplyColumn2.get(4).totalPageOfWorksheets,
                 allTopicsMultiplyColumn2.get(4).shortProblemDescriptionRus, allTopicsMultiplyColumn2.get(4).longProblemDescriptionRus,
                 allTopicsMultiplyColumn2.get(4).numbersRangeStart, allTopicsMultiplyColumn2.get(4).numbersRangeEnd, 10, 7, 9);
         Matrix.bottomWorksheet(General.workingFolder, allTopicsMultiplyColumn2.get(4).gradeRus, allTopicsMultiplyColumn2.get(4).totalPageOfWorksheets,
@@ -323,7 +319,7 @@ public class MultiplicationInColumnTopic2 {
                 allTopicsMultiplyColumn2.get(5).shortProblemDescriptionRus, allTopicsMultiplyColumn2.get(5).longProblemDescriptionRus );
         Matrix.topWorksheetHtmlAnswers(General.workingFolder, allTopicsMultiplyColumn2.get(5).gradeRus, allTopicsMultiplyColumn2.get(5).totalPageOfWorksheets,
                 allTopicsMultiplyColumn2.get(5).shortProblemDescriptionRus, allTopicsMultiplyColumn2.get(5).longProblemDescriptionRus );
-        Matrix.multiplyA1_B1ColumnWorksheetA4(General.workingFolder, allTopicsMultiplyColumn2.get(5).gradeRus, allTopicsMultiplyColumn2.get(5).totalPageOfWorksheets,
+        multiplyA1_B1ColumnWorksheetA4(General.workingFolder, allTopicsMultiplyColumn2.get(5).gradeRus, allTopicsMultiplyColumn2.get(5).totalPageOfWorksheets,
                 allTopicsMultiplyColumn2.get(5).shortProblemDescriptionRus, allTopicsMultiplyColumn2.get(5).longProblemDescriptionRus,
                 allTopicsMultiplyColumn2.get(5).numbersRangeStart, allTopicsMultiplyColumn2.get(5).numbersRangeEnd, 10, 7, 9);
         Matrix.bottomWorksheet(General.workingFolder, allTopicsMultiplyColumn2.get(5).gradeRus, allTopicsMultiplyColumn2.get(5).totalPageOfWorksheets,
@@ -345,7 +341,7 @@ public class MultiplicationInColumnTopic2 {
                 allTopicsMultiplyColumn2.get(6).shortProblemDescriptionRus, allTopicsMultiplyColumn2.get(6).longProblemDescriptionRus );
         Matrix.topWorksheetHtmlAnswers(General.workingFolder, allTopicsMultiplyColumn2.get(6).gradeRus, allTopicsMultiplyColumn2.get(6).totalPageOfWorksheets,
                 allTopicsMultiplyColumn2.get(6).shortProblemDescriptionRus, allTopicsMultiplyColumn2.get(6).longProblemDescriptionRus );
-        Matrix.multiplyA1_B1ColumnWorksheetA4(General.workingFolder, allTopicsMultiplyColumn2.get(6).gradeRus, allTopicsMultiplyColumn2.get(6).totalPageOfWorksheets,
+        multiplyA1_B1ColumnWorksheetA4(General.workingFolder, allTopicsMultiplyColumn2.get(6).gradeRus, allTopicsMultiplyColumn2.get(6).totalPageOfWorksheets,
                 allTopicsMultiplyColumn2.get(6).shortProblemDescriptionRus, allTopicsMultiplyColumn2.get(6).longProblemDescriptionRus,
                 allTopicsMultiplyColumn2.get(6).numbersRangeStart, allTopicsMultiplyColumn2.get(6).numbersRangeEnd, 10, 7, 9);
         Matrix.bottomWorksheet(General.workingFolder, allTopicsMultiplyColumn2.get(6).gradeRus, allTopicsMultiplyColumn2.get(6).totalPageOfWorksheets,
@@ -367,7 +363,7 @@ public class MultiplicationInColumnTopic2 {
                 allTopicsMultiplyColumn2.get(7).shortProblemDescriptionRus, allTopicsMultiplyColumn2.get(7).longProblemDescriptionRus );
         Matrix.topWorksheetHtmlAnswers(General.workingFolder, allTopicsMultiplyColumn2.get(7).gradeRus, allTopicsMultiplyColumn2.get(7).totalPageOfWorksheets,
                 allTopicsMultiplyColumn2.get(7).shortProblemDescriptionRus, allTopicsMultiplyColumn2.get(7).longProblemDescriptionRus );
-        Matrix.multiplyA1_B1ColumnWorksheetA4(General.workingFolder, allTopicsMultiplyColumn2.get(7).gradeRus, allTopicsMultiplyColumn2.get(7).totalPageOfWorksheets,
+        multiplyA1_B1ColumnWorksheetA4(General.workingFolder, allTopicsMultiplyColumn2.get(7).gradeRus, allTopicsMultiplyColumn2.get(7).totalPageOfWorksheets,
                 allTopicsMultiplyColumn2.get(7).shortProblemDescriptionRus, allTopicsMultiplyColumn2.get(7).longProblemDescriptionRus,
                 allTopicsMultiplyColumn2.get(7).numbersRangeStart, allTopicsMultiplyColumn2.get(7).numbersRangeEnd, 10, 7, 9);
         Matrix.bottomWorksheet(General.workingFolder, allTopicsMultiplyColumn2.get(7).gradeRus, allTopicsMultiplyColumn2.get(7).totalPageOfWorksheets,
@@ -389,7 +385,7 @@ public class MultiplicationInColumnTopic2 {
                 allTopicsMultiplyColumn2.get(8).shortProblemDescriptionRus, allTopicsMultiplyColumn2.get(8).longProblemDescriptionRus );
         Matrix.topWorksheetHtmlAnswers(General.workingFolder, allTopicsMultiplyColumn2.get(8).gradeRus, allTopicsMultiplyColumn2.get(8).totalPageOfWorksheets,
                 allTopicsMultiplyColumn2.get(8).shortProblemDescriptionRus, allTopicsMultiplyColumn2.get(8).longProblemDescriptionRus );
-        Matrix.multiplyA1_B1ColumnWorksheetA4(General.workingFolder, allTopicsMultiplyColumn2.get(8).gradeRus, allTopicsMultiplyColumn2.get(8).totalPageOfWorksheets,
+        multiplyA1_B1ColumnWorksheetA4(General.workingFolder, allTopicsMultiplyColumn2.get(8).gradeRus, allTopicsMultiplyColumn2.get(8).totalPageOfWorksheets,
                 allTopicsMultiplyColumn2.get(8).shortProblemDescriptionRus, allTopicsMultiplyColumn2.get(8).longProblemDescriptionRus,
                 allTopicsMultiplyColumn2.get(8).numbersRangeStart, allTopicsMultiplyColumn2.get(8).numbersRangeEnd, 10, 7, 9);
         Matrix.bottomWorksheet(General.workingFolder, allTopicsMultiplyColumn2.get(8).gradeRus, allTopicsMultiplyColumn2.get(8).totalPageOfWorksheets,
@@ -411,7 +407,7 @@ public class MultiplicationInColumnTopic2 {
                 allTopicsMultiplyColumn2.get(9).shortProblemDescriptionRus, allTopicsMultiplyColumn2.get(9).longProblemDescriptionRus );
         Matrix.topWorksheetHtmlAnswers(General.workingFolder, allTopicsMultiplyColumn2.get(9).gradeRus, allTopicsMultiplyColumn2.get(9).totalPageOfWorksheets,
                 allTopicsMultiplyColumn2.get(9).shortProblemDescriptionRus, allTopicsMultiplyColumn2.get(9).longProblemDescriptionRus );
-        Matrix.multiplyA1_B1ColumnWorksheetA4(General.workingFolder, allTopicsMultiplyColumn2.get(9).gradeRus, allTopicsMultiplyColumn2.get(9).totalPageOfWorksheets,
+        multiplyA1_B1ColumnWorksheetA4(General.workingFolder, allTopicsMultiplyColumn2.get(9).gradeRus, allTopicsMultiplyColumn2.get(9).totalPageOfWorksheets,
                 allTopicsMultiplyColumn2.get(9).shortProblemDescriptionRus, allTopicsMultiplyColumn2.get(9).longProblemDescriptionRus,
                 allTopicsMultiplyColumn2.get(9).numbersRangeStart, allTopicsMultiplyColumn2.get(9).numbersRangeEnd, 10, 7, 9);
         Matrix.bottomWorksheet(General.workingFolder, allTopicsMultiplyColumn2.get(9).gradeRus, allTopicsMultiplyColumn2.get(9).totalPageOfWorksheets,
@@ -433,7 +429,7 @@ public class MultiplicationInColumnTopic2 {
                 allTopicsMultiplyColumn2.get(10).shortProblemDescriptionRus, allTopicsMultiplyColumn2.get(10).longProblemDescriptionRus );
         Matrix.topWorksheetHtmlAnswers(General.workingFolder, allTopicsMultiplyColumn2.get(10).gradeRus, allTopicsMultiplyColumn2.get(10).totalPageOfWorksheets,
                 allTopicsMultiplyColumn2.get(10).shortProblemDescriptionRus, allTopicsMultiplyColumn2.get(10).longProblemDescriptionRus );
-        Matrix.multiplyA1_B1ColumnWorksheetA4(General.workingFolder, allTopicsMultiplyColumn2.get(10).gradeRus, allTopicsMultiplyColumn2.get(10).totalPageOfWorksheets,
+        multiplyA1_B1ColumnWorksheetA4(General.workingFolder, allTopicsMultiplyColumn2.get(10).gradeRus, allTopicsMultiplyColumn2.get(10).totalPageOfWorksheets,
                 allTopicsMultiplyColumn2.get(10).shortProblemDescriptionRus, allTopicsMultiplyColumn2.get(10).longProblemDescriptionRus,
                 allTopicsMultiplyColumn2.get(10).numbersRangeStart, allTopicsMultiplyColumn2.get(10).numbersRangeEnd, 10, 7, 9);
         Matrix.bottomWorksheet(General.workingFolder, allTopicsMultiplyColumn2.get(10).gradeRus, allTopicsMultiplyColumn2.get(10).totalPageOfWorksheets,
@@ -456,7 +452,7 @@ public class MultiplicationInColumnTopic2 {
                 allTopicsMultiplyColumn2.get(0).shortProblemDescriptionEng, allTopicsMultiplyColumn2.get(0).longProblemDescriptionEng );
         Matrix.topWorksheetHtmlAnswers(General.workingFolder, allTopicsMultiplyColumn2.get(0).gradeEng, allTopicsMultiplyColumn2.get(0).totalPageOfWorksheets,
                 allTopicsMultiplyColumn2.get(0).shortProblemDescriptionEng, allTopicsMultiplyColumn2.get(0).longProblemDescriptionEng );
-        Matrix.multiplyA1_B1ColumnWorksheetA4(General.workingFolder, allTopicsMultiplyColumn2.get(0).gradeEng, allTopicsMultiplyColumn2.get(0).totalPageOfWorksheets,
+        multiplyA1_B1ColumnWorksheetA4(General.workingFolder, allTopicsMultiplyColumn2.get(0).gradeEng, allTopicsMultiplyColumn2.get(0).totalPageOfWorksheets,
                 allTopicsMultiplyColumn2.get(0).shortProblemDescriptionEng, allTopicsMultiplyColumn2.get(0).longProblemDescriptionEng,
                 allTopicsMultiplyColumn2.get(0).numbersRangeStart, allTopicsMultiplyColumn2.get(0).numbersRangeEnd, 10, 7, 9);
         Matrix.bottomWorksheet(General.workingFolder, allTopicsMultiplyColumn2.get(0).gradeEng, allTopicsMultiplyColumn2.get(0).totalPageOfWorksheets,
@@ -478,7 +474,7 @@ public class MultiplicationInColumnTopic2 {
                 allTopicsMultiplyColumn2.get(1).shortProblemDescriptionEng, allTopicsMultiplyColumn2.get(1).longProblemDescriptionEng );
         Matrix.topWorksheetHtmlAnswers(General.workingFolder, allTopicsMultiplyColumn2.get(1).gradeEng, allTopicsMultiplyColumn2.get(1).totalPageOfWorksheets,
                 allTopicsMultiplyColumn2.get(1).shortProblemDescriptionEng, allTopicsMultiplyColumn2.get(1).longProblemDescriptionEng );
-        Matrix.multiplyA1_B1ColumnWorksheetA4(General.workingFolder, allTopicsMultiplyColumn2.get(1).gradeEng, allTopicsMultiplyColumn2.get(1).totalPageOfWorksheets,
+        multiplyA1_B1ColumnWorksheetA4(General.workingFolder, allTopicsMultiplyColumn2.get(1).gradeEng, allTopicsMultiplyColumn2.get(1).totalPageOfWorksheets,
                 allTopicsMultiplyColumn2.get(1).shortProblemDescriptionEng, allTopicsMultiplyColumn2.get(1).longProblemDescriptionEng,
                 allTopicsMultiplyColumn2.get(1).numbersRangeStart, allTopicsMultiplyColumn2.get(1).numbersRangeEnd, 10, 7, 9);
         Matrix.bottomWorksheet(General.workingFolder, allTopicsMultiplyColumn2.get(1).gradeEng, allTopicsMultiplyColumn2.get(1).totalPageOfWorksheets,
@@ -500,7 +496,7 @@ public class MultiplicationInColumnTopic2 {
                 allTopicsMultiplyColumn2.get(2).shortProblemDescriptionEng, allTopicsMultiplyColumn2.get(2).longProblemDescriptionEng );
         Matrix.topWorksheetHtmlAnswers(General.workingFolder, allTopicsMultiplyColumn2.get(2).gradeEng, allTopicsMultiplyColumn2.get(2).totalPageOfWorksheets,
                 allTopicsMultiplyColumn2.get(2).shortProblemDescriptionEng, allTopicsMultiplyColumn2.get(2).longProblemDescriptionEng );
-        Matrix.multiplyA1_B1ColumnWorksheetA4(General.workingFolder, allTopicsMultiplyColumn2.get(2).gradeEng, allTopicsMultiplyColumn2.get(2).totalPageOfWorksheets,
+        multiplyA1_B1ColumnWorksheetA4(General.workingFolder, allTopicsMultiplyColumn2.get(2).gradeEng, allTopicsMultiplyColumn2.get(2).totalPageOfWorksheets,
                 allTopicsMultiplyColumn2.get(2).shortProblemDescriptionEng, allTopicsMultiplyColumn2.get(2).longProblemDescriptionEng,
                 allTopicsMultiplyColumn2.get(2).numbersRangeStart, allTopicsMultiplyColumn2.get(2).numbersRangeEnd, 10, 7, 9);
         Matrix.bottomWorksheet(General.workingFolder, allTopicsMultiplyColumn2.get(2).gradeEng, allTopicsMultiplyColumn2.get(2).totalPageOfWorksheets,
@@ -522,7 +518,7 @@ public class MultiplicationInColumnTopic2 {
                 allTopicsMultiplyColumn2.get(3).shortProblemDescriptionEng, allTopicsMultiplyColumn2.get(3).longProblemDescriptionEng );
         Matrix.topWorksheetHtmlAnswers(General.workingFolder, allTopicsMultiplyColumn2.get(3).gradeEng, allTopicsMultiplyColumn2.get(3).totalPageOfWorksheets,
                 allTopicsMultiplyColumn2.get(3).shortProblemDescriptionEng, allTopicsMultiplyColumn2.get(3).longProblemDescriptionEng );
-        Matrix.multiplyA1_B1ColumnWorksheetA4(General.workingFolder, allTopicsMultiplyColumn2.get(3).gradeEng, allTopicsMultiplyColumn2.get(3).totalPageOfWorksheets,
+        multiplyA1_B1ColumnWorksheetA4(General.workingFolder, allTopicsMultiplyColumn2.get(3).gradeEng, allTopicsMultiplyColumn2.get(3).totalPageOfWorksheets,
                 allTopicsMultiplyColumn2.get(3).shortProblemDescriptionEng, allTopicsMultiplyColumn2.get(3).longProblemDescriptionEng,
                 allTopicsMultiplyColumn2.get(3).numbersRangeStart, allTopicsMultiplyColumn2.get(3).numbersRangeEnd, 10, 7, 9);
         Matrix.bottomWorksheet(General.workingFolder, allTopicsMultiplyColumn2.get(3).gradeEng, allTopicsMultiplyColumn2.get(3).totalPageOfWorksheets,
@@ -544,7 +540,7 @@ public class MultiplicationInColumnTopic2 {
                 allTopicsMultiplyColumn2.get(4).shortProblemDescriptionEng, allTopicsMultiplyColumn2.get(4).longProblemDescriptionEng );
         Matrix.topWorksheetHtmlAnswers(General.workingFolder, allTopicsMultiplyColumn2.get(4).gradeEng, allTopicsMultiplyColumn2.get(4).totalPageOfWorksheets,
                 allTopicsMultiplyColumn2.get(4).shortProblemDescriptionEng, allTopicsMultiplyColumn2.get(4).longProblemDescriptionEng );
-        Matrix.multiplyA1_B1ColumnWorksheetA4(General.workingFolder, allTopicsMultiplyColumn2.get(4).gradeEng, allTopicsMultiplyColumn2.get(4).totalPageOfWorksheets,
+        multiplyA1_B1ColumnWorksheetA4(General.workingFolder, allTopicsMultiplyColumn2.get(4).gradeEng, allTopicsMultiplyColumn2.get(4).totalPageOfWorksheets,
                 allTopicsMultiplyColumn2.get(4).shortProblemDescriptionEng, allTopicsMultiplyColumn2.get(4).longProblemDescriptionEng,
                 allTopicsMultiplyColumn2.get(4).numbersRangeStart, allTopicsMultiplyColumn2.get(4).numbersRangeEnd, 10, 7, 9);
         Matrix.bottomWorksheet(General.workingFolder, allTopicsMultiplyColumn2.get(4).gradeEng, allTopicsMultiplyColumn2.get(4).totalPageOfWorksheets,
@@ -566,7 +562,7 @@ public class MultiplicationInColumnTopic2 {
                 allTopicsMultiplyColumn2.get(5).shortProblemDescriptionEng, allTopicsMultiplyColumn2.get(5).longProblemDescriptionEng );
         Matrix.topWorksheetHtmlAnswers(General.workingFolder, allTopicsMultiplyColumn2.get(5).gradeEng, allTopicsMultiplyColumn2.get(5).totalPageOfWorksheets,
                 allTopicsMultiplyColumn2.get(5).shortProblemDescriptionEng, allTopicsMultiplyColumn2.get(5).longProblemDescriptionEng );
-        Matrix.multiplyA1_B1ColumnWorksheetA4(General.workingFolder, allTopicsMultiplyColumn2.get(5).gradeEng, allTopicsMultiplyColumn2.get(5).totalPageOfWorksheets,
+        multiplyA1_B1ColumnWorksheetA4(General.workingFolder, allTopicsMultiplyColumn2.get(5).gradeEng, allTopicsMultiplyColumn2.get(5).totalPageOfWorksheets,
                 allTopicsMultiplyColumn2.get(5).shortProblemDescriptionEng, allTopicsMultiplyColumn2.get(5).longProblemDescriptionEng,
                 allTopicsMultiplyColumn2.get(5).numbersRangeStart, allTopicsMultiplyColumn2.get(5).numbersRangeEnd, 10, 7, 9);
         Matrix.bottomWorksheet(General.workingFolder, allTopicsMultiplyColumn2.get(5).gradeEng, allTopicsMultiplyColumn2.get(5).totalPageOfWorksheets,
@@ -588,7 +584,7 @@ public class MultiplicationInColumnTopic2 {
                 allTopicsMultiplyColumn2.get(6).shortProblemDescriptionEng, allTopicsMultiplyColumn2.get(6).longProblemDescriptionEng );
         Matrix.topWorksheetHtmlAnswers(General.workingFolder, allTopicsMultiplyColumn2.get(6).gradeEng, allTopicsMultiplyColumn2.get(6).totalPageOfWorksheets,
                 allTopicsMultiplyColumn2.get(6).shortProblemDescriptionEng, allTopicsMultiplyColumn2.get(6).longProblemDescriptionEng );
-        Matrix.multiplyA1_B1ColumnWorksheetA4(General.workingFolder, allTopicsMultiplyColumn2.get(6).gradeEng, allTopicsMultiplyColumn2.get(6).totalPageOfWorksheets,
+        multiplyA1_B1ColumnWorksheetA4(General.workingFolder, allTopicsMultiplyColumn2.get(6).gradeEng, allTopicsMultiplyColumn2.get(6).totalPageOfWorksheets,
                 allTopicsMultiplyColumn2.get(6).shortProblemDescriptionEng, allTopicsMultiplyColumn2.get(6).longProblemDescriptionEng,
                 allTopicsMultiplyColumn2.get(6).numbersRangeStart, allTopicsMultiplyColumn2.get(6).numbersRangeEnd, 10, 7, 9);
         Matrix.bottomWorksheet(General.workingFolder, allTopicsMultiplyColumn2.get(6).gradeEng, allTopicsMultiplyColumn2.get(6).totalPageOfWorksheets,
@@ -610,7 +606,7 @@ public class MultiplicationInColumnTopic2 {
                 allTopicsMultiplyColumn2.get(7).shortProblemDescriptionEng, allTopicsMultiplyColumn2.get(7).longProblemDescriptionEng );
         Matrix.topWorksheetHtmlAnswers(General.workingFolder, allTopicsMultiplyColumn2.get(7).gradeEng, allTopicsMultiplyColumn2.get(7).totalPageOfWorksheets,
                 allTopicsMultiplyColumn2.get(7).shortProblemDescriptionEng, allTopicsMultiplyColumn2.get(7).longProblemDescriptionEng );
-        Matrix.multiplyA1_B1ColumnWorksheetA4(General.workingFolder, allTopicsMultiplyColumn2.get(7).gradeEng, allTopicsMultiplyColumn2.get(7).totalPageOfWorksheets,
+        multiplyA1_B1ColumnWorksheetA4(General.workingFolder, allTopicsMultiplyColumn2.get(7).gradeEng, allTopicsMultiplyColumn2.get(7).totalPageOfWorksheets,
                 allTopicsMultiplyColumn2.get(7).shortProblemDescriptionEng, allTopicsMultiplyColumn2.get(7).longProblemDescriptionEng,
                 allTopicsMultiplyColumn2.get(7).numbersRangeStart, allTopicsMultiplyColumn2.get(7).numbersRangeEnd, 10, 7, 9);
         Matrix.bottomWorksheet(General.workingFolder, allTopicsMultiplyColumn2.get(7).gradeEng, allTopicsMultiplyColumn2.get(7).totalPageOfWorksheets,
@@ -632,7 +628,7 @@ public class MultiplicationInColumnTopic2 {
                 allTopicsMultiplyColumn2.get(8).shortProblemDescriptionEng, allTopicsMultiplyColumn2.get(8).longProblemDescriptionEng );
         Matrix.topWorksheetHtmlAnswers(General.workingFolder, allTopicsMultiplyColumn2.get(8).gradeEng, allTopicsMultiplyColumn2.get(8).totalPageOfWorksheets,
                 allTopicsMultiplyColumn2.get(8).shortProblemDescriptionEng, allTopicsMultiplyColumn2.get(8).longProblemDescriptionEng );
-        Matrix.multiplyA1_B1ColumnWorksheetA4(General.workingFolder, allTopicsMultiplyColumn2.get(8).gradeEng, allTopicsMultiplyColumn2.get(8).totalPageOfWorksheets,
+        multiplyA1_B1ColumnWorksheetA4(General.workingFolder, allTopicsMultiplyColumn2.get(8).gradeEng, allTopicsMultiplyColumn2.get(8).totalPageOfWorksheets,
                 allTopicsMultiplyColumn2.get(8).shortProblemDescriptionEng, allTopicsMultiplyColumn2.get(8).longProblemDescriptionEng,
                 allTopicsMultiplyColumn2.get(8).numbersRangeStart, allTopicsMultiplyColumn2.get(8).numbersRangeEnd, 10, 7, 9);
         Matrix.bottomWorksheet(General.workingFolder, allTopicsMultiplyColumn2.get(8).gradeEng, allTopicsMultiplyColumn2.get(8).totalPageOfWorksheets,
@@ -654,7 +650,7 @@ public class MultiplicationInColumnTopic2 {
                 allTopicsMultiplyColumn2.get(9).shortProblemDescriptionEng, allTopicsMultiplyColumn2.get(9).longProblemDescriptionEng );
         Matrix.topWorksheetHtmlAnswers(General.workingFolder, allTopicsMultiplyColumn2.get(9).gradeEng, allTopicsMultiplyColumn2.get(9).totalPageOfWorksheets,
                 allTopicsMultiplyColumn2.get(9).shortProblemDescriptionEng, allTopicsMultiplyColumn2.get(9).longProblemDescriptionEng );
-        Matrix.multiplyA1_B1ColumnWorksheetA4(General.workingFolder, allTopicsMultiplyColumn2.get(9).gradeEng, allTopicsMultiplyColumn2.get(9).totalPageOfWorksheets,
+        multiplyA1_B1ColumnWorksheetA4(General.workingFolder, allTopicsMultiplyColumn2.get(9).gradeEng, allTopicsMultiplyColumn2.get(9).totalPageOfWorksheets,
                 allTopicsMultiplyColumn2.get(9).shortProblemDescriptionEng, allTopicsMultiplyColumn2.get(9).longProblemDescriptionEng,
                 allTopicsMultiplyColumn2.get(9).numbersRangeStart, allTopicsMultiplyColumn2.get(9).numbersRangeEnd, 10, 7, 9);
         Matrix.bottomWorksheet(General.workingFolder, allTopicsMultiplyColumn2.get(9).gradeEng, allTopicsMultiplyColumn2.get(9).totalPageOfWorksheets,
@@ -676,7 +672,7 @@ public class MultiplicationInColumnTopic2 {
                 allTopicsMultiplyColumn2.get(10).shortProblemDescriptionEng, allTopicsMultiplyColumn2.get(10).longProblemDescriptionEng );
         Matrix.topWorksheetHtmlAnswers(General.workingFolder, allTopicsMultiplyColumn2.get(10).gradeEng, allTopicsMultiplyColumn2.get(10).totalPageOfWorksheets,
                 allTopicsMultiplyColumn2.get(10).shortProblemDescriptionEng, allTopicsMultiplyColumn2.get(10).longProblemDescriptionEng );
-        Matrix.multiplyA1_B1ColumnWorksheetA4(General.workingFolder, allTopicsMultiplyColumn2.get(10).gradeEng, allTopicsMultiplyColumn2.get(10).totalPageOfWorksheets,
+        multiplyA1_B1ColumnWorksheetA4(General.workingFolder, allTopicsMultiplyColumn2.get(10).gradeEng, allTopicsMultiplyColumn2.get(10).totalPageOfWorksheets,
                 allTopicsMultiplyColumn2.get(10).shortProblemDescriptionEng, allTopicsMultiplyColumn2.get(10).longProblemDescriptionEng,
                 allTopicsMultiplyColumn2.get(10).numbersRangeStart, allTopicsMultiplyColumn2.get(10).numbersRangeEnd, 10, 7, 9);
         Matrix.bottomWorksheet(General.workingFolder, allTopicsMultiplyColumn2.get(10).gradeEng, allTopicsMultiplyColumn2.get(10).totalPageOfWorksheets,
@@ -1500,5 +1496,174 @@ public class MultiplicationInColumnTopic2 {
 
 
     }
+
+
+    //Multiply two numbers in column
+    public static void multiplyA1_B1ColumnWorksheetA4(String workingFolder, String grade, int totalPageNumbers,
+                                                      String shortTaskNameWorksheet, String longTaskNameWorksheet,
+                                                      int numbersRangeStart, int numbersRangeEnd, int sum, int problemsLine, int problemsCol) throws IOException {
+        int pageNumber;
+        Integer[][] argument1 = new Integer[problemsLine][problemsCol];
+        Integer[][] argument2 = new Integer[problemsLine][problemsCol];
+
+        for (int k = 1; k < totalPageNumbers ; k++) {
+            pageNumber = k;
+
+            for (int i = 0; i < problemsLine; i++)
+                for (int j = 0; j < problemsCol; j++) {
+                    argument1[i][j] = (int) (Math.random() * numbersRangeEnd + numbersRangeStart);
+                    argument2[i][j] = (int) (Math.random() * argument1[i][j]);
+                }
+
+
+            if (longTaskNameWorksheet.contains("Умножь число 0") || longTaskNameWorksheet.contains("Multiply 0")) {
+                for (int i = 0; i < problemsLine; i++)
+                    for (int j = 0; j < problemsCol; j++) {
+                        argument1[i][j] = (int) (Math.random() * numbersRangeEnd + numbersRangeStart);
+                        argument2[i][j] = 0;
+                    }
+            }
+
+            if (longTaskNameWorksheet.contains("Умножь число 1") || longTaskNameWorksheet.contains("Multiply 1")) {
+                for (int i = 0; i < problemsLine; i++)
+                    for (int j = 0; j < problemsCol; j++) {
+                        argument1[i][j] = (int) (Math.random() * numbersRangeEnd + numbersRangeStart);
+                        argument2[i][j] = 1;
+                    }
+            }
+
+            if (longTaskNameWorksheet.contains("Умножь число 2") || longTaskNameWorksheet.contains("Multiply 2")) {
+                for (int i = 0; i < problemsLine; i++)
+                    for (int j = 0; j < problemsCol; j++) {
+                        argument1[i][j] = (int) (Math.random() * numbersRangeEnd + numbersRangeStart);
+                        argument2[i][j] = 2;
+                    }
+            }
+
+            if (longTaskNameWorksheet.contains("Умножь число 3") || longTaskNameWorksheet.contains("Multiply 3")) {
+                for (int i = 0; i < problemsLine; i++)
+                    for (int j = 0; j < problemsCol; j++) {
+                        argument1[i][j] = (int) (Math.random() * numbersRangeEnd + numbersRangeStart);
+                        argument2[i][j] = 3;
+                    }
+            }
+
+            if (longTaskNameWorksheet.contains("Умножь число 4") || longTaskNameWorksheet.contains("Multiply 4")) {
+                for (int i = 0; i < problemsLine; i++)
+                    for (int j = 0; j < problemsCol; j++) {
+                        argument1[i][j] = (int) (Math.random() * numbersRangeEnd + numbersRangeStart);
+                        argument2[i][j] = 4;
+                    }
+            }
+
+            if (longTaskNameWorksheet.contains("Умножь число 5") || longTaskNameWorksheet.contains("Multiply 5")) {
+                for (int i = 0; i < problemsLine; i++)
+                    for (int j = 0; j < problemsCol; j++) {
+                        argument1[i][j] = (int) (Math.random() * numbersRangeEnd + numbersRangeStart);
+                        argument2[i][j] = 5;
+                    }
+            }
+
+            if (longTaskNameWorksheet.contains("Умножь число 6") || longTaskNameWorksheet.contains("Multiply 6")) {
+                for (int i = 0; i < problemsLine; i++)
+                    for (int j = 0; j < problemsCol; j++) {
+                        argument1[i][j] = (int) (Math.random() * numbersRangeEnd + numbersRangeStart);
+                        argument2[i][j] = 6;
+                    }
+            }
+
+            if (longTaskNameWorksheet.contains("Умножь число 7") || longTaskNameWorksheet.contains("Multiply 7")) {
+                for (int i = 0; i < problemsLine; i++)
+                    for (int j = 0; j < problemsCol; j++) {
+                        argument1[i][j] = (int) (Math.random() * numbersRangeEnd + numbersRangeStart);
+                        argument2[i][j] = 7;
+                    }
+            }
+
+            if (longTaskNameWorksheet.contains("Умножь число 8") || longTaskNameWorksheet.contains("Multiply 8")) {
+                for (int i = 0; i < problemsLine; i++)
+                    for (int j = 0; j < problemsCol; j++) {
+                        argument1[i][j] = (int) (Math.random() * numbersRangeEnd + numbersRangeStart);
+                        argument2[i][j] = 8;
+                    }
+            }
+
+            if (longTaskNameWorksheet.contains("Умножь число 9") || longTaskNameWorksheet.contains("Multiply 9")) {
+                for (int i = 0; i < problemsLine; i++)
+                    for (int j = 0; j < problemsCol; j++) {
+                        argument1[i][j] = (int) (Math.random() * numbersRangeEnd + numbersRangeStart);
+                        argument2[i][j] = 9;
+                    }
+            }
+
+            if (longTaskNameWorksheet.contains("Умножь число 10") || longTaskNameWorksheet.contains("Multiply 10")) {
+                for (int i = 0; i < problemsLine; i++)
+                    for (int j = 0; j < problemsCol; j++) {
+                        argument1[i][j] = (int) (Math.random() * numbersRangeEnd + numbersRangeStart);
+                        argument2[i][j] = 10;
+                    }
+            }
+
+
+            FileWriter fileHtmlWriter = new FileWriter(workingFolder
+                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlock__" + ".html");
+            FileWriter fileHtmlWriterAnswer = new FileWriter(workingFolder
+                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlockAnswer__" + ".html");
+            FileWriter fileTxtWriter = new FileWriter(workingFolder
+                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyTxtBlock__" + ".txt");
+
+            fileHtmlWriter.write("<table> <tr><td colspan=\"" + (problemsCol) + "\"></td></tr>");
+            fileHtmlWriterAnswer.write("<table> <tr><td colspan=\"" + (problemsCol) + "\"></td></tr>");
+            for (int i = 0; i < problemsLine; i++) {
+                fileHtmlWriter.write("<tr align=\"right\">");
+                fileHtmlWriterAnswer.write("<tr align=\"right\">");
+                fileTxtWriter.write("\n ");
+                for (int j = 0; j < problemsCol; j++) {
+                    fileHtmlWriter.write("<td> &nbsp; &nbsp; "+ ((i * problemsCol) + (j + 1)) +") &nbsp; &nbsp; " +
+                            "" + argument1[i][j] + "</td>");
+                    fileHtmlWriterAnswer.write("<td> &nbsp; &nbsp; "+ ((i * problemsCol) + (j + 1)) +") &nbsp; &nbsp; " +
+                            "" + argument1[i][j] + "</td>");
+                    fileTxtWriter.write("    " + argument1[i][j]);
+                }
+                fileHtmlWriter.write("</tr> \n <tr align=\"right\">");
+                fileHtmlWriterAnswer.write("</tr> \n <tr align=\"right\">");
+                fileTxtWriter.write("\n");
+
+                for (int j = 0; j < problemsCol; j++) {
+                    fileHtmlWriter.write("<td> &nbsp;&nbsp; x " + argument2[i][j] + "</td>");
+                    fileHtmlWriterAnswer.write("<td> &nbsp;&nbsp; x " + argument2[i][j] + "</td>");
+                    fileTxtWriter.write("   * " + argument2[i][j]);
+                }
+                fileHtmlWriter.write("</tr> \n <tr align=\"right\">");
+                fileHtmlWriterAnswer.write("</tr> \n <tr align=\"right\">");
+                fileTxtWriter.write("\n");
+
+                for (int j = 0; j < problemsCol; j++) {
+                    fileHtmlWriter.write("<td> ------ </td>");
+                    fileHtmlWriterAnswer.write("<td> ------ </td>");
+                    fileTxtWriter.write(" ----- ");
+                }
+                fileHtmlWriter.write("</tr> \n <tr align=\"right\">");
+                fileHtmlWriterAnswer.write("</tr> \n <tr align=\"right\">");
+                fileTxtWriter.write(" \n");
+
+                for (int j = 0; j < problemsCol; j++) {
+                    fileHtmlWriter.write("<td> ... </td>");
+                    fileHtmlWriterAnswer.write("<td> "+ (argument1[i][j] * argument2[i][j]) + " </td>");
+                    fileTxtWriter.write(" ... ");
+                }
+                fileHtmlWriter.write("</tr> \n  <tr><td colspan=\"7\"><br /></td></tr>");
+                fileHtmlWriterAnswer.write("</tr> \n  <tr><td colspan=\"7\"><br /></td></tr>");
+                fileTxtWriter.write(" \n\n ");
+            }
+
+            fileHtmlWriter.write("</table>");
+            fileHtmlWriterAnswer.write("</table>");
+            fileTxtWriter.close();
+            fileHtmlWriter.close();
+            fileHtmlWriterAnswer.close();
+        }
+    }
+
 
 }

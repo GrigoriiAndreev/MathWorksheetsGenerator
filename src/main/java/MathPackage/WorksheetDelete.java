@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Worksheet implements Serializable{
+public class WorksheetDelete implements Serializable{
 // Global variables
 //    static public String siteNameLeftBottom = "https://mathematics-tests.com";
 //    static public String siteNameRightBottom = "https://magazin-integral.ru";
@@ -22,10 +22,10 @@ public class Worksheet implements Serializable{
     int numbersRangeEnd;
     String url;
 
-    public Worksheet(String shortWorksheetName,
-                     String longWorksheetName,
-                     int numbersRangeStart,
-                     int numbersRangeEnd) {
+    public WorksheetDelete(String shortWorksheetName,
+                           String longWorksheetName,
+                           int numbersRangeStart,
+                           int numbersRangeEnd) {
         this.shortWorksheetName = shortWorksheetName;
         this.longWorksheetName = longWorksheetName;
         this.numbersRangeStart = numbersRangeStart;
@@ -54,28 +54,28 @@ public class Worksheet implements Serializable{
         General.emptyFolder(General.readyFilesFolder);
 
 //        Worksheet[] grade2Add = new Worksheet[10];
-        Worksheet[] grade4Add = new Worksheet[10];
-        List<Worksheet> grade4Sub = new ArrayList<Worksheet>();
-        List<Worksheet> grade4AddSub = new ArrayList<Worksheet>();
-        List<Worksheet> grade4Mult = new ArrayList<Worksheet>();
+        WorksheetDelete[] grade4Add = new WorksheetDelete[10];
+        List<WorksheetDelete> grade4Sub = new ArrayList<WorksheetDelete>();
+        List<WorksheetDelete> grade4AddSub = new ArrayList<WorksheetDelete>();
+        List<WorksheetDelete> grade4Mult = new ArrayList<WorksheetDelete>();
 
-        grade4Sub.add( new Worksheet("Вычитание чисел.", "Вычитание двух чисел столбиком. Числа до 100_000.",
+        grade4Sub.add( new WorksheetDelete("Вычитание чисел.", "Вычитание двух чисел столбиком. Числа до 100_000.",
                 1, 100_000));
-        grade4Sub.add( new Worksheet("Вычитание чисел.", "Вычитание двух чисел столбиком. Числа до 10_00_000.",
+        grade4Sub.add( new WorksheetDelete("Вычитание чисел.", "Вычитание двух чисел столбиком. Числа до 10_00_000.",
                 1, 10_000_000));
-        grade4Sub.add( new Worksheet("Вычитание чисел.", "Вычитание двух чисел. Заполните пропущенные цифры.",
+        grade4Sub.add( new WorksheetDelete("Вычитание чисел.", "Вычитание двух чисел. Заполните пропущенные цифры.",
                 1, 10_000_000));
-        grade4Sub.add( new Worksheet("Вычитание чисел устно.", "Вычитание устно. Выбери два числа, чтобы примеры стали правильными.", 1, 1_000));
-        grade4Sub.add( new Worksheet("Вычитание чисел устно.", "Вычитание двух чисел устно. Числа до 1000.",
+        grade4Sub.add( new WorksheetDelete("Вычитание чисел устно.", "Вычитание устно. Выбери два числа, чтобы примеры стали правильными.", 1, 1_000));
+        grade4Sub.add( new WorksheetDelete("Вычитание чисел устно.", "Вычитание двух чисел устно. Числа до 1000.",
                 1, 1_000));
-        grade4Sub.add( new Worksheet("", "",
+        grade4Sub.add( new WorksheetDelete("", "",
                 1, 1_000));
 
-        grade4Mult.add( new Worksheet("Умножение чисел.", "Умножение однозначных чисел.",
+        grade4Mult.add( new WorksheetDelete("Умножение чисел.", "Умножение однозначных чисел.",
                 1, 100_000));
-        grade4Mult.add( new Worksheet("Умножение чисел.", "Умножение однозначных чисел на десятки.",
+        grade4Mult.add( new WorksheetDelete("Умножение чисел.", "Умножение однозначных чисел на десятки.",
                 1, 100_000));
-        grade4Mult.add( new Worksheet("Умножение чисел.", "Умножение однозначных чисел на сотни.",
+        grade4Mult.add( new WorksheetDelete("Умножение чисел.", "Умножение однозначных чисел на сотни.",
                 1, 100_000));
 
 
@@ -105,35 +105,35 @@ public class Worksheet implements Serializable{
 */
 
         //Creating worksheet for Grade 4 - Russian
-        grade4Add[0] = new Worksheet(
+        grade4Add[0] = new WorksheetDelete(
                 "Сложение чисел.", "Сложение двух чисел столбиком. Числа до 100_000.",
                 1, 100_000);
 
-        grade4Add[1] = new Worksheet(
+        grade4Add[1] = new WorksheetDelete(
                 "Сложение чисел.", "Сложение двух чисел столбиком. Числа до 10_000_000.",
                 1, 10_000_000);
 
-        grade4Add[2] = new Worksheet(
+        grade4Add[2] = new WorksheetDelete(
                 "Сложение чисел.", "Сложение двух чисел. Заполните пропущенные цифры.",
                 1, 10_000_000);
 
-        grade4Add[3] = new Worksheet(
+        grade4Add[3] = new WorksheetDelete(
                 "Сложение чисел.", "Сложение трех чисел. Числа до 1_000_000.",
                 1, 1_000_000);
 
-        grade4Add[4] = new Worksheet(
+        grade4Add[4] = new WorksheetDelete(
                 "Сложение чисел.", "Сложение четырех чисел. Числа до 1_000_000.",
                 1, 1_000_000);
 
-        grade4Add[5] = new Worksheet(
+        grade4Add[5] = new WorksheetDelete(
                 "Сложение чисел устно.", "Сложение чисел. Выбери два числа, чтобы пример" +
                 " стал правильным.",1, 1_000);
 
-        grade4Add[6] = new Worksheet(
+        grade4Add[6] = new WorksheetDelete(
                 "Сложение чисел устно.", "Сложение двух чисел устно. Числа до 1000.",
                 1, 1000);
 
-        grade4Add[7] = new Worksheet(
+        grade4Add[7] = new WorksheetDelete(
                 "Сложение чисел.", "Выбери два числа из заданных. Выражение должно быть правильным.",
                 1, 1000);
 
@@ -150,7 +150,7 @@ public class Worksheet implements Serializable{
         Object object = objectInputStream.readObject();
 
 
-        grade4AddSub = (List<Worksheet>) object;
+        grade4AddSub = (List<WorksheetDelete>) object;
 
         fileInputStream.close();
         fileOutputStream.close();
@@ -159,7 +159,7 @@ public class Worksheet implements Serializable{
 //        pr.close();
 
         System.out.println(" Load ");
-        for (Worksheet worksheet : grade4AddSub)
+        for (WorksheetDelete worksheet : grade4AddSub)
             System.out.println(worksheet.shortWorksheetName + " " + worksheet.longWorksheetName + " "
                     + worksheet.numbersRangeStart + " " + worksheet.numbersRangeEnd);
 

@@ -1,14 +1,29 @@
 package MathPackage;
 
 import java.io.*;
-import java.util.Arrays;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptEngine;
 import javax.script.ScriptException;
 
-public class Solution {
+/**
+ * Class is used to test the separate methods
+ */
+
+public class Solution<T> {
+
+    private T t;
+
+    public T get(){
+        return this.t;
+    }
+
+    public void set(T t1){
+        this.t=t1;
+    }
+
 
     public static double eval(final String str) {
         return new Object() {
@@ -202,8 +217,29 @@ public class Solution {
 
     }
 
+    public static final String[] BELOW_TWENTY = { "ноль", "один", "два", "три", "четыре", "пять", "шесть", "семь", "восемь", "девять", "десять", "одинадцать", "двенадцадь", "тринадцать", "четырнадцать", "пятнадцать", "шестнадцать", "семнадцать", "восемнадцать", "девятнадцать" };
+    public static final String[] TENS = { "сто", "десять", "двадцать", "тридцать", "сорок", "пятьдесят", "шестьдесят", "семьдесят", "восемьдесят", "девяносто" };
 
 
-        public static void main(String args[]) throws IOException {
-           }
+    public static void main(String[] args) throws IOException {
+
+        Solution<String> type = new Solution<>();
+        type.set("Привет");
+
+        Solution<Integer> type2 = new Solution<>();
+        type2.set(12);
+
+        Solution type3 = new Solution<>();
+        type3.set(5);
+        type3.set("fkhas");
+
+
+/*
+        for(Object obj : type3){
+            //type casting leading to ClassCastException at runtime
+            String str = (String) obj;
+            System.out.println(str);
+        }
+*/
+    }
     }

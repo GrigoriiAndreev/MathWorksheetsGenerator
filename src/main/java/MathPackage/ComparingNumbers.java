@@ -54,7 +54,6 @@ public class ComparingNumbers {
         this.totalPageOfWorksheets = totalPageOfWorksheets;
     }
 
-
     public static void main(String[] args) throws Exception {
 
         General.emptyFolder(General.workingFolder);
