@@ -5,6 +5,8 @@ import org.apache.commons.io.FileUtils;
 import java.io.*;
 import java.util.*;
 
+import static java.lang.String.valueOf;
+
 /**
  * Class contains all main methods to generate html worksheets
  * Author: Grigorii Andreev
@@ -49,192 +51,141 @@ public class Matrix {
 
     }
 
-    /*
-    Header of page: txt, html formats
-     */
-//    public static void pageHeader() throws IOException {
-//
-//        FileWriter writer = new FileWriter("D:\\mathematics-at-school.com\\JavaTemplates/"
-//                +  grade + " " + shortTaskNamePage + "headerTxtBlock__" + ".txt");
-//        FileWriter htmlWriter = new FileWriter(new File("D:\\mathematics-at-school.com\\JavaTemplates/"
-//                +  grade + " " + shortTaskNamePage + "headerHtmlBlock__" + ".html"));
-//
-//        String text, htmlText;
-//
-//        text = "Математика. " + grade + " " + shortTaskNamePage + "\n\n";
-//        htmlText = "<h1> Математика. " + grade + " " + shortTaskNamePage + "</h1>\n";
-//        writer.write(text);
-//        htmlWriter.write(htmlText);
-//        text = longTaskNamePage + "\n\n";
-//        htmlText = "<h2> " + longTaskNamePage + "</h2>\n";
-//        writer.write(text);
-//        htmlWriter.write(htmlText);
-//        writer.close();
-//        htmlWriter.close();
-//    }
+    //Top part of worksheets: txt and html
+    public static void topWorksheet(String workingFolder, String grade, int totalPageNumbers,
+                                    String shortTaskNameWorksheet, String longTaskNameWorksheet) throws IOException {
 
-/*
-Top part of worksheets: txt and html
- */
-    public static void topWorksheet(String workingFolder, String grade, int totalPageNumbers, String shortTaskNameWorksheet,
-    String longTaskNameWorksheet) throws IOException {
-
-        for (int i = 1; i < totalPageNumbers ; i++) {
+        for (int i = 1; i < totalPageNumbers; i++) {
             pageNumber = i;
 
-        FileWriter writer = new FileWriter(workingFolder
-                + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "topTxtBlock__" + ".txt");
-        FileWriter writerHtml = new FileWriter(workingFolder
-                + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "topHtmlBlock__" + ".html");
-//        FileWriter writerPdf = new FileWriter(workingFolder
-//                + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "topPdfBlock__" + ".html");
-        String text,htmlText,pdfText;
+            FileWriter writer = new FileWriter(workingFolder
+                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "topTxtBlock__" + ".txt");
+            FileWriter writerHtml = new FileWriter(workingFolder
+                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "topHtmlBlock__" + ".html");
+            String text, htmlText;
 
-        if (grade.contains("&nbsp") || grade.contains("G"))   {
-            text = grade + " " + shortTaskNameWorksheet + " Variant № " + pageNumber + ". \n\n";
-            htmlText = "\n\n<br /><h3>" + " " + shortTaskNameWorksheet + " Variant № " + pageNumber + ".</h3>";
-//            htmlText = "\n\n<br /><h3>" + grade + " " + shortTaskNameWorksheet + " Variant № " + pageNumber + ".</h3>";
-//            pdfText = "\n\n<br /><h3>" + grade + " " + shortTaskNameWorksheet + " Variant № " + pageNumber + ".</h3>";
-        }
-        else{
-            text = grade + " " + shortTaskNameWorksheet + " Вариант № " + pageNumber + ". n\n";
-//            htmlText = "<img src=\"d://Java_Math/WorksheetsLogo_Rus.jpg\" alt=\"альтернативный текст\">\n";
-//            writerHtml.write(htmlText);
-            htmlText = "\n\n<br /><h3>" + " " + shortTaskNameWorksheet + " Вариант № " + pageNumber + ".</h3>";
+            if (grade.contains("&nbsp") || grade.contains("G")) {
+                text = grade + " " + shortTaskNameWorksheet + " Variant № " + pageNumber + ". \n\n";
+                htmlText = "\n\n<br /><h3>" + " " + shortTaskNameWorksheet + " Variant № " + pageNumber + ".</h3>";
+            } else {
+                text = grade + " " + shortTaskNameWorksheet + " Вариант № " + pageNumber + ". n\n";
+                htmlText = "\n\n<br /><h3>" + " " + shortTaskNameWorksheet + " Вариант № " + pageNumber + ".</h3>";
+            }
+            writer.write(text);
+            writerHtml.write(htmlText);
 
-        }
-        writer.write(text);
-        writerHtml.write(htmlText);
-
-        if (grade.contains("&nbsp") || grade.contains("G")) {
-            text = "Дата: ______________ ФИО: ______________________________________ Оценка:__________\n\n";
-            htmlText = "Date: ______________ Name: _________________________________ Value:__________\n\n<br /><br />";
-        }
-        else
-            {
-            text = "Дата:______________ ФИО:______________________________________ Оценка:__________\n\n";
-            htmlText = "Дата:______________ ФИО:_________________________________ Оценка:__________\n\n<br /><br />";
-        }
-        writer.write(text);
-        writerHtml.write(htmlText);
-        text = longTaskNameWorksheet + "\n\n";
-        htmlText = longTaskNameWorksheet + "\n\n<br /><br />";
-        writer.write(text);
-        writerHtml.write(htmlText);
-        writer.close();
-        writerHtml.close();
+            if (grade.contains("&nbsp") || grade.contains("G")) {
+                text = "Дата: ______________ ФИО: ______________________________________ Оценка:__________\n\n";
+                htmlText = "Date: ______________ Name: _________________________________ Value:__________\n\n<br /><br />";
+            } else {
+                text = "Дата:______________ ФИО:______________________________________ Оценка:__________\n\n";
+                htmlText = "Дата:______________ ФИО:_________________________________ Оценка:__________\n\n<br /><br />";
+            }
+            writer.write(text);
+            writerHtml.write(htmlText);
+            text = longTaskNameWorksheet + "\n\n";
+            htmlText = longTaskNameWorksheet + "\n\n<br /><br />";
+            writer.write(text);
+            writerHtml.write(htmlText);
+            writer.close();
+            writerHtml.close();
         }
     }
 
-    public static void topWorksheetHtmlAnswers(String workingFolder, String grade, int totalPageNumbers, String shortTaskNameWorksheet,
-    String longTaskNameWorksheet) throws IOException {
+    //Generate answers top part in html files
+    public static void topWorksheetHtmlAnswers(String workingFolder, String grade, int totalPageNumbers,
+                                               String shortTaskNameWorksheet, String longTaskNameWorksheet) throws IOException {
 
-        for (int i = 1; i < totalPageNumbers ; i++) {
-        pageNumber = i;
+        for (int i = 1; i < totalPageNumbers; i++) {
+            pageNumber = i;
 
-        FileWriter writerHtmlAnswers = new FileWriter(workingFolder
-                + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "topHtmlAnswerBlock__" + ".html");
-        String text,htmlText,pdfText;
+            FileWriter writerHtmlAnswers = new FileWriter(workingFolder
+                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "topHtmlAnswerBlock__" + ".html");
+            String htmlText;
 
-        if (grade.contains("&nbsp") || grade.contains("G"))
-            htmlText = "\n\n<br /><h3>" + " " + shortTaskNameWorksheet + " Variant № " + pageNumber + ". Answers page.</h3>\n";
-        else htmlText = "\n\n<br /><h3>" + " " + shortTaskNameWorksheet + " Вариант № " + pageNumber + ". Страница с ответами.</h3>\n";
-        writerHtmlAnswers.write(htmlText);
-        htmlText = longTaskNameWorksheet + "\n\n<br /><br />";
-        writerHtmlAnswers.write(htmlText);
-        writerHtmlAnswers.close();
+            if (grade.contains("&nbsp") || grade.contains("G"))
+                htmlText = "\n\n<br /><h3>" + " " + shortTaskNameWorksheet + " Variant № " + pageNumber + ". Answers page.</h3>\n";
+            else
+                htmlText = "\n\n<br /><h3>" + " " + shortTaskNameWorksheet + " Вариант № " + pageNumber + ". Страница с ответами.</h3>\n";
+            writerHtmlAnswers.write(htmlText);
+            htmlText = longTaskNameWorksheet + "\n\n<br /><br />";
+            writerHtmlAnswers.write(htmlText);
+            writerHtmlAnswers.close();
         }
     }
 
-/*
-Top part of worksheets: txt and html
- */
+    //Top part of worksheets: txt and html
     public static void topWorksheetPdf(String workingFolder, String grade, int totalPageNumbers, String shortTaskNameWorksheet,
-    String longTaskNameWorksheet) throws IOException {
+                                       String longTaskNameWorksheet) throws IOException {
 
-        for (int i = 1; i < totalPageNumbers ; i++) {
+        for (int i = 1; i < totalPageNumbers; i++) {
             pageNumber = i;
 
-        FileWriter writer = new FileWriter(workingFolder
-                + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "topTxtBlock__" + ".txt");
-        FileWriter writerHtml = new FileWriter(workingFolder
-                + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "topPdfBlock__" + ".html");
-//        FileWriter writerPdf = new FileWriter(workingFolder
-//                + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "topPdfBlock__" + ".html");
-        String text,htmlText;
+            FileWriter writer = new FileWriter(workingFolder
+                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "topTxtBlock__" + ".txt");
+            FileWriter writerHtml = new FileWriter(workingFolder
+                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "topPdfBlock__" + ".html");
+            String text, htmlText;
 
-        htmlText = "<style type=\"text/css\" >\n";
-        writerHtml.write(htmlText);
-        if (grade.contains("&nbsp") || grade.contains("G")) {
-            htmlText = ".ld {border-left:1px solid black; border-top: 1px solid black;} \n";
-        }
-        else {
-            htmlText = ".ld {border-left:1px solid black; border-bottom: 1px solid black;} \n";
-        }
-        writerHtml.write(htmlText);
-        htmlText = "</style> \n";
-        writerHtml.write(htmlText);
-
+            htmlText = "<style type=\"text/css\" >\n";
+            writerHtml.write(htmlText);
+            if (grade.contains("&nbsp") || grade.contains("G")) {
+                htmlText = ".ld {border-left:1px solid black; border-top: 1px solid black;} \n";
+            } else {
+                htmlText = ".ld {border-left:1px solid black; border-bottom: 1px solid black;} \n";
+            }
+            writerHtml.write(htmlText);
+            htmlText = "</style> \n";
+            writerHtml.write(htmlText);
 
             htmlText = "<style type=\"text/css\" media=\"print\">\n";
-        writerHtml.write(htmlText);
-        htmlText = "@page {size: auto;  margin: 10; } \n";
-        writerHtml.write(htmlText);
-        htmlText = "</style> \n";
-        writerHtml.write(htmlText);
-
-        if (grade.contains("&nbsp") || grade.contains("G"))   {
-            text = grade + " " + shortTaskNameWorksheet + " Variant № " + pageNumber + ". \n\n";
-            htmlText = "<img src=\"d://Java_Math/WorksheetsLogo_Eng.jpg\" alt=\"альтернативный текст\">\n";
             writerHtml.write(htmlText);
-            htmlText = "\n\n<br /><h3>" + grade + " " + shortTaskNameWorksheet + " Variant № " + pageNumber + ".</h3>";
-        }
-        else{
-            text = grade + " " + shortTaskNameWorksheet + " Вариант № " + pageNumber + ". n\n";
-            htmlText = "<img src=\"d://Java_Math/WorksheetsLogo_Rus.jpg\" alt=\"альтернативный текст\">\n";
+            htmlText = "@page {size: auto;  margin: 10; } \n";
             writerHtml.write(htmlText);
-            htmlText = "\n\n<br /><h3>" + grade + " " + shortTaskNameWorksheet + " Вариант № " + pageNumber + ".</h3>";
+            htmlText = "</style> \n";
+            writerHtml.write(htmlText);
 
-        }
-        writer.write(text);
-        writerHtml.write(htmlText);
+            if (grade.contains("&nbsp") || grade.contains("G")) {
+                text = grade + " " + shortTaskNameWorksheet + " Variant № " + pageNumber + ". \n\n";
+                htmlText = "<img src=\"d://Java_Math/WorksheetsLogo_Eng.jpg\" alt=\"альтернативный текст\">\n";
+                writerHtml.write(htmlText);
+                htmlText = "\n\n<br /><h3>" + grade + " " + shortTaskNameWorksheet + " Variant № " + pageNumber + ".</h3>";
+            } else {
+                text = grade + " " + shortTaskNameWorksheet + " Вариант № " + pageNumber + ". n\n";
+                htmlText = "<img src=\"d://Java_Math/WorksheetsLogo_Rus.jpg\" alt=\"альтернативный текст\">\n";
+                writerHtml.write(htmlText);
+                htmlText = "\n\n<br /><h3>" + grade + " " + shortTaskNameWorksheet + " Вариант № " + pageNumber + ".</h3>";
 
-        if (grade.contains("&nbsp") || grade.contains("G")) {
-            text = "Дата: ______________ ФИО: ______________________________________ Оценка:__________\n\n";
-            htmlText = "Date: ______________ Name: _________________________________ Value:__________\n\n<br /><br />";
-        }
-        else
-            {
-            text = "Дата: ______________ ФИО: ______________________________________ Оценка:__________\n\n";
-            htmlText = "Дата: ______________ ФИО: _________________________________ Оценка:__________\n\n<br /><br />";
-        }
-        writer.write(text);
-        writerHtml.write(htmlText);
-        text = longTaskNameWorksheet + "\n\n";
-        htmlText = longTaskNameWorksheet + "\n\n<br /><br />";
-        writer.write(text);
-        writerHtml.write(htmlText);
-        writer.close();
-        writerHtml.close();
+            }
+            writer.write(text);
+            writerHtml.write(htmlText);
+
+            if (grade.contains("&nbsp") || grade.contains("G")) {
+                text = "Дата: ______________ ФИО: ______________________________________ Оценка:__________\n\n";
+                htmlText = "Date: ______________ Name: _________________________________ Value:__________\n\n<br /><br />";
+            } else {
+                text = "Дата: ______________ ФИО: ______________________________________ Оценка:__________\n\n";
+                htmlText = "Дата: ______________ ФИО: _________________________________ Оценка:__________\n\n<br /><br />";
+            }
+            writer.write(text);
+            writerHtml.write(htmlText);
+            text = longTaskNameWorksheet + "\n\n";
+            htmlText = longTaskNameWorksheet + "\n\n<br /><br />";
+            writer.write(text);
+            writerHtml.write(htmlText);
+            writer.close();
+            writerHtml.close();
         }
     }
 
-/*
-    Fill in the math problems for A4 page
-
-      a11       a12
-    + b11     + b12
-    _____      _____
-    ...         ...
-
-     */
-    public static void fullWorksheetPdf(String workingFolder, String grade, int totalPageNumbers, String shortTaskNameWorksheet, String longTaskNameWorksheet,
-            int numbersRangeStart, int numbersRangeEnd, int sum, int problemsLine, int problemsCol) throws IOException {
+    //Creating full Worksheet (Version 1)
+    public static void fullWorksheetPdf(String workingFolder, String grade, int totalPageNumbers, String longTaskNameWorksheet,
+                                        int numbersRangeStart, int numbersRangeEnd, int problemsLine, int problemsCol) throws IOException {
 
         Integer[][] argument1 = new Integer[problemsLine][problemsCol];
         Integer[][] argument2 = new Integer[problemsLine][problemsCol];
 
-        for (int k = 1; k < totalPageNumbers ; k++) {
+        for (int k = 1; k < totalPageNumbers; k++) {
             pageNumber = k;
 
             for (int i = 0; i < problemsLine; i++)
@@ -243,12 +194,12 @@ Top part of worksheets: txt and html
                     argument2[i][j] = (int) (Math.random() * numbersRangeEnd + numbersRangeStart);
                 }
 
-            FileWriter fileHtmlWriter = new FileWriter(new File(workingFolder
-                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlock__" + ".html"));
-            FileWriter fileHtmlWriterAnswer = new FileWriter(new File(workingFolder
-                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlockAnswer__" + ".html"));
-            FileWriter fileTxtWriter = new FileWriter(new File(workingFolder
-                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyTxtBlock__" + ".txt"));
+            FileWriter fileHtmlWriter = new FileWriter(workingFolder
+                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlock__" + ".html");
+            FileWriter fileHtmlWriterAnswer = new FileWriter(workingFolder
+                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlockAnswer__" + ".html");
+            FileWriter fileTxtWriter = new FileWriter(workingFolder
+                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyTxtBlock__" + ".txt");
 
             fileHtmlWriter.write("<table> <tr><td colspan=\"" + (problemsCol) + "\"></td></tr>");
             fileHtmlWriterAnswer.write("<table> <tr><td colspan=\"" + (problemsCol) + "\"></td></tr>");
@@ -257,9 +208,9 @@ Top part of worksheets: txt and html
                 fileHtmlWriterAnswer.write("<tr align=\"right\">");
                 fileTxtWriter.write("\n ");
                 for (int j = 0; j < problemsCol; j++) {
-                    fileHtmlWriter.write("<td> &nbsp; &nbsp; "+ ((i * problemsCol) + (j + 1)) +") &nbsp; &nbsp; " +
+                    fileHtmlWriter.write("<td> &nbsp; &nbsp; " + ((i * problemsCol) + (j + 1)) + ") &nbsp; &nbsp; " +
                             "" + argument1[i][j] + "</td>");
-                    fileHtmlWriterAnswer.write("<td> &nbsp; &nbsp; "+ ((i * problemsCol) + (j + 1)) +") &nbsp; &nbsp; " +
+                    fileHtmlWriterAnswer.write("<td> &nbsp; &nbsp; " + ((i * problemsCol) + (j + 1)) + ") &nbsp; &nbsp; " +
                             "" + argument1[i][j] + "</td>");
                     fileTxtWriter.write("    " + argument1[i][j]);
                 }
@@ -287,7 +238,7 @@ Top part of worksheets: txt and html
 
                 for (int j = 0; j < problemsCol; j++) {
                     fileHtmlWriter.write("<td> ... </td>");
-                    fileHtmlWriterAnswer.write("<td> "+ (argument1[i][j] + argument2[i][j]) + " </td>");
+                    fileHtmlWriterAnswer.write("<td> " + (argument1[i][j] + argument2[i][j]) + " </td>");
                     fileTxtWriter.write(" ... ");
                 }
                 fileHtmlWriter.write("</tr> \n  <tr><td colspan=\"7\"><br /></td></tr>");
@@ -312,13 +263,12 @@ Top part of worksheets: txt and html
     ...         ...
 
      */
-    public static void subtractA1_B1ColumnWorksheetA4(String workingFolder, String grade, int totalPageNumbers, String shortTaskNameWorksheet, String longTaskNameWorksheet,
-            int numbersRangeStart, int numbersRangeEnd, int sum, int problemsLine, int problemsCol) throws IOException {
-
+public static void subtractA1_B1ColumnWorksheetA4(String workingFolder, String grade, int totalPageNumbers, String shortTaskNameWorksheet, String longTaskNameWorksheet,
+                                                  int numbersRangeStart, int numbersRangeEnd, int sum, int problemsLine, int problemsCol) throws IOException {
         Integer[][] argument1 = new Integer[problemsLine][problemsCol];
         Integer[][] argument2 = new Integer[problemsLine][problemsCol];
 
-        for (int k = 1; k < totalPageNumbers ; k++) {
+        for (int k = 1; k < totalPageNumbers; k++) {
             pageNumber = k;
 
             for (int i = 0; i < problemsLine; i++)
@@ -327,7 +277,6 @@ Top part of worksheets: txt and html
                     argument2[i][j] = (int) (Math.random() * argument1[i][j]);
                 }
             if (longTaskNameWorksheet.contains("Вычити число 0") || longTaskNameWorksheet.contains("Subtract 0")) {
-                int tempNumber = 0;
                 for (int i = 0; i < problemsLine; i++)
                     for (int j = 0; j < problemsCol; j++) {
                         argument1[i][j] = (int) (Math.random() * numbersRangeEnd + numbersRangeStart);
@@ -336,7 +285,6 @@ Top part of worksheets: txt and html
             }
 
             if (longTaskNameWorksheet.contains("Вычити число 1") || longTaskNameWorksheet.contains("Subtract 1 from")) {
-                int tempNumber = 0;
                 for (int i = 0; i < problemsLine; i++)
                     for (int j = 0; j < problemsCol; j++) {
                         argument1[i][j] = (int) (Math.random() * numbersRangeEnd + numbersRangeStart);
@@ -345,7 +293,6 @@ Top part of worksheets: txt and html
             }
 
             if (longTaskNameWorksheet.contains("Вычити число 2") || longTaskNameWorksheet.contains("Subtract 2 from")) {
-                int tempNumber = 0;
                 for (int i = 0; i < problemsLine; i++)
                     for (int j = 0; j < problemsCol; j++) {
                         argument1[i][j] = (int) (Math.random() * numbersRangeEnd + numbersRangeStart);
@@ -354,7 +301,6 @@ Top part of worksheets: txt and html
             }
 
             if (longTaskNameWorksheet.contains("Вычити число 3") || longTaskNameWorksheet.contains("Subtract 3 from")) {
-                int tempNumber = 0;
                 for (int i = 0; i < problemsLine; i++)
                     for (int j = 0; j < problemsCol; j++) {
                         argument1[i][j] = (int) (Math.random() * numbersRangeEnd + numbersRangeStart);
@@ -363,7 +309,6 @@ Top part of worksheets: txt and html
             }
 
             if (longTaskNameWorksheet.contains("Вычити число 4") || longTaskNameWorksheet.contains("Subtract 4")) {
-                int tempNumber = 0;
                 for (int i = 0; i < problemsLine; i++)
                     for (int j = 0; j < problemsCol; j++) {
                         argument1[i][j] = (int) (Math.random() * numbersRangeEnd + numbersRangeStart);
@@ -372,7 +317,6 @@ Top part of worksheets: txt and html
             }
 
             if (longTaskNameWorksheet.contains("Вычити число 5") || longTaskNameWorksheet.contains("Subtract 5")) {
-                int tempNumber = 0;
                 for (int i = 0; i < problemsLine; i++)
                     for (int j = 0; j < problemsCol; j++) {
                         argument1[i][j] = (int) (Math.random() * numbersRangeEnd + numbersRangeStart);
@@ -381,7 +325,6 @@ Top part of worksheets: txt and html
             }
 
             if (longTaskNameWorksheet.contains("Вычити число 6") || longTaskNameWorksheet.contains("Subtract 6")) {
-                int tempNumber = 0;
                 for (int i = 0; i < problemsLine; i++)
                     for (int j = 0; j < problemsCol; j++) {
                         argument1[i][j] = (int) (Math.random() * numbersRangeEnd + numbersRangeStart);
@@ -390,7 +333,6 @@ Top part of worksheets: txt and html
             }
 
             if (longTaskNameWorksheet.contains("Вычити число 7") || longTaskNameWorksheet.contains("Subtract 7")) {
-                int tempNumber = 0;
                 for (int i = 0; i < problemsLine; i++)
                     for (int j = 0; j < problemsCol; j++) {
                         argument1[i][j] = (int) (Math.random() * numbersRangeEnd + numbersRangeStart);
@@ -399,7 +341,6 @@ Top part of worksheets: txt and html
             }
 
             if (longTaskNameWorksheet.contains("Вычити число 8") || longTaskNameWorksheet.contains("Subtract 8")) {
-                int tempNumber = 0;
                 for (int i = 0; i < problemsLine; i++)
                     for (int j = 0; j < problemsCol; j++) {
                         argument1[i][j] = (int) (Math.random() * numbersRangeEnd + numbersRangeStart);
@@ -408,7 +349,6 @@ Top part of worksheets: txt and html
             }
 
             if (longTaskNameWorksheet.contains("Вычити число 9") || longTaskNameWorksheet.contains("Subtract 9")) {
-                int tempNumber = 0;
                 for (int i = 0; i < problemsLine; i++)
                     for (int j = 0; j < problemsCol; j++) {
                         argument1[i][j] = (int) (Math.random() * numbersRangeEnd + numbersRangeStart);
@@ -417,7 +357,6 @@ Top part of worksheets: txt and html
             }
 
             if (longTaskNameWorksheet.contains("Вычити число 10") || longTaskNameWorksheet.contains("Subtract 10")) {
-                int tempNumber = 0;
                 for (int i = 0; i < problemsLine; i++)
                     for (int j = 0; j < problemsCol; j++) {
                         argument1[i][j] = (int) (Math.random() * numbersRangeEnd + numbersRangeStart);
@@ -425,14 +364,12 @@ Top part of worksheets: txt and html
                     }
             }
 
-
-
-            FileWriter fileHtmlWriter = new FileWriter(new File(workingFolder
-                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlock__" + ".html"));
-            FileWriter fileHtmlWriterAnswer = new FileWriter(new File(workingFolder
-                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlockAnswer__" + ".html"));
-            FileWriter fileTxtWriter = new FileWriter(new File(workingFolder
-                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyTxtBlock__" + ".txt"));
+            FileWriter fileHtmlWriter = new FileWriter(workingFolder
+                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlock__" + ".html");
+            FileWriter fileHtmlWriterAnswer = new FileWriter(workingFolder
+                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlockAnswer__" + ".html");
+            FileWriter fileTxtWriter = new FileWriter(workingFolder
+                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyTxtBlock__" + ".txt");
 
             fileHtmlWriter.write("<table> <tr><td colspan=\"" + (problemsCol) + "\"></td></tr>");
             fileHtmlWriterAnswer.write("<table> <tr><td colspan=\"" + (problemsCol) + "\"></td></tr>");
@@ -441,9 +378,9 @@ Top part of worksheets: txt and html
                 fileHtmlWriterAnswer.write("<tr align=\"right\">");
                 fileTxtWriter.write("\n ");
                 for (int j = 0; j < problemsCol; j++) {
-                    fileHtmlWriter.write("<td> &nbsp; &nbsp; "+ ((i * problemsCol) + (j + 1)) +") &nbsp; &nbsp; " +
+                    fileHtmlWriter.write("<td> &nbsp; &nbsp; " + ((i * problemsCol) + (j + 1)) + ") &nbsp; &nbsp; " +
                             "" + argument1[i][j] + "</td>");
-                    fileHtmlWriterAnswer.write("<td> &nbsp; &nbsp; "+ ((i * problemsCol) + (j + 1)) +") &nbsp; &nbsp; " +
+                    fileHtmlWriterAnswer.write("<td> &nbsp; &nbsp; " + ((i * problemsCol) + (j + 1)) + ") &nbsp; &nbsp; " +
                             "" + argument1[i][j] + "</td>");
                     fileTxtWriter.write("    " + argument1[i][j]);
                 }
@@ -471,7 +408,7 @@ Top part of worksheets: txt and html
 
                 for (int j = 0; j < problemsCol; j++) {
                     fileHtmlWriter.write("<td> ... </td>");
-                    fileHtmlWriterAnswer.write("<td> "+ (argument1[i][j] - argument2[i][j]) + " </td>");
+                    fileHtmlWriterAnswer.write("<td> " + (argument1[i][j] - argument2[i][j]) + " </td>");
                     fileTxtWriter.write(" ... ");
                 }
                 fileHtmlWriter.write("</tr> \n  <tr><td colspan=\"7\"><br /></td></tr>");
@@ -487,6 +424,7 @@ Top part of worksheets: txt and html
         }
     }
 
+    //Add or substract numbers in column
     public static void addSubtractA1_B1ColumnWorksheetA4(String workingFolder, String grade, int totalPageNumbers, String shortTaskNameWorksheet, String longTaskNameWorksheet,
             int numbersRangeStart, int numbersRangeEnd, int sum, int problemsLine, int problemsCol) throws IOException {
 
@@ -591,12 +529,12 @@ Top part of worksheets: txt and html
 
 
 
-            FileWriter fileHtmlWriter = new FileWriter(new File(workingFolder
-                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlock__" + ".html"));
-            FileWriter fileHtmlWriterAnswer = new FileWriter(new File(workingFolder
-                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlockAnswer__" + ".html"));
-            FileWriter fileTxtWriter = new FileWriter(new File(workingFolder
-                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyTxtBlock__" + ".txt"));
+            FileWriter fileHtmlWriter = new FileWriter(workingFolder
+                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlock__" + ".html");
+            FileWriter fileHtmlWriterAnswer = new FileWriter(workingFolder
+                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlockAnswer__" + ".html");
+            FileWriter fileTxtWriter = new FileWriter(workingFolder
+                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyTxtBlock__" + ".txt");
 
             fileHtmlWriter.write("<table> <tr><td colspan=\"" + (problemsCol) + "\"></td></tr>");
             fileHtmlWriterAnswer.write("<table> <tr><td colspan=\"" + (problemsCol) + "\"></td></tr>");
@@ -659,33 +597,30 @@ Top part of worksheets: txt and html
         }
     }
 
-/*
-    Fill in the math problems for A4 page
+    /*
+        Fill in the math problems for A4 page
 
-      a11       a12
-    + b11     + b12
-    _____      _____
-    ...         ...
+          a11       a12
+        + b11     + b12
+        _____      _____
+        ...         ...
 
-     */
-    public static void addA1_B1ColumnWorksheetA4(String workingFolder, String grade, int totalPageNumbers, String shortTaskNameWorksheet, String longTaskNameWorksheet,
-            int numbersRangeStart, int numbersRangeEnd, int sum, int problemsLine, int problemsCol) throws IOException {
+         */
+    public static void addA1_B1ColumnWorksheetA4(String workingFolder, String grade, int totalPageNumbers,
+                                                 String shortTaskNameWorksheet, String longTaskNameWorksheet,
+                                                 int numbersRangeStart, int numbersRangeEnd, int sum,
+                                                 int problemsLine, int problemsCol) throws IOException {
 
         Integer[][] argument1 = new Integer[problemsLine][problemsCol];
         Integer[][] argument2 = new Integer[problemsLine][problemsCol];
 
-        for (int k = 1; k < totalPageNumbers ; k++) {
+        for (int k = 1; k < totalPageNumbers; k++) {
             pageNumber = k;
-
-
-
             for (int i = 0; i < problemsLine; i++)
                 for (int j = 0; j < problemsCol; j++) {
                     argument1[i][j] = (int) (Math.random() * numbersRangeEnd + numbersRangeStart);
                     argument2[i][j] = (int) (Math.random() * argument1[i][j]);
                 }
-
-
             if (longTaskNameWorksheet.contains("четные") || longTaskNameWorksheet.contains("even")) {
                 System.out.println("Четные числа");
                 int tempNumber = 0;
@@ -697,13 +632,10 @@ Top part of worksheets: txt and html
                         tempNumber = (int) (Math.random() * numbersRangeEnd / 10 + numbersRangeStart);
                         if ((tempNumber % 2) == 0) argument2[i][j] = tempNumber;
                         else argument2[i][j] = tempNumber + 1;
-
                     }
             }
 
-
             if (longTaskNameWorksheet.contains("нечетные") || longTaskNameWorksheet.contains("odd")) {
-//                System.out.println("Четные числа");
                 int tempNumber = 0;
                 for (int i = 0; i < problemsLine; i++)
                     for (int j = 0; j < problemsCol; j++) {
@@ -713,18 +645,14 @@ Top part of worksheets: txt and html
                         tempNumber = (int) (Math.random() * numbersRangeEnd / 10 + numbersRangeStart);
                         if ((tempNumber % 2) != 0) argument2[i][j] = tempNumber;
                         else argument2[i][j] = tempNumber + 1;
-
                     }
             }
-
-
-
-            FileWriter fileHtmlWriter = new FileWriter(new File(workingFolder
-                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlock__" + ".html"));
-            FileWriter fileHtmlWriterAnswer = new FileWriter(new File(workingFolder
-                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlockAnswer__" + ".html"));
-            FileWriter fileTxtWriter = new FileWriter(new File(workingFolder
-                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyTxtBlock__" + ".txt"));
+            FileWriter fileHtmlWriter = new FileWriter(workingFolder
+                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlock__" + ".html");
+            FileWriter fileHtmlWriterAnswer = new FileWriter(workingFolder
+                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlockAnswer__" + ".html");
+            FileWriter fileTxtWriter = new FileWriter(workingFolder
+                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyTxtBlock__" + ".txt");
 
             fileHtmlWriter.write("<table> <tr><td colspan=\"" + (problemsCol) + "\"></td></tr>");
             fileHtmlWriterAnswer.write("<table> <tr><td colspan=\"" + (problemsCol) + "\"></td></tr>");
@@ -733,9 +661,9 @@ Top part of worksheets: txt and html
                 fileHtmlWriterAnswer.write("<tr align=\"right\">");
                 fileTxtWriter.write("\n ");
                 for (int j = 0; j < problemsCol; j++) {
-                    fileHtmlWriter.write("<td> &nbsp; &nbsp; "+ ((i * problemsCol) + (j + 1)) +") &nbsp; &nbsp; " +
+                    fileHtmlWriter.write("<td> &nbsp; &nbsp; " + ((i * problemsCol) + (j + 1)) + ") &nbsp; &nbsp; " +
                             "" + argument1[i][j] + "</td>");
-                    fileHtmlWriterAnswer.write("<td> &nbsp; &nbsp; "+ ((i * problemsCol) + (j + 1)) +") &nbsp; &nbsp; " +
+                    fileHtmlWriterAnswer.write("<td> &nbsp; &nbsp; " + ((i * problemsCol) + (j + 1)) + ") &nbsp; &nbsp; " +
                             "" + argument1[i][j] + "</td>");
                     fileTxtWriter.write("    " + argument1[i][j]);
                 }
@@ -763,7 +691,7 @@ Top part of worksheets: txt and html
 
                 for (int j = 0; j < problemsCol; j++) {
                     fileHtmlWriter.write("<td> ... </td>");
-                    fileHtmlWriterAnswer.write("<td> "+ (argument1[i][j] + argument2[i][j]) + " </td>");
+                    fileHtmlWriterAnswer.write("<td> " + (argument1[i][j] + argument2[i][j]) + " </td>");
                     fileTxtWriter.write(" ... ");
                 }
                 fileHtmlWriter.write("</tr> \n  <tr><td colspan=\"7\"><br /></td></tr>");
@@ -779,124 +707,28 @@ Top part of worksheets: txt and html
         }
     }
 
+    //Multiplication of two numbers in line
     public static void multiplyA1_B1FreeLinesColumnWorksheetA4(String workingFolder, String grade, int totalPageNumbers, String shortTaskNameWorksheet,
-          String longTaskNameWorksheet, int numberOneRangeStart, int numberOneRangeEnd, int numberTwoRangeStart, int numberTwoRangeEnd, int freeLines,
+                                                               String longTaskNameWorksheet, int numberOneRangeStart, int numberOneRangeEnd, int numberTwoRangeStart, int numberTwoRangeEnd, int freeLines,
                                                                int problemsLine, int problemsCol) throws IOException {
 
         Integer[][] argument1 = new Integer[problemsLine][problemsCol];
         Integer[][] argument2 = new Integer[problemsLine][problemsCol];
 
-//        System.out.println(numberOneRangeStart + " " + numberOneRangeEnd + " " + numberTwoRangeStart + " " + numberTwoRangeEnd);
-
-        for (int k = 1; k < totalPageNumbers ; k++) {
+        for (int k = 1; k < totalPageNumbers; k++) {
             pageNumber = k;
-
-
-
             for (int i = 0; i < problemsLine; i++)
                 for (int j = 0; j < problemsCol; j++) {
-                    argument1[i][j] = (int) ((Math.random() * (numberOneRangeEnd - numberOneRangeStart)) + numberOneRangeStart );
-//                    ((Math.random() * (max - min)) + min);
-                    argument2[i][j] = (int) ((Math.random() * (numberTwoRangeEnd - numberTwoRangeStart)) + numberTwoRangeStart );
-//                    System.out.println(argument1[i][j]);
+                    argument1[i][j] = (int) ((Math.random() * (numberOneRangeEnd - numberOneRangeStart)) + numberOneRangeStart);
+                    argument2[i][j] = (int) ((Math.random() * (numberTwoRangeEnd - numberTwoRangeStart)) + numberTwoRangeStart);
                 }
 
-/*
-            if (longTaskNameWorksheet.contains("Умножь число 0") || longTaskNameWorksheet.contains("Multiply 0")) {
-                for (int i = 0; i < problemsLine; i++)
-                    for (int j = 0; j < problemsCol; j++) {
-                        argument1[i][j] = (int) (Math.random() * numbersRangeEnd + numbersRangeStart);
-                        argument2[i][j] = 0;
-                    }
-            }
-
-            if (longTaskNameWorksheet.contains("Умножь число 1") || longTaskNameWorksheet.contains("Multiply 1")) {
-                for (int i = 0; i < problemsLine; i++)
-                    for (int j = 0; j < problemsCol; j++) {
-                        argument1[i][j] = (int) (Math.random() * numbersRangeEnd + numbersRangeStart);
-                        argument2[i][j] = 1;
-                    }
-            }
-
-            if (longTaskNameWorksheet.contains("Умножь число 2") || longTaskNameWorksheet.contains("Multiply 2")) {
-                for (int i = 0; i < problemsLine; i++)
-                    for (int j = 0; j < problemsCol; j++) {
-                        argument1[i][j] = (int) (Math.random() * numbersRangeEnd + numbersRangeStart);
-                        argument2[i][j] = 2;
-                    }
-            }
-
-            if (longTaskNameWorksheet.contains("Умножь число 3") || longTaskNameWorksheet.contains("Multiply 3")) {
-                for (int i = 0; i < problemsLine; i++)
-                    for (int j = 0; j < problemsCol; j++) {
-                        argument1[i][j] = (int) (Math.random() * numbersRangeEnd + numbersRangeStart);
-                        argument2[i][j] = 3;
-                    }
-            }
-
-            if (longTaskNameWorksheet.contains("Умножь число 4") || longTaskNameWorksheet.contains("Multiply 4")) {
-                for (int i = 0; i < problemsLine; i++)
-                    for (int j = 0; j < problemsCol; j++) {
-                        argument1[i][j] = (int) (Math.random() * numbersRangeEnd + numbersRangeStart);
-                        argument2[i][j] = 4;
-                    }
-            }
-
-            if (longTaskNameWorksheet.contains("Умножь число 5") || longTaskNameWorksheet.contains("Multiply 5")) {
-                for (int i = 0; i < problemsLine; i++)
-                    for (int j = 0; j < problemsCol; j++) {
-                        argument1[i][j] = (int) (Math.random() * numbersRangeEnd + numbersRangeStart);
-                        argument2[i][j] = 5;
-                    }
-            }
-
-            if (longTaskNameWorksheet.contains("Умножь число 6") || longTaskNameWorksheet.contains("Multiply 6")) {
-                for (int i = 0; i < problemsLine; i++)
-                    for (int j = 0; j < problemsCol; j++) {
-                        argument1[i][j] = (int) (Math.random() * numbersRangeEnd + numbersRangeStart);
-                        argument2[i][j] = 6;
-                    }
-            }
-
-            if (longTaskNameWorksheet.contains("Умножь число 7") || longTaskNameWorksheet.contains("Multiply 7")) {
-                for (int i = 0; i < problemsLine; i++)
-                    for (int j = 0; j < problemsCol; j++) {
-                        argument1[i][j] = (int) (Math.random() * numbersRangeEnd + numbersRangeStart);
-                        argument2[i][j] = 7;
-                    }
-            }
-
-            if (longTaskNameWorksheet.contains("Умножь число 8") || longTaskNameWorksheet.contains("Multiply 8")) {
-                for (int i = 0; i < problemsLine; i++)
-                    for (int j = 0; j < problemsCol; j++) {
-                        argument1[i][j] = (int) (Math.random() * numbersRangeEnd + numbersRangeStart);
-                        argument2[i][j] = 8;
-                    }
-            }
-
-            if (longTaskNameWorksheet.contains("Умножь число 9") || longTaskNameWorksheet.contains("Multiply 9")) {
-                for (int i = 0; i < problemsLine; i++)
-                    for (int j = 0; j < problemsCol; j++) {
-                        argument1[i][j] = (int) (Math.random() * numbersRangeEnd + numbersRangeStart);
-                        argument2[i][j] = 9;
-                    }
-            }
-
-            if (longTaskNameWorksheet.contains("Умножь число 10") || longTaskNameWorksheet.contains("Multiply 10")) {
-                for (int i = 0; i < problemsLine; i++)
-                    for (int j = 0; j < problemsCol; j++) {
-                        argument1[i][j] = (int) (Math.random() * numbersRangeEnd + numbersRangeStart);
-                        argument2[i][j] = 10;
-                    }
-            }
-*/
-
-            FileWriter fileHtmlWriter = new FileWriter(new File(workingFolder
-                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlock__" + ".html"));
-            FileWriter fileHtmlWriterAnswer = new FileWriter(new File(workingFolder
-                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlockAnswer__" + ".html"));
-            FileWriter fileTxtWriter = new FileWriter(new File(workingFolder
-                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyTxtBlock__" + ".txt"));
+            FileWriter fileHtmlWriter = new FileWriter(workingFolder
+                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlock__" + ".html");
+            FileWriter fileHtmlWriterAnswer = new FileWriter(workingFolder
+                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlockAnswer__" + ".html");
+            FileWriter fileTxtWriter = new FileWriter(workingFolder
+                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyTxtBlock__" + ".txt");
 
             fileHtmlWriter.write("<table> <tr><td colspan=\"" + (problemsCol) + "\"></td></tr>");
             fileHtmlWriterAnswer.write("<table> <tr><td colspan=\"" + (problemsCol) + "\"></td></tr>");
@@ -905,9 +737,9 @@ Top part of worksheets: txt and html
                 fileHtmlWriterAnswer.write("<tr align=\"right\">");
                 fileTxtWriter.write("\n ");
                 for (int j = 0; j < problemsCol; j++) {
-                    fileHtmlWriter.write("<td> &nbsp; &nbsp; "+ ((i * problemsCol) + (j + 1)) +") &nbsp; &nbsp; " +
+                    fileHtmlWriter.write("<td> &nbsp; &nbsp; " + ((i * problemsCol) + (j + 1)) + ") &nbsp; &nbsp; " +
                             "" + argument1[i][j] + "</td>");
-                    fileHtmlWriterAnswer.write("<td> &nbsp; &nbsp; "+ ((i * problemsCol) + (j + 1)) +") &nbsp; &nbsp; " +
+                    fileHtmlWriterAnswer.write("<td> &nbsp; &nbsp; " + ((i * problemsCol) + (j + 1)) + ") &nbsp; &nbsp; " +
                             "" + argument1[i][j] + "</td>");
                     fileTxtWriter.write("    " + argument1[i][j]);
                 }
@@ -929,7 +761,7 @@ Top part of worksheets: txt and html
                     fileHtmlWriterAnswer.write("<td> ------ </td>");
                     fileTxtWriter.write(" ----- ");
                 }
-                for(int l = 0; l < freeLines; l++) {
+                for (int l = 0; l < freeLines; l++) {
                     fileHtmlWriter.write("</tr> \n <tr align=\"right\">");
                     fileHtmlWriterAnswer.write("</tr> \n <tr align=\"right\">");
                     fileTxtWriter.write(" \n");
@@ -960,172 +792,6 @@ Top part of worksheets: txt and html
         }
     }
 
-    public static void multiplyA1_B1ColumnWorksheetA4(String workingFolder, String grade, int totalPageNumbers, String shortTaskNameWorksheet, String longTaskNameWorksheet,
-            int numbersRangeStart, int numbersRangeEnd, int sum, int problemsLine, int problemsCol) throws IOException {
-
-        Integer[][] argument1 = new Integer[problemsLine][problemsCol];
-        Integer[][] argument2 = new Integer[problemsLine][problemsCol];
-
-        for (int k = 1; k < totalPageNumbers ; k++) {
-            pageNumber = k;
-
-
-
-            for (int i = 0; i < problemsLine; i++)
-                for (int j = 0; j < problemsCol; j++) {
-                    argument1[i][j] = (int) (Math.random() * numbersRangeEnd + numbersRangeStart);
-                    argument2[i][j] = (int) (Math.random() * argument1[i][j]);
-                }
-
-
-            if (longTaskNameWorksheet.contains("Умножь число 0") || longTaskNameWorksheet.contains("Multiply 0")) {
-                for (int i = 0; i < problemsLine; i++)
-                    for (int j = 0; j < problemsCol; j++) {
-                        argument1[i][j] = (int) (Math.random() * numbersRangeEnd + numbersRangeStart);
-                        argument2[i][j] = 0;
-                    }
-            }
-
-            if (longTaskNameWorksheet.contains("Умножь число 1") || longTaskNameWorksheet.contains("Multiply 1")) {
-                for (int i = 0; i < problemsLine; i++)
-                    for (int j = 0; j < problemsCol; j++) {
-                        argument1[i][j] = (int) (Math.random() * numbersRangeEnd + numbersRangeStart);
-                        argument2[i][j] = 1;
-                    }
-            }
-
-            if (longTaskNameWorksheet.contains("Умножь число 2") || longTaskNameWorksheet.contains("Multiply 2")) {
-                for (int i = 0; i < problemsLine; i++)
-                    for (int j = 0; j < problemsCol; j++) {
-                        argument1[i][j] = (int) (Math.random() * numbersRangeEnd + numbersRangeStart);
-                        argument2[i][j] = 2;
-                    }
-            }
-
-            if (longTaskNameWorksheet.contains("Умножь число 3") || longTaskNameWorksheet.contains("Multiply 3")) {
-                for (int i = 0; i < problemsLine; i++)
-                    for (int j = 0; j < problemsCol; j++) {
-                        argument1[i][j] = (int) (Math.random() * numbersRangeEnd + numbersRangeStart);
-                        argument2[i][j] = 3;
-                    }
-            }
-
-            if (longTaskNameWorksheet.contains("Умножь число 4") || longTaskNameWorksheet.contains("Multiply 4")) {
-                for (int i = 0; i < problemsLine; i++)
-                    for (int j = 0; j < problemsCol; j++) {
-                        argument1[i][j] = (int) (Math.random() * numbersRangeEnd + numbersRangeStart);
-                        argument2[i][j] = 4;
-                    }
-            }
-
-            if (longTaskNameWorksheet.contains("Умножь число 5") || longTaskNameWorksheet.contains("Multiply 5")) {
-                for (int i = 0; i < problemsLine; i++)
-                    for (int j = 0; j < problemsCol; j++) {
-                        argument1[i][j] = (int) (Math.random() * numbersRangeEnd + numbersRangeStart);
-                        argument2[i][j] = 5;
-                    }
-            }
-
-            if (longTaskNameWorksheet.contains("Умножь число 6") || longTaskNameWorksheet.contains("Multiply 6")) {
-                for (int i = 0; i < problemsLine; i++)
-                    for (int j = 0; j < problemsCol; j++) {
-                        argument1[i][j] = (int) (Math.random() * numbersRangeEnd + numbersRangeStart);
-                        argument2[i][j] = 6;
-                    }
-            }
-
-            if (longTaskNameWorksheet.contains("Умножь число 7") || longTaskNameWorksheet.contains("Multiply 7")) {
-                for (int i = 0; i < problemsLine; i++)
-                    for (int j = 0; j < problemsCol; j++) {
-                        argument1[i][j] = (int) (Math.random() * numbersRangeEnd + numbersRangeStart);
-                        argument2[i][j] = 7;
-                    }
-            }
-
-            if (longTaskNameWorksheet.contains("Умножь число 8") || longTaskNameWorksheet.contains("Multiply 8")) {
-                for (int i = 0; i < problemsLine; i++)
-                    for (int j = 0; j < problemsCol; j++) {
-                        argument1[i][j] = (int) (Math.random() * numbersRangeEnd + numbersRangeStart);
-                        argument2[i][j] = 8;
-                    }
-            }
-
-            if (longTaskNameWorksheet.contains("Умножь число 9") || longTaskNameWorksheet.contains("Multiply 9")) {
-                for (int i = 0; i < problemsLine; i++)
-                    for (int j = 0; j < problemsCol; j++) {
-                        argument1[i][j] = (int) (Math.random() * numbersRangeEnd + numbersRangeStart);
-                        argument2[i][j] = 9;
-                    }
-            }
-
-            if (longTaskNameWorksheet.contains("Умножь число 10") || longTaskNameWorksheet.contains("Multiply 10")) {
-                for (int i = 0; i < problemsLine; i++)
-                    for (int j = 0; j < problemsCol; j++) {
-                        argument1[i][j] = (int) (Math.random() * numbersRangeEnd + numbersRangeStart);
-                        argument2[i][j] = 10;
-                    }
-            }
-
-
-            FileWriter fileHtmlWriter = new FileWriter(new File(workingFolder
-                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlock__" + ".html"));
-            FileWriter fileHtmlWriterAnswer = new FileWriter(new File(workingFolder
-                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlockAnswer__" + ".html"));
-            FileWriter fileTxtWriter = new FileWriter(new File(workingFolder
-                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyTxtBlock__" + ".txt"));
-
-            fileHtmlWriter.write("<table> <tr><td colspan=\"" + (problemsCol) + "\"></td></tr>");
-            fileHtmlWriterAnswer.write("<table> <tr><td colspan=\"" + (problemsCol) + "\"></td></tr>");
-            for (int i = 0; i < problemsLine; i++) {
-                fileHtmlWriter.write("<tr align=\"right\">");
-                fileHtmlWriterAnswer.write("<tr align=\"right\">");
-                fileTxtWriter.write("\n ");
-                for (int j = 0; j < problemsCol; j++) {
-                    fileHtmlWriter.write("<td> &nbsp; &nbsp; "+ ((i * problemsCol) + (j + 1)) +") &nbsp; &nbsp; " +
-                            "" + argument1[i][j] + "</td>");
-                    fileHtmlWriterAnswer.write("<td> &nbsp; &nbsp; "+ ((i * problemsCol) + (j + 1)) +") &nbsp; &nbsp; " +
-                            "" + argument1[i][j] + "</td>");
-                    fileTxtWriter.write("    " + argument1[i][j]);
-                }
-                fileHtmlWriter.write("</tr> \n <tr align=\"right\">");
-                fileHtmlWriterAnswer.write("</tr> \n <tr align=\"right\">");
-                fileTxtWriter.write("\n");
-
-                for (int j = 0; j < problemsCol; j++) {
-                    fileHtmlWriter.write("<td> &nbsp;&nbsp; x " + argument2[i][j] + "</td>");
-                    fileHtmlWriterAnswer.write("<td> &nbsp;&nbsp; x " + argument2[i][j] + "</td>");
-                    fileTxtWriter.write("   * " + argument2[i][j]);
-                }
-                fileHtmlWriter.write("</tr> \n <tr align=\"right\">");
-                fileHtmlWriterAnswer.write("</tr> \n <tr align=\"right\">");
-                fileTxtWriter.write("\n");
-
-                for (int j = 0; j < problemsCol; j++) {
-                    fileHtmlWriter.write("<td> ------ </td>");
-                    fileHtmlWriterAnswer.write("<td> ------ </td>");
-                    fileTxtWriter.write(" ----- ");
-                }
-                fileHtmlWriter.write("</tr> \n <tr align=\"right\">");
-                fileHtmlWriterAnswer.write("</tr> \n <tr align=\"right\">");
-                fileTxtWriter.write(" \n");
-
-                for (int j = 0; j < problemsCol; j++) {
-                    fileHtmlWriter.write("<td> ... </td>");
-                    fileHtmlWriterAnswer.write("<td> "+ (argument1[i][j] * argument2[i][j]) + " </td>");
-                    fileTxtWriter.write(" ... ");
-                }
-                fileHtmlWriter.write("</tr> \n  <tr><td colspan=\"7\"><br /></td></tr>");
-                fileHtmlWriterAnswer.write("</tr> \n  <tr><td colspan=\"7\"><br /></td></tr>");
-                fileTxtWriter.write(" \n\n ");
-            }
-
-            fileHtmlWriter.write("</table>");
-            fileHtmlWriterAnswer.write("</table>");
-            fileTxtWriter.close();
-            fileHtmlWriter.close();
-            fileHtmlWriterAnswer.close();
-        }
-    }
 
 /*
     Fill in the math problems for A4 page
@@ -1136,8 +802,8 @@ Top part of worksheets: txt and html
     ...         ...
 
      */
-    public static void addA1_B1A4WordProblemsWorksheet(String grade, int totalPageNumbers, String shortTaskNameWorksheet,
-                                                 int numbersRangeStart, int numbersRangeEnd, int problemsLine) throws IOException {
+public static void addA1_B1A4WordProblemsWorksheet(String grade, int totalPageNumbers, String shortTaskNameWorksheet,
+                                                   int numbersRangeStart, int numbersRangeEnd, int problemsLine) throws IOException {
 
         Integer[][] argument1 = new Integer[problemsLine][1];
         Integer[][] argument2 = new Integer[problemsLine][1];
@@ -1146,36 +812,15 @@ Top part of worksheets: txt and html
         for (int k = 1; k < totalPageNumbers ; k++) {
             pageNumber = k;
 
-//            for (int i = 0; i < problemsLine; i++)
-////                for (int j = 0; j < problemsCol; j++) {
-//                    argument1[i][j] = (int) (Math.random() * numbersRangeEnd + numbersRangeStart);
-//                    argument2[i][j] = (int) (Math.random() * numbersRangeEnd + numbersRangeStart);
-////                    System.out.println(i + " " + j + " " + argument1[i][j] + " " + argument1[i][j]);
-////                }
+            FileWriter fileHtmlWriter = new FileWriter("D:\\mathematics-at-school.com\\JavaTemplates/"
+                    + grade + " " + shortTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlock__" + ".html");
+            FileWriter fileHtmlWriterAnswer = new FileWriter("D:\\mathematics-at-school.com\\JavaTemplates/"
+                    + grade + " " + shortTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlockAnswer__" + ".html");
+            FileWriter fileTxtWriter = new FileWriter("D:\\mathematics-at-school.com\\JavaTemplates/"
+                    + grade + " " + shortTaskNameWorksheet + " Стр. " + pageNumber + "bodyTxtBlock__" + ".txt");
 
-            FileWriter fileHtmlWriter = new FileWriter(new File("D:\\mathematics-at-school.com\\JavaTemplates/"
-                    + grade + " " + shortTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlock__" + ".html"));
-            FileWriter fileHtmlWriterAnswer = new FileWriter(new File("D:\\mathematics-at-school.com\\JavaTemplates/"
-                    + grade + " " + shortTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlockAnswer__" + ".html"));
-            FileWriter fileTxtWriter = new FileWriter(new File("D:\\mathematics-at-school.com\\JavaTemplates/"
-                    + grade + " " + shortTaskNameWorksheet + " Стр. " + pageNumber + "bodyTxtBlock__" + ".txt"));
-
-//            FileReader fileReader= new FileReader(new File("D:\\mathematics-at-school.com\\JavaTemplatesReady/"
-//                    + "grade4AddWordProblemsTemplate.txt"));
-//            BufferedReader reader = new BufferedReader(new FileReader(
-//                    "D:\\mathematics-at-school.com\\JavaTemplatesReady/grade4AddWordProblemsTemplate.txt"));
-//            System.out.println("Вывод 1");
-//            File file = new File(
-//                    "D:\\mathematics-at-school.com\\JavaTemplatesReady/grade4AddWordProblemsTemplate.txt");
-//            //создаем объект FileReader для объекта File
-//            FileReader fr = new FileReader(new File(
-//                    "D:\\mathematics-at-school.com\\JavaTemplatesReady/grade4AddWordProblemsTemplate.txt");
-//            //создаем BufferedReader с существующего FileReader для построчного считывания
-            BufferedReader reader = new BufferedReader(new FileReader(new File(
-                    "D:\\mathematics-at-school.com\\JavaTemplatesReady/grade4AddWordProblemsTemplate.txt")));
+            BufferedReader reader = new BufferedReader(new FileReader("D:\\mathematics-at-school.com\\JavaTemplatesReady/grade4AddWordProblemsTemplate.txt"));
             // считаем сначала первую строку
-//            System.out.println("Вывод 2");
-//            String line = reader.readLine();
             String line, originalNumberOne, originalNumberTwo;
             String originalNumberThree, originalNumberFour;
             line = reader.readLine();
@@ -1227,64 +872,9 @@ Top part of worksheets: txt and html
                     String lineOutput6 = lineOutput5.replaceAll("fone", "");
                     System.out.println("Changed " + lineOutput6);
                 }
-
-
-
-
                 line = reader.readLine();
             }
             System.out.println("Вывод 3");
-/*
-            fileHtmlWriter.write("<table> <tr><td colspan=\"" + (problemsLine - 1) + "\"></td></tr>");
-            fileHtmlWriterAnswer.write("<table> <tr><td colspan=\"" + (problemsLine - 1) + "\"></td></tr>");
-            for (int i = 0; i < problemsLine; i++) {
-                fileHtmlWriter.write("<tr align=\"right\">");
-                fileHtmlWriterAnswer.write("<tr align=\"right\">");
-                fileTxtWriter.write("\n ");
-                for (int j = 0; j < problemsCol; j++) {
-                    fileHtmlWriter.write("<td> &nbsp; &nbsp; "+ ((i * problemsCol) + (j + 1)) +") &nbsp; &nbsp; " +
-                            "" + argument1[i][j] + "</td>");
-                    fileHtmlWriterAnswer.write("<td> &nbsp; &nbsp; "+ ((i * problemsCol) + (j + 1)) +") &nbsp; &nbsp; " +
-                            "" + argument1[i][j] + "</td>");
-                    fileTxtWriter.write("    " + argument1[i][j]);
-                }
-                fileHtmlWriter.write("</tr> \n <tr align=\"right\">");
-                fileHtmlWriterAnswer.write("</tr> \n <tr align=\"right\">");
-                fileTxtWriter.write("\n");
-
-                for (int j = 0; j < problemsCol; j++) {
-                    fileHtmlWriter.write("<td> &nbsp; + " + argument2[i][j] + "</td>");
-                    fileHtmlWriterAnswer.write("<td> &nbsp; + " + argument2[i][j] + "</td>");
-                    fileTxtWriter.write("   + " + argument2[i][j]);
-                }
-                fileHtmlWriter.write("</tr> \n <tr align=\"right\">");
-                fileHtmlWriterAnswer.write("</tr> \n <tr align=\"right\">");
-                fileTxtWriter.write("\n");
-
-                for (int j = 0; j < problemsCol; j++) {
-                    fileHtmlWriter.write("<td> ------ </td>");
-                    fileHtmlWriterAnswer.write("<td> ------ </td>");
-                    fileTxtWriter.write(" ----- ");
-                }
-                fileHtmlWriter.write("</tr> \n <tr align=\"right\">");
-                fileHtmlWriterAnswer.write("</tr> \n <tr align=\"right\">");
-                fileTxtWriter.write(" \n");
-
-                for (int j = 0; j < problemsCol; j++) {
-                    fileHtmlWriter.write("<td> ... </td>");
-                    fileHtmlWriterAnswer.write("<td> "+ (argument1[i][j] + argument2[i][j]) + " </td>");
-                    fileTxtWriter.write(" ... ");
-                }
-                fileHtmlWriter.write("</tr> \n  <tr><td colspan=\"7\"><br /></td></tr>");
-                fileHtmlWriterAnswer.write("</tr> \n  <tr><td colspan=\"7\"><br /></td></tr>");
-                fileTxtWriter.write(" \n\n ");
-            }
-
-
-            fileHtmlWriter.write("</table>");
-            fileHtmlWriterAnswer.write("</table>");
-
- */
             fileTxtWriter.close();
             fileHtmlWriter.close();
             fileHtmlWriterAnswer.close();
@@ -1320,12 +910,12 @@ Top part of worksheets: txt and html
 //                    System.out.println(i + " " + j + " " + argument1[i][j] + " " + argument1[i][j]);
                 }
 
-            FileWriter fileHtmlWriter = new FileWriter(new File("D:\\mathematics-at-school.com\\JavaTemplates/"
-                    + grade + " " + shortTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlock__" + ".html"));
-            FileWriter fileHtmlWriterAnswer = new FileWriter(new File("D:\\mathematics-at-school.com\\JavaTemplates/"
-                    + grade + " " + shortTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlockAnswer__" + ".html"));
-            FileWriter fileTxtWriter = new FileWriter(new File("D:\\mathematics-at-school.com\\JavaTemplates/"
-                    + grade + " " + shortTaskNameWorksheet + " Стр. " + pageNumber + "bodyTxtBlock__" + ".txt"));
+            FileWriter fileHtmlWriter = new FileWriter("D:\\mathematics-at-school.com\\JavaTemplates/"
+                    + grade + " " + shortTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlock__" + ".html");
+            FileWriter fileHtmlWriterAnswer = new FileWriter("D:\\mathematics-at-school.com\\JavaTemplates/"
+                    + grade + " " + shortTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlockAnswer__" + ".html");
+            FileWriter fileTxtWriter = new FileWriter("D:\\mathematics-at-school.com\\JavaTemplates/"
+                    + grade + " " + shortTaskNameWorksheet + " Стр. " + pageNumber + "bodyTxtBlock__" + ".txt");
 
             fileHtmlWriter.write("<table> <tr><td colspan=\"" + (problemsLine - 1) + "\"></td></tr>");
             fileHtmlWriterAnswer.write("<table> <tr><td colspan=\"" + (problemsLine - 1) + "\"></td></tr>");
@@ -1416,12 +1006,12 @@ Top part of worksheets: txt and html
 //                    System.out.println(i + " " + j + " " + argument1[i][j] + " " + argument1[i][j]);
                 }
 
-            FileWriter fileHtmlWriter = new FileWriter(new File(workingFolder
-                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlock__" + ".html"));
-            FileWriter fileHtmlWriterAnswer = new FileWriter(new File(workingFolder
-                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlockAnswer__" + ".html"));
-            FileWriter fileTxtWriter = new FileWriter(new File(workingFolder
-                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyTxtBlock__" + ".txt"));
+            FileWriter fileHtmlWriter = new FileWriter(workingFolder
+                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlock__" + ".html");
+            FileWriter fileHtmlWriterAnswer = new FileWriter(workingFolder
+                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlockAnswer__" + ".html");
+            FileWriter fileTxtWriter = new FileWriter(workingFolder
+                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyTxtBlock__" + ".txt");
 
             fileHtmlWriter.write("<table> <tr><td colspan=\"" + (problemsCol) + "\"></td></tr>");
             fileHtmlWriterAnswer.write("<table> <tr><td colspan=\"" + (problemsCol) + "\"></td></tr>");
@@ -1431,7 +1021,7 @@ Top part of worksheets: txt and html
                 fileTxtWriter.write("\n ");
                 for (int j = 0; j < problemsCol; j++) {
                     if(j % 2 == 0) {
-                        String numberString = String.valueOf(argument1[0][j]);
+                        String numberString = valueOf(argument1[0][j]);
                         int emptyPlaceRange = numberString.length() - 1;
                         int emptyPlace = (int) (Math.random() * emptyPlaceRange + 1);
                         StringBuilder newNumber = new StringBuilder(numberString);
@@ -1457,7 +1047,7 @@ Top part of worksheets: txt and html
 
                 for (int j = 0; j < problemsCol; j++) {
                     if(j % 2 != 0) {
-                        String numberString = String.valueOf(argument2[0][j]);
+                        String numberString = valueOf(argument2[0][j]);
                         int emptyPlaceRange = numberString.length() - 1;
                         int emptyPlace = (int) (Math.random() * emptyPlaceRange + 1);
                         StringBuilder newNumber = new StringBuilder(numberString);
@@ -1503,18 +1093,10 @@ Top part of worksheets: txt and html
             fileHtmlWriter.close();
             fileHtmlWriterAnswer.close();
         }
-
-/*
-        topWorksheet(workingFolder, grade, 6, shortTaskNameWorksheet, longTaskNameWorksheet );
-        bottomWorksheet(workingFolder, "4 класс.", 6, shortTaskNameWorksheet, longTaskNameWorksheet);
-        fullWorksheet(workingFolder, "4 класс.", 6, shortTaskNameWorksheet);
-*/
     }
 
     public static void subtractA1_B1A4ColumnMissingNumbersWorksheet(String workingFolder, String grade, int totalPageNumbers, String shortTaskNameWorksheet, String longTaskNameWorksheet,
                                                  int numbersRangeStart, int numbersRangeEnd, int sum, int problemsLine, int problemsCol) throws IOException {
-
-
 
         Integer[][] argument1 = new Integer[problemsLine][problemsCol];
         Integer[][] argument2 = new Integer[problemsLine][problemsCol];
@@ -1529,12 +1111,12 @@ Top part of worksheets: txt and html
 //                    System.out.println(i + " " + j + " " + argument1[i][j] + " " + argument1[i][j]);
                 }
 
-            FileWriter fileHtmlWriter = new FileWriter(new File(workingFolder
-                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlock__" + ".html"));
-            FileWriter fileHtmlWriterAnswer = new FileWriter(new File(workingFolder
-                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlockAnswer__" + ".html"));
-            FileWriter fileTxtWriter = new FileWriter(new File(workingFolder
-                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyTxtBlock__" + ".txt"));
+            FileWriter fileHtmlWriter = new FileWriter(workingFolder
+                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlock__" + ".html");
+            FileWriter fileHtmlWriterAnswer = new FileWriter(workingFolder
+                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlockAnswer__" + ".html");
+            FileWriter fileTxtWriter = new FileWriter(workingFolder
+                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyTxtBlock__" + ".txt");
 
             fileHtmlWriter.write("<table> <tr><td colspan=\"" + (problemsCol) + "\"></td></tr>");
             fileHtmlWriterAnswer.write("<table> <tr><td colspan=\"" + (problemsCol) + "\"></td></tr>");
@@ -1544,7 +1126,7 @@ Top part of worksheets: txt and html
                 fileTxtWriter.write("\n ");
                 for (int j = 0; j < problemsCol; j++) {
                     if(j % 2 == 0) {
-                        String numberString = String.valueOf(argument1[0][j]);
+                        String numberString = valueOf(argument1[0][j]);
                         int emptyPlaceRange = numberString.length() - 1;
                         int emptyPlace = (int) (Math.random() * emptyPlaceRange + 1);
                         StringBuilder newNumber = new StringBuilder(numberString);
@@ -1570,7 +1152,7 @@ Top part of worksheets: txt and html
 
                 for (int j = 0; j < problemsCol; j++) {
                     if(j % 2 != 0) {
-                        String numberString = String.valueOf(argument2[0][j]);
+                        String numberString = valueOf(argument2[0][j]);
                         int emptyPlaceRange = numberString.length() - 1;
                         int emptyPlace = (int) (Math.random() * emptyPlaceRange + 1);
                         StringBuilder newNumber = new StringBuilder(numberString);
@@ -1616,12 +1198,6 @@ Top part of worksheets: txt and html
             fileHtmlWriter.close();
             fileHtmlWriterAnswer.close();
         }
-
-/*
-        topWorksheet(workingFolder, grade, 6, shortTaskNameWorksheet, longTaskNameWorksheet );
-        bottomWorksheet(workingFolder, "4 класс.", 6, shortTaskNameWorksheet, longTaskNameWorksheet);
-        fullWorksheet(workingFolder, "4 класс.", 6, shortTaskNameWorksheet);
-*/
     }
 
 /*
@@ -1645,12 +1221,12 @@ Top part of worksheets: txt and html
             argument2[0][j] = (int) (Math.random() * numbersRangeEnd + numbersRangeStart);
         }
 
-            FileWriter fileHtmlWriter = new FileWriter(new File("D:\\mathematics-at-school.com\\JavaTemplates/"
-                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlLineBlock__" + ".html"));
-            FileWriter fileHtmlWriterAnswer = new FileWriter(new File("D:\\mathematics-at-school.com\\JavaTemplates/"
-                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlLineBlockAnswer__" + ".html"));
-            FileWriter fileTxtWriter = new FileWriter(new File("D:\\mathematics-at-school.com\\JavaTemplates/"
-                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyTxtLineBlock__" + ".txt"));
+            FileWriter fileHtmlWriter = new FileWriter("D:\\mathematics-at-school.com\\JavaTemplates/"
+                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlLineBlock__" + ".html");
+            FileWriter fileHtmlWriterAnswer = new FileWriter("D:\\mathematics-at-school.com\\JavaTemplates/"
+                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlLineBlockAnswer__" + ".html");
+            FileWriter fileTxtWriter = new FileWriter( "D:\\mathematics-at-school.com\\JavaTemplates/"
+                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyTxtLineBlock__" + ".txt");
 
             fileHtmlWriter.write( problemsNumber + " " + shortTaskNameWorksheet + " <br /><br /> <table> <tr><td colspan=\"" + (problemsCol - 1) + "\"></td></tr>");
             fileHtmlWriterAnswer.write(problemsNumber + " " + shortTaskNameWorksheet + " <br /><br /> <table> <tr><td colspan=\"" + (problemsCol - 1) + "\"></td></tr>");
@@ -1729,12 +1305,12 @@ Top part of worksheets: txt and html
             argument3[0][j] = (int) (Math.random() * numbersRangeEnd + numbersRangeStart);
         }
 
-        FileWriter fileHtmlWriter = new FileWriter(new File("D:\\mathematics-at-school.com\\JavaTemplates/"
-                + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlLineBlock__" + ".html"));
-        FileWriter fileHtmlWriterAnswer = new FileWriter(new File("D:\\mathematics-at-school.com\\JavaTemplates/"
-                + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlLineBlockAnswer__" + ".html"));
-        FileWriter fileTxtWriter = new FileWriter(new File("D:\\mathematics-at-school.com\\JavaTemplates/"
-                + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyTxtLineBlock__" + ".txt"));
+        FileWriter fileHtmlWriter = new FileWriter("D:\\mathematics-at-school.com\\JavaTemplates/"
+                + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlLineBlock__" + ".html");
+        FileWriter fileHtmlWriterAnswer = new FileWriter("D:\\mathematics-at-school.com\\JavaTemplates/"
+                + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlLineBlockAnswer__" + ".html");
+        FileWriter fileTxtWriter = new FileWriter("D:\\mathematics-at-school.com\\JavaTemplates/"
+                + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyTxtLineBlock__" + ".txt");
 
         fileHtmlWriter.write( problemsNumber + " " + shortTaskNameWorksheet + " <br /><br /> <table> <tr><td colspan=\"" + (problemsCol - 1) + "\"></td></tr>");
         fileHtmlWriterAnswer.write(problemsNumber + " " + shortTaskNameWorksheet + " <br /><br /> <table> <tr><td colspan=\"" + (problemsCol - 1) + "\"></td></tr>");
@@ -1828,16 +1404,12 @@ Top part of worksheets: txt and html
                     argument3[i][j] = (int) (Math.random() * numbersRangeEnd + numbersRangeStart);
 //                    System.out.println(i + " " + j + " " + argument1[i][j] + " " + argument1[i][j]);
                 }
-
-
-
-
-            FileWriter fileHtmlWriter = new FileWriter(new File(workingFolder
-                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlock__" + ".html"));
-            FileWriter fileHtmlWriterAnswer = new FileWriter(new File(workingFolder
-                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlockAnswer__" + ".html"));
-            FileWriter fileTxtWriter = new FileWriter(new File(workingFolder
-                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyTxtBlock__" + ".txt"));
+            FileWriter fileHtmlWriter = new FileWriter(workingFolder
+                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlock__" + ".html");
+            FileWriter fileHtmlWriterAnswer = new FileWriter(workingFolder
+                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlockAnswer__" + ".html");
+            FileWriter fileTxtWriter = new FileWriter(workingFolder
+                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyTxtBlock__" + ".txt");
 
             fileHtmlWriter.write("<table> <tr><td colspan=\"" + (problemsLine - 1) + "\"></td></tr>");
             fileHtmlWriterAnswer.write("<table> <tr><td colspan=\"" + (problemsLine - 1) + "\"></td></tr>");
@@ -1932,12 +1504,12 @@ Top part of worksheets: txt and html
 //                    System.out.println(i + " " + j + " " + argument1[i][j] + " " + argument1[i][j]);
                 }
 
-            FileWriter fileHtmlWriter = new FileWriter(new File(workingFolder
-                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlock__" + ".html"));
-            FileWriter fileHtmlWriterAnswer = new FileWriter(new File(workingFolder
-                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlockAnswer__" + ".html"));
-            FileWriter fileTxtWriter = new FileWriter(new File(workingFolder
-                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyTxtBlock__" + ".txt"));
+            FileWriter fileHtmlWriter = new FileWriter(workingFolder
+                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlock__" + ".html");
+            FileWriter fileHtmlWriterAnswer = new FileWriter(workingFolder
+                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlockAnswer__" + ".html");
+            FileWriter fileTxtWriter = new FileWriter(workingFolder
+                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyTxtBlock__" + ".txt");
 
             fileHtmlWriter.write("<table> <tr><td colspan=\"" + (problemsLine - 1) + "\"></td></tr>");
             fileHtmlWriterAnswer.write("<table> <tr><td colspan=\"" + (problemsLine - 1) + "\"></td></tr>");
@@ -2032,12 +1604,12 @@ Top part of worksheets: txt and html
             argument2[0][j] = (int) (Math.random() * numbersRangeEnd + numbersRangeStart);
         }
 
-        FileWriter fileHtmlWriter = new FileWriter(new File("D:\\mathematics-at-school.com\\JavaTemplates/"
-                + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlLineBlock__" + ".html"));
-        FileWriter fileHtmlWriterAnswer = new FileWriter(new File("D:\\mathematics-at-school.com\\JavaTemplates/"
-                + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlLineBlockAnswer__" + ".html"));
-        FileWriter fileTxtWriter = new FileWriter(new File("D:\\mathematics-at-school.com\\JavaTemplates/"
-                + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyTxtLineBlock__" + ".txt"));
+        FileWriter fileHtmlWriter = new FileWriter("D:\\mathematics-at-school.com\\JavaTemplates/"
+                + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlLineBlock__" + ".html");
+        FileWriter fileHtmlWriterAnswer = new FileWriter("D:\\mathematics-at-school.com\\JavaTemplates/"
+                + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlLineBlockAnswer__" + ".html");
+        FileWriter fileTxtWriter = new FileWriter("D:\\mathematics-at-school.com\\JavaTemplates/"
+                + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyTxtLineBlock__" + ".txt");
 
         fileHtmlWriter.write( problemsNumber + " " + shortTaskNameWorksheet + " <br /><br /> <table> <tr><td colspan=\"" + (problemsCol - 1) + "\"></td></tr>");
         fileHtmlWriterAnswer.write(problemsNumber + " " + shortTaskNameWorksheet + " <br /><br /> <table> <tr><td colspan=\"" + (problemsCol - 1) + "\"></td></tr>");
@@ -2047,7 +1619,7 @@ Top part of worksheets: txt and html
         fileTxtWriter.write("\n ");
         for (int j = 0; j < problemsCol; j++) {
             if(j % 2 == 0) {
-                String numberString = String.valueOf(argument1[0][j]);
+                String numberString = valueOf(argument1[0][j]);
                 int emptyPlaceRange = numberString.length() - 1;
                 int emptyPlace = (int) (Math.random() * emptyPlaceRange + 1);
                 StringBuilder newNumber = new StringBuilder(numberString);
@@ -2073,7 +1645,7 @@ Top part of worksheets: txt and html
 
         for (int j = 0; j < problemsCol; j++) {
             if(j % 2 != 0) {
-                String numberString = String.valueOf(argument2[0][j]);
+                String numberString = valueOf(argument2[0][j]);
                 int emptyPlaceRange = numberString.length() - 1;
                 int emptyPlace = (int) (Math.random() * emptyPlaceRange + 1);
                 StringBuilder newNumber = new StringBuilder(numberString);
@@ -2171,17 +1743,17 @@ Top part of worksheets: txt and html
 
             DataOutputStream outputStream = new DataOutputStream(new FileOutputStream
                     (workingFolder + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyTxtBlock__" + ".txt"));
-            FileWriter fileWriter = new FileWriter(new File(workingFolder
-                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlock__" + ".html"));
-            FileWriter fileAnswerWriter = new FileWriter(new File(workingFolder
-                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlockAnswer__" + ".html"));
+            FileWriter fileWriter = new FileWriter(workingFolder
+                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlock__" + ".html");
+            FileWriter fileAnswerWriter = new FileWriter(workingFolder
+                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlockAnswer__" + ".html");
 
             for (int i = 0; i < problemsLines; i++) {
                 for (int j = 0; j < problemsCols; j++) {
 
-                    outputStream.write(String.valueOf(argument1[i][j]).getBytes());
-                    fileWriter.write(String.valueOf(argument1[i][j]));
-                    fileAnswerWriter.write(String.valueOf(argument1[i][j]));
+                    outputStream.write(valueOf(argument1[i][j]).getBytes());
+                    fileWriter.write(valueOf(argument1[i][j]));
+                    fileAnswerWriter.write(valueOf(argument1[i][j]));
 
                     outputStream.write(' ');
                     outputStream.write('+');
@@ -2190,9 +1762,9 @@ Top part of worksheets: txt and html
                     fileWriter.write(" + ");
                     fileAnswerWriter.write(" + ");
 
-                    outputStream.write(String.valueOf(argument2[i][j]).getBytes());
-                    fileWriter.write(String.valueOf(argument2[i][j]));
-                    fileAnswerWriter.write(String.valueOf(argument2[i][j]));
+                    outputStream.write(valueOf(argument2[i][j]).getBytes());
+                    fileWriter.write(valueOf(argument2[i][j]));
+                    fileAnswerWriter.write(valueOf(argument2[i][j]));
 
                     outputStream.write(' ');
                     outputStream.write('=');
@@ -2206,9 +1778,7 @@ Top part of worksheets: txt and html
                     outputStream.write(' ');
 
                     fileWriter.write(" = ____ &nbsp; &nbsp; &nbsp; ");
-                    fileAnswerWriter.write(" = " + String.valueOf((argument1[i][j] + argument2[i][j])) + " &nbsp;  &nbsp; ");
-
-//                    System.out.print(" " + argument1[i][j] + " + " + argument2[i][j] + " = _____   ");
+                    fileAnswerWriter.write(" = " + (argument1[i][j] + argument2[i][j]) + " &nbsp;  &nbsp; ");
                 }
                 outputStream.write('\n');
                 outputStream.write('\n');
@@ -2233,10 +1803,8 @@ Top part of worksheets: txt and html
     ...
 
      */
-    public static void numbersOddEventArithmeticsOperationWorksheetA4(String workingFolder, String grade, int totalPageNumbers, String shortTaskNameWorksheet, String longTaskNameWorksheet,
-                                           int numbersRangeStart, int numbersRangeEnd, int sum, int problemsLines, int problemsCols) throws IOException {
-        System.out.println("Начало ");
-
+public static void numbersOddEventArithmeticsOperationWorksheetA4(String workingFolder, String grade, int totalPageNumbers, String shortTaskNameWorksheet, String longTaskNameWorksheet,
+                                                                  int numbersRangeStart, int numbersRangeEnd, int sum, int problemsLines, int problemsCols) throws IOException {
 
         int totalNumbers = 3; // 3 pairs of numbers per line
 
@@ -2274,48 +1842,48 @@ Top part of worksheets: txt and html
 
             DataOutputStream outputStream = new DataOutputStream(new FileOutputStream
                     (workingFolder + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyTxtBlock__" + ".txt"));
-            FileWriter fileWriter = new FileWriter(new File(workingFolder
-                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlock__" + ".html"));
-            FileWriter fileAnswerWriter = new FileWriter(new File(workingFolder
-                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlockAnswer__" + ".html"));
+            FileWriter fileWriter = new FileWriter(workingFolder
+                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlock__" + ".html");
+            FileWriter fileAnswerWriter = new FileWriter(workingFolder
+                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlockAnswer__" + ".html");
 
             fileWriter.write("<table>");
             fileAnswerWriter.write("<table>");
 
             for (int i = 0; i < problemsLines; i++) {
 
-                fileWriter.write("<tr align=\"left\"><td>" + (i * totalNumbers  + 1) + ")&nbsp; " + String.valueOf(argument1[i][0]) + " ");
-                fileAnswerWriter.write("<tr align=\"left\"><td>" + (i * totalNumbers  + 1) + ")&nbsp; " + String.valueOf(argument1[i][0]) + " ");
+                fileWriter.write("<tr align=\"left\"><td>" + (i * totalNumbers  + 1) + ")&nbsp; " + argument1[i][0] + " ");
+                fileAnswerWriter.write("<tr align=\"left\"><td>" + (i * totalNumbers  + 1) + ")&nbsp; " + argument1[i][0] + " ");
                 fileWriter.write(compareTypeCh[i][0] );
                 fileAnswerWriter.write(compareTypeCh[i][0] );
-                if ((int) General.stringEvaluate(Integer.toString(argument1[i][0]) + compareTypeCh[i][0] + Integer.toString(argument1[i][1])) %2 == 0)
-                    fileAnswerWriter.write(" " + String.valueOf(argument1[i][1]) + " = __ Even &nbsp; &nbsp;</td>");
-                else fileAnswerWriter.write(" " + String.valueOf(argument1[i][1]) + " = __ Odd &nbsp; &nbsp;</td>");
+                if ((int) General.stringEvaluate(argument1[i][0] + compareTypeCh[i][0] + argument1[i][1]) %2 == 0)
+                    fileAnswerWriter.write(" " + argument1[i][1] + " = __ Even &nbsp; &nbsp;</td>");
+                else fileAnswerWriter.write(" " + argument1[i][1] + " = __ Odd &nbsp; &nbsp;</td>");
 
-                fileWriter.write(" " + String.valueOf(argument1[i][1]) + " = ______  &nbsp; &nbsp; &nbsp; &nbsp;</td>");
+                fileWriter.write(" " + argument1[i][1] + " = ______  &nbsp; &nbsp; &nbsp; &nbsp;</td>");
 
-                fileWriter.write("<td>" + (i * totalNumbers + 2) + ")&nbsp; " + String.valueOf(argument2[i][0]) + " ");
-                fileAnswerWriter.write("<td>" + (i * totalNumbers  + 2) + ")&nbsp; " + String.valueOf(argument2[i][0]) + " ");
+                fileWriter.write("<td>" + (i * totalNumbers + 2) + ")&nbsp; " + argument2[i][0] + " ");
+                fileAnswerWriter.write("<td>" + (i * totalNumbers  + 2) + ")&nbsp; " + argument2[i][0] + " ");
                 fileWriter.write(compareTypeCh[i][1] );
                 fileAnswerWriter.write(compareTypeCh[i][1] );
-                if ((int) General.stringEvaluate(Integer.toString(argument2[i][0]) + compareTypeCh[i][1] + Integer.toString(argument2[i][1])) %2 == 0)
-                    fileAnswerWriter.write(" " + String.valueOf(argument2[i][1]) + " = __ Even &nbsp; &nbsp;</td>");
-                else fileAnswerWriter.write(" " + String.valueOf(argument2[i][1]) + " = __ Odd &nbsp; &nbsp;</td>");
+                if ((int) General.stringEvaluate(argument2[i][0] + compareTypeCh[i][1] + argument2[i][1]) %2 == 0)
+                    fileAnswerWriter.write(" " + argument2[i][1] + " = __ Even &nbsp; &nbsp;</td>");
+                else fileAnswerWriter.write(" " + argument2[i][1] + " = __ Odd &nbsp; &nbsp;</td>");
 
 
-                fileWriter.write(" " + String.valueOf(argument2[i][1]) + " = ______  &nbsp; &nbsp; &nbsp; &nbsp;</td>");
+                fileWriter.write(" " + argument2[i][1] + " = ______  &nbsp; &nbsp; &nbsp; &nbsp;</td>");
 
-                fileWriter.write("<td>" + (i * totalNumbers  + 3) + ")&nbsp; " + String.valueOf(argument3[i][0]) + " ");
-                fileAnswerWriter.write("<td>" + (i * totalNumbers  + 3) + ")&nbsp; " + String.valueOf(argument3[i][0]) + " ");
+                fileWriter.write("<td>" + (i * totalNumbers  + 3) + ")&nbsp; " + argument3[i][0] + " ");
+                fileAnswerWriter.write("<td>" + (i * totalNumbers  + 3) + ")&nbsp; " + argument3[i][0] + " ");
                 fileWriter.write(compareTypeCh[i][2] );
                 fileAnswerWriter.write(compareTypeCh[i][2] );
 
                 if ((int) General.stringEvaluate(Integer.toString(argument3[i][0]) + compareTypeCh[i][1] + Integer.toString(argument3[i][1])) %2 == 0)
-                    fileAnswerWriter.write(" " + String.valueOf(argument3[i][1]) + " = __ Even &nbsp; &nbsp;</td>");
-                else fileAnswerWriter.write(" " + String.valueOf(argument3[i][1]) + " = __ Odd &nbsp; &nbsp;</td>");
+                    fileAnswerWriter.write(" " + argument3[i][1] + " = __ Even &nbsp; &nbsp;</td>");
+                else fileAnswerWriter.write(" " + argument3[i][1] + " = __ Odd &nbsp; &nbsp;</td>");
 
 
-                fileWriter.write(" " + String.valueOf(argument3[i][1]) + " = ______  &nbsp; &nbsp; &nbsp; &nbsp;</td></tr>");
+                fileWriter.write(" " + argument3[i][1] + " = ______  &nbsp; &nbsp; &nbsp; &nbsp;</td></tr>");
 
                 outputStream.write('\n');
                 outputStream.write('\n');
@@ -2341,8 +1909,10 @@ Top part of worksheets: txt and html
     ...
 
      */
-    public static void numbersRoundingMixingLineWorksheetA4(String workingFolder, String grade, int totalPageNumbers, String shortTaskNameWorksheet, String longTaskNameWorksheet,
-                                           int numbersRangeStart, int numbersRangeEnd, int roundNumber, int problemsLines, int problemsCols) throws IOException {
+public static void numbersRoundingMixingLineWorksheetA4(String workingFolder, String grade, int totalPageNumbers,
+                                                        String shortTaskNameWorksheet, String longTaskNameWorksheet,
+                                                        int numbersRangeStart, int numbersRangeEnd, int roundNumber,
+                                                        int problemsLines, int problemsCols) throws IOException {
 
         int totalNumbers = 5; // 3 pairs of numbers per line
 
@@ -2368,30 +1938,30 @@ Top part of worksheets: txt and html
 
             DataOutputStream outputStream = new DataOutputStream(new FileOutputStream
                     (workingFolder + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyTxtBlock__" + ".txt"));
-            FileWriter fileWriter = new FileWriter(new File(workingFolder
-                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlock__" + ".html"));
-            FileWriter fileAnswerWriter = new FileWriter(new File(workingFolder
-                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlockAnswer__" + ".html"));
+            FileWriter fileWriter = new FileWriter(workingFolder
+                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlock__" + ".html");
+            FileWriter fileAnswerWriter = new FileWriter(workingFolder
+                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlockAnswer__" + ".html");
 
             fileWriter.write("<table>");
             fileAnswerWriter.write("<table>");
 
             for (int i = 0; i < problemsLines; i++) {
 
-                fileWriter.write("<tr align=\"left\"><td>" + (i * totalNumbers  + 1) + ")&nbsp; " + String.valueOf(argument1[i][0]) + " =  ______ &nbsp;  &nbsp; </td>");
-                fileAnswerWriter.write("<tr align=\"left\"><td>" + (i * totalNumbers  + 1) + ")&nbsp; " + String.valueOf(argument1[i][0]) +
+                fileWriter.write("<tr align=\"left\"><td>" + (i * totalNumbers  + 1) + ")&nbsp; " + argument1[i][0] + " =  ______ &nbsp;  &nbsp; </td>");
+                fileAnswerWriter.write("<tr align=\"left\"><td>" + (i * totalNumbers  + 1) + ")&nbsp; " + argument1[i][0] +
                         " = " + Math.round((float) argument1[i][0] / roundNumber) * roundNumber + " &nbsp; &nbsp; </td>");
-                fileWriter.write("<td>" + (i * totalNumbers + 2) + ")&nbsp; " + String.valueOf(argument2[i][0]) + " =  _____ &nbsp;  &nbsp; </td>");
-                fileAnswerWriter.write("<td>" + (i * totalNumbers  + 2) + ")&nbsp; " + String.valueOf(argument2[i][0]) +
+                fileWriter.write("<td>" + (i * totalNumbers + 2) + ")&nbsp; " + argument2[i][0] + " =  _____ &nbsp;  &nbsp; </td>");
+                fileAnswerWriter.write("<td>" + (i * totalNumbers  + 2) + ")&nbsp; " + argument2[i][0] +
                         " = " + Math.round((float) argument2[i][0] / roundNumber) * roundNumber + " &nbsp; &nbsp; </td>");
-                fileWriter.write("<td>" + (i * totalNumbers  + 3) + ")&nbsp; " + String.valueOf(argument3[i][0]) + " = _____ &nbsp;  &nbsp; </td>");
-                fileAnswerWriter.write("<td>" + (i * totalNumbers  + 3) + ")&nbsp; " + String.valueOf(argument3[i][0]) +
+                fileWriter.write("<td>" + (i * totalNumbers  + 3) + ")&nbsp; " + argument3[i][0] + " = _____ &nbsp;  &nbsp; </td>");
+                fileAnswerWriter.write("<td>" + (i * totalNumbers  + 3) + ")&nbsp; " + argument3[i][0] +
                         " = " + Math.round((float) argument3[i][0] / roundNumber) * roundNumber + " &nbsp; &nbsp; </td>");
-                fileWriter.write("<td>" + (i * totalNumbers  + 4) + ")&nbsp; " + String.valueOf(argument4[i][0]) + " = _____ &nbsp;  &nbsp; </td>");
-                fileAnswerWriter.write("<td>" + (i * totalNumbers  + 4) + ")&nbsp; " + String.valueOf(argument4[i][0]) +
+                fileWriter.write("<td>" + (i * totalNumbers  + 4) + ")&nbsp; " + argument4[i][0] + " = _____ &nbsp;  &nbsp; </td>");
+                fileAnswerWriter.write("<td>" + (i * totalNumbers  + 4) + ")&nbsp; " + argument4[i][0] +
                         " = " + Math.round((float) argument4[i][0] / roundNumber) * roundNumber + " &nbsp; &nbsp; </td>");
-                fileWriter.write("<td>" + (i * totalNumbers  + 5) + ")&nbsp; " + String.valueOf(argument5[i][0]) + " = _____ &nbsp;  &nbsp; </td></tr>\n");
-                fileAnswerWriter.write("<td>" + (i * totalNumbers  + 5) + ")&nbsp; " + String.valueOf(argument5[i][0]) +
+                fileWriter.write("<td>" + (i * totalNumbers  + 5) + ")&nbsp; " + argument5[i][0] + " = _____ &nbsp;  &nbsp; </td></tr>\n");
+                fileAnswerWriter.write("<td>" + (i * totalNumbers  + 5) + ")&nbsp; " + argument5[i][0] +
                         " = " + Math.round((float) argument5[i][0] / roundNumber) * roundNumber + " &nbsp; &nbsp; </td></tr>\n");
                 outputStream.write('\n');
                 outputStream.write('\n');
@@ -2437,30 +2007,30 @@ Top part of worksheets: txt and html
 
             DataOutputStream outputStream = new DataOutputStream(new FileOutputStream
                     (workingFolder + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyTxtBlock__" + ".txt"));
-            FileWriter fileWriter = new FileWriter(new File(workingFolder
-                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlock__" + ".html"));
-            FileWriter fileAnswerWriter = new FileWriter(new File(workingFolder
-                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlockAnswer__" + ".html"));
+            FileWriter fileWriter = new FileWriter(workingFolder
+                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlock__" + ".html");
+            FileWriter fileAnswerWriter = new FileWriter(workingFolder
+                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlockAnswer__" + ".html");
 
             fileWriter.write("<table>");
             fileAnswerWriter.write("<table>");
 
             for (int i = 0; i < problemsLines; i++) {
 
-                fileWriter.write("<tr align=\"left\"><td>" + (i * totalNumbers  + 1) + ")&nbsp; " + String.valueOf(argument1[i][0]) + " =  ______ &nbsp;  &nbsp; </td>");
-                fileAnswerWriter.write("<tr align=\"left\"><td>" + (i * totalNumbers  + 1) + ")&nbsp; " + String.valueOf(argument1[i][0]) +
+                fileWriter.write("<tr align=\"left\"><td>" + (i * totalNumbers  + 1) + ")&nbsp; " + argument1[i][0] + " =  ______ &nbsp;  &nbsp; </td>");
+                fileAnswerWriter.write("<tr align=\"left\"><td>" + (i * totalNumbers  + 1) + ")&nbsp; " + argument1[i][0] +
                         " = " + Math.round((float) argument1[i][0] / roundNumber) * roundNumber + " &nbsp; &nbsp; </td>");
-                fileWriter.write("<td>" + (i * totalNumbers + 2) + ")&nbsp; " + String.valueOf(argument2[i][0]) + " =  _____ &nbsp;  &nbsp; </td>");
-                fileAnswerWriter.write("<td>" + (i * totalNumbers  + 2) + ")&nbsp; " + String.valueOf(argument2[i][0]) +
+                fileWriter.write("<td>" + (i * totalNumbers + 2) + ")&nbsp; " + argument2[i][0] + " =  _____ &nbsp;  &nbsp; </td>");
+                fileAnswerWriter.write("<td>" + (i * totalNumbers  + 2) + ")&nbsp; " + argument2[i][0] +
                         " = " + Math.round((float) argument2[i][0] / roundNumber) * roundNumber + " &nbsp; &nbsp; </td>");
-                fileWriter.write("<td>" + (i * totalNumbers  + 3) + ")&nbsp; " + String.valueOf(argument3[i][0]) + " = _____ &nbsp;  &nbsp; </td>");
-                fileAnswerWriter.write("<td>" + (i * totalNumbers  + 3) + ")&nbsp; " + String.valueOf(argument3[i][0]) +
+                fileWriter.write("<td>" + (i * totalNumbers  + 3) + ")&nbsp; " + argument3[i][0] + " = _____ &nbsp;  &nbsp; </td>");
+                fileAnswerWriter.write("<td>" + (i * totalNumbers  + 3) + ")&nbsp; " + argument3[i][0] +
                         " = " + Math.round((float) argument3[i][0] / roundNumber) * roundNumber + " &nbsp; &nbsp; </td>");
-                fileWriter.write("<td>" + (i * totalNumbers  + 4) + ")&nbsp; " + String.valueOf(argument4[i][0]) + " = _____ &nbsp;  &nbsp; </td>");
-                fileAnswerWriter.write("<td>" + (i * totalNumbers  + 4) + ")&nbsp; " + String.valueOf(argument4[i][0]) +
+                fileWriter.write("<td>" + (i * totalNumbers  + 4) + ")&nbsp; " + argument4[i][0] + " = _____ &nbsp;  &nbsp; </td>");
+                fileAnswerWriter.write("<td>" + (i * totalNumbers  + 4) + ")&nbsp; " + argument4[i][0] +
                         " = " + Math.round((float) argument4[i][0] / roundNumber) * roundNumber + " &nbsp; &nbsp; </td>");
-                fileWriter.write("<td>" + (i * totalNumbers  + 5) + ")&nbsp; " + String.valueOf(argument5[i][0]) + " = _____ &nbsp;  &nbsp; </td></tr>\n");
-                fileAnswerWriter.write("<td>" + (i * totalNumbers  + 5) + ")&nbsp; " + String.valueOf(argument5[i][0]) +
+                fileWriter.write("<td>" + (i * totalNumbers  + 5) + ")&nbsp; " + argument5[i][0] + " = _____ &nbsp;  &nbsp; </td></tr>\n");
+                fileAnswerWriter.write("<td>" + (i * totalNumbers  + 5) + ")&nbsp; " + argument5[i][0] +
                         " = " + Math.round((float) argument5[i][0] / roundNumber) * roundNumber + " &nbsp; &nbsp; </td></tr>\n");
                 outputStream.write('\n');
                 outputStream.write('\n');
@@ -2513,39 +2083,39 @@ Top part of worksheets: txt and html
 
             DataOutputStream outputStream = new DataOutputStream(new FileOutputStream
                     (workingFolder + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyTxtBlock__" + ".txt"));
-            FileWriter fileWriter = new FileWriter(new File(workingFolder
-                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlock__" + ".html"));
-            FileWriter fileAnswerWriter = new FileWriter(new File(workingFolder
-                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlockAnswer__" + ".html"));
+            FileWriter fileWriter = new FileWriter(workingFolder
+                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlock__" + ".html");
+            FileWriter fileAnswerWriter = new FileWriter(workingFolder
+                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlockAnswer__" + ".html");
 
             fileWriter.write("<table>");
             fileAnswerWriter.write("<table>");
 
             for (int i = 0; i < problemsLines; i++) {
 
-                fileWriter.write("<tr align=\"left\"><td>" + (i * totalNumbers  + 1) + ")&nbsp; " + String.valueOf(argument1[i][0]) + " =  ______ &nbsp;  &nbsp; </td>");
-                fileAnswerWriter.write("<tr align=\"left\"><td>" + (i * totalNumbers  + 1) + ")&nbsp; " + String.valueOf(argument1[i][0]) + " = ");
+                fileWriter.write("<tr align=\"left\"><td>" + (i * totalNumbers  + 1) + ")&nbsp; " + argument1[i][0] + " =  ______ &nbsp;  &nbsp; </td>");
+                fileAnswerWriter.write("<tr align=\"left\"><td>" + (i * totalNumbers  + 1) + ")&nbsp; " + argument1[i][0] + " = ");
                     if (argument1[i][0] % 2 == 0) fileAnswerWriter.write ("Even" + " &nbsp; &nbsp; </td>");
                     else fileAnswerWriter.write ("Odd" + " &nbsp; &nbsp; </td>");
 
-                fileWriter.write("<td>" + (i * totalNumbers + 2) + ")&nbsp; " + String.valueOf(argument2[i][0]) + " =  _____ &nbsp;  &nbsp; </td>");
-                fileAnswerWriter.write("<td>" + (i * totalNumbers  + 2) + ")&nbsp; " + String.valueOf(argument2[i][0]) + " = ");
+                fileWriter.write("<td>" + (i * totalNumbers + 2) + ")&nbsp; " + argument2[i][0] + " =  _____ &nbsp;  &nbsp; </td>");
+                fileAnswerWriter.write("<td>" + (i * totalNumbers  + 2) + ")&nbsp; " + argument2[i][0] + " = ");
                     if (argument2[i][0] % 2 == 0) fileAnswerWriter.write ("Even" + " &nbsp; &nbsp; </td>");
                     else fileAnswerWriter.write ("Odd" + " &nbsp; &nbsp; </td>");
 
 //                + Math.round((float) argument2[i][0] / roundNumber) * roundNumber + " &nbsp; &nbsp; </td>");
-                fileWriter.write("<td>" + (i * totalNumbers  + 3) + ")&nbsp; " + String.valueOf(argument3[i][0]) + " = _____ &nbsp;  &nbsp; </td>");
-                fileAnswerWriter.write("<td>" + (i * totalNumbers  + 3) + ")&nbsp; " + String.valueOf(argument3[i][0]) + " = ");
+                fileWriter.write("<td>" + (i * totalNumbers  + 3) + ")&nbsp; " + argument3[i][0] + " = _____ &nbsp;  &nbsp; </td>");
+                fileAnswerWriter.write("<td>" + (i * totalNumbers  + 3) + ")&nbsp; " + argument3[i][0] + " = ");
                     if (argument2[i][0] % 2 == 0) fileAnswerWriter.write ("Even" + " &nbsp; &nbsp; </td>");
                     else fileAnswerWriter.write ("Odd" + " &nbsp; &nbsp; </td>");
 
-                fileWriter.write("<td>" + (i * totalNumbers  + 4) + ")&nbsp; " + String.valueOf(argument4[i][0]) + " = _____ &nbsp;  &nbsp; </td>");
-                fileAnswerWriter.write("<td>" + (i * totalNumbers  + 4) + ")&nbsp; " + String.valueOf(argument4[i][0]) + " = ");
+                fileWriter.write("<td>" + (i * totalNumbers  + 4) + ")&nbsp; " + argument4[i][0] + " = _____ &nbsp;  &nbsp; </td>");
+                fileAnswerWriter.write("<td>" + (i * totalNumbers  + 4) + ")&nbsp; " + argument4[i][0] + " = ");
                     if (argument2[i][0] % 2 == 0) fileAnswerWriter.write ("Even" + " &nbsp; &nbsp; </td>");
                     else fileAnswerWriter.write ("Odd" + " &nbsp; &nbsp; </td>");
 
-                fileWriter.write("<td>" + (i * totalNumbers  + 5) + ")&nbsp; " + String.valueOf(argument5[i][0]) + " = _____ &nbsp;  &nbsp; </td></tr>\n");
-                fileAnswerWriter.write("<td>" + (i * totalNumbers  + 5) + ")&nbsp; " + String.valueOf(argument5[i][0]) + " = ");
+                fileWriter.write("<td>" + (i * totalNumbers  + 5) + ")&nbsp; " + argument5[i][0] + " = _____ &nbsp;  &nbsp; </td></tr>\n");
+                fileAnswerWriter.write("<td>" + (i * totalNumbers  + 5) + ")&nbsp; " + argument5[i][0] + " = ");
                     if (argument2[i][0] % 2 == 0) fileAnswerWriter.write ("Even" + " &nbsp; &nbsp; </td>");
                     else fileAnswerWriter.write ("Odd" + " &nbsp; &nbsp; </td>");
 
@@ -2583,8 +2153,6 @@ Top part of worksheets: txt and html
         int [][] entryNumbersInt = new int[problemsLines][problemsCols];
         StringBuilder[][] entryNumbersString = new StringBuilder[problemsLines][problemsCols];
         int [][] roundingNumbers = new int[problemsLines][problemsCols];
-
-
 
         int[][] argument1 = new int[problemsLines][3];
         String[] argument1String1 = new String[problemsLines];
@@ -2629,48 +2197,17 @@ Top part of worksheets: txt and html
 
 
                 argument1[i][1] = (int) (Math.random() * ((Integer.toString(argument1[i][0])).length() - 1));
-//                if (argument1[i][1] == 0) argument1[i][2] = Math.round(numbersRangeEnd/10);
-//                if (argument1[i][1] == 1) argument1[i][2] = Math.round(numbersRangeEnd/100);
-//                if (argument1[i][1] == 2) argument1[i][2] = Math.round(numbersRangeEnd/1000);
 
                 argument1String1[i] = Integer.toString(argument1[i][0]);
                 StringBuilder myString = new StringBuilder(argument1String1[i]);
                 char replaceChar = argument1String1[i].charAt(argument1[i][1]);
 
-//                String replaceString = "<u>" + replaceChar + "</u>";
-//                myString.replace(argument1[i][1], argument1[i][1] + 1, replaceString);
-//                argument1String2[i] = myString.toString();
-//                if (k == 1) System.out.println(" argument1[i][1] " + argument1[i][1] + " " + replaceChar + " argument1[i][0] " + argument1[i][0] +
-//                        " replaceString " + replaceString + " " + myString);
-
                 argument2[i][0] = (int) ((Math.random() * (numbersRangeEnd - numbersRangeStart)) + numbersRangeStart);
                 argument2[i][1] = (int) (Math.random() * ((Integer.toString(argument1[i][0])).length() - 1));
-//                if (argument2[i][1] == 0) argument2[i][2] = Math.round(numbersRangeEnd/10);
-//                if (argument2[i][1] == 1) argument2[i][2] = Math.round(numbersRangeEnd/100);
-//                if (argument2[i][1] == 2) argument2[i][2] = Math.round(numbersRangeEnd/1000);
 
                 argument2String1[i] = Integer.toString(argument2[i][0]);
                 StringBuilder myString2 = new StringBuilder(argument2String1[i]);
                 char replaceChar2 = argument2String1[i].charAt(argument2[i][1]);
-
-//                String replaceString2 = "<u>" + replaceChar2 + "</u>";
-//                myString2.replace(argument2[i][1], argument2[i][1] + 1, replaceString2);
-//                argument2String2[i] = myString2.toString();
-//
-//                argument3[i][0] = (int) ((Math.random() * (numbersRangeEnd - numbersRangeStart)) + numbersRangeStart);
-//                argument3[i][1] = (int) (Math.random() * ((Integer.toString(argument1[i][0])).length() - 1));
-//                if (argument3[i][1] == 0) argument3[i][2] = Math.round(numbersRangeEnd/10);
-//                if (argument3[i][1] == 1) argument3[i][2] = Math.round(numbersRangeEnd/100);
-//                if (argument3[i][1] == 2) argument3[i][2] = Math.round(numbersRangeEnd/1000);
-//
-//
-//                argument3String1[i] = Integer.toString(argument3[i][0]);
-//                myString = new StringBuilder(argument3String1[i]);
-//                replaceChar = argument3String1[i].charAt(argument3[i][1]);
-//
-//                replaceString = "<u>" + replaceChar + "</u>";
-//                myString.replace(argument3[i][1], argument2[i][1] + 1, replaceString);
-//                argument3String2[i] = myString.toString();
 
                 argument4[i][0] = (int) ((Math.random() * (numbersRangeEnd - numbersRangeStart)) + numbersRangeStart);
                 argument4[i][1] = (int) (Math.random() * (Integer.toString(argument4[i][0])).length() + 1);
@@ -2680,30 +2217,30 @@ Top part of worksheets: txt and html
 
             DataOutputStream outputStream = new DataOutputStream(new FileOutputStream
                     (workingFolder + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyTxtBlock__" + ".txt"));
-            FileWriter fileWriter = new FileWriter(new File(workingFolder
-                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlock__" + ".html"));
-            FileWriter fileAnswerWriter = new FileWriter(new File(workingFolder
-                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlockAnswer__" + ".html"));
+            FileWriter fileWriter = new FileWriter(workingFolder
+                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlock__" + ".html");
+            FileWriter fileAnswerWriter = new FileWriter(workingFolder
+                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlockAnswer__" + ".html");
 
             fileWriter.write("<table>");
             fileAnswerWriter.write("<table>");
 
             for (int i = 0; i < problemsLines; i++) {
 
-                fileWriter.write("<tr align=\"left\"><td>" + (i * totalNumbers  + 1) + ")&nbsp; " + " = " + String.valueOf(argument1[i][0]) + "  &nbsp; </td>");
-                fileAnswerWriter.write("<tr align=\"left\"><td>" + (i * totalNumbers  + 1) + ")&nbsp; " + String.valueOf(argument1[i][0]) +
+                fileWriter.write("<tr align=\"left\"><td>" + (i * totalNumbers  + 1) + ")&nbsp; " + " = " + argument1[i][0] + "  &nbsp; </td>");
+                fileAnswerWriter.write("<tr align=\"left\"><td>" + (i * totalNumbers  + 1) + ")&nbsp; " + argument1[i][0] +
                         " = " + Math.round((float) argument1[i][0] / argument1[i][2]) * argument1[i][2]  + " &nbsp; &nbsp; </td>");
-                fileWriter.write("<td>" + (i * totalNumbers + 2) + ")&nbsp; " + String.valueOf(argument2[i][0]) + " =  _____ &nbsp;  &nbsp; </td>");
-                fileAnswerWriter.write("<td>" + (i * totalNumbers  + 2) + ")&nbsp; " + String.valueOf(argument2[i][0]) +
+                fileWriter.write("<td>" + (i * totalNumbers + 2) + ")&nbsp; " + argument2[i][0] + " =  _____ &nbsp;  &nbsp; </td>");
+                fileAnswerWriter.write("<td>" + (i * totalNumbers  + 2) + ")&nbsp; " + argument2[i][0] +
                         " = " + Math.round((float) argument1[i][0] / roundNumber) * roundNumber + " &nbsp; &nbsp; </td>");
-                fileWriter.write("<td>" + (i * totalNumbers  + 3) + ")&nbsp; " + String.valueOf(argument3[i][0]) + " = _____ &nbsp;  &nbsp; </td>");
-                fileAnswerWriter.write("<td>" + (i * totalNumbers  + 3) + ")&nbsp; " + String.valueOf(argument3[i][0]) +
+                fileWriter.write("<td>" + (i * totalNumbers  + 3) + ")&nbsp; " + argument3[i][0] + " = _____ &nbsp;  &nbsp; </td>");
+                fileAnswerWriter.write("<td>" + (i * totalNumbers  + 3) + ")&nbsp; " + argument3[i][0] +
                         " = " + Math.round((float) argument3[i][1] / roundNumber) * roundNumber + " &nbsp; &nbsp; </td>");
-                fileWriter.write("<td>" + (i * totalNumbers  + 4) + ")&nbsp; " + String.valueOf(argument4[i][0]) + " = _____ &nbsp;  &nbsp; </td>");
-                fileAnswerWriter.write("<td>" + (i * totalNumbers  + 4) + ")&nbsp; " + String.valueOf(argument4[i][0]) +
+                fileWriter.write("<td>" + (i * totalNumbers  + 4) + ")&nbsp; " + argument4[i][0] + " = _____ &nbsp;  &nbsp; </td>");
+                fileAnswerWriter.write("<td>" + (i * totalNumbers  + 4) + ")&nbsp; " + argument4[i][0] +
                         " = " + Math.round((float) argument4[i][1] / roundNumber) * roundNumber + " &nbsp; &nbsp; </td>");
-                fileWriter.write("<td>" + (i * totalNumbers  + 5) + ")&nbsp; " + String.valueOf(argument5[i][0]) + " = _____ &nbsp;  &nbsp; </td></tr>\n");
-                fileAnswerWriter.write("<td>" + (i * totalNumbers  + 5) + ")&nbsp; " + String.valueOf(argument5[i][0]) +
+                fileWriter.write("<td>" + (i * totalNumbers  + 5) + ")&nbsp; " + argument5[i][0] + " = _____ &nbsp;  &nbsp; </td></tr>\n");
+                fileAnswerWriter.write("<td>" + (i * totalNumbers  + 5) + ")&nbsp; " + argument5[i][0] +
                         " = " + Math.round((float) argument5[i][1] / roundNumber) * roundNumber + " &nbsp; &nbsp; </td></tr>\n");
                 outputStream.write('\n');
                 outputStream.write('\n');
@@ -2732,7 +2269,6 @@ Top part of worksheets: txt and html
                                                                               String grade, int totalPageNumbers, String shortTaskNameWorksheet,
                                                                               String longTaskNameWorksheet,
                                            int numbersRangeStart, int numbersRangeEnd, int sum, int problemsLines, int problemsCols) throws IOException {
-//        System.out.println("Начало ");
 
         int totalNumbers = 4; // 4 pairs of numbers to compare
 
@@ -2746,7 +2282,6 @@ Top part of worksheets: txt and html
             pageNumber = k;
 
             for (int i = 0; i < problemsLines; i++) {
-//                for (int j = 0; j < totalNumbers; j++) {
                 argument1[i][0] = (int) (Math.random() * numbersRangeEnd + numbersRangeStart);
                 argument1[i][1] = (int) (Math.random() * numbersRangeEnd + numbersRangeStart);
                 argument2[i][0] = (int) (Math.random() * numbersRangeEnd + numbersRangeStart);
@@ -2759,25 +2294,22 @@ Top part of worksheets: txt and html
                 compareType[i][1] = (int) (Math.random() * 3);
                 compareType[i][2] = (int) (Math.random() * 3);
                 compareType[i][3] = (int) (Math.random() * 3);
-//                }
             }
 
             DataOutputStream outputStream = new DataOutputStream(new FileOutputStream
                     (workingFolder + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyTxtBlock__" + ".txt"));
-            FileWriter fileWriter = new FileWriter(new File(workingFolder
-                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlock__" + ".html"));
-            FileWriter fileAnswerWriter = new FileWriter(new File(workingFolder
-                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlockAnswer__" + ".html"));
+            FileWriter fileWriter = new FileWriter(workingFolder
+                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlock__" + ".html");
+            FileWriter fileAnswerWriter = new FileWriter(workingFolder
+                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlockAnswer__" + ".html");
 
             fileWriter.write("<table>");
             fileAnswerWriter.write("<table>");
-//            fileWriter.write("<table> <tr><td colspan=\"" + (totalNumbers - 1) + "\"></td></tr>\n");
-//            fileAnswerWriter.write("<table> <tr><td colspan=\"" + (totalNumbers - 1) + "\"></td></tr>\n");
 
             for (int i = 0; i < problemsLines; i++) {
 
-                fileWriter.write("<tr align=\"left\"><td>" + (i * 4 + 1) + ")&nbsp; " + String.valueOf(argument1[i][0]) + " ");
-                fileAnswerWriter.write("<tr align=\"left\"><td>" + (i * 4 + 1) + ")&nbsp; " + String.valueOf(argument1[i][0]) + " ");
+                fileWriter.write("<tr align=\"left\"><td>" + (i * 4 + 1) + ")&nbsp; " + argument1[i][0] + " ");
+                fileAnswerWriter.write("<tr align=\"left\"><td>" + (i * 4 + 1) + ")&nbsp; " + argument1[i][0] + " ");
                 if (compareType[i][0] == 0 ) {
                         fileWriter.write(" = ");
                         fileAnswerWriter.write(" = ");
@@ -2790,11 +2322,11 @@ Top part of worksheets: txt and html
                         fileWriter.write(" < ");
                         fileAnswerWriter.write(" < ");
                 }
-                fileWriter.write(" " + String.valueOf(argument1[i][1]) + " &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>");
-                fileAnswerWriter.write(" " + String.valueOf(argument1[i][1]) + " &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>");
+                fileWriter.write(" " + argument1[i][1] + " &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>");
+                fileAnswerWriter.write(" " + argument1[i][1] + " &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>");
 
-                fileWriter.write("<td>" + (i * 4 + 2) + ")&nbsp; " + String.valueOf(argument2[i][0]) + " ");
-                fileAnswerWriter.write("<td>" + (i * 4 + 2) + ")&nbsp; " + String.valueOf(argument2[i][0]) + " ");
+                fileWriter.write("<td>" + (i * 4 + 2) + ")&nbsp; " + argument2[i][0] + " ");
+                fileAnswerWriter.write("<td>" + (i * 4 + 2) + ")&nbsp; " + argument2[i][0] + " ");
                 if (compareType[i][1] == 0 ) {
                         fileWriter.write(" = ");
                         fileAnswerWriter.write(" = ");
@@ -2807,11 +2339,11 @@ Top part of worksheets: txt and html
                         fileWriter.write(" < ");
                         fileAnswerWriter.write(" < ");
                 }
-                fileWriter.write(" " + String.valueOf(argument2[i][1]) + " &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>");
-                fileAnswerWriter.write(" " + String.valueOf(argument2[i][1]) + " &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>");
+                fileWriter.write(" " + argument2[i][1] + " &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>");
+                fileAnswerWriter.write(" " + argument2[i][1] + " &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>");
 
-                fileWriter.write("<td>" + (i * 4 + 3) + ")&nbsp; " + String.valueOf(argument3[i][0]) + " ");
-                fileAnswerWriter.write("<td>" + (i * 4 + 3) + ")&nbsp; " + String.valueOf(argument3[i][0]) + " ");
+                fileWriter.write("<td>" + (i * 4 + 3) + ")&nbsp; " + argument3[i][0] + " ");
+                fileAnswerWriter.write("<td>" + (i * 4 + 3) + ")&nbsp; " + argument3[i][0] + " ");
                 if (compareType[i][2] == 0 ) {
                     fileWriter.write(" = ");
                     fileAnswerWriter.write(" = ");
@@ -2824,11 +2356,11 @@ Top part of worksheets: txt and html
                     fileWriter.write(" < ");
                     fileAnswerWriter.write(" < ");
                 }
-                fileWriter.write(" " + String.valueOf(argument3[i][1]) + " &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>");
-                fileAnswerWriter.write(" " + String.valueOf(argument3[i][1]) + " &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>");
+                fileWriter.write(" " + argument3[i][1] + " &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>");
+                fileAnswerWriter.write(" " + argument3[i][1] + " &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>");
 
-                fileWriter.write("<td>" + (i * 4 + 4) + ")&nbsp; " + String.valueOf(argument4[i][0]) + " ");
-                fileAnswerWriter.write("<td>" + (i * 4 + 4) + ")&nbsp; " + String.valueOf(argument4[i][0]) + " ");
+                fileWriter.write("<td>" + (i * 4 + 4) + ")&nbsp; " + argument4[i][0] + " ");
+                fileAnswerWriter.write("<td>" + (i * 4 + 4) + ")&nbsp; " + argument4[i][0] + " ");
                 if (compareType[i][3] == 0 ) {
                     fileWriter.write(" = ");
                     fileAnswerWriter.write(" = ");
@@ -2841,118 +2373,16 @@ Top part of worksheets: txt and html
                     fileWriter.write(" < ");
                     fileAnswerWriter.write(" < ");
                 }
-                fileWriter.write(" " + String.valueOf(argument4[i][1]) + "</td></tr>");
-                fileAnswerWriter.write(" " + String.valueOf(argument4[i][1]) + "</td></tr>");
+                fileWriter.write(" " + argument4[i][1] + "</td></tr>");
+                fileAnswerWriter.write(" " + argument4[i][1] + "</td></tr>");
 
-//                "</td> &nbsp; &nbsp; &nbsp; <td>");
-//                fileAnswerWriter.write("<tr align=\"right\"><td>" + (i * 4 + 1) + ")&nbsp; " + String.valueOf(argument1[i][0]) + "</td> &nbsp; &nbsp; &nbsp; <td>");
-////                for (int j = 0; j < totalNumbers; j++) {
-//
-////                    outputStream.write(String.valueOf(argument1[i][j]).getBytes());
-////                    fileWriter.write((i * 4 + 1) + ")&nbsp; ");
-////                    fileWriter.write(String.valueOf(argument1[i][0]));
-////                    fileWriter.write(String.valueOf(argument1[i][0]));
-////                    if (compareType[i][0] == 0 ) {
-////                        fileWriter.write(" = ");
-////                        fileWriter.write(String.valueOf(argument1[i][1]));
-////                    }
-////                    else if (compareType[i][0] == 1 ) {
-////                        fileWriter.write(" > ");
-////                        fileWriter.write(String.valueOf(argument1[i][1]));
-////
-////                    }
-////                    else {
-////                        fileWriter.write(" < ");
-////                        fileWriter.write(String.valueOf(argument1[i][1]));
-////
-////                    }
-//
-////                fileWriter.write("</td> &nbsp; &nbsp; &nbsp; <td>");
-//
-////                fileAnswerWriter.write((i * 4 + 1) + ")&nbsp; ");
-////                    fileAnswerWriter.write(String.valueOf(argument1[i][0]));
-////                    fileAnswerWriter.write(" > ");
-////                    fileAnswerWriter.write(String.valueOf(argument1[i][1]));
-////                    fileAnswerWriter.write(" &nbsp; &nbsp; &nbsp; ");
-//
-//                    fileWriter.write((i * 4 + 2) + ")&nbsp; ");
-//                    fileWriter.write(String.valueOf(argument2[i][0]));
-//                    fileWriter.write(" = ");
-//                    fileWriter.write(String.valueOf(argument2[i][1]));
-//                fileWriter.write("</td> &nbsp; &nbsp; &nbsp; <td>");
-//
-//                    fileAnswerWriter.write((i * 4 + 2) + ")&nbsp; ");
-//                    fileAnswerWriter.write(String.valueOf(argument2[i][0]));
-//                    fileAnswerWriter.write(" = ");
-//                    fileAnswerWriter.write(String.valueOf(argument2[i][1]));
-//                    fileAnswerWriter.write(" &nbsp; &nbsp; &nbsp; ");
-//
-//                    fileWriter.write((i * 4 + 3) + ")&nbsp; ");
-//                    fileWriter.write(String.valueOf(argument3[i][0]));
-//                    fileWriter.write(" < ");
-//                    fileWriter.write(String.valueOf(argument3[i][1]));
-//                fileWriter.write("</td> &nbsp; &nbsp; &nbsp; <td>");
-//
-//                    fileAnswerWriter.write((i * 4 + 3) + ")&nbsp; ");
-//                    fileAnswerWriter.write(String.valueOf(argument3[i][0]));
-//                    fileAnswerWriter.write(" < ");
-//                    fileAnswerWriter.write(String.valueOf(argument3[i][1]));
-//                    fileAnswerWriter.write(" &nbsp; &nbsp; &nbsp; ");
-//
-//                    fileWriter.write((i * 4 + 4) + ")&nbsp; ");
-//                    fileWriter.write(String.valueOf(argument4[i][0]));
-//                    fileWriter.write(" < ");
-//                    fileWriter.write(String.valueOf(argument4[i][1]));
-//
-//                    fileAnswerWriter.write((i * 4 + 4) + ")&nbsp; ");
-//                    fileAnswerWriter.write(String.valueOf(argument4[i][0]));
-//                    fileAnswerWriter.write(" < ");
-//                    fileAnswerWriter.write(String.valueOf(argument4[i][1]));
-
-
-
-
-//                    outputStream.write(' ');
-//                    outputStream.write('+');
-//                    outputStream.write(' ');
-//
-//                    fileWriter.write(" ___ ");
-//                    fileAnswerWriter.write(" ___ ");
-//
-////                    outputStream.write(String.valueOf(argument2[i][j]).getBytes());
-//                    fileWriter.write(String.valueOf(argument2[i][0]));
-//                    fileAnswerWriter.write(String.valueOf(argument2[i][0]));
-////
-//                    outputStream.write(' ');
-//                    outputStream.write('=');
-//                    outputStream.write(' ');
-//                    outputStream.write('_');
-//                    outputStream.write('_');
-//                    outputStream.write('_');
-//                    outputStream.write('_');
-//                    outputStream.write(' ');
-//                    outputStream.write(' ');
-//                    outputStream.write(' ');
-//
-//                    fileWriter.write(" &nbsp; &nbsp; &nbsp; ");
-//                    fileAnswerWriter.write(" = ____ " + String.valueOf((argument1[i][j] + argument2[i][j])));
-
-//                    System.out.print(" " + argument1[i][j] + " + " + argument2[i][j] + " = _____   ");
-//                }
                 outputStream.write('\n');
                 outputStream.write('\n');
                 outputStream.write('\n');
                 fileWriter.write("</tr>   <tr><td colspan=\"totalNumbers\"><br /><br /></td></tr>");
                 fileAnswerWriter.write("</tr>   <tr><td colspan=\"totalNumbers\"><br /><br /></td></tr>");
-//                fileWriter.write("<br /><br />\n\n");
-//                fileAnswerWriter.write("<br /><br />\n\n");
-//                System.out.println();
-//                System.out.println();
-//                System.out.println();
 
             }
-//            fileWriter.write("</tr> \n  <tr><td colspan=\"totalNumbers\"><br /><br /></td></tr>");
-//            fileAnswerWriter.write("</tr> \n  <tr><td colspan=\"totalNumbers\"><br /><br /></td></tr>");
             fileWriter.write("</table>");
             fileAnswerWriter.write("</table>");
             System.out.println("Отработало ");
@@ -2981,7 +2411,6 @@ Top part of worksheets: txt and html
                 }
 
             if (longTaskNameWorksheet.contains("Вычити число 0") || longTaskNameWorksheet.contains("Subtract 0")) {
-//                int tempNumber = 0;
                 for (int i = 0; i < problemsLines; i++)
                     for (int j = 0; j < problemsCols; j++) {
                         argument1[i][j] = (int) (Math.random() * numbersRangeEnd + numbersRangeStart);
@@ -2990,7 +2419,6 @@ Top part of worksheets: txt and html
             }
 
             if (longTaskNameWorksheet.contains("Вычити число 1") || longTaskNameWorksheet.contains("Subtract 1")) {
-//                int tempNumber = 0;
                 for (int i = 0; i < problemsLines; i++)
                     for (int j = 0; j < problemsCols; j++) {
                         argument1[i][j] = (int) (Math.random() * numbersRangeEnd + numbersRangeStart);
@@ -3082,15 +2510,15 @@ Top part of worksheets: txt and html
 
             DataOutputStream outputStream = new DataOutputStream(new FileOutputStream
                     (workingFolder + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyTxtBlock__" + ".txt"));
-            FileWriter fileWriter = new FileWriter(new File(workingFolder
-                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlock__" + ".html"));
-            FileWriter fileAnswerWriter = new FileWriter(new File(workingFolder
-                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlockAnswer__" + ".html"));
+            FileWriter fileWriter = new FileWriter(workingFolder
+                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlock__" + ".html");
+            FileWriter fileAnswerWriter = new FileWriter(workingFolder
+                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlockAnswer__" + ".html");
 
             for (int i = 0; i < problemsLines; i++) {
                 for (int j = 0; j < problemsCols; j++) {
 
-                    outputStream.write(String.valueOf(argument1[i][j]).getBytes());
+                    outputStream.write(valueOf(argument1[i][j]).getBytes());
                     fileWriter.write("&nbsp; " + ((i * problemsCols) + (j + 1)) + ") &nbsp;" + argument1[i][j]);
                     fileAnswerWriter.write("&nbsp; " + ((i * problemsCols) + (j + 1)) + ") &nbsp;" + argument1[i][j]);
 
@@ -3101,9 +2529,9 @@ Top part of worksheets: txt and html
                     fileWriter.write(" - ");
                     fileAnswerWriter.write(" - ");
 
-                    outputStream.write(String.valueOf(argument2[i][j]).getBytes());
-                    fileWriter.write(String.valueOf(argument2[i][j]));
-                    fileAnswerWriter.write(String.valueOf(argument2[i][j]));
+                    outputStream.write(valueOf(argument2[i][j]).getBytes());
+                    fileWriter.write(valueOf(argument2[i][j]));
+                    fileAnswerWriter.write(valueOf(argument2[i][j]));
 
                     outputStream.write(' ');
                     outputStream.write('=');
@@ -3126,10 +2554,6 @@ Top part of worksheets: txt and html
                 outputStream.write('\n');
                 fileWriter.write("<br /><br /><br />\n\n\n");
                 fileAnswerWriter.write("<br /><br /><br />\n\n\n");
-//                System.out.println();
-//                System.out.println();
-//                System.out.println();
-//                System.out.println("Отработало ");
             }
             outputStream.close();
             fileWriter.close();
@@ -3242,10 +2666,10 @@ Top part of worksheets: txt and html
 
             DataOutputStream outputStream = new DataOutputStream(new FileOutputStream
                     (workingFolder + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyTxtBlock__" + ".txt"));
-            FileWriter fileWriter = new FileWriter(new File(workingFolder
-                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlock__" + ".html"));
-            FileWriter fileAnswerWriter = new FileWriter(new File(workingFolder
-                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlockAnswer__" + ".html"));
+            FileWriter fileWriter = new FileWriter(workingFolder
+                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlock__" + ".html");
+            FileWriter fileAnswerWriter = new FileWriter(workingFolder
+                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlockAnswer__" + ".html");
 
             for (int i = 0; i < problemsLines; i++) {
                 for (int j = 0; j < problemsCols; j++) {
@@ -3261,141 +2685,6 @@ Top part of worksheets: txt and html
                         fileAnswerWriter.write("&nbsp; " + ((i * problemsCols) + (j + 1)) + ") &nbsp;" + argument1[i][j] + " - " + argument2[i][j]
                                 + " = " + (argument1[i][j] - argument2[i][j]) + " &nbsp; ");
                     }
-                }
-                outputStream.write('\n');
-                fileWriter.write("<br /><br /><br />\n\n");
-                fileAnswerWriter.write("<br /><br /><br />\n\n");
-            }
-            outputStream.close();
-            fileWriter.close();
-            fileAnswerWriter.close();
-        }
-    }
-
-    public static void multiplyA1_B1LineWorksheetA4(String workingFolder, String grade, int totalPageNumbers, String shortTaskNameWorksheet, String longTaskNameWorksheet,
-                                           int numbersRangeStart, int numbersRangeEnd, int sum, int problemsLines, int problemsCols) throws IOException {
-
-        int[][] argument1 = new int[problemsLines][problemsCols];
-        int[][] argument2 = new int[problemsLines][problemsCols];
-
-        for (int k = 1; k < totalPageNumbers ; k++) {
-            pageNumber = k;
-
-            for (int i = 0; i < problemsLines; i++)
-                for (int j = 0; j < problemsCols; j++) {
-                    argument1[i][j] = (int) ((Math.random() * numbersRangeEnd) + numbersRangeStart);
-                    argument2[i][j] = (int) (((Math.random() * numbersRangeEnd) ) + numbersRangeStart);
-                }
-            if (longTaskNameWorksheet.contains("Умножь число 0") || longTaskNameWorksheet.contains("Multiply 0 to")) {
-                for (int i = 0; i < problemsLines; i++)
-                    for (int j = 0; j < problemsCols; j++) {
-                        argument1[i][j] = (int) (Math.random() * numbersRangeEnd + numbersRangeStart);
-                        argument2[i][j] = 0;
-                    }
-            }
-
-            if (longTaskNameWorksheet.contains("Умножь число 1") || longTaskNameWorksheet.contains("Multiply 1 to")) {
-                for (int i = 0; i < problemsLines; i++)
-                    for (int j = 0; j < problemsCols; j++) {
-                        argument1[i][j] = (int) (Math.random() * numbersRangeEnd + numbersRangeStart);
-                        argument2[i][j] = 1;
-                    }
-            }
-
-            if (longTaskNameWorksheet.contains("Умножь число 2") || longTaskNameWorksheet.contains("Multiply 2 to")) {
-                for (int i = 0; i < problemsLines; i++)
-                    for (int j = 0; j < problemsCols; j++) {
-                        argument1[i][j] = (int) (Math.random() * numbersRangeEnd + numbersRangeStart);
-                        argument2[i][j] = 2;
-                    }
-            }
-
-            if (longTaskNameWorksheet.contains("Умножь число 3") || longTaskNameWorksheet.contains("Multiply 3 to")) {
-                for (int i = 0; i < problemsLines; i++)
-                    for (int j = 0; j < problemsCols; j++) {
-                        argument1[i][j] = (int) (Math.random() * numbersRangeEnd + numbersRangeStart);
-                        argument2[i][j] = 3;
-                    }
-            }
-
-            if (longTaskNameWorksheet.contains("Умножь число 4") || longTaskNameWorksheet.contains("Multiply 4 to")) {
-                for (int i = 0; i < problemsLines; i++)
-                    for (int j = 0; j < problemsCols; j++) {
-                        argument1[i][j] = (int) (Math.random() * numbersRangeEnd + numbersRangeStart);
-                        argument2[i][j] = 4;
-                    }
-            }
-
-            if (longTaskNameWorksheet.contains("Умножь число 5") || longTaskNameWorksheet.contains("Multiply 5 from")) {
-                for (int i = 0; i < problemsLines; i++)
-                    for (int j = 0; j < problemsCols; j++) {
-                        argument1[i][j] = (int) (Math.random() * numbersRangeEnd + numbersRangeStart);
-                        argument2[i][j] = 5;
-                    }
-            }
-
-            if (longTaskNameWorksheet.contains("Умножь число 6") || longTaskNameWorksheet.contains("Multiply 6 to")) {
-                for (int i = 0; i < problemsLines; i++)
-                    for (int j = 0; j < problemsCols; j++) {
-                        argument1[i][j] = (int) (Math.random() * numbersRangeEnd + numbersRangeStart);
-                        argument2[i][j] = 6;
-                    }
-            }
-
-            if (longTaskNameWorksheet.contains("Умножь число 7") || longTaskNameWorksheet.contains("Multiply 7 to")) {
-                for (int i = 0; i < problemsLines; i++)
-                    for (int j = 0; j < problemsCols; j++) {
-                        argument1[i][j] = (int) (Math.random() * numbersRangeEnd + numbersRangeStart);
-                        argument2[i][j] = 7;
-                    }
-            }
-
-            if (longTaskNameWorksheet.contains("Умножь число 8") || longTaskNameWorksheet.contains("Multiply 8 to")) {
-                for (int i = 0; i < problemsLines; i++)
-                    for (int j = 0; j < problemsCols; j++) {
-                        argument1[i][j] = (int) (Math.random() * numbersRangeEnd + numbersRangeStart);
-                        argument2[i][j] = 8;
-                    }
-            }
-
-            if (longTaskNameWorksheet.contains("Умножь число 9") || longTaskNameWorksheet.contains("Multiply 9 to")) {
-                for (int i = 0; i < problemsLines; i++)
-                    for (int j = 0; j < problemsCols; j++) {
-                        argument1[i][j] = (int) (Math.random() * numbersRangeEnd + numbersRangeStart);
-                        argument2[i][j] = 9;
-                    }
-            }
-
-            if (longTaskNameWorksheet.contains("Умножь число 10") || longTaskNameWorksheet.contains("Multiply 10 to")) {
-                for (int i = 0; i < problemsLines; i++)
-                    for (int j = 0; j < problemsCols; j++) {
-                        argument1[i][j] = (int) (Math.random() * numbersRangeEnd + numbersRangeStart);
-                        argument2[i][j] = 10;
-                    }
-            }
-
-
-            DataOutputStream outputStream = new DataOutputStream(new FileOutputStream
-                    (workingFolder + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyTxtBlock__" + ".txt"));
-            FileWriter fileWriter = new FileWriter(new File(workingFolder
-                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlock__" + ".html"));
-            FileWriter fileAnswerWriter = new FileWriter(new File(workingFolder
-                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlockAnswer__" + ".html"));
-
-            for (int i = 0; i < problemsLines; i++) {
-                for (int j = 0; j < problemsCols; j++) {
-//                    if(j % 2 == 0) {
-                        fileWriter.write(" &nbsp; " + ((i * problemsCols) + (j + 1)) + ") &nbsp;" + argument1[i][j] + " &#215; " + argument2[i][j]
-                                + " = ____ &nbsp; &nbsp; &nbsp; ");
-                        fileAnswerWriter.write(" &nbsp; " + ((i * problemsCols) + (j + 1)) + ") &nbsp;" + argument1[i][j] + " + " + argument2[i][j]
-                                + " = " + (argument1[i][j] * argument2[i][j]) +" &nbsp; ");
-//                    }
-//                    else {
-//                        fileWriter.write(" &nbsp; " + ((i * problemsCols) + (j + 1)) + ") &nbsp;" + argument1[i][j] + " - " + argument2[i][j]
-//                                + " = ____ &nbsp; &nbsp; &nbsp; ");
-//                        fileAnswerWriter.write("&nbsp; " + ((i * problemsCols) + (j + 1)) + ") &nbsp;" + argument1[i][j] + " - " + argument2[i][j]
-//                                + " = " + (argument1[i][j] - argument2[i][j]) + " &nbsp; ");
-//                    }
                 }
                 outputStream.write('\n');
                 fileWriter.write("<br /><br /><br />\n\n");
@@ -3505,10 +2794,10 @@ Top part of worksheets: txt and html
 
             DataOutputStream outputStream = new DataOutputStream(new FileOutputStream
                     (workingFolder + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyTxtBlock__" + ".txt"));
-            FileWriter fileWriter = new FileWriter(new File(workingFolder
-                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlock__" + ".html"));
-            FileWriter fileAnswerWriter = new FileWriter(new File(workingFolder
-                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlockAnswer__" + ".html"));
+            FileWriter fileWriter = new FileWriter(workingFolder
+                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlock__" + ".html");
+            FileWriter fileAnswerWriter = new FileWriter(workingFolder
+                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlockAnswer__" + ".html");
 
             System.out.println(grade);
 
@@ -3771,87 +3060,12 @@ Top part of worksheets: txt and html
                     }
             }
 
-/*
-            if (longTaskNameWorksheet.contains("Раздели число на 2") || longTaskNameWorksheet.contains("Divide number by 2")) {
-                for (int i = 0; i < problemsLines; i++)
-                    for (int j = 0; j < problemsCols; j++) {
-                        argument1[i][j] = ((int) (Math.random() * (numbersRangeEnd / 2))) * 2 + numbersRangeStart;
-                        argument2[i][j] = 2;
-                    }
-            }
-
-            if (longTaskNameWorksheet.contains("Раздели число на 3") || longTaskNameWorksheet.contains("Divide number by 3")) {
-                for (int i = 0; i < problemsLines; i++)
-                    for (int j = 0; j < problemsCols; j++) {
-                        argument1[i][j] = ((int) (Math.random() * (numbersRangeEnd / 3))) * 3 + numbersRangeStart;
-                        argument2[i][j] = 3;
-                    }
-            }
-
-            if (longTaskNameWorksheet.contains("Раздели число на 4") || longTaskNameWorksheet.contains("Divide number by 4")) {
-                for (int i = 0; i < problemsLines; i++)
-                    for (int j = 0; j < problemsCols; j++) {
-                        argument1[i][j] = ((int) (Math.random() * (numbersRangeEnd / 4))) * 4 + numbersRangeStart;
-                        argument2[i][j] = 4;
-                    }
-            }
-
-            if (longTaskNameWorksheet.contains("Раздели число на 5") || longTaskNameWorksheet.contains("Divide number by 5")) {
-                for (int i = 0; i < problemsLines; i++)
-                    for (int j = 0; j < problemsCols; j++) {
-                        argument1[i][j] = ((int) (Math.random() * (numbersRangeEnd / 5))) * 5 + numbersRangeStart;
-                        argument2[i][j] = 5;
-                    }
-            }
-
-            if (longTaskNameWorksheet.contains("Раздели число на 6") || longTaskNameWorksheet.contains("Divide number by 6")) {
-                for (int i = 0; i < problemsLines; i++)
-                    for (int j = 0; j < problemsCols; j++) {
-                        argument1[i][j] = ((int) (Math.random() * (numbersRangeEnd / 6))) * 6 + numbersRangeStart;
-                        argument2[i][j] = 6;
-                    }
-            }
-
-            if (longTaskNameWorksheet.contains("Раздели число на 7") || longTaskNameWorksheet.contains("Divide number by 7")) {
-                for (int i = 0; i < problemsLines; i++)
-                    for (int j = 0; j < problemsCols; j++) {
-                        argument1[i][j] = ((int) (Math.random() * (numbersRangeEnd / 7))) * 7 + numbersRangeStart;
-                        argument2[i][j] = 7;
-                    }
-            }
-
-            if (longTaskNameWorksheet.contains("Раздели число на 8") || longTaskNameWorksheet.contains("Divide number by 8")) {
-                for (int i = 0; i < problemsLines; i++)
-                    for (int j = 0; j < problemsCols; j++) {
-                        argument1[i][j] = ((int) (Math.random() * (numbersRangeEnd / 8))) * 8 + numbersRangeStart;
-                        argument2[i][j] = 8;
-                    }
-            }
-
-            if (longTaskNameWorksheet.contains("Раздели число на 9") || longTaskNameWorksheet.contains("Divide number by 9")) {
-                for (int i = 0; i < problemsLines; i++)
-                    for (int j = 0; j < problemsCols; j++) {
-                        argument1[i][j] = ((int) (Math.random() * (numbersRangeEnd / 9))) * 9 + numbersRangeStart;
-                        argument2[i][j] = 9;
-                    }
-            }
-
-            if (longTaskNameWorksheet.contains("Раздели число на 10") || longTaskNameWorksheet.contains("Divide number by 10")) {
-                for (int i = 0; i < problemsLines; i++)
-                    for (int j = 0; j < problemsCols; j++) {
-                        argument1[i][j] = ((int) (Math.random() * (numbersRangeEnd / 10))) * 10 + numbersRangeStart;
-                        argument2[i][j] = 10;
-                    }
-            }
-
-*/
-
             DataOutputStream outputStream = new DataOutputStream(new FileOutputStream
                     (workingFolder + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyTxtBlock__" + ".txt"));
-            FileWriter fileWriter = new FileWriter(new File(workingFolder
-                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlock__" + ".html"));
-            FileWriter fileAnswerWriter = new FileWriter(new File(workingFolder
-                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlockAnswer__" + ".html"));
+            FileWriter fileWriter = new FileWriter(workingFolder
+                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlock__" + ".html");
+            FileWriter fileAnswerWriter = new FileWriter(workingFolder
+                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlockAnswer__" + ".html");
 
             System.out.println(grade);
 
@@ -3862,12 +3076,7 @@ Top part of worksheets: txt and html
                 fileWriter.write("<tr>");
                 fileAnswerWriter.write("<tr>");
                 for (int j = 0; j < problemsCols; j++) {
-//                    if (grade.contains("&nbsp")) {
-//                        if ((i * problemsCols) + (j + 1) < 10) {
-//                            fileWriter.write("<td> " + ((i * problemsCols) + (j + 1)) + ") " + argument1[i][j] + " __ " + argument2[i][j] + "</td>");
-//                        } else {
                             fileWriter.write("<td>" + ((i * problemsCols) + (j + 1)) + ") " + argument1[i][j] + " __ " + argument2[i][j] + "&ensp;</td>");
-//                        }
                         fileAnswerWriter.write("<td>" + ((i * problemsCols) + (j + 1)) + ") " + argument1[i][j]);
                         if (argument1[i][j] == argument2[i][j]) {
                             fileAnswerWriter.write(" = ");
@@ -3879,23 +3088,6 @@ Top part of worksheets: txt and html
                         }
                         fileAnswerWriter.write(+ argument2[i][j] + "&ensp;</td>");
 
-/*                        if ((i * problemsCols) + (j + 1) > 10) {
-                            fileWriter.write("<td> " + ((i * problemsCols) + (j + 1)) + ") " + argument1[i][j] + " __ " + argument2[i][j] + "</td>");
-                        } else {
-                            fileWriter.write("<td>" + ((i * problemsCols) + (j + 1)) + ") " + argument1[i][j] + " __ " + argument2[i][j] + "</td>");
-                        }
-                        fileAnswerWriter.write("<td>" + ((i * problemsCols) + (j + 1)) + ") " + argument1[i][j]);
-                        if (argument1[i][j] == argument2[i][j]) {
-                            fileAnswerWriter.write(" = ");
-                        } else if (argument1[i][j] > argument2[i][j]) {
-                            fileAnswerWriter.write(" > ");
-                        }
-                        else {
-                            fileAnswerWriter.write(" < ");
-                        }
-                        fileAnswerWriter.write("</td>");*/
-
-//                    }
                 }
                 fileWriter.write("</tr> \n");
                 fileAnswerWriter.write("</tr> \n");
@@ -4018,10 +3210,10 @@ Top part of worksheets: txt and html
 
             DataOutputStream outputStream = new DataOutputStream(new FileOutputStream
                     (workingFolder + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyTxtBlock__" + ".txt"));
-            FileWriter fileWriter = new FileWriter(new File(workingFolder
-                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlock__" + ".html"));
-            FileWriter fileAnswerWriter = new FileWriter(new File(workingFolder
-                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlockAnswer__" + ".html"));
+            FileWriter fileWriter = new FileWriter(workingFolder
+                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlock__" + ".html");
+            FileWriter fileAnswerWriter = new FileWriter(workingFolder
+                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlockAnswer__" + ".html");
 
             System.out.println(grade);
 
@@ -4098,13 +3290,6 @@ Top part of worksheets: txt and html
 
         for (int k = 1; k < totalPageNumbers ; k++) {
             pageNumber = k;
-//            pageNumber = 1;
-
-            //Generating addends and choosedNumbers
-//            for (int i = 0; i < chooseFromNumbers; i++) {
-//                int[][] arguments1 = new int[problemsLine][chooseFromNumbers];
-//                int[][] arguments2 = new int[problemsLine][chooseFromNumbers];
-//                int[][] choosedNumbers = new int[problemsLine][4];
             for (int j = 0; j < problemsLine; j++) {
                 choosedNumbersOfAddend1[j][0] = (int) (Math.random() * (numbersOfAddend - 1));
                 choosedNumbersOfAddend2[j][0] = (int) (Math.random() * (numbersOfAddend - 1));
@@ -4125,120 +3310,66 @@ Top part of worksheets: txt and html
                     arguments2[j][i] = (int) (Math.random() * numbersRangeEnd + numbersRangeStart);
                 }
             }
-//                    choosedNumbersOfAddend [j][2] = (int) (Math.random() * (numbersOfAddend));
-//                    choosedNumbers [j][3] = (int) (Math.random() * (numbersOfAddend));
-//                    if (choosedNumbers[j][2] == choosedNumbers[j][3]) {
-//                        if (choosedNumbers[j][2] == (numbersOfAddend)) choosedNumbers[j][2]--;
-//                        else choosedNumbers[j][2]++;
-//                    }
-//                    for (int i = 0; i < numbersOfAddend; i++) {
-//                        arguments1[j][i] = (int) (Math.random() * numbersRangeEnd / 10 + numbersRangeStart);
-//                        arguments2[j][i] = (int) (Math.random() * numbersRangeEnd + numbersRangeStart);
-//                    }
-//                }
-//            }
 
                     DataOutputStream outputStream = new DataOutputStream(new FileOutputStream
                             (workingFolder + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyTxtBlock__" + ".txt"));
 
-//                    FileWriter fileTxtWriter = new FileWriter(new File(workingFolder
-//                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyTxtBlock__" + ".txt"));
 
-
-
-                    FileWriter fileWriter = new FileWriter(new File(workingFolder
-                            + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlock__" + ".html"));
-                    FileWriter fileAnswerWriter = new FileWriter(new File(workingFolder
-                            + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlockAnswer__" + ".html"));
+                    FileWriter fileWriter = new FileWriter(workingFolder
+                            + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlock__" + ".html");
+                    FileWriter fileAnswerWriter = new FileWriter(workingFolder
+                            + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlockAnswer__" + ".html");
 
 //            for (int i = 0; i < problemsPerRows; i++) {
                     for (int j = 0; j < problemsLine; j++) {
                         fileWriter.write(
-                                String.valueOf(arguments1[j][0]) + " &nbsp; " + String.valueOf(arguments1[j][1]) + " &nbsp; " +
-                                        String.valueOf(arguments1[j][2]) + " &nbsp; " + String.valueOf(arguments1[j][3]) + " &nbsp; " +
-                                        String.valueOf(arguments1[j][4]));
+                                arguments1[j][0] + " &nbsp; " + arguments1[j][1] + " &nbsp; " +
+                                        arguments1[j][2] + " &nbsp; " + arguments1[j][3] + " &nbsp; " +
+                                        arguments1[j][4]);
                         fileAnswerWriter.write(
-                                String.valueOf(arguments1[j][0]) + " &nbsp; " + String.valueOf(arguments1[j][1]) + " &nbsp; " +
-                                        String.valueOf(arguments1[j][2]) + " &nbsp; " + String.valueOf(arguments1[j][3]) + " &nbsp; " +
-                                        String.valueOf(arguments1[j][4]));
+                                arguments1[j][0] + " &nbsp; " + arguments1[j][1] + " &nbsp; " +
+                                        arguments1[j][2] + " &nbsp; " + arguments1[j][3] + " &nbsp; " +
+                                        arguments1[j][4]);
                         fileWriter.write(
                                 "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;" +
                                         "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;" +
-                                        String.valueOf(arguments2[j][0]) + " &nbsp; " + String.valueOf(arguments2[j][1]) + " &nbsp; " +
-                                        String.valueOf(arguments2[j][2]) + " &nbsp; " + String.valueOf(arguments2[j][3]) + " &nbsp; " +
-                                        String.valueOf(arguments2[j][4]) + "<br /><br />");
+                                        arguments2[j][0] + " &nbsp; " + arguments2[j][1] + " &nbsp; " +
+                                        arguments2[j][2] + " &nbsp; " + arguments2[j][3] + " &nbsp; " +
+                                        valueOf(arguments2[j][4]) + "<br /><br />");
                         fileAnswerWriter.write(
                                 "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;" +
                                         "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;" +
-                                        String.valueOf(arguments2[j][0]) + " &nbsp; " + String.valueOf(arguments2[j][1]) + " &nbsp; " +
-                                        String.valueOf(arguments2[j][2]) + " &nbsp; " + String.valueOf(arguments2[j][3]) + " &nbsp; " +
-                                        String.valueOf(arguments2[j][4]) + "<br /><br />");
+                                        valueOf(arguments2[j][0]) + " &nbsp; " + arguments2[j][1] + " &nbsp; " +
+                                        arguments2[j][2] + " &nbsp; " + arguments2[j][3] + " &nbsp; " +
+                                        arguments2[j][4] + "<br /><br />");
 
                     fileWriter.write("____ &nbsp; + &nbsp; ____ &nbsp; = &nbsp; " +
-                                    (String.valueOf(arguments1[j][choosedNumbersOfAddend1[j][0]] + arguments1[j][choosedNumbersOfAddend1[j][1]])) +
+                                    ((arguments1[j][choosedNumbersOfAddend1[j][0]] + arguments1[j][choosedNumbersOfAddend1[j][1]])) +
                             "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;" +
                             " _____ &nbsp; + &nbsp; _____ &nbsp; =  " +
-                            (String.valueOf(arguments2[j][choosedNumbersOfAddend2[j][0]] + arguments2[j][choosedNumbersOfAddend2[j][1]])) +
+                            ((arguments2[j][choosedNumbersOfAddend2[j][0]] + arguments2[j][choosedNumbersOfAddend2[j][1]])) +
                             "<br /><br /><br /><br />");
 
-                        fileAnswerWriter.write(String.valueOf(arguments1[j][choosedNumbersOfAddend1[j][0]]) +
-                                " &nbsp; +  &nbsp; " + String.valueOf(arguments1[j][choosedNumbersOfAddend1[j][1]])
+                        fileAnswerWriter.write(arguments1[j][choosedNumbersOfAddend1[j][0]] +
+                                " &nbsp; +  &nbsp; " + arguments1[j][choosedNumbersOfAddend1[j][1]]
                                 + " &nbsp; = &nbsp; " +
-                                    (String.valueOf(arguments1[j][choosedNumbersOfAddend1[j][0]] + arguments1[j][choosedNumbersOfAddend1[j][1]])) +
+                                    ((arguments1[j][choosedNumbersOfAddend1[j][0]] + arguments1[j][choosedNumbersOfAddend1[j][1]])) +
                             "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; " +
                                 "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;" +
 
-                                        String.valueOf(arguments2[j][choosedNumbersOfAddend2[j][0]]) +
-                                        " &nbsp; +  &nbsp; " + String.valueOf(arguments2[j][choosedNumbersOfAddend2[j][1]])
+                                arguments2[j][choosedNumbersOfAddend2[j][0]] +
+                                        " &nbsp; +  &nbsp; " + arguments2[j][choosedNumbersOfAddend2[j][1]]
                                         + " &nbsp; = &nbsp; " +
-                                        (String.valueOf(arguments2[j][choosedNumbersOfAddend2[j][0]] + arguments2[j][choosedNumbersOfAddend2[j][1]])) +
+                                        ((arguments2[j][choosedNumbersOfAddend2[j][0]] + arguments2[j][choosedNumbersOfAddend2[j][1]])) +
                             "<br /><br /><br /><br />");
 
-//                    fileWriter.write(String.valueOf(choosedNumbersOfAddend1[j][0] + 1) + " " + String.valueOf(choosedNumbersOfAddend1[j][1] + 1) +
-//                            " &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;"
-//                            + String.valueOf(choosedNumbersOfAddend2[j][0] + 1) + " " + String.valueOf(choosedNumbersOfAddend2[j][1] + 1) + "<br /><br />");
 
-/*
-                    outputStream.write(String.valueOf(argument1[j][i]).getBytes());
-                    fileWriter.write(String.valueOf(argument1[j][i]));
-
-                    outputStream.write(' ');
-                    outputStream.write('+');
-                    outputStream.write(' ');
-
-                    fileWriter.write(" + ");
-
-                    outputStream.write(String.valueOf(argument2[j][i]).getBytes());
-                    fileWriter.write(String.valueOf(argument2[j][i]));
-
-                    outputStream.write(' ');
-                    outputStream.write('=');
-                    outputStream.write(' ');
-                    outputStream.write('_');
-                    outputStream.write('_');
-                    outputStream.write('_');
-                    outputStream.write('_');
-                    outputStream.write(' ');
-                    outputStream.write(' ');
-                    outputStream.write(' ');
-
-                    fileWriter.write(" = ____ &nbsp; &nbsp; &nbsp; ");
-
-                    System.out.print(" " + argument1[j][i] + " + " + argument2[j][i] + " = _____   ");
-*/
                     }
                     outputStream.write('\n');
                     outputStream.write('\n');
                     outputStream.write('\n');
                     fileWriter.write("<br /><br /><br />\n\n\n");
                     fileAnswerWriter.write("<br /><br /><br />\n\n\n");
-//                    fileWriter.write("<br />\n");
-//                    fileWriter.write("<br />\n");
-
-//                    System.out.println();
-//                    System.out.println();
-//                    System.out.println();
-//            }
                     outputStream.close();
                     fileWriter.close();
                     fileAnswerWriter.close();
@@ -4284,55 +3415,51 @@ Top part of worksheets: txt and html
                     DataOutputStream outputStream = new DataOutputStream(new FileOutputStream
                             (workingFolder + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyTxtBlock__" + ".txt"));
 
-                    FileWriter fileWriter = new FileWriter(new File(workingFolder
-                            + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlock__" + ".html"));
-                    FileWriter fileAnswerWriter = new FileWriter(new File(workingFolder
-                            + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlockAnswer__" + ".html"));
+                    FileWriter fileWriter = new FileWriter(workingFolder
+                            + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlock__" + ".html");
+                    FileWriter fileAnswerWriter = new FileWriter(workingFolder
+                            + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlockAnswer__" + ".html");
 
                     for (int j = 0; j < problemsLine; j++) {
                         fileWriter.write(
-                                String.valueOf(arguments1[j][0]) + " &nbsp; " + String.valueOf(arguments1[j][1]) + " &nbsp; " +
-                                        String.valueOf(arguments1[j][2]) + " &nbsp; " + String.valueOf(arguments1[j][3]) + " &nbsp; " +
-                                        String.valueOf(arguments1[j][4]));
+                                arguments1[j][0] + " &nbsp; " + arguments1[j][1] + " &nbsp; " +
+                                        arguments1[j][2] + " &nbsp; " + arguments1[j][3] + " &nbsp; " +
+                                        arguments1[j][4]);
                         fileAnswerWriter.write(
-                                String.valueOf(arguments1[j][0]) + " &nbsp; " + String.valueOf(arguments1[j][1]) + " &nbsp; " +
-                                        String.valueOf(arguments1[j][2]) + " &nbsp; " + String.valueOf(arguments1[j][3]) + " &nbsp; " +
-                                        String.valueOf(arguments1[j][4]));
+                                arguments1[j][0] + " &nbsp; " + arguments1[j][1] + " &nbsp; " +
+                                        arguments1[j][2] + " &nbsp; " + arguments1[j][3] + " &nbsp; " +
+                                        arguments1[j][4]);
                         fileWriter.write(
                                 "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;" +
                                         "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;" +
-                                        String.valueOf(arguments2[j][0]) + " &nbsp; " + String.valueOf(arguments2[j][1]) + " &nbsp; " +
-                                        String.valueOf(arguments2[j][2]) + " &nbsp; " + String.valueOf(arguments2[j][3]) + " &nbsp; " +
-                                        String.valueOf(arguments2[j][4]) + "<br /><br />");
+                                        arguments2[j][0] + " &nbsp; " + arguments2[j][1] + " &nbsp; " +
+                                        valueOf(arguments2[j][2]) + " &nbsp; " + valueOf(arguments2[j][3]) + " &nbsp; " +
+                                        valueOf(arguments2[j][4]) + "<br /><br />");
                         fileAnswerWriter.write(
                                 "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;" +
                                         "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;" +
-                                        String.valueOf(arguments2[j][0]) + " &nbsp; " + String.valueOf(arguments2[j][1]) + " &nbsp; " +
-                                        String.valueOf(arguments2[j][2]) + " &nbsp; " + String.valueOf(arguments2[j][3]) + " &nbsp; " +
-                                        String.valueOf(arguments2[j][4]) + "<br /><br />");
+                                        valueOf(arguments2[j][0]) + " &nbsp; " + valueOf(arguments2[j][1]) + " &nbsp; " +
+                                        valueOf(arguments2[j][2]) + " &nbsp; " + valueOf(arguments2[j][3]) + " &nbsp; " +
+                                        valueOf(arguments2[j][4]) + "<br /><br />");
 
                     fileWriter.write("____ &nbsp; - &nbsp; ____ &nbsp; = &nbsp; " +
-                                    (String.valueOf(Math.abs(arguments1[j][choosedNumbersOfAddend1[j][0]] - arguments1[j][choosedNumbersOfAddend1[j][1]]))) +
+                                    (valueOf(Math.abs(arguments1[j][choosedNumbersOfAddend1[j][0]] - arguments1[j][choosedNumbersOfAddend1[j][1]]))) +
                             "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;" +
                             " _____ &nbsp; - &nbsp; _____ &nbsp; =  " +
-                            (String.valueOf(Math.abs(arguments2[j][choosedNumbersOfAddend2[j][0]] - arguments2[j][choosedNumbersOfAddend2[j][1]]))) +
+                            (valueOf(Math.abs(arguments2[j][choosedNumbersOfAddend2[j][0]] - arguments2[j][choosedNumbersOfAddend2[j][1]]))) +
                             "<br /><br /><br /><br />");
 
-                        fileAnswerWriter.write(String.valueOf(arguments1[j][choosedNumbersOfAddend1[j][0]]) +
-                                " &nbsp; +  &nbsp; " + String.valueOf(arguments1[j][choosedNumbersOfAddend1[j][1]])
+                        fileAnswerWriter.write(valueOf(arguments1[j][choosedNumbersOfAddend1[j][0]]) +
+                                " &nbsp; +  &nbsp; " + valueOf(arguments1[j][choosedNumbersOfAddend1[j][1]])
                                 + " &nbsp; = &nbsp; " +
-                                    (String.valueOf(arguments1[j][choosedNumbersOfAddend1[j][0]] - arguments1[j][choosedNumbersOfAddend1[j][1]])) +
+                                    (valueOf(arguments1[j][choosedNumbersOfAddend1[j][0]] - arguments1[j][choosedNumbersOfAddend1[j][1]])) +
                             "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;" +
 
-                                        String.valueOf(arguments2[j][choosedNumbersOfAddend2[j][0]]) +
-                                        " &nbsp; +  &nbsp; " + String.valueOf(arguments2[j][choosedNumbersOfAddend2[j][1]])
+                                        valueOf(arguments2[j][choosedNumbersOfAddend2[j][0]]) +
+                                        " &nbsp; +  &nbsp; " + valueOf(arguments2[j][choosedNumbersOfAddend2[j][1]])
                                         + " &nbsp; = &nbsp; " +
-                                        (String.valueOf(arguments2[j][choosedNumbersOfAddend2[j][0]] - arguments2[j][choosedNumbersOfAddend2[j][1]])) +
+                                        (valueOf(arguments2[j][choosedNumbersOfAddend2[j][0]] - arguments2[j][choosedNumbersOfAddend2[j][1]])) +
                             "<br /><br /><br /><br />");
-
-//                    fileWriter.write(String.valueOf(choosedNumbersOfAddend1[j][0] + 1) + " " + String.valueOf(choosedNumbersOfAddend1[j][1] + 1) +
-//                            " &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;"
-//                            + String.valueOf(choosedNumbersOfAddend2[j][0] + 1) + " " + String.valueOf(choosedNumbersOfAddend2[j][1] + 1) + "<br /><br />");
 
                     }
                     outputStream.write('\n');
@@ -4365,7 +3492,6 @@ Top part of worksheets: txt and html
         for (int k = 1; k < totalPageNumbers ; k++) {
             pageNumber = k;
 
-
             for (int i = 0; i < problemsCol; i++)
                 for (int j = 0; j < problemsLine; j++) {
                     argument1[j][i] = (int) (Math.random() * numbersRangeEnd/2 + numbersRangeStart);
@@ -4377,11 +3503,10 @@ Top part of worksheets: txt and html
                 correctAnswer[j] = (int) (Math.random() * problemsCol);
             }
 
-            FileWriter fileWriter = new FileWriter(new File("D:\\mathematics-at-school.com\\JavaTemplates/"
-                    + grade + " " + shortTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlock__" + ".html"));
-            FileWriter textWriter = new FileWriter(new File("D:\\mathematics-at-school.com\\JavaTemplates/"
-                    + grade + " " + shortTaskNameWorksheet + " Стр. " + pageNumber + "bodyTxtBlock__" + ".txt"));
-
+            FileWriter fileWriter = new FileWriter("D:\\mathematics-at-school.com\\JavaTemplates/"
+                    + grade + " " + shortTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlock__" + ".html");
+            FileWriter textWriter = new FileWriter("D:\\mathematics-at-school.com\\JavaTemplates/"
+                    + grade + " " + shortTaskNameWorksheet + " Стр. " + pageNumber + "bodyTxtBlock__" + ".txt");
 
             for (int i = 0; i < problemsLine; i++) {
                 fileWriter.write("В каком примере или примерах сумма чисел равна = " + givenNumbers[i]  + "<br /><br /> " );
@@ -4389,13 +3514,13 @@ Top part of worksheets: txt and html
                 for (int j = 0; j < problemsCol; j++) {
 
                     if (correctAnswer[i] != j) {
-                        fileWriter.write(String.valueOf(argument1[i][j]));
+                        fileWriter.write(valueOf(argument1[i][j]));
                         fileWriter.write(" + ");
-                        fileWriter.write(String.valueOf(argument2[i][j]));
+                        fileWriter.write(valueOf(argument2[i][j]));
                         fileWriter.write(" =  &nbsp; &nbsp; &nbsp; ");
-                        textWriter.write(String.valueOf(argument1[i][j]));
+                        textWriter.write(valueOf(argument1[i][j]));
                         textWriter.write(" + ");
-                        textWriter.write(String.valueOf(argument2[i][j]));
+                        textWriter.write(valueOf(argument2[i][j]));
                         textWriter.write(" =     ");
                     }
                     else {
@@ -4480,10 +3605,10 @@ Top part of worksheets: txt and html
                 shapeName[i] = (int) (Math.random() * 5);
                 shapeColorName[i] = (int) (Math.random() * 6);
             }
-            FileWriter textWriter = new FileWriter(new File("D:\\mathematics-at-school.com\\JavaTemplates/"
-                    + grade + " " + shortTaskNameWorksheet + " Стр. " + pageNumber + "bodyTxtBlock__" + ".txt"));
-            FileWriter fileWriter = new FileWriter(new File("D:\\mathematics-at-school.com\\JavaTemplates/"
-                    + grade + " " + shortTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlock__" + ".html"));
+            FileWriter textWriter = new FileWriter("D:\\mathematics-at-school.com\\JavaTemplates/"
+                    + grade + " " + shortTaskNameWorksheet + " Стр. " + pageNumber + "bodyTxtBlock__" + ".txt");
+            FileWriter fileWriter = new FileWriter("D:\\mathematics-at-school.com\\JavaTemplates/"
+                    + grade + " " + shortTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlock__" + ".html");
 
             for (int j = 0; j < totalLines; j++) {
                 fileWriter.write("Задан пример: " +  argument1[j] + " + " + argument2[j] + " <br /><br />");
@@ -4581,12 +3706,12 @@ Top part of worksheets: txt and html
                 shapeName[i] = (int) (Math.random() * 5);
                 shapeColorName[i] = (int) (Math.random() * 6);
             }
-            FileWriter textWriter = new FileWriter(new File("D:\\mathematics-at-school.com\\JavaTemplates/"
-                    + grade + " " + shortTaskNameWorksheet + " Стр. " + pageNumber + "bodyTxtBlock__" + ".txt"));
-            FileWriter fileWriter = new FileWriter(new File("D:\\mathematics-at-school.com\\JavaTemplates/"
-                    + grade + " " + shortTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlock__" + ".html"));
+            FileWriter textWriter = new FileWriter("D:\\mathematics-at-school.com\\JavaTemplates/"
+                    + grade + " " + shortTaskNameWorksheet + " Стр. " + pageNumber + "bodyTxtBlock__" + ".txt");
+            FileWriter fileWriter = new FileWriter("D:\\mathematics-at-school.com\\JavaTemplates/"
+                    + grade + " " + shortTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlock__" + ".html");
 
-            String text;
+//            String text;
 
             for (int j = 0; j < totalLines; j++) {
                 for (int i = 0; i != argument1[j]; i++) {
@@ -4645,36 +3770,15 @@ Bottom block txt and html format
             BufferedWriter bufferHtml = new BufferedWriter(writerHtml);
             String text, htmlText;
             text = "__________________________________________________________________________________\n\n";
-//            htmlText = "___________________________________________________________________________<br /><br />\n\n";
             htmlText = "___________________________________________________________________________<br />\n\n";
             bufferWriter.write(text);
             bufferHtml.write(htmlText);
-//            System.out.println(text);
-//            text = siteNameLeftBottom + "                          " + siteNameRightBottom + "\n\n";
-//            htmlText = siteNameLeftBottom + "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; " + siteNameRightBottom + "<br /><br />\n\n";
-/*
-            if (grade.contains("&nbsp") || grade.contains("G")) {
-                text = "https://mathematics-at-school.com" + "                          " + "e-mail: admin@mathematics-at-school.com" + "\n\n";
-                htmlText = "https://mathematics-at-school.com" + "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; " +
-                        "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;" + "e-mail: admin@mathematics-at-school.com" +
-                        "<br /><br /> \n\n\n";
-            }
-            else  {
-                text = "https://mathematics-tests.com" + "                          " + "https://magazin-integral.ru" + "\n\n";
-                htmlText = "https://mathematics-tests.com" + "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; " +
-                        "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; " + "https://magazin-integral.ru" +
-                        "<br /><br /> \n \n\n";
-            }
-            bufferWriter.write(text);
-            bufferHtml.write(htmlText);
-//            System.out.println(text);
-*/
             bufferWriter.close();
             bufferHtml.close();
         }
     }
 
-    public static void fullWorksheet(String workinFolder, String readyFilesFolder, String grade, int totalPageNumbers,
+    public static void fullWorksheet(String workingFolder, String readyFilesFolder, String grade, int totalPageNumbers,
                                      String shortTaskNameWorksheet, String longTaskNameWorksheet) throws IOException {
 
         for (int i = 1; i < totalPageNumbers ; i++) {
@@ -4690,15 +3794,15 @@ Bottom block txt and html format
                 outputHtmlAnswerFile1= readyFilesFolder + grade + " " + longTaskNameWorksheet + " Вариант " + pageNumber + ". Ответы .html";
             }
 
-            OutputStream outputHtmlFile = new FileOutputStream(new File(outputHtmlFile1), true);
-            OutputStream outputHtmlAnswerFile = new FileOutputStream(new File(outputHtmlAnswerFile1), true);
+            OutputStream outputHtmlFile = new FileOutputStream(outputHtmlFile1, true);
+            OutputStream outputHtmlAnswerFile = new FileOutputStream(outputHtmlAnswerFile1, true);
 
             byte[] buffer = new byte[1 << 20];  // loads 1 MB of the file
             int count;
             String pageBreak = "<br style=\"page-break-after: always\">";
 
 // Html Answer part
-            InputStream inputHtmlAnswerFile = new FileInputStream(workinFolder
+            InputStream inputHtmlAnswerFile = new FileInputStream(workingFolder
                     + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "topHtmlBlock__" + ".html");
 
             while ((count = inputHtmlAnswerFile.read(buffer)) != -1) {
@@ -4706,13 +3810,13 @@ Bottom block txt and html format
                 outputHtmlAnswerFile.flush();
             }
 
-            inputHtmlAnswerFile = new FileInputStream(workinFolder + grade + " "
+            inputHtmlAnswerFile = new FileInputStream(workingFolder + grade + " "
                     + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlockAnswer__" + ".html");
             while ((count = inputHtmlAnswerFile.read(buffer)) != -1) {
                 outputHtmlAnswerFile.write(buffer, 0, count);
                 outputHtmlAnswerFile.flush();
             }
-            inputHtmlAnswerFile = new FileInputStream(workinFolder + grade + " "
+            inputHtmlAnswerFile = new FileInputStream(workingFolder + grade + " "
                     + longTaskNameWorksheet + " Стр. " + pageNumber + "bottomHtmlBlock__" + ".html");
 
             while ((count = inputHtmlAnswerFile.read(buffer)) != -1) {
@@ -4723,7 +3827,7 @@ Bottom block txt and html format
             outputHtmlAnswerFile.close();
 
 // Html part
-            InputStream inputHtmlFile = new FileInputStream(workinFolder
+            InputStream inputHtmlFile = new FileInputStream(workingFolder
                     + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "topHtmlBlock__" + ".html");
 
             while ((count = inputHtmlFile.read(buffer)) != -1) {
@@ -4731,13 +3835,13 @@ Bottom block txt and html format
                 outputHtmlFile.flush();
             }
 
-            inputHtmlFile = new FileInputStream(workinFolder + grade + " "
+            inputHtmlFile = new FileInputStream(workingFolder + grade + " "
                     + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlock__" + ".html");
             while ((count = inputHtmlFile .read(buffer)) != -1) {
                 outputHtmlFile.write(buffer, 0, count);
                 outputHtmlFile.flush();
             }
-            inputHtmlFile = new FileInputStream(workinFolder
+            inputHtmlFile = new FileInputStream(workingFolder
                     + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bottomHtmlBlock__" + ".html");
 
             while ((count = inputHtmlFile.read(buffer)) != -1) {
@@ -4748,25 +3852,11 @@ Bottom block txt and html format
             outputHtmlFile.close();
 
 
-            //Copying files for pdf and jpg conversation
-//            if (grade.contains("&nbsp") || grade.contains("G")) {
-//                Path source = Paths.get(readyFilesFolder + grade + " " + longTaskNameWorksheet + " Version " + pageNumber + " .html");
-//                Path destination = Paths.get(readyFilesFolder + grade + " " + longTaskNameWorksheet + " Version " + pageNumber + " for PDF .html");
-//                Files.copy(source, destination);
-//
-//
-//            } else {
-//                Path source = Paths.get(readyFilesFolder + grade + " " + longTaskNameWorksheet + " Вариант " + pageNumber + " .html");
-//                Path destination = Paths.get(readyFilesFolder + grade + " " + longTaskNameWorksheet + " Вариант " + pageNumber + " for PDF .html");
-//                Files.copy(source, destination);
-//
-//            }
-
         }
     }
 
-    public static void fullWorksheetHtmlAnswer(String workinFolder, String readyFilesFolder, String grade, int totalPageNumbers,
-                                     String shortTaskNameWorksheet, String longTaskNameWorksheet) throws IOException {
+    public static void fullWorksheetHtmlAnswer(String workingFolder, String readyFilesFolder, String grade, int totalPageNumbers,
+                                               String shortTaskNameWorksheet, String longTaskNameWorksheet) throws IOException {
 
         for (int i = 1; i < totalPageNumbers ; i++) {
             pageNumber = i;
@@ -4782,14 +3872,14 @@ Bottom block txt and html format
             }
 
 //            OutputStream outputHtmlFile = new FileOutputStream(new File(outputHtmlFile1), true);
-            OutputStream outputHtmlAnswerFile = new FileOutputStream(new File(outputHtmlAnswerFile1), true);
+            OutputStream outputHtmlAnswerFile = new FileOutputStream(outputHtmlAnswerFile1, true);
 
             byte[] buffer = new byte[1 << 20];  // loads 1 MB of the file
             int count;
 //            String pageBreak = "<br style=\"page-break-after: always\">";
 
 // Html Answer part
-            InputStream inputHtmlAnswerFile = new FileInputStream(workinFolder
+            InputStream inputHtmlAnswerFile = new FileInputStream(workingFolder
                     + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "topHtmlAnswerBlock__" + ".html");
 
             while ((count = inputHtmlAnswerFile.read(buffer)) != -1) {
@@ -4797,13 +3887,13 @@ Bottom block txt and html format
                 outputHtmlAnswerFile.flush();
             }
 
-            inputHtmlAnswerFile = new FileInputStream(workinFolder + grade + " "
+            inputHtmlAnswerFile = new FileInputStream(workingFolder + grade + " "
                     + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlockAnswer__" + ".html");
             while ((count = inputHtmlAnswerFile.read(buffer)) != -1) {
                 outputHtmlAnswerFile.write(buffer, 0, count);
                 outputHtmlAnswerFile.flush();
             }
-            inputHtmlAnswerFile = new FileInputStream(workinFolder + grade + " "
+            inputHtmlAnswerFile = new FileInputStream(workingFolder + grade + " "
                     + longTaskNameWorksheet + " Стр. " + pageNumber + "bottomHtmlBlock__" + ".html");
 
             while ((count = inputHtmlAnswerFile.read(buffer)) != -1) {
@@ -4813,52 +3903,12 @@ Bottom block txt and html format
             inputHtmlAnswerFile.close();
             outputHtmlAnswerFile.close();
 
-// Html part
-//            InputStream inputHtmlFile = new FileInputStream(workinFolder
-//                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "topHtmlBlock__" + ".html");
-//
-//            while ((count = inputHtmlFile.read(buffer)) != -1) {
-//                outputHtmlFile.write(buffer, 0, count);
-//                outputHtmlFile.flush();
-//            }
-//
-//            inputHtmlFile = new FileInputStream(workinFolder + grade + " "
-//                    + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlock__" + ".html");
-//            while ((count = inputHtmlFile .read(buffer)) != -1) {
-//                outputHtmlFile.write(buffer, 0, count);
-//                outputHtmlFile.flush();
-//            }
-//            inputHtmlFile = new FileInputStream(workinFolder
-//                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bottomHtmlBlock__" + ".html");
-//
-//            while ((count = inputHtmlFile.read(buffer)) != -1) {
-//                outputHtmlFile.write(buffer, 0, count);
-//                outputHtmlFile.flush();
-//            }
-//            inputHtmlFile.close();
-//            outputHtmlFile.close();
-
-
-            //Copying files for pdf and jpg conversation
-//            if (grade.contains("&nbsp") || grade.contains("G")) {
-//                Path source = Paths.get(readyFilesFolder + grade + " " + longTaskNameWorksheet + " Version " + pageNumber + " .html");
-//                Path destination = Paths.get(readyFilesFolder + grade + " " + longTaskNameWorksheet + " Version " + pageNumber + " for PDF .html");
-//                Files.copy(source, destination);
-//
-//
-//            } else {
-//                Path source = Paths.get(readyFilesFolder + grade + " " + longTaskNameWorksheet + " Вариант " + pageNumber + " .html");
-//                Path destination = Paths.get(readyFilesFolder + grade + " " + longTaskNameWorksheet + " Вариант " + pageNumber + " for PDF .html");
-//                Files.copy(source, destination);
-//
-//            }
-
         }
     }
 
 
-    public static void fullWorksheetPdf(String workinFolder, String readyFilesFolder, String grade, int totalPageNumbers,
-                                     String shortTaskNameWorksheet, String longTaskNameWorksheet) throws IOException {
+    public static void fullWorksheetPdf(String workingFolder, String readyFilesFolder, String grade, int totalPageNumbers,
+                                        String shortTaskNameWorksheet, String longTaskNameWorksheet) throws IOException {
 
 //        readyFilesFolder = "d:/Java_Math/Pdf/";
 
@@ -4869,28 +3919,23 @@ Bottom block txt and html format
 
             String outputHtmlFile1 = " ", outputHtmlAnswerFile1 = " ";
             if (grade.contains("&nbsp") || grade.contains("G")) {
-//                outputHtmlFile1 = readyFilesFolder + grade + " " + longTaskNameWorksheet + " Version " + pageNumber + " .Pdf.html";
-//                outputHtmlAnswerFile1= readyFilesFolder + grade + " " + longTaskNameWorksheet + " Version " + pageNumber + ". Answers .Pdf.html";
                 outputHtmlFile1 = readyFilesFolder + grade + " " + longTaskNameWorksheet + " Version " + pageNumber + ".html";
                 outputHtmlAnswerFile1= readyFilesFolder + grade + " " + longTaskNameWorksheet + " Version " + pageNumber + ". Answers.html";
 
             } else {
-//                outputHtmlFile1 = readyFilesFolder + grade + " " + longTaskNameWorksheet + " Вариант " + pageNumber + " .html";
-//                outputHtmlAnswerFile1= readyFilesFolder + grade + " " + longTaskNameWorksheet + " Вариант " + pageNumber + ". Ответы .html";
                 outputHtmlFile1 = readyFilesFolder + grade + " " + longTaskNameWorksheet + " Вариант " + pageNumber + ".html";
                 outputHtmlAnswerFile1= readyFilesFolder + grade + " " + longTaskNameWorksheet + " Вариант " + pageNumber + ". Ответы.html";
             }
 
-            OutputStream outputHtmlFile = new FileOutputStream(new File(outputHtmlFile1), true);
-            OutputStream outputHtmlAnswerFile = new FileOutputStream(new File(outputHtmlAnswerFile1), true);
+            OutputStream outputHtmlFile = new FileOutputStream(outputHtmlFile1, true);
+            OutputStream outputHtmlAnswerFile = new FileOutputStream(outputHtmlAnswerFile1, true);
 
             byte[] buffer = new byte[1 << 20];  // loads 1 MB of the file
             int count;
-//            String pageBreak = "<br style=\"page-break-after: always\">";
 
 // Html Answer part
 
-            InputStream inputHtmlAnswerFile = new FileInputStream(workinFolder
+            InputStream inputHtmlAnswerFile = new FileInputStream(workingFolder
                     + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "topPdfBlock__" + ".html");
 
             while ((count = inputHtmlAnswerFile.read(buffer)) != -1) {
@@ -4899,13 +3944,13 @@ Bottom block txt and html format
                 outputHtmlAnswerFile.flush();
             }
 
-            inputHtmlAnswerFile = new FileInputStream(workinFolder + grade + " "
+            inputHtmlAnswerFile = new FileInputStream(workingFolder + grade + " "
                     + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlockAnswer__" + ".html");
             while ((count = inputHtmlAnswerFile.read(buffer)) != -1) {
                 outputHtmlAnswerFile.write(buffer, 0, count);
                 outputHtmlAnswerFile.flush();
             }
-            inputHtmlAnswerFile = new FileInputStream(workinFolder + grade + " "
+            inputHtmlAnswerFile = new FileInputStream(workingFolder + grade + " "
                     + longTaskNameWorksheet + " Стр. " + pageNumber + "bottomHtmlBlock__" + ".html");
 
             while ((count = inputHtmlAnswerFile.read(buffer)) != -1) {
@@ -4916,7 +3961,7 @@ Bottom block txt and html format
             outputHtmlAnswerFile.close();
 
 // Html part
-            InputStream inputHtmlFile = new FileInputStream(workinFolder
+            InputStream inputHtmlFile = new FileInputStream(workingFolder
                     + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "topPdfBlock__" + ".html");
 
             while ((count = inputHtmlFile.read(buffer)) != -1) {
@@ -4924,13 +3969,13 @@ Bottom block txt and html format
                 outputHtmlFile.flush();
             }
 
-            inputHtmlFile = new FileInputStream(workinFolder + grade + " "
+            inputHtmlFile = new FileInputStream(workingFolder + grade + " "
                     + longTaskNameWorksheet + " Стр. " + pageNumber + "bodyHtmlBlock__" + ".html");
             while ((count = inputHtmlFile .read(buffer)) != -1) {
                 outputHtmlFile.write(buffer, 0, count);
                 outputHtmlFile.flush();
             }
-            inputHtmlFile = new FileInputStream(workinFolder
+            inputHtmlFile = new FileInputStream(workingFolder
                     + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "bottomHtmlBlock__" + ".html");
 
             while ((count = inputHtmlFile.read(buffer)) != -1) {
@@ -4946,10 +3991,6 @@ Bottom block txt and html format
             FileUtils.copyFile(sourceFile, destinationFile);
 
             //Clear the filenames
-
-
-//            PDDocument doc111 = PDDocument.load(new File(outputHtmlFile1));
-//            doc111.print();
 
         }
     }
@@ -4973,8 +4014,8 @@ All same Worksheets together
 
         }
 
-        OutputStream os1 = new FileOutputStream(new File(realPath), true);
-        OutputStream os2 = new FileOutputStream(new File(realPathAnswers), true);
+        OutputStream os1 = new FileOutputStream(realPath, true);
+        OutputStream os2 = new FileOutputStream(realPathAnswers, true);
 
         System.out.println("-----------" + grade);
         for (int pageNumber = 1; pageNumber < totalPageNumbers; pageNumber++) {
@@ -5024,28 +4065,6 @@ All same Worksheets together
 
 
             }
-
-
-//            if (grade.contains("&nbsp") || grade.contains("G")) {
-//                InputStream in2 = new FileInputStream(readyFilesFolder
-//                        + grade + " " + longTaskNameWorksheet + " Вариант " + pageNumber + ". Ответы .html");
-//            } else {
-//                InputStream in2 = new FileInputStream(readyFilesFolder
-//                        + grade + " " + longTaskNameWorksheet + " Вариант " + pageNumber + ". Ответы .html");
-//
-//            }
-
-//            byte[] buffer = new byte[1 << 20];  // loads 1 MB of the file
-//            int count1;
-//            while ((count1 = in1.read(buffer)) != -1) {
-//                os1.write(buffer, 0, count1);
-//                os1.flush();
-//            }
-//            int count2;
-//            while ((count2 = in2.read(buffer)) != -1) {
-//                os2.write(buffer, 0, count2);
-//                os2.flush();
-//            }
             System.out.println(" Завершена тема: " + longTaskNameWorksheet + " Стр. " + pageNumber);
         }
 //        os.close();
@@ -5060,12 +4079,9 @@ Final html page
     public static void finalHtmlPageSingleTopic(String workingFolder, String readyFilesFolder, String grade, int totalPageNumbers, String topic,
                                          String h2, String shortTaskNameWorksheet, String longTaskNameWorksheet) throws IOException {
 
-//        OutputStream os = new FileOutputStream(new File(readyFilesFolder
-//                + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber +  " allSameWorksheets__" + ".txt"), true);
         String realPath = "", realPathPdf = "";
         realPath = General.readyFilesFolderHtml + grade + " " + longTaskNameWorksheet + " Готовая страница с ответами .html";
         realPathPdf = readyFilesFolder + grade + " " + longTaskNameWorksheet + " Готовая страница с ответами для Pdf.html";
-//        realPathAnswers = readyFilesFolder + grade + " " + longTaskNameWorksheet + " Сборник из " + (totalPageNumbers - 1) + " вариантов. Ответы .html";
 
         if (grade.contains("&nbsp") || grade.contains("G")) {
             realPath = General.readyFilesFolderHtml + grade + " " + longTaskNameWorksheet + " Ready page with answers .html";
@@ -5073,15 +4089,10 @@ Final html page
 
         }
 
-        OutputStream os1 = new FileOutputStream(new File(realPath), true);
-        OutputStream os1Pdf = new FileOutputStream(new File(realPathPdf), true);
+        OutputStream os1 = new FileOutputStream(realPath, true);
+        OutputStream os1Pdf = new FileOutputStream(realPathPdf, true);
 
         System.out.println("-----------" + grade);
-//        for (int pageNumber = 1; pageNumber < totalPageNumbers; pageNumber++) {
-
-
-//            InputStream in = new FileInputStream(readyFilesFolder
-//                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + " fullWorksheet__" + ".txt");
 
             if (grade.contains("&nbsp") || grade.contains("G")) {
                 InputStream in1 = new FileInputStream(readyFilesFolder
@@ -5127,8 +4138,6 @@ Final html page
             } else {
                 InputStream in1 = new FileInputStream(readyFilesFolder
                         + grade + " " + longTaskNameWorksheet + " Сборник из " + (totalPageNumbers - 1) + " вариантов .html");
-//                readyFilesFolder + grade + " " + longTaskNameWorksheet + " Сборник из " + (totalPageNumbers - 1) + " вариантов .html";
-//
                 InputStream in2 = new FileInputStream(readyFilesFolder
                         + grade + " " + longTaskNameWorksheet + " Сборник из " + (totalPageNumbers - 1) + " вариантов. Ответы .html");
 
@@ -5186,13 +4195,11 @@ Final html page
                 argument2[j][0] = (int) (Math.random() * numbersRangeEnd + numbersRangeStart);
          }
 
-        FileWriter outputTxtFile = new FileWriter(new File
-                ("D:\\mathematics-at-school.com\\JavaTemplates/" + grade + " " + shortTaskNameWorksheet +
-                        " Стр. " + pageNumber + "lineSmallBloc__" + ".txt"), true);
+        FileWriter outputTxtFile = new FileWriter("D:\\mathematics-at-school.com\\JavaTemplates/" + grade + " " + shortTaskNameWorksheet +
+                " Стр. " + pageNumber + "lineSmallBloc__" + ".txt", true);
 
-        FileWriter outputHtmlFile = new FileWriter(new File
-                ("D:\\mathematics-at-school.com\\JavaTemplates/" + grade + " " + shortTaskNameWorksheet +
-                        " Стр. " + pageNumber +  "lineSmallBloc__" + ".html"), true);
+        FileWriter outputHtmlFile = new FileWriter("D:\\mathematics-at-school.com\\JavaTemplates/" + grade + " " + shortTaskNameWorksheet +
+                " Стр. " + pageNumber +  "lineSmallBloc__" + ".html", true);
 
         outputHtmlFile.write(shortTaskNameWorksheet + "<br /><br />\n\n");
         outputTxtFile.write(shortTaskNameWorksheet + "\n\n");
@@ -5224,7 +4231,5 @@ Final html page
             randomInteger.add((int) (Math.random() * (end - start)) + start);
         return randomInteger;
     }
-
-
 }
 

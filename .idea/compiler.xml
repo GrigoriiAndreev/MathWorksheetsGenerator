@@ -11,7 +11,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="8">
-      <module name="Mathematics" target="8" />
+      <module name="Mathematics" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
