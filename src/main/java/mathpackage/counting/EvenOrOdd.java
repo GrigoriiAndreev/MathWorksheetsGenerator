@@ -1,4 +1,7 @@
-package mathpackage;
+package mathpackage.counting;
+
+import mathpackage.General;
+import mathpackage.Matrix;
 
 import java.util.ArrayList;
 import java.util.List;

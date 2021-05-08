@@ -1,6 +1,6 @@
 package mathpackage;
 
-public class MainAbstractClass {
+public class MainAbstractClassDelete {
 
     String gradeRus;
     String gradeEng;
@@ -23,7 +23,7 @@ public class MainAbstractClass {
     static String readyFilesFolderHtml = "";
 
 
-//    public MainAbstractClass(
+//    public MainAbstractClassDelete(
 //            String gradeRus,
 //            String gradeEng,
 //            String topicRus,

@@ -29,7 +29,6 @@ public class CatalogueStructure extends General {
     static int countDir = 0;
 
     static {
-
         // Creating grades Rus
         allGradesFoldersRu.add(mainRoot + "/Детский сад");
         allGradesFoldersRu.add(mainRoot + "/1 класс");

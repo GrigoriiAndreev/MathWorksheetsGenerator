@@ -9,7 +9,7 @@ import java.util.List;
  * Date: 9 April 2021
  */
 
-public class DivisionTopic extends MainAbstractClass {
+public class DivisionTopic extends MainAbstractClassDelete {
 
     public DivisionTopic(
             String gradeRus,

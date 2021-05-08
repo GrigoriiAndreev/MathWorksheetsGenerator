@@ -1,6 +1,6 @@
 package mathpackage;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -11,42 +11,25 @@ public class Solution {
 
     public static void main(String[] args) {
 
-        List<Number> list = new LinkedList<>();
+        List<Integer> generics = new ArrayList<>();
 
-        initList(list);
-        printListValues(list);
-        processCastedObjects(list);
+        generics.add(12);
+        generics.add(22);
+        generics.add(32);
 
+        System.out.println(oddNumbersCounting(generics));
     }
 
-    public static void initList(List<Number> list)  {
+    public static int oddNumbersCounting(List<Integer> generics) {
 
-        list.add(1000.0);
-        list.add(new Double("123e-445632"));
-        list.add((float) (-90 / -3));
-        list.remove(new Double("123e-445632"));
+        int oddNumbersCounter = 0;
 
-    }
-
-    public static void printListValues(List<Number> list) {
-
-        for (Number number : list) {
-            System.out.println(number);
-        }
-    }
-
-    public static void processCastedObjects(List<Number> list) {
-
-        for (Number object : list) {
-            //Исправь 2 ошибки
-            if (object instanceof Float) {
-                Float a = (Float) object;
-                System.out.println("Is float value defined? " + !(a.isNaN()));
-            } else if (object instanceof Double) {
-                Double a = (Double) object;
-                System.out.println("Is double value infinite? " + a.isInfinite());
+        for(Integer number : generics) {
+            if(number % 2 == 1) {
+                oddNumbersCounter++;
             }
         }
+        return oddNumbersCounter;
     }
 }
 
