@@ -1,6 +1,6 @@
 package mathpackage;
 
-public class AllTopics2 {
+public class AllTopics2Delete {
 
     String gradeRus;
     String gradeEng;
@@ -21,7 +21,7 @@ public class AllTopics2 {
     int freeLines;
     int totalPageOfWorksheets;
 
-    public AllTopics2(
+    public AllTopics2Delete(
             String gradeRus,
             String gradeEng,
             String topicRus,

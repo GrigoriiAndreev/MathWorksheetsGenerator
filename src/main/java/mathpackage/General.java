@@ -1,7 +1,9 @@
 package mathpackage;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectOutputStream;
 
 /**
  * Class contains all general settings and utils for all classes
@@ -239,5 +241,15 @@ public class General {
             return TENS[0];
     }
 */
+
+    public static void saveObject(Object object) throws IOException {
+        FileOutputStream fos = new FileOutputStream("d:/Java_Math/SavedObjects/" + object.getClass().getName() + ".dat");
+        ObjectOutputStream oos = new ObjectOutputStream(fos);
+        oos.writeObject(object);
+        fos.close();
+        oos.close();
+        System.out.println("Object = " + object.getClass().getName() + " saved.");
+    }
+
 
 }

@@ -29,7 +29,7 @@ public class CatalogueStructure extends General {
     static int countDir = 0;
 
     static {
-        // Creating grades Rus
+        // Creating grades folders - Rus
         allGradesFoldersRu.add(mainRoot + "/Детский сад");
         allGradesFoldersRu.add(mainRoot + "/1 класс");
         allGradesFoldersRu.add(mainRoot + "/2 класс");
@@ -43,7 +43,7 @@ public class CatalogueStructure extends General {
         allGradesFoldersRu.add(mainRoot + "/10 класс");
         allGradesFoldersRu.add(mainRoot + "/11 класс");
 
-        //Creating grades - Eng
+        //Creating grades folders - Eng
         allGradesFoldersEn.add(mainRoot + "/Kindergarten");
         allGradesFoldersEn.add(mainRoot + "/Grade-1");
         allGradesFoldersEn.add(mainRoot + "/Grade-2");
@@ -85,6 +85,8 @@ public class CatalogueStructure extends General {
         for (String gradeFolders : allGradesFoldersEn)
             if (!new File(gradeFolders).exists())
                 new File(gradeFolders).mkdir();
+        System.out.println("Grades' folders are created");
+
 
         //Topics inside of grades
         for (String topics : topics4GradeRus) {
@@ -95,39 +97,40 @@ public class CatalogueStructure extends General {
             }
         }
 
-        List<String> allFiles = new ArrayList<>();
-        allFiles = getFileTree(mainRoot);
+//        List<String> allFiles = new ArrayList<>();
+//        allFiles = getFileTree(mainRoot);
 
 
-        System.out.println("Have done! ");
-        Path filePath;
-
-        for(String file : allFiles)
-            System.out.println(file);
-
-        System.out.println(" Dirs = " + countDir + "Files  = " +countFiles );
-        System.out.println("----------------------------------------");
+//        System.out.println("Have done! ");
+//        Path filePath;
+//
+//        for(String file : allFiles)
+//            System.out.println(file);
+//
+//        System.out.println(" Dirs = " + countDir + "Files  = " +countFiles );
+//        System.out.println("----------------------------------------");
 
         //r- read, файл открыт только для чтения
-        RandomAccessFile raf = new RandomAccessFile("d:/Java_Math/Pdf/4 класс. Округли числа до ближайшего десятка. Вариант 1 .Pdf.html", "r");
+//        RandomAccessFile raf = new RandomAccessFile("d:/Java_Math/Pdf/4 класс. Округли числа до ближайшего десятка. Вариант 1 .Pdf.html", "r");
 // «курсор» стоит на 0-м символе.
-        String text1 = raf.readLine();
-        System.out.println(text1);
+//        String text1 = raf.readLine();
+//        System.out.println(text1);
 
 //перемещаем «курсор» на 100-й символ.
-        raf.seek(100);
-        String text2 = raf.readLine();
-        System.out.println(text2);
+//        raf.seek(100);
+//        String text2 = raf.readLine();
+//        System.out.println(text2);
 //перемещаем «курсор» на 0-й символ.
-        raf.seek(0);
-        String text3 = raf.readLine();
-        System.out.println(text3);
+//        raf.seek(0);
+//        String text3 = raf.readLine();
+//        System.out.println(text3);
 
 //закрываем файл
-        raf.close();
+//        raf.close();
 
     }
 
+/*
     public static List<String> getFileTree(String root) throws IOException {
         List<String> result = new ArrayList<>();
 
@@ -136,6 +139,7 @@ public class CatalogueStructure extends General {
 
         return result;
     }
+*/
 
 
 }

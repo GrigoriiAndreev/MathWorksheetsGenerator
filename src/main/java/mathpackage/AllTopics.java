@@ -4950,9 +4950,9 @@ public class AllTopics {
 
 /*
 
-        List<AllTopics2> allTopicsMultiplyColumn3 = new ArrayList<>();
+        List<AllTopics2Delete> allTopicsMultiplyColumn3 = new ArrayList<>();
 
-        allTopicsMultiplyColumn3.add( new AllTopics2(
+        allTopicsMultiplyColumn3.add( new AllTopics2Delete(
                 "", "&nbsp",
                 "Умножение двузначного числа на однозначное число в столбик.","Multiplication worksheet. 1 digit by a 2 digit numbers in column.",
                 "Задачи по математике на тему:<br />Умножение двузначного числа на однозначное число в столбик. Задачи с ответами. Скачать pdf или jpg.",
@@ -4989,7 +4989,7 @@ public class AllTopics {
                 allTopicsMultiplyColumn3.get(0).h2Rus, allTopicsMultiplyColumn3.get(0).shortProblemDescriptionRus, allTopicsMultiplyColumn3.get(0).longProblemDescriptionRus);
 
 
-        allTopicsMultiplyColumn3.add( new AllTopics2(
+        allTopicsMultiplyColumn3.add( new AllTopics2Delete(
                 "", "&nbsp",
                 "Умножение однозначного числа на двузначное число в столбик.","Multiplication worksheet. 1 digit by a 2 digit numbers in column.",
                 "Задачи по математике на тему:<br />Умножение однозначного числа на двузначное число в столбик. Задачи с ответами. Скачать pdf или jpg.",
@@ -5027,7 +5027,7 @@ public class AllTopics {
                 allTopicsMultiplyColumn3.get(1).h2Rus, allTopicsMultiplyColumn3.get(1).shortProblemDescriptionRus, allTopicsMultiplyColumn3.get(1).longProblemDescriptionRus);
 
 
-        allTopicsMultiplyColumn3.add( new AllTopics2(
+        allTopicsMultiplyColumn3.add( new AllTopics2Delete(
                 "", "&nbsp",
                 "Умножение однозначного числа на трехзначное число в столбик.","Multiplication worksheet. 1 digit by a 3 digit numbers in column.",
                 "Задачи по математике на тему:<br />Умножение однозначного числа на трехзначное число в столбик. Задачи с ответами. Скачать pdf или jpg.",
@@ -5064,7 +5064,7 @@ public class AllTopics {
                 allTopicsMultiplyColumn3.get(2).h2Rus, allTopicsMultiplyColumn3.get(2).shortProblemDescriptionRus, allTopicsMultiplyColumn3.get(2).longProblemDescriptionRus);
 
 
-        allTopicsMultiplyColumn3.add( new AllTopics2(
+        allTopicsMultiplyColumn3.add( new AllTopics2Delete(
                 "", "&nbsp",
                 "Умножение однозначного числа на четырехзначное число в столбик.","Multiplication worksheet. 1 digit by a 4 digit numbers in column.",
                 "Задачи по математике на тему:<br />Умножение однозначного числа на четырехзначное число в столбик. Задачи с ответами. Скачать pdf или jpg.",
@@ -5101,7 +5101,7 @@ public class AllTopics {
         Matrix.finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, allTopicsMultiplyColumn3.get(3).gradeRus, allTopicsMultiplyColumn3.get(3).totalPageOfWorksheets, allTopicsMultiplyColumn3.get(3).topicRus,
                 allTopicsMultiplyColumn3.get(3).h2Rus, allTopicsMultiplyColumn3.get(3).shortProblemDescriptionRus, allTopicsMultiplyColumn3.get(3).longProblemDescriptionRus);
 
-        allTopicsMultiplyColumn3.add( new AllTopics2(
+        allTopicsMultiplyColumn3.add( new AllTopics2Delete(
                 "", "&nbsp",
                 "Умножение однозначного числа на многозначное число в столбик.","Multiplication worksheet. 1 digit by a multi digit numbers in column.",
                 "Задачи по математике на тему:<br />Умножение однозначного числа на многозначное число в столбик. Задачи с ответами. Скачать pdf или jpg.",
@@ -5138,7 +5138,7 @@ public class AllTopics {
                 allTopicsMultiplyColumn3.get(4).h2Rus, allTopicsMultiplyColumn3.get(4).shortProblemDescriptionRus, allTopicsMultiplyColumn3.get(4).longProblemDescriptionRus);
 
 
-        allTopicsMultiplyColumn3.add( new AllTopics2(
+        allTopicsMultiplyColumn3.add( new AllTopics2Delete(
                 "", "&nbsp",
                 "Умножение двузначного числа на двузначное число в столбик.","Multiplication worksheet. 2 digit by a 2 digit numbers in column.",
                 "Задачи по математике на тему:<br />Умножение двузначного числа на двузначное число в столбик. Задачи с ответами. Скачать pdf или jpg.",
@@ -5175,7 +5175,7 @@ public class AllTopics {
                 allTopicsMultiplyColumn3.get(5).h2Rus, allTopicsMultiplyColumn3.get(5).shortProblemDescriptionRus, allTopicsMultiplyColumn3.get(5).longProblemDescriptionRus);
 
 
-        allTopicsMultiplyColumn3.add( new AllTopics2(
+        allTopicsMultiplyColumn3.add( new AllTopics2Delete(
                 "", "&nbsp",
                 "Умножение на двузначные числа в столбик.","Multiplication worksheet. 2 digit numbers in column.",
                 "Задачи по математике на тему:<br />Умножение на двузначные числа в столбик. Задачи с ответами. Скачать pdf или jpg.",
@@ -5212,7 +5212,7 @@ public class AllTopics {
                 allTopicsMultiplyColumn3.get(6).h2Rus, allTopicsMultiplyColumn3.get(6).shortProblemDescriptionRus, allTopicsMultiplyColumn3.get(6).longProblemDescriptionRus);
 
 
-        allTopicsMultiplyColumn3.add( new AllTopics2(
+        allTopicsMultiplyColumn3.add( new AllTopics2Delete(
                 "", "&nbsp",
                 "Умножение трехзначных чисел в столбик.","Multiplication worksheet. 3 digit numbers in column.",
                 "Задачи по математике на тему:<br />Умножение трехзначных чисел в столбик. Задачи с ответами. Скачать pdf или jpg.",
@@ -5249,7 +5249,7 @@ public class AllTopics {
                 allTopicsMultiplyColumn3.get(7).h2Rus, allTopicsMultiplyColumn3.get(7).shortProblemDescriptionRus, allTopicsMultiplyColumn3.get(7).longProblemDescriptionRus);
 
 
-        allTopicsMultiplyColumn3.add( new AllTopics2(
+        allTopicsMultiplyColumn3.add( new AllTopics2Delete(
                 "", "&nbsp",
                 "Умножение многозначных чисел в столбик.","Multiplication worksheet. multi digit numbers in column.",
                 "Задачи по математике на тему:<br />Умножение многозначных чисел в столбик. Задачи с ответами. Скачать pdf или jpg.",
@@ -5286,7 +5286,7 @@ public class AllTopics {
                 allTopicsMultiplyColumn3.get(8).h2Rus, allTopicsMultiplyColumn3.get(8).shortProblemDescriptionRus, allTopicsMultiplyColumn3.get(8).longProblemDescriptionRus);
 
 
-        allTopicsMultiplyColumn3.add( new AllTopics2(
+        allTopicsMultiplyColumn3.add( new AllTopics2Delete(
                 "", "&nbsp",
                 "Примеры на умножение многозначных чисел в столбик.","Multiplication worksheet. multi digit numbers in column.",
                 "Задачи по математике на тему:<br />Примеры на умножение многозначных чисел в столбик. Задачи с ответами. Скачать pdf или jpg.",
@@ -5323,7 +5323,7 @@ public class AllTopics {
                 allTopicsMultiplyColumn3.get(9).h2Rus, allTopicsMultiplyColumn3.get(9).shortProblemDescriptionRus, allTopicsMultiplyColumn3.get(9).longProblemDescriptionRus);
 
 
-        allTopicsMultiplyColumn3.add( new AllTopics2(
+        allTopicsMultiplyColumn3.add( new AllTopics2Delete(
                 "", "&nbsp",
                 "Примеры на умножение трехначных чисел в столбик.","Multiplication problems. 3 digit numbers in column.",
                 "Задачи по математике на тему:<br />Примеры на умножение трехзначных чисел в столбик. Задачи с ответами. Скачать pdf или jpg.",
@@ -5359,7 +5359,7 @@ public class AllTopics {
         Matrix.finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, allTopicsMultiplyColumn3.get(10).gradeRus, allTopicsMultiplyColumn3.get(10).totalPageOfWorksheets, allTopicsMultiplyColumn3.get(10).topicRus,
                 allTopicsMultiplyColumn3.get(10).h2Rus, allTopicsMultiplyColumn3.get(10).shortProblemDescriptionRus, allTopicsMultiplyColumn3.get(10).longProblemDescriptionRus);
 
-        allTopicsMultiplyColumn3.add( new AllTopics2(
+        allTopicsMultiplyColumn3.add( new AllTopics2Delete(
                 "", "&nbsp",
                 "Умножение двух чисел в столбик.","Multiplication problems. Multiply two numbers in column.",
                 "Задачи по математике на тему:<br />Примеры на умножение двух чисел в столбик. Задачи с ответами. Скачать pdf или jpg.",
@@ -5397,7 +5397,7 @@ public class AllTopics {
 
 
 
-        allTopicsMultiplyColumn3.add( new AllTopics2(
+        allTopicsMultiplyColumn3.add( new AllTopics2Delete(
                 "", "&nbsp",
                 "Операции на умножение чисел в столбик.","Complete multiplication problems. Multiply numbers in column.",
                 "Операции на умножение чисел в столбик. Задачи с ответами. Скачать pdf или jpg.",
