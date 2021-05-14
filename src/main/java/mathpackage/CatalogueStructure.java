@@ -6,55 +6,57 @@ There are the methods for creating folders and files structure and archiving all
 
 import java.io.File;
 import java.io.IOException;
-import java.io.RandomAccessFile;
-import java.nio.file.*;
 import java.util.ArrayList;
-import java.util.EnumSet;
 import java.util.List;
 
 public class CatalogueStructure extends General {
 
-    //    public static String mainRoot = "d:/Java_Math";
-//    public static File mainRoot = new File(General.mainRoot);
-//    public static File workingFolder = new File(General.workingFolder);
-//    public static File savedObjects = new File("d:/Java_Math/savedObjects");
-//    public static File readyWorksheets = new File("d:/Java_Math/savedObjects");
-    public static List<String> allGradesFoldersRu = new ArrayList<>();
-    public static List<String> allGradesFoldersEn = new ArrayList<>();
+    public static List<String> firstLevelFoldersRu = new ArrayList<>();     //Grades in Russian
+    public static List<String> firstLevelFoldersEn = new ArrayList<>();     //Grades in English
+    public static List<String> secondLevelFoldersRu = new ArrayList<>();    //Explicit topics in Russian
+    public static List<String> secondLevelFoldersEn = new ArrayList<>();    //Explicit topics in English
     public static List<String> allTypesOfFiles = new ArrayList<>();
-    public static List<String> topics4GradeRus = new ArrayList<>();
-    public static List<String> topics4GradeEng = new ArrayList<>();
-
-    static int countFiles = 0;
-    static int countDir = 0;
+    public static List<String> additionalFolders = new ArrayList<>();
+//    public static List<String> topics4GradeRus = new ArrayList<>();
+//    public static List<String> topics4GradeEng = new ArrayList<>();
 
     static {
         // Creating grades folders - Rus
-        allGradesFoldersRu.add(mainRoot + "/Детский сад");
-        allGradesFoldersRu.add(mainRoot + "/1 класс");
-        allGradesFoldersRu.add(mainRoot + "/2 класс");
-        allGradesFoldersRu.add(mainRoot + "/3 класс");
-        allGradesFoldersRu.add(mainRoot + "/4 класс");
-        allGradesFoldersRu.add(mainRoot + "/5 класс");
-        allGradesFoldersRu.add(mainRoot + "/6 класс");
-        allGradesFoldersRu.add(mainRoot + "/7 класс");
-        allGradesFoldersRu.add(mainRoot + "/8 класс");
-        allGradesFoldersRu.add(mainRoot + "/9 класс");
-        allGradesFoldersRu.add(mainRoot + "/10 класс");
-        allGradesFoldersRu.add(mainRoot + "/11 класс");
+        firstLevelFoldersRu.add(mainRoot + "/Темы");
+        firstLevelFoldersRu.add(mainRoot + "/Детский сад");
+        firstLevelFoldersRu.add(mainRoot + "/1 класс");
+        firstLevelFoldersRu.add(mainRoot + "/2 класс");
+        firstLevelFoldersRu.add(mainRoot + "/3 класс");
+        firstLevelFoldersRu.add(mainRoot + "/4 класс");
+        firstLevelFoldersRu.add(mainRoot + "/5 класс");
+        firstLevelFoldersRu.add(mainRoot + "/6 класс");
+        firstLevelFoldersRu.add(mainRoot + "/7 класс");
+        firstLevelFoldersRu.add(mainRoot + "/8 класс");
+        firstLevelFoldersRu.add(mainRoot + "/9 класс");
+        firstLevelFoldersRu.add(mainRoot + "/10 класс");
+        firstLevelFoldersRu.add(mainRoot + "/11 класс");
 
         //Creating grades folders - Eng
-        allGradesFoldersEn.add(mainRoot + "/Kindergarten");
-        allGradesFoldersEn.add(mainRoot + "/Grade-1");
-        allGradesFoldersEn.add(mainRoot + "/Grade-2");
-        allGradesFoldersEn.add(mainRoot + "/Grade-3");
-        allGradesFoldersEn.add(mainRoot + "/Grade-4");
-        allGradesFoldersEn.add(mainRoot + "/Grade-5");
-        allGradesFoldersEn.add(mainRoot + "/Grade-6");
+        firstLevelFoldersEn.add(mainRoot + "/Topics");
+        firstLevelFoldersEn.add(mainRoot + "/Kindergarten");
+        firstLevelFoldersEn.add(mainRoot + "/Grade-1");
+        firstLevelFoldersEn.add(mainRoot + "/Grade-2");
+        firstLevelFoldersEn.add(mainRoot + "/Grade-3");
+        firstLevelFoldersEn.add(mainRoot + "/Grade-4");
+        firstLevelFoldersEn.add(mainRoot + "/Grade-5");
+        firstLevelFoldersEn.add(mainRoot + "/Grade-6");
 
         //There are the topics (inside of grades)
-        topics4GradeRus.add(allGradesFoldersRu.get(4) + "/Числа и счет");
-        topics4GradeEng.add(allGradesFoldersEn.get(4) + "/Numbers and count");
+//        topics4GradeRus.add(firstLevelFoldersRu.get(4) + "/Числа и счет");
+//        topics4GradeEng.add(firstLevelFoldersEn.get(4) + "/Numbers and count");
+
+        //Math topics without grades
+        secondLevelFoldersRu.add(firstLevelFoldersRu.get(0) + "/Сложение");
+        secondLevelFoldersEn.add(firstLevelFoldersEn.get(0) + "/Addition");
+
+        //Math topics for 1 grade
+        secondLevelFoldersRu.add(firstLevelFoldersRu.get(2) + "/Сложение");
+        secondLevelFoldersEn.add(firstLevelFoldersEn.get(2) + "/Addition");
 
         //Types of topics (inside of topics)
         allTypesOfFiles.add("/Pdf");
@@ -65,82 +67,72 @@ public class CatalogueStructure extends General {
         allTypesOfFiles.add("/Temporary");
         allTypesOfFiles.add("/SocialNetworks");
 
+        //Additional folders to create html, pdf pages an archives
+        additionalFolders.add(mainRoot + "/Pdf");
+        additionalFolders.add(mainRoot + "/Html");
+        additionalFolders.add(mainRoot + "/ReadyWorksheets");
+        additionalFolders.add(mainRoot + "/Temp");
+        additionalFolders.add(mainRoot + "/UsefulScripts");
+        additionalFolders.add(mainRoot + "/SavedObjects");
+
     }
 
     public static void main(String[] args) throws IOException {
 
-
-        //    Creating all folders structure for project.
+        //Creating all folders structure for project.
         //Main root
-        if (new File(mainRoot).exists())
+        if (new File(mainRoot).exists()) {
             System.out.println("Main root exists");
-        else new File(mainRoot).mkdir();
+        } else {
+            new File(mainRoot).mkdir();
+        }
         System.out.println("Main root created");
 
-        //Grades
-        for (String gradeFolders : allGradesFoldersRu)
-            if (!new File(gradeFolders).exists())
+        //Grades - Russian
+        for (String gradeFolders : firstLevelFoldersRu) {
+            if (!new File(gradeFolders).exists()) {
                 new File(gradeFolders).mkdir();
-
-        for (String gradeFolders : allGradesFoldersEn)
-            if (!new File(gradeFolders).exists())
-                new File(gradeFolders).mkdir();
-        System.out.println("Grades' folders are created");
-
-
-        //Topics inside of grades
-        for (String topics : topics4GradeRus) {
-            if (!new File(topics).exists()) {
-                new File(topics).mkdir();
-                for (String types : allTypesOfFiles)
-                    new File(topics + types).mkdir();
             }
         }
 
-//        List<String> allFiles = new ArrayList<>();
-//        allFiles = getFileTree(mainRoot);
+        //Grades -English
+        for (String gradeFolders : firstLevelFoldersEn) {
+            if (!new File(gradeFolders).exists()) {
+                new File(gradeFolders).mkdir();
+            }
+        }
+        System.out.println("Grades' folders are created");
 
+        //Additional folders
+        for (String topics : additionalFolders) {
+            if (!new File(topics).exists()) {
+                new File(topics).mkdir();
+            }
+        }
 
-//        System.out.println("Have done! ");
-//        Path filePath;
-//
-//        for(String file : allFiles)
-//            System.out.println(file);
-//
-//        System.out.println(" Dirs = " + countDir + "Files  = " +countFiles );
-//        System.out.println("----------------------------------------");
+        //Second level folders - English
+        for (String gradeFolders : secondLevelFoldersEn) {
+            if (!new File(gradeFolders).exists()) {
+                new File(gradeFolders).mkdir();
+            }
+        }
 
-        //r- read, файл открыт только для чтения
-//        RandomAccessFile raf = new RandomAccessFile("d:/Java_Math/Pdf/4 класс. Округли числа до ближайшего десятка. Вариант 1 .Pdf.html", "r");
-// «курсор» стоит на 0-м символе.
-//        String text1 = raf.readLine();
-//        System.out.println(text1);
+        //Third level folders - Russian
+        for (String gradeFolders : secondLevelFoldersRu) {
+            if (!new File(gradeFolders).exists()) {
+                new File(gradeFolders).mkdir();
 
-//перемещаем «курсор» на 100-й символ.
-//        raf.seek(100);
-//        String text2 = raf.readLine();
-//        System.out.println(text2);
-//перемещаем «курсор» на 0-й символ.
-//        raf.seek(0);
-//        String text3 = raf.readLine();
-//        System.out.println(text3);
+            for (String subFolders : allTypesOfFiles) {
+                if (! new File(gradeFolders + subFolders).exists()) {
+                    new File(gradeFolders + subFolders).mkdir();
+                }
+                System.out.println(gradeFolders + subFolders);
+            }
 
-//закрываем файл
-//        raf.close();
+            }
+        }
+
 
     }
-
-/*
-    public static List<String> getFileTree(String root) throws IOException {
-        List<String> result = new ArrayList<>();
-
-        EnumSet<FileVisitOption> options = EnumSet.of(FileVisitOption.FOLLOW_LINKS);
-//        Files.walkFileTree(Paths.get(root), options, 20, new GetFiles(result));
-
-        return result;
-    }
-*/
-
-
 }
 
