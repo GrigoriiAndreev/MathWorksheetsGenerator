@@ -10,6 +10,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
 
+import static mathpackage.Matrix.*;
 import static mathpackage.RandomGenerator.intNumbersRandomRangeSet;
 import static mathpackage.usefullmethods.NumberToWordsEng.convertLessThanOneThousandEng;
 import static mathpackage.usefullmethods.NumberToWordsRus.convertLessThanOneThousandRus;
@@ -74,48 +75,48 @@ public class WordsToDigitsWorksheets extends WorksheetTemplate {
                 "How do you write this number using digits.",
                 0, 10, 6));
 
-        Matrix.topWorksheet(General.workingFolder, wordsToDigitsWorksheets.get(0).gradeRus, wordsToDigitsWorksheets.get(0).totalPageOfWorksheets,
+        topWorksheet(General.workingFolder, wordsToDigitsWorksheets.get(0).gradeRus, wordsToDigitsWorksheets.get(0).totalPageOfWorksheets,
                 wordsToDigitsWorksheets.get(0).shortProblemDescriptionRus, wordsToDigitsWorksheets.get(0).longProblemDescriptionRus);
-        Matrix.topWorksheetPdf(General.workingFolder, wordsToDigitsWorksheets.get(0).gradeRus, wordsToDigitsWorksheets.get(0).totalPageOfWorksheets,
+        topWorksheetPdf(General.workingFolder, wordsToDigitsWorksheets.get(0).gradeRus, wordsToDigitsWorksheets.get(0).totalPageOfWorksheets,
                 wordsToDigitsWorksheets.get(0).shortProblemDescriptionRus, wordsToDigitsWorksheets.get(0).longProblemDescriptionRus);
-        Matrix.topWorksheetHtmlAnswers(General.workingFolder, wordsToDigitsWorksheets.get(0).gradeRus, wordsToDigitsWorksheets.get(0).totalPageOfWorksheets,
+        topWorksheetHtmlAnswers(General.workingFolder, wordsToDigitsWorksheets.get(0).gradeRus, wordsToDigitsWorksheets.get(0).totalPageOfWorksheets,
                 wordsToDigitsWorksheets.get(0).shortProblemDescriptionRus, wordsToDigitsWorksheets.get(0).longProblemDescriptionRus);
         wordsToDigitsWorksheetA4(General.workingFolder, wordsToDigitsWorksheets.get(0).gradeRus, wordsToDigitsWorksheets.get(0).totalPageOfWorksheets,
                 wordsToDigitsWorksheets.get(0).shortProblemDescriptionRus, wordsToDigitsWorksheets.get(0).longProblemDescriptionRus,
                 wordsToDigitsWorksheets.get(0).numbersRangeStart, wordsToDigitsWorksheets.get(0).numbersRangeEnd,10, 5);
-        Matrix.bottomWorksheet(General.workingFolder, wordsToDigitsWorksheets.get(0).gradeRus, wordsToDigitsWorksheets.get(0).totalPageOfWorksheets,
+        bottomWorksheet(General.workingFolder, wordsToDigitsWorksheets.get(0).gradeRus, wordsToDigitsWorksheets.get(0).totalPageOfWorksheets,
                 wordsToDigitsWorksheets.get(0).shortProblemDescriptionRus, wordsToDigitsWorksheets.get(0).longProblemDescriptionRus);
-        Matrix.fullWorksheet(General.workingFolder, General.readyFilesFolder, wordsToDigitsWorksheets.get(0).gradeRus, wordsToDigitsWorksheets.get(0).totalPageOfWorksheets,
+        fullWorksheet(General.workingFolder, General.readyFilesFolder, wordsToDigitsWorksheets.get(0).gradeRus, wordsToDigitsWorksheets.get(0).totalPageOfWorksheets,
                 wordsToDigitsWorksheets.get(0).shortProblemDescriptionRus, wordsToDigitsWorksheets.get(0).longProblemDescriptionRus);
-        Matrix.fullWorksheetPdf(General.workingFolder, General.readyFilesFolderPdf, wordsToDigitsWorksheets.get(0).gradeRus, wordsToDigitsWorksheets.get(0).totalPageOfWorksheets,
+        fullWorksheetPdf(General.workingFolder, General.readyFilesFolderPdf, wordsToDigitsWorksheets.get(0).gradeRus, wordsToDigitsWorksheets.get(0).totalPageOfWorksheets,
                 wordsToDigitsWorksheets.get(0).shortProblemDescriptionRus, wordsToDigitsWorksheets.get(0).longProblemDescriptionRus);
-        Matrix.fullWorksheetHtmlAnswer(General.workingFolder, General.readyFilesFolder, wordsToDigitsWorksheets.get(0).gradeRus, wordsToDigitsWorksheets.get(0).totalPageOfWorksheets,
+        fullWorksheetHtmlAnswer(General.workingFolder, General.readyFilesFolder, wordsToDigitsWorksheets.get(0).gradeRus, wordsToDigitsWorksheets.get(0).totalPageOfWorksheets,
                 wordsToDigitsWorksheets.get(0).shortProblemDescriptionRus, wordsToDigitsWorksheets.get(0).longProblemDescriptionRus);
-        Matrix.allSameWorksheets(General.workingFolder, General.readyFilesFolder, wordsToDigitsWorksheets.get(0).gradeRus, wordsToDigitsWorksheets.get(0).totalPageOfWorksheets,
+        allSameWorksheets(General.workingFolder, General.readyFilesFolder, wordsToDigitsWorksheets.get(0).gradeRus, wordsToDigitsWorksheets.get(0).totalPageOfWorksheets,
                 wordsToDigitsWorksheets.get(0).shortProblemDescriptionRus, wordsToDigitsWorksheets.get(0).longProblemDescriptionRus);
-        Matrix.finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, wordsToDigitsWorksheets.get(0).gradeRus, wordsToDigitsWorksheets.get(0).totalPageOfWorksheets, wordsToDigitsWorksheets.get(0).topicRus,
+        finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, wordsToDigitsWorksheets.get(0).gradeRus, wordsToDigitsWorksheets.get(0).totalPageOfWorksheets, wordsToDigitsWorksheets.get(0).topicRus,
                 wordsToDigitsWorksheets.get(0).h2Rus, wordsToDigitsWorksheets.get(0).shortProblemDescriptionRus, wordsToDigitsWorksheets.get(0).longProblemDescriptionRus);
 
-        Matrix.topWorksheet(General.workingFolder, wordsToDigitsWorksheets.get(0).gradeEng, wordsToDigitsWorksheets.get(0).totalPageOfWorksheets,
+        topWorksheet(General.workingFolder, wordsToDigitsWorksheets.get(0).gradeEng, wordsToDigitsWorksheets.get(0).totalPageOfWorksheets,
                 wordsToDigitsWorksheets.get(0).shortProblemDescriptionEng, wordsToDigitsWorksheets.get(0).longProblemDescriptionEng);
-        Matrix.topWorksheetPdf(General.workingFolder, wordsToDigitsWorksheets.get(0).gradeEng, wordsToDigitsWorksheets.get(0).totalPageOfWorksheets,
+        topWorksheetPdf(General.workingFolder, wordsToDigitsWorksheets.get(0).gradeEng, wordsToDigitsWorksheets.get(0).totalPageOfWorksheets,
                 wordsToDigitsWorksheets.get(0).shortProblemDescriptionEng, wordsToDigitsWorksheets.get(0).longProblemDescriptionEng);
-        Matrix.topWorksheetHtmlAnswers(General.workingFolder, wordsToDigitsWorksheets.get(0).gradeEng, wordsToDigitsWorksheets.get(0).totalPageOfWorksheets,
+        topWorksheetHtmlAnswers(General.workingFolder, wordsToDigitsWorksheets.get(0).gradeEng, wordsToDigitsWorksheets.get(0).totalPageOfWorksheets,
                 wordsToDigitsWorksheets.get(0).shortProblemDescriptionEng, wordsToDigitsWorksheets.get(0).longProblemDescriptionEng);
         wordsToDigitsWorksheetA4(General.workingFolder, wordsToDigitsWorksheets.get(0).gradeEng, wordsToDigitsWorksheets.get(0).totalPageOfWorksheets,
                 wordsToDigitsWorksheets.get(0).shortProblemDescriptionEng, wordsToDigitsWorksheets.get(0).longProblemDescriptionEng,
                 wordsToDigitsWorksheets.get(0).numbersRangeStart, wordsToDigitsWorksheets.get(0).numbersRangeEnd, 10, 5);
-        Matrix.bottomWorksheet(General.workingFolder, wordsToDigitsWorksheets.get(0).gradeEng, wordsToDigitsWorksheets.get(0).totalPageOfWorksheets,
+        bottomWorksheet(General.workingFolder, wordsToDigitsWorksheets.get(0).gradeEng, wordsToDigitsWorksheets.get(0).totalPageOfWorksheets,
                 wordsToDigitsWorksheets.get(0).shortProblemDescriptionEng, wordsToDigitsWorksheets.get(0).longProblemDescriptionEng);
-        Matrix.fullWorksheet(General.workingFolder, General.readyFilesFolder, wordsToDigitsWorksheets.get(0).gradeEng, wordsToDigitsWorksheets.get(0).totalPageOfWorksheets,
+        fullWorksheet(General.workingFolder, General.readyFilesFolder, wordsToDigitsWorksheets.get(0).gradeEng, wordsToDigitsWorksheets.get(0).totalPageOfWorksheets,
                 wordsToDigitsWorksheets.get(0).shortProblemDescriptionEng, wordsToDigitsWorksheets.get(0).longProblemDescriptionEng);
-        Matrix.fullWorksheetPdf(General.workingFolder, General.readyFilesFolderPdf, wordsToDigitsWorksheets.get(0).gradeEng, wordsToDigitsWorksheets.get(0).totalPageOfWorksheets,
+        fullWorksheetPdf(General.workingFolder, General.readyFilesFolderPdf, wordsToDigitsWorksheets.get(0).gradeEng, wordsToDigitsWorksheets.get(0).totalPageOfWorksheets,
                 wordsToDigitsWorksheets.get(0).shortProblemDescriptionEng, wordsToDigitsWorksheets.get(0).longProblemDescriptionEng);
-        Matrix.fullWorksheetHtmlAnswer(General.workingFolder, General.readyFilesFolder, wordsToDigitsWorksheets.get(0).gradeEng, wordsToDigitsWorksheets.get(0).totalPageOfWorksheets,
+        fullWorksheetHtmlAnswer(General.workingFolder, General.readyFilesFolder, wordsToDigitsWorksheets.get(0).gradeEng, wordsToDigitsWorksheets.get(0).totalPageOfWorksheets,
                 wordsToDigitsWorksheets.get(0).shortProblemDescriptionEng, wordsToDigitsWorksheets.get(0).longProblemDescriptionEng);
-        Matrix.allSameWorksheets(General.workingFolder, General.readyFilesFolder, wordsToDigitsWorksheets.get(0).gradeEng, wordsToDigitsWorksheets.get(0).totalPageOfWorksheets,
+        allSameWorksheets(General.workingFolder, General.readyFilesFolder, wordsToDigitsWorksheets.get(0).gradeEng, wordsToDigitsWorksheets.get(0).totalPageOfWorksheets,
                 wordsToDigitsWorksheets.get(0).shortProblemDescriptionEng, wordsToDigitsWorksheets.get(0).longProblemDescriptionEng);
-        Matrix.finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, wordsToDigitsWorksheets.get(0).gradeEng, wordsToDigitsWorksheets.get(0).totalPageOfWorksheets, wordsToDigitsWorksheets.get(0).topicEng,
+        finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, wordsToDigitsWorksheets.get(0).gradeEng, wordsToDigitsWorksheets.get(0).totalPageOfWorksheets, wordsToDigitsWorksheets.get(0).topicEng,
                 wordsToDigitsWorksheets.get(0).h2Eng, wordsToDigitsWorksheets.get(0).shortProblemDescriptionEng, wordsToDigitsWorksheets.get(0).longProblemDescriptionEng);
 
         wordsToDigitsWorksheets.add(new WordsToDigitsWorksheets(
@@ -130,48 +131,48 @@ public class WordsToDigitsWorksheets extends WorksheetTemplate {
                 "How do you write this number using digits. Numbers up to 100.",
                 0, 100, 6));
 
-        Matrix.topWorksheet(General.workingFolder, wordsToDigitsWorksheets.get(1).gradeRus, wordsToDigitsWorksheets.get(1).totalPageOfWorksheets,
+        topWorksheet(General.workingFolder, wordsToDigitsWorksheets.get(1).gradeRus, wordsToDigitsWorksheets.get(1).totalPageOfWorksheets,
                 wordsToDigitsWorksheets.get(1).shortProblemDescriptionRus, wordsToDigitsWorksheets.get(1).longProblemDescriptionRus);
-        Matrix.topWorksheetPdf(General.workingFolder, wordsToDigitsWorksheets.get(1).gradeRus, wordsToDigitsWorksheets.get(1).totalPageOfWorksheets,
+        topWorksheetPdf(General.workingFolder, wordsToDigitsWorksheets.get(1).gradeRus, wordsToDigitsWorksheets.get(1).totalPageOfWorksheets,
                 wordsToDigitsWorksheets.get(1).shortProblemDescriptionRus, wordsToDigitsWorksheets.get(1).longProblemDescriptionRus);
-        Matrix.topWorksheetHtmlAnswers(General.workingFolder, wordsToDigitsWorksheets.get(1).gradeRus, wordsToDigitsWorksheets.get(1).totalPageOfWorksheets,
+        topWorksheetHtmlAnswers(General.workingFolder, wordsToDigitsWorksheets.get(1).gradeRus, wordsToDigitsWorksheets.get(1).totalPageOfWorksheets,
                 wordsToDigitsWorksheets.get(1).shortProblemDescriptionRus, wordsToDigitsWorksheets.get(1).longProblemDescriptionRus);
         wordsToDigitsWorksheetA4(General.workingFolder, wordsToDigitsWorksheets.get(1).gradeRus, wordsToDigitsWorksheets.get(1).totalPageOfWorksheets,
                 wordsToDigitsWorksheets.get(1).shortProblemDescriptionRus, wordsToDigitsWorksheets.get(1).longProblemDescriptionRus,
                 wordsToDigitsWorksheets.get(1).numbersRangeStart, wordsToDigitsWorksheets.get(1).numbersRangeEnd,10, 5);
-        Matrix.bottomWorksheet(General.workingFolder, wordsToDigitsWorksheets.get(1).gradeRus, wordsToDigitsWorksheets.get(1).totalPageOfWorksheets,
+        bottomWorksheet(General.workingFolder, wordsToDigitsWorksheets.get(1).gradeRus, wordsToDigitsWorksheets.get(1).totalPageOfWorksheets,
                 wordsToDigitsWorksheets.get(1).shortProblemDescriptionRus, wordsToDigitsWorksheets.get(1).longProblemDescriptionRus);
-        Matrix.fullWorksheet(General.workingFolder, General.readyFilesFolder, wordsToDigitsWorksheets.get(1).gradeRus, wordsToDigitsWorksheets.get(1).totalPageOfWorksheets,
+        fullWorksheet(General.workingFolder, General.readyFilesFolder, wordsToDigitsWorksheets.get(1).gradeRus, wordsToDigitsWorksheets.get(1).totalPageOfWorksheets,
                 wordsToDigitsWorksheets.get(1).shortProblemDescriptionRus, wordsToDigitsWorksheets.get(1).longProblemDescriptionRus);
-        Matrix.fullWorksheetPdf(General.workingFolder, General.readyFilesFolderPdf, wordsToDigitsWorksheets.get(1).gradeRus, wordsToDigitsWorksheets.get(1).totalPageOfWorksheets,
+        fullWorksheetPdf(General.workingFolder, General.readyFilesFolderPdf, wordsToDigitsWorksheets.get(1).gradeRus, wordsToDigitsWorksheets.get(1).totalPageOfWorksheets,
                 wordsToDigitsWorksheets.get(1).shortProblemDescriptionRus, wordsToDigitsWorksheets.get(1).longProblemDescriptionRus);
-        Matrix.fullWorksheetHtmlAnswer(General.workingFolder, General.readyFilesFolder, wordsToDigitsWorksheets.get(1).gradeRus, wordsToDigitsWorksheets.get(1).totalPageOfWorksheets,
+        fullWorksheetHtmlAnswer(General.workingFolder, General.readyFilesFolder, wordsToDigitsWorksheets.get(1).gradeRus, wordsToDigitsWorksheets.get(1).totalPageOfWorksheets,
                 wordsToDigitsWorksheets.get(1).shortProblemDescriptionRus, wordsToDigitsWorksheets.get(1).longProblemDescriptionRus);
-        Matrix.allSameWorksheets(General.workingFolder, General.readyFilesFolder, wordsToDigitsWorksheets.get(1).gradeRus, wordsToDigitsWorksheets.get(1).totalPageOfWorksheets,
+        allSameWorksheets(General.workingFolder, General.readyFilesFolder, wordsToDigitsWorksheets.get(1).gradeRus, wordsToDigitsWorksheets.get(1).totalPageOfWorksheets,
                 wordsToDigitsWorksheets.get(1).shortProblemDescriptionRus, wordsToDigitsWorksheets.get(1).longProblemDescriptionRus);
-        Matrix.finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, wordsToDigitsWorksheets.get(1).gradeRus, wordsToDigitsWorksheets.get(1).totalPageOfWorksheets, wordsToDigitsWorksheets.get(1).topicRus,
+        finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, wordsToDigitsWorksheets.get(1).gradeRus, wordsToDigitsWorksheets.get(1).totalPageOfWorksheets, wordsToDigitsWorksheets.get(1).topicRus,
                 wordsToDigitsWorksheets.get(1).h2Rus, wordsToDigitsWorksheets.get(1).shortProblemDescriptionRus, wordsToDigitsWorksheets.get(1).longProblemDescriptionRus);
 
-        Matrix.topWorksheet(General.workingFolder, wordsToDigitsWorksheets.get(1).gradeEng, wordsToDigitsWorksheets.get(1).totalPageOfWorksheets,
+        topWorksheet(General.workingFolder, wordsToDigitsWorksheets.get(1).gradeEng, wordsToDigitsWorksheets.get(1).totalPageOfWorksheets,
                 wordsToDigitsWorksheets.get(1).shortProblemDescriptionEng, wordsToDigitsWorksheets.get(1).longProblemDescriptionEng);
-        Matrix.topWorksheetPdf(General.workingFolder, wordsToDigitsWorksheets.get(1).gradeEng, wordsToDigitsWorksheets.get(1).totalPageOfWorksheets,
+        topWorksheetPdf(General.workingFolder, wordsToDigitsWorksheets.get(1).gradeEng, wordsToDigitsWorksheets.get(1).totalPageOfWorksheets,
                 wordsToDigitsWorksheets.get(1).shortProblemDescriptionEng, wordsToDigitsWorksheets.get(1).longProblemDescriptionEng);
-        Matrix.topWorksheetHtmlAnswers(General.workingFolder, wordsToDigitsWorksheets.get(1).gradeEng, wordsToDigitsWorksheets.get(1).totalPageOfWorksheets,
+        topWorksheetHtmlAnswers(General.workingFolder, wordsToDigitsWorksheets.get(1).gradeEng, wordsToDigitsWorksheets.get(1).totalPageOfWorksheets,
                 wordsToDigitsWorksheets.get(1).shortProblemDescriptionEng, wordsToDigitsWorksheets.get(1).longProblemDescriptionEng);
         wordsToDigitsWorksheetA4(General.workingFolder, wordsToDigitsWorksheets.get(1).gradeEng, wordsToDigitsWorksheets.get(1).totalPageOfWorksheets,
                 wordsToDigitsWorksheets.get(1).shortProblemDescriptionEng, wordsToDigitsWorksheets.get(1).longProblemDescriptionEng,
                 wordsToDigitsWorksheets.get(1).numbersRangeStart, wordsToDigitsWorksheets.get(1).numbersRangeEnd, 10, 5);
-        Matrix.bottomWorksheet(General.workingFolder, wordsToDigitsWorksheets.get(1).gradeEng, wordsToDigitsWorksheets.get(1).totalPageOfWorksheets,
+        bottomWorksheet(General.workingFolder, wordsToDigitsWorksheets.get(1).gradeEng, wordsToDigitsWorksheets.get(1).totalPageOfWorksheets,
                 wordsToDigitsWorksheets.get(1).shortProblemDescriptionEng, wordsToDigitsWorksheets.get(1).longProblemDescriptionEng);
-        Matrix.fullWorksheet(General.workingFolder, General.readyFilesFolder, wordsToDigitsWorksheets.get(1).gradeEng, wordsToDigitsWorksheets.get(1).totalPageOfWorksheets,
+        fullWorksheet(General.workingFolder, General.readyFilesFolder, wordsToDigitsWorksheets.get(1).gradeEng, wordsToDigitsWorksheets.get(1).totalPageOfWorksheets,
                 wordsToDigitsWorksheets.get(1).shortProblemDescriptionEng, wordsToDigitsWorksheets.get(1).longProblemDescriptionEng);
-        Matrix.fullWorksheetPdf(General.workingFolder, General.readyFilesFolderPdf, wordsToDigitsWorksheets.get(1).gradeEng, wordsToDigitsWorksheets.get(1).totalPageOfWorksheets,
+        fullWorksheetPdf(General.workingFolder, General.readyFilesFolderPdf, wordsToDigitsWorksheets.get(1).gradeEng, wordsToDigitsWorksheets.get(1).totalPageOfWorksheets,
                 wordsToDigitsWorksheets.get(1).shortProblemDescriptionEng, wordsToDigitsWorksheets.get(1).longProblemDescriptionEng);
-        Matrix.fullWorksheetHtmlAnswer(General.workingFolder, General.readyFilesFolder, wordsToDigitsWorksheets.get(1).gradeEng, wordsToDigitsWorksheets.get(1).totalPageOfWorksheets,
+        fullWorksheetHtmlAnswer(General.workingFolder, General.readyFilesFolder, wordsToDigitsWorksheets.get(1).gradeEng, wordsToDigitsWorksheets.get(1).totalPageOfWorksheets,
                 wordsToDigitsWorksheets.get(1).shortProblemDescriptionEng, wordsToDigitsWorksheets.get(1).longProblemDescriptionEng);
-        Matrix.allSameWorksheets(General.workingFolder, General.readyFilesFolder, wordsToDigitsWorksheets.get(1).gradeEng, wordsToDigitsWorksheets.get(1).totalPageOfWorksheets,
+        allSameWorksheets(General.workingFolder, General.readyFilesFolder, wordsToDigitsWorksheets.get(1).gradeEng, wordsToDigitsWorksheets.get(1).totalPageOfWorksheets,
                 wordsToDigitsWorksheets.get(1).shortProblemDescriptionEng, wordsToDigitsWorksheets.get(1).longProblemDescriptionEng);
-        Matrix.finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, wordsToDigitsWorksheets.get(1).gradeEng, wordsToDigitsWorksheets.get(1).totalPageOfWorksheets, wordsToDigitsWorksheets.get(1).topicEng,
+        finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, wordsToDigitsWorksheets.get(1).gradeEng, wordsToDigitsWorksheets.get(1).totalPageOfWorksheets, wordsToDigitsWorksheets.get(1).topicEng,
                 wordsToDigitsWorksheets.get(1).h2Eng, wordsToDigitsWorksheets.get(1).shortProblemDescriptionEng, wordsToDigitsWorksheets.get(1).longProblemDescriptionEng);
 
         wordsToDigitsWorksheets.add(new WordsToDigitsWorksheets(
@@ -186,48 +187,48 @@ public class WordsToDigitsWorksheets extends WorksheetTemplate {
                 "How do you write this number using digits. Numbers up to 1000.",
                 0, 1000, 6));
 
-        Matrix.topWorksheet(General.workingFolder, wordsToDigitsWorksheets.get(2).gradeRus, wordsToDigitsWorksheets.get(2).totalPageOfWorksheets,
+        topWorksheet(General.workingFolder, wordsToDigitsWorksheets.get(2).gradeRus, wordsToDigitsWorksheets.get(2).totalPageOfWorksheets,
                 wordsToDigitsWorksheets.get(2).shortProblemDescriptionRus, wordsToDigitsWorksheets.get(2).longProblemDescriptionRus);
-        Matrix.topWorksheetPdf(General.workingFolder, wordsToDigitsWorksheets.get(2).gradeRus, wordsToDigitsWorksheets.get(2).totalPageOfWorksheets,
+        topWorksheetPdf(General.workingFolder, wordsToDigitsWorksheets.get(2).gradeRus, wordsToDigitsWorksheets.get(2).totalPageOfWorksheets,
                 wordsToDigitsWorksheets.get(2).shortProblemDescriptionRus, wordsToDigitsWorksheets.get(2).longProblemDescriptionRus);
-        Matrix.topWorksheetHtmlAnswers(General.workingFolder, wordsToDigitsWorksheets.get(2).gradeRus, wordsToDigitsWorksheets.get(2).totalPageOfWorksheets,
+        topWorksheetHtmlAnswers(General.workingFolder, wordsToDigitsWorksheets.get(2).gradeRus, wordsToDigitsWorksheets.get(2).totalPageOfWorksheets,
                 wordsToDigitsWorksheets.get(2).shortProblemDescriptionRus, wordsToDigitsWorksheets.get(2).longProblemDescriptionRus);
         wordsToDigitsWorksheetA4(General.workingFolder, wordsToDigitsWorksheets.get(2).gradeRus, wordsToDigitsWorksheets.get(2).totalPageOfWorksheets,
                 wordsToDigitsWorksheets.get(2).shortProblemDescriptionRus, wordsToDigitsWorksheets.get(2).longProblemDescriptionRus,
                 wordsToDigitsWorksheets.get(2).numbersRangeStart, wordsToDigitsWorksheets.get(2).numbersRangeEnd,10, 5);
-        Matrix.bottomWorksheet(General.workingFolder, wordsToDigitsWorksheets.get(2).gradeRus, wordsToDigitsWorksheets.get(2).totalPageOfWorksheets,
+        bottomWorksheet(General.workingFolder, wordsToDigitsWorksheets.get(2).gradeRus, wordsToDigitsWorksheets.get(2).totalPageOfWorksheets,
                 wordsToDigitsWorksheets.get(2).shortProblemDescriptionRus, wordsToDigitsWorksheets.get(2).longProblemDescriptionRus);
-        Matrix.fullWorksheet(General.workingFolder, General.readyFilesFolder, wordsToDigitsWorksheets.get(2).gradeRus, wordsToDigitsWorksheets.get(2).totalPageOfWorksheets,
+        fullWorksheet(General.workingFolder, General.readyFilesFolder, wordsToDigitsWorksheets.get(2).gradeRus, wordsToDigitsWorksheets.get(2).totalPageOfWorksheets,
                 wordsToDigitsWorksheets.get(2).shortProblemDescriptionRus, wordsToDigitsWorksheets.get(2).longProblemDescriptionRus);
-        Matrix.fullWorksheetPdf(General.workingFolder, General.readyFilesFolderPdf, wordsToDigitsWorksheets.get(2).gradeRus, wordsToDigitsWorksheets.get(2).totalPageOfWorksheets,
+        fullWorksheetPdf(General.workingFolder, General.readyFilesFolderPdf, wordsToDigitsWorksheets.get(2).gradeRus, wordsToDigitsWorksheets.get(2).totalPageOfWorksheets,
                 wordsToDigitsWorksheets.get(2).shortProblemDescriptionRus, wordsToDigitsWorksheets.get(2).longProblemDescriptionRus);
-        Matrix.fullWorksheetHtmlAnswer(General.workingFolder, General.readyFilesFolder, wordsToDigitsWorksheets.get(2).gradeRus, wordsToDigitsWorksheets.get(2).totalPageOfWorksheets,
+        fullWorksheetHtmlAnswer(General.workingFolder, General.readyFilesFolder, wordsToDigitsWorksheets.get(2).gradeRus, wordsToDigitsWorksheets.get(2).totalPageOfWorksheets,
                 wordsToDigitsWorksheets.get(2).shortProblemDescriptionRus, wordsToDigitsWorksheets.get(2).longProblemDescriptionRus);
-        Matrix.allSameWorksheets(General.workingFolder, General.readyFilesFolder, wordsToDigitsWorksheets.get(2).gradeRus, wordsToDigitsWorksheets.get(2).totalPageOfWorksheets,
+        allSameWorksheets(General.workingFolder, General.readyFilesFolder, wordsToDigitsWorksheets.get(2).gradeRus, wordsToDigitsWorksheets.get(2).totalPageOfWorksheets,
                 wordsToDigitsWorksheets.get(2).shortProblemDescriptionRus, wordsToDigitsWorksheets.get(2).longProblemDescriptionRus);
-        Matrix.finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, wordsToDigitsWorksheets.get(2).gradeRus, wordsToDigitsWorksheets.get(2).totalPageOfWorksheets, wordsToDigitsWorksheets.get(2).topicRus,
+        finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, wordsToDigitsWorksheets.get(2).gradeRus, wordsToDigitsWorksheets.get(2).totalPageOfWorksheets, wordsToDigitsWorksheets.get(2).topicRus,
                 wordsToDigitsWorksheets.get(2).h2Rus, wordsToDigitsWorksheets.get(2).shortProblemDescriptionRus, wordsToDigitsWorksheets.get(2).longProblemDescriptionRus);
 
-        Matrix.topWorksheet(General.workingFolder, wordsToDigitsWorksheets.get(2).gradeEng, wordsToDigitsWorksheets.get(2).totalPageOfWorksheets,
+        topWorksheet(General.workingFolder, wordsToDigitsWorksheets.get(2).gradeEng, wordsToDigitsWorksheets.get(2).totalPageOfWorksheets,
                 wordsToDigitsWorksheets.get(2).shortProblemDescriptionEng, wordsToDigitsWorksheets.get(2).longProblemDescriptionEng);
-        Matrix.topWorksheetPdf(General.workingFolder, wordsToDigitsWorksheets.get(2).gradeEng, wordsToDigitsWorksheets.get(2).totalPageOfWorksheets,
+        topWorksheetPdf(General.workingFolder, wordsToDigitsWorksheets.get(2).gradeEng, wordsToDigitsWorksheets.get(2).totalPageOfWorksheets,
                 wordsToDigitsWorksheets.get(2).shortProblemDescriptionEng, wordsToDigitsWorksheets.get(2).longProblemDescriptionEng);
-        Matrix.topWorksheetHtmlAnswers(General.workingFolder, wordsToDigitsWorksheets.get(2).gradeEng, wordsToDigitsWorksheets.get(2).totalPageOfWorksheets,
+        topWorksheetHtmlAnswers(General.workingFolder, wordsToDigitsWorksheets.get(2).gradeEng, wordsToDigitsWorksheets.get(2).totalPageOfWorksheets,
                 wordsToDigitsWorksheets.get(2).shortProblemDescriptionEng, wordsToDigitsWorksheets.get(2).longProblemDescriptionEng);
         wordsToDigitsWorksheetA4(General.workingFolder, wordsToDigitsWorksheets.get(2).gradeEng, wordsToDigitsWorksheets.get(2).totalPageOfWorksheets,
                 wordsToDigitsWorksheets.get(2).shortProblemDescriptionEng, wordsToDigitsWorksheets.get(2).longProblemDescriptionEng,
                 wordsToDigitsWorksheets.get(2).numbersRangeStart, wordsToDigitsWorksheets.get(2).numbersRangeEnd, 10, 5);
-        Matrix.bottomWorksheet(General.workingFolder, wordsToDigitsWorksheets.get(2).gradeEng, wordsToDigitsWorksheets.get(2).totalPageOfWorksheets,
+        bottomWorksheet(General.workingFolder, wordsToDigitsWorksheets.get(2).gradeEng, wordsToDigitsWorksheets.get(2).totalPageOfWorksheets,
                 wordsToDigitsWorksheets.get(2).shortProblemDescriptionEng, wordsToDigitsWorksheets.get(2).longProblemDescriptionEng);
-        Matrix.fullWorksheet(General.workingFolder, General.readyFilesFolder, wordsToDigitsWorksheets.get(2).gradeEng, wordsToDigitsWorksheets.get(2).totalPageOfWorksheets,
+        fullWorksheet(General.workingFolder, General.readyFilesFolder, wordsToDigitsWorksheets.get(2).gradeEng, wordsToDigitsWorksheets.get(2).totalPageOfWorksheets,
                 wordsToDigitsWorksheets.get(2).shortProblemDescriptionEng, wordsToDigitsWorksheets.get(2).longProblemDescriptionEng);
-        Matrix.fullWorksheetPdf(General.workingFolder, General.readyFilesFolderPdf, wordsToDigitsWorksheets.get(2).gradeEng, wordsToDigitsWorksheets.get(2).totalPageOfWorksheets,
+        fullWorksheetPdf(General.workingFolder, General.readyFilesFolderPdf, wordsToDigitsWorksheets.get(2).gradeEng, wordsToDigitsWorksheets.get(2).totalPageOfWorksheets,
                 wordsToDigitsWorksheets.get(2).shortProblemDescriptionEng, wordsToDigitsWorksheets.get(2).longProblemDescriptionEng);
-        Matrix.fullWorksheetHtmlAnswer(General.workingFolder, General.readyFilesFolder, wordsToDigitsWorksheets.get(2).gradeEng, wordsToDigitsWorksheets.get(2).totalPageOfWorksheets,
+        fullWorksheetHtmlAnswer(General.workingFolder, General.readyFilesFolder, wordsToDigitsWorksheets.get(2).gradeEng, wordsToDigitsWorksheets.get(2).totalPageOfWorksheets,
                 wordsToDigitsWorksheets.get(2).shortProblemDescriptionEng, wordsToDigitsWorksheets.get(2).longProblemDescriptionEng);
-        Matrix.allSameWorksheets(General.workingFolder, General.readyFilesFolder, wordsToDigitsWorksheets.get(2).gradeEng, wordsToDigitsWorksheets.get(2).totalPageOfWorksheets,
+        allSameWorksheets(General.workingFolder, General.readyFilesFolder, wordsToDigitsWorksheets.get(2).gradeEng, wordsToDigitsWorksheets.get(2).totalPageOfWorksheets,
                 wordsToDigitsWorksheets.get(2).shortProblemDescriptionEng, wordsToDigitsWorksheets.get(2).longProblemDescriptionEng);
-        Matrix.finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, wordsToDigitsWorksheets.get(2).gradeEng, wordsToDigitsWorksheets.get(2).totalPageOfWorksheets, wordsToDigitsWorksheets.get(2).topicEng,
+        finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, wordsToDigitsWorksheets.get(2).gradeEng, wordsToDigitsWorksheets.get(2).totalPageOfWorksheets, wordsToDigitsWorksheets.get(2).topicEng,
                 wordsToDigitsWorksheets.get(2).h2Eng, wordsToDigitsWorksheets.get(2).shortProblemDescriptionEng, wordsToDigitsWorksheets.get(2).longProblemDescriptionEng);
 
     }

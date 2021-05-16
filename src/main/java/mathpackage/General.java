@@ -13,15 +13,38 @@ public class General {
 
     //Static important date for project
     static public String mathSiteNameRu = "https://mathematics-tests.com";
-    static public String mathSiteNameEn = "https://mathematics-tests.com";
+    static public String mathSiteNameEn = "https://mathematics-at-school.com";
     static public String shopSiteName = "https://magazin-integral.ru";
-    static public String mainRoot = "d:/Java_Math";
-    static public String workingFolder = "d:/Java_Math/Temp/";
-    static public String readyFilesFolder = "d:/Java_Math/ReadyWorksheets/";
-    static public String readyFilesFolderPdf = "d:/Java_Math/Pdf/";
-    static public String readyFilesFolderHtml = "d:/Java_Math/Html/";
+    static public String mainRoot = "d:/Java_Math/";
+    static public String workingFolder = mainRoot + "Temp/";
+    static public String readyFilesFolder = mainRoot + "ReadyWorksheets/";
+    static public String readyFilesFolderPdf = mainRoot + "Pdf/";
+    static public String readyFilesFolderHtml = mainRoot + "Html/";
+    static public String readyFilesFolderObjects = mainRoot + "SavedObjects/";
     static public String googleDrive = "https://drive.google.com/drive/folders/1qZ8_2nDdjA7_e9EpdQaJTQIqehY4E5s0?usp=sharing";
     static public String yandexDisk = "https://disk.yandex.ru/d/VYRDjGJEYcxGKA?w=1";
+    static public String googleAdsBlockRus = "<div id=”ad1?>\n" +
+            "<script async src=\"https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js\"></script>\n" +
+            "<!-- netboard_580x400_1_kl_All -->\n" +
+            "<ins class=\"adsbygoogle\"\n" +
+            "     style=\"display:block\"\n" +
+            "     data-ad-client=\"ca-pub-3061518079340402\"\n" +
+            "     data-ad-slot=\"4709942115\"\n" +
+            "     data-ad-format=\"auto\"\n" +
+            "     data-full-width-responsive=\"true\"></ins>\n" +
+            "<script>\n" +
+            "     (adsbygoogle = window.adsbygoogle || []).push({});\n" +
+            "</script>\n" +
+            "</div>";
+
+    static public String googleAdsBlockEng = "<script async src=\"//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js\"></script>\n" +
+            "<script>\n" +
+            "     (adsbygoogle = window.adsbygoogle || []).push({\n" +
+            "          google_ad_client: \"ca-pub-3061518079340402\",\n" +
+            "          enable_page_level_ads: true\n" +
+            "     });\n" +
+            "</script>";
+
 
 /*
         public final static String x1="один";
@@ -242,13 +265,14 @@ public class General {
     }
 */
 
-    public static void saveObject(Object object) throws IOException {
-        FileOutputStream fos = new FileOutputStream("d:/Java_Math/SavedObjects/" + object.getClass().getName() + ".dat");
+    public static void saveObject(Object worksheetToSave) throws IOException {
+        FileOutputStream fos = new FileOutputStream(readyFilesFolderObjects + worksheetToSave.getClass().getName() + ".dat");
         ObjectOutputStream oos = new ObjectOutputStream(fos);
-        oos.writeObject(object);
+        oos.writeObject(worksheetToSave);
         fos.close();
+        oos.flush();
         oos.close();
-        System.out.println("Object = " + object.getClass().getName() + " saved.");
+        System.out.println("Object = " + worksheetToSave.getClass().getName() + " saved.");
     }
 
 

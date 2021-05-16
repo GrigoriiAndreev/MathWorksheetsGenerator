@@ -3914,7 +3914,7 @@ Final html page
                         longTaskNameWorksheet + "\">" + longTaskNameWorksheet + "</a> (PDF or JPG) <br /><br /> <hr> \n";
 
                 bufferedWriter.write(otherLines);
-                otherLines = " <br /><br /> Google Ads block <br /> \n";
+                otherLines = " <br /><br /> " + General.googleAdsBlockEng + " <br /> \n";
                 bufferedWriter.write(otherLines);
                 bufferedWriter.close();
 
@@ -3955,7 +3955,7 @@ Final html page
                         longTaskNameWorksheet + "\">" + longTaskNameWorksheet + "</a> (Формат PDF или JPG) <br /><br /> <hr>\n";
                 bufferedWriter.write(otherLines);
 
-                otherLines = " <br /><br /> Google Ads block <br /> \n";
+                otherLines = " <br /><br /> " + General.googleAdsBlockRus + " <br /> \n";
                 bufferedWriter.write(otherLines);
 
                 bufferedWriter.close();

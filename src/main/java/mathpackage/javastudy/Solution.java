@@ -1,29 +1,48 @@
 package mathpackage.javastudy;
 
-import java.io.IOException;
-import java.io.StringReader;
-import java.io.StringWriter;
+import java.io.*;
+import java.util.ArrayList;
 
 /*
 Шифр Цезаря
 */
 
 public class Solution {
-    public static void main(String[] args) throws IOException {
-        StringReader reader = new StringReader("Khoor#Dpljr#&C,₷B'3");
-        System.out.println(decode(reader, -3));  //Hello Amigo #@)₴?$0
-    }
+    public static void main(String [] args)
+    {
+        ArrayList<String> al=new ArrayList<String>();
+        al.add(new String("Hello"));
+        al.add(new String("Hi"));
+        al.add(new String("Howdy"));
 
-    public static String decode(StringReader reader, int key) throws IOException {
-        StringWriter writer = new StringWriter();
-        int n;
-        if (reader != null) {
-            while ((n = reader.read()) != -1) {
-                writer.write(n + key);
-            }
+        try{
+            FileOutputStream fos= new FileOutputStream("D:/Java_Math/SavedObjects/" + "al.dat");
+            ObjectOutputStream oos= new ObjectOutputStream(fos);
+            oos.writeObject(al);
+            oos.close();
+            fos.close();
+        }catch(IOException ioe){
+            ioe.printStackTrace();
         }
-        return writer.toString();
 
-//        return null;
+        ArrayList<String> arraylist= new ArrayList<String>();
+        try
+        {
+            FileInputStream fis = new FileInputStream("D:/Java_Math/SavedObjects/" + "al.dat");
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            arraylist = (ArrayList) ois.readObject();
+            ois.close();
+            fis.close();
+        }catch(IOException ioe){
+            ioe.printStackTrace();
+            return;
+        }catch(ClassNotFoundException c){
+            System.out.println("Class not found");
+            c.printStackTrace();
+            return;
+        }
+        for(String tmp: arraylist){
+            System.out.println(tmp);
+        }
     }
 }

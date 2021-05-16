@@ -1080,7 +1080,7 @@ public class AdditionInColumnsWorksheets extends WorksheetTemplate implements Se
         General.finalRenameFiles("d:/Java_Math/Html/");
         General.finalRenameFiles("d:/Java_Math/Pdf");
         General.finalRenameFiles("d:/Java_Math/ReadyWorksheets");
-        General.saveObject(additionWorksheets);
+        General.saveObject((WorksheetTemplate) additionWorksheets);
 
     }
 
