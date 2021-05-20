@@ -62,7 +62,7 @@ public class NumberSequences extends WorksheetTemplate {
         List<NumberSequences> numberSequences = new ArrayList<NumberSequences>();
 
         General.emptyAllFolders();
-
+/*
         //All topics for primary school.
         numberSequences.add(new NumberSequences(
                 "&thinsp;", "&nbsp;",
@@ -123,7 +123,7 @@ public class NumberSequences extends WorksheetTemplate {
         Matrix.finalHtmlPageSingleTopic(General.workingFolder, General.readyFilesFolder, numberSequences.get(0).gradeEng, numberSequences.get(0).totalPageOfWorksheets, numberSequences.get(0).topicEng,
                 numberSequences.get(0).h2Eng, numberSequences.get(0).shortProblemDescriptionEng, numberSequences.get(0).longProblemDescriptionEng);
 
-/*
+
         numberSequences.add(new NumberSequences(
                 "&thinsp;", "&nbsp;",
                 "Числа и счет. Запись чисел словами. Числа до 100.", "Counting. Writing numbers in words. Numbers up to 100.",

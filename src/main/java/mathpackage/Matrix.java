@@ -6,6 +6,7 @@ import java.io.*;
 import java.util.*;
 
 import static java.lang.String.valueOf;
+import static mathpackage.General.mainRoot;
 
 /**
  * Class contains all main methods to generate html worksheets
@@ -103,10 +104,13 @@ public class Matrix {
                     + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "topHtmlAnswerBlock__" + ".html");
             String htmlText;
 
-            if (grade.contains("&nbsp") || grade.contains("G"))
+//            System.out.println("--->" + grade);
+            if (grade.contains("&nbsp;") || grade.contains("G")) {
+//                System.out.println("English");
                 htmlText = "\n\n<br /><h3>" + " " + shortTaskNameWorksheet + " Variant № " + pageNumber + ". Answers page.</h3>\n";
-            else
+            } else {
                 htmlText = "\n\n<br /><h3>" + " " + shortTaskNameWorksheet + " Вариант № " + pageNumber + ". Страница с ответами.</h3>\n";
+            }
             writerHtmlAnswers.write(htmlText);
             htmlText = longTaskNameWorksheet + "\n\n<br /><br />";
             writerHtmlAnswers.write(htmlText);
@@ -125,40 +129,54 @@ public class Matrix {
                     + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "topTxtBlock__" + ".txt");
             FileWriter writerHtml = new FileWriter(workingFolder
                     + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "topPdfBlock__" + ".html");
+            FileWriter writerAnswerHtml = new FileWriter(workingFolder
+                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "topPdfAnswerBlock__" + ".html");
             String text, htmlText;
 
             htmlText = "<style type=\"text/css\" >\n";
             writerHtml.write(htmlText);
+            writerAnswerHtml.write(htmlText);
             if (grade.contains("&nbsp") || grade.contains("G")) {
                 htmlText = ".ld {border-left:1px solid black; border-top: 1px solid black;} \n";
             } else {
                 htmlText = ".ld {border-left:1px solid black; border-bottom: 1px solid black;} \n";
             }
             writerHtml.write(htmlText);
+            writerAnswerHtml.write(htmlText);
             htmlText = "</style> \n";
             writerHtml.write(htmlText);
+            writerAnswerHtml.write(htmlText);
 
             htmlText = "<style type=\"text/css\" media=\"print\">\n";
             writerHtml.write(htmlText);
+            writerAnswerHtml.write(htmlText);
             htmlText = "@page {size: auto;  margin: 10; } \n";
             writerHtml.write(htmlText);
+            writerAnswerHtml.write(htmlText);
             htmlText = "</style> \n";
             writerHtml.write(htmlText);
+            writerAnswerHtml.write(htmlText);
 
             if (grade.contains("&nbsp") || grade.contains("G")) {
                 text = grade + " " + shortTaskNameWorksheet + " Variant № " + pageNumber + ". \n\n";
-                htmlText = "<img src=\"d://Java_Math/WorksheetsLogo_Eng.jpg\" alt=\"альтернативный текст\">\n";
+                htmlText = "<img src=\"d:/Java_Math/WorksheetsLogo_Eng.jpg\" alt=\"Math School Logo\">\n";
                 writerHtml.write(htmlText);
+                writerAnswerHtml.write(htmlText);
                 htmlText = "\n\n<br /><h3>" + grade + " " + shortTaskNameWorksheet + " Variant № " + pageNumber + ".</h3>";
+                writerHtml.write(htmlText);
+                htmlText = "\n\n<br /><h3>" + grade + " " + shortTaskNameWorksheet + " Variant № " + pageNumber + ". Answers page.</h3>";
+                writerAnswerHtml.write(htmlText);
             } else {
                 text = grade + " " + shortTaskNameWorksheet + " Вариант № " + pageNumber + ". n\n";
-                htmlText = "<img src=\"d://Java_Math/WorksheetsLogo_Rus.jpg\" alt=\"альтернативный текст\">\n";
+                htmlText = "<img src=\"d:/Java_Math/WorksheetsLogo_Rus.jpg\" alt=\"Math лого\">\n";
                 writerHtml.write(htmlText);
+                writerAnswerHtml.write(htmlText);
                 htmlText = "\n\n<br /><h3>" + grade + " " + shortTaskNameWorksheet + " Вариант № " + pageNumber + ".</h3>";
-
+                writerHtml.write(htmlText);
+                htmlText = "\n\n<br /><h3>" + grade + " " + shortTaskNameWorksheet + " Вариант № " + pageNumber + ". Страница с ответами.</h3>";
+                writerAnswerHtml.write(htmlText);
             }
             writer.write(text);
-            writerHtml.write(htmlText);
 
             if (grade.contains("&nbsp") || grade.contains("G")) {
                 text = "Дата: ______________ ФИО: ______________________________________ Оценка:__________\n\n";
@@ -173,8 +191,10 @@ public class Matrix {
             htmlText = longTaskNameWorksheet + "\n\n<br /><br />";
             writer.write(text);
             writerHtml.write(htmlText);
+            writerAnswerHtml.write(htmlText);
             writer.close();
             writerHtml.close();
+            writerAnswerHtml.close();
         }
     }
 
@@ -3585,7 +3605,7 @@ Bottom block txt and html format
         for (int i = 1; i < totalPageNumbers ; i++) {
             pageNumber = i;
 
-            String outputHtmlFile1 = " ", outputHtmlAnswerFile1 = " ";
+            String outputHtmlFile1, outputHtmlAnswerFile1;
             if (grade.contains("&nbsp") || grade.contains("G")) {
                 outputHtmlFile1 = readyFilesFolder + grade + " " + longTaskNameWorksheet + " Version " + pageNumber + " .html";
                 outputHtmlAnswerFile1= readyFilesFolder + grade + " " + longTaskNameWorksheet + " Version " + pageNumber + ". Answers .html";
@@ -3604,7 +3624,7 @@ Bottom block txt and html format
 
 // Html Answer part
             InputStream inputHtmlAnswerFile = new FileInputStream(workingFolder
-                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "topHtmlBlock__" + ".html");
+                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "topHtmlAnswerBlock__" + ".html");
 
             while ((count = inputHtmlAnswerFile.read(buffer)) != -1) {
                 outputHtmlAnswerFile.write(buffer, 0, count);
@@ -3651,8 +3671,6 @@ Bottom block txt and html format
             }
             inputHtmlFile.close();
             outputHtmlFile.close();
-
-
         }
     }
 
@@ -3662,22 +3680,17 @@ Bottom block txt and html format
         for (int i = 1; i < totalPageNumbers ; i++) {
             pageNumber = i;
 
-            String outputHtmlFile1 = " ", outputHtmlAnswerFile1 = " ";
+            String outputHtmlFile1 = " ", outputHtmlAnswerFile1;
             if (grade.contains("&nbsp") || grade.contains("G")) {
-//                outputHtmlFile1 = readyFilesFolder + grade + " " + longTaskNameWorksheet + " Version " + pageNumber + " .html";
                 outputHtmlAnswerFile1= readyFilesFolder + grade + " " + longTaskNameWorksheet + " Version " + pageNumber + ". AnswersOnly .html";
-
             } else {
-//                outputHtmlFile1 = readyFilesFolder + grade + " " + longTaskNameWorksheet + " Вариант " + pageNumber + " .html";
                 outputHtmlAnswerFile1= readyFilesFolder + grade + " " + longTaskNameWorksheet + " Вариант " + pageNumber + ". ТолькоОтветы .html";
             }
 
-//            OutputStream outputHtmlFile = new FileOutputStream(new File(outputHtmlFile1), true);
             OutputStream outputHtmlAnswerFile = new FileOutputStream(outputHtmlAnswerFile1, true);
 
             byte[] buffer = new byte[1 << 20];  // loads 1 MB of the file
             int count;
-//            String pageBreak = "<br style=\"page-break-after: always\">";
 
 // Html Answer part
             InputStream inputHtmlAnswerFile = new FileInputStream(workingFolder
@@ -3708,24 +3721,23 @@ Bottom block txt and html format
     }
 
 
-    public static void fullWorksheetPdf(String workingFolder, String readyFilesFolder, String grade, int totalPageNumbers,
+    public static void fullWorksheetPdf(String workingFolder, String readyFilesFolderPdf, String grade, int totalPageNumbers,
                                         String shortTaskNameWorksheet, String longTaskNameWorksheet) throws IOException {
 
-//        readyFilesFolder = "d:/Java_Math/Pdf/";
-
-
+        //Create folder for topics
+//        new File(readyFilesFolderPdf + longTaskNameWorksheet).mkdir();
 
         for (int i = 1; i < totalPageNumbers ; i++) {
             pageNumber = i;
 
-            String outputHtmlFile1 = " ", outputHtmlAnswerFile1 = " ";
+            String outputHtmlFile1, outputHtmlAnswerFile1;
             if (grade.contains("&nbsp") || grade.contains("G")) {
-                outputHtmlFile1 = readyFilesFolder + grade + " " + longTaskNameWorksheet + " Version " + pageNumber + ".html";
-                outputHtmlAnswerFile1= readyFilesFolder + grade + " " + longTaskNameWorksheet + " Version " + pageNumber + ". Answers.html";
+                outputHtmlFile1 = readyFilesFolderPdf + "/" + longTaskNameWorksheet + " Version " + pageNumber + ".html";
+                outputHtmlAnswerFile1= readyFilesFolderPdf + "/" + longTaskNameWorksheet + " Version " + pageNumber + ".zAnswers.html";
 
             } else {
-                outputHtmlFile1 = readyFilesFolder + grade + " " + longTaskNameWorksheet + " Вариант " + pageNumber + ".html";
-                outputHtmlAnswerFile1= readyFilesFolder + grade + " " + longTaskNameWorksheet + " Вариант " + pageNumber + ". Ответы.html";
+                outputHtmlFile1 = readyFilesFolderPdf + "/" + longTaskNameWorksheet + " Вариант " + pageNumber + ".html";
+                outputHtmlAnswerFile1= readyFilesFolderPdf + "/" + longTaskNameWorksheet + " Вариант " + pageNumber + ".zОтветы.html";
             }
 
             OutputStream outputHtmlFile = new FileOutputStream(outputHtmlFile1, true);
@@ -3737,7 +3749,7 @@ Bottom block txt and html format
 // Html Answer part
 
             InputStream inputHtmlAnswerFile = new FileInputStream(workingFolder
-                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "topPdfBlock__" + ".html");
+                    + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber + "topPdfAnswerBlock__" + ".html");
 
             while ((count = inputHtmlAnswerFile.read(buffer)) != -1) {
 
@@ -3787,8 +3799,8 @@ Bottom block txt and html format
             outputHtmlFile.close();
 
             //Copy bat file for creating pdf
-            File sourceFile = new File("D:\\Java_Math\\UsefullScripts\\htmlToPdfBatScript.bat");
-            File destinationFile = new File("D:\\Java_Math\\Pdf\\htmlToPdfBatScript.bat");
+            File sourceFile = new File(mainRoot + "UsefullScripts/htmlToPdfBatScript.bat");
+            File destinationFile = new File(readyFilesFolderPdf + "htmlToPdfBatScript.bat");
             FileUtils.copyFile(sourceFile, destinationFile);
 
             //Clear the filenames
@@ -3804,7 +3816,7 @@ All same Worksheets together
 
 //        OutputStream os = new FileOutputStream(new File(readyFilesFolder
 //                + grade + " " + longTaskNameWorksheet + " Стр. " + pageNumber +  " allSameWorksheets__" + ".txt"), true);
-        String realPath = "", realPathAnswers = "";
+        String realPath, realPathAnswers;
         realPath = readyFilesFolder + grade + " " + longTaskNameWorksheet + " Сборник из " + (totalPageNumbers - 1) + " вариантов .html";
         realPathAnswers = readyFilesFolder + grade + " " + longTaskNameWorksheet + " Сборник из " + (totalPageNumbers - 1) + " вариантов. Ответы .html";
 
@@ -3875,12 +3887,12 @@ All same Worksheets together
     }
 
 /*
-Final html page
+Final html page. Version 1.
  */
     public static void finalHtmlPageSingleTopic(String workingFolder, String readyFilesFolder, String grade, int totalPageNumbers, String topic,
                                          String h2, String shortTaskNameWorksheet, String longTaskNameWorksheet) throws IOException {
 
-        String realPath = "", realPathPdf = "";
+        String realPath, realPathPdf;
         realPath = General.readyFilesFolderHtml + grade + " " + longTaskNameWorksheet + " Готовая страница с ответами .html";
         realPathPdf = readyFilesFolder + grade + " " + longTaskNameWorksheet + " Готовая страница с ответами для Pdf.html";
 
@@ -3903,7 +3915,7 @@ Final html page
                         + grade + " " + longTaskNameWorksheet + " Pack of " + (totalPageNumbers - 1) + " versions. Answers .html");
                 String h1Tag = "<h1>Mathematics. " + grade + " " + topic + "</h1>\n";
                 String h2Tag = "<h2>" + h2 + "</h2>\n";
-                String otherLines = "";
+                String otherLines;
 
                 BufferedWriter bufferedWriter = new BufferedWriter( new FileWriter(realPath));
                 bufferedWriter.write(h1Tag);
@@ -3944,7 +3956,116 @@ Final html page
 
                 String h1Tag = "<h1>Математика. " + grade + " " + topic + "</h1> \n";
                 String h2Tag = "<h2>" + h2 + "</h2>\n";
-                String otherLines = "";
+                String otherLines;
+
+                BufferedWriter bufferedWriter = new BufferedWriter( new FileWriter(realPath));
+                bufferedWriter.write(h1Tag);
+                bufferedWriter.write(h2Tag);
+                otherLines = "<br /><h4>Дополнительные материалы для свободного скачивания<br /> (Google Drive или Яндекс Диск)</h4> \n";
+                bufferedWriter.write(otherLines);
+                otherLines = "<hr> <br /> <strong>Скачать:</strong> <a href=\"" + General.yandexDisk +"\" title =\"" + grade + " " + topic + " " +
+                        longTaskNameWorksheet + "\">" + longTaskNameWorksheet + "</a> (Формат PDF или JPG) <br /><br /> <hr>\n";
+                bufferedWriter.write(otherLines);
+
+                otherLines = " <br /><br /> " + General.googleAdsBlockRus + " <br /> \n";
+                bufferedWriter.write(otherLines);
+
+                bufferedWriter.close();
+
+                byte[] buffer = new byte[1 << 20];  // loads 1 MB of the file
+                int count1;
+                while ((count1 = in1.read(buffer)) != -1) {
+                    os1.write(buffer, 0, count1);
+                    os1Pdf.write(buffer, 0, count1);
+                    os1.flush();
+                    os1Pdf.flush();
+                }
+                int count2;
+                while ((count2 = in2.read(buffer)) != -1) {
+                    os1.write(buffer, 0, count2);
+                    os1Pdf.write(buffer, 0, count2);
+                    os1.flush();
+                    os1Pdf.flush();
+                }
+            }
+
+            System.out.println(" Завершена тема: " + longTaskNameWorksheet + " Стр. " + pageNumber);
+        os1.close();
+        os1Pdf.close();
+    }
+
+/*
+Final html page. Version 2.
+ */
+    public static void finalHtmlPageSingleTopic2(String workingFolder, String readyFilesFolder, String grade, int totalPageNumbers, String topic,
+                                         String h2, String shortTaskNameWorksheet, String longTaskNameWorksheet,
+                                                String driver, String adsBlock) throws IOException {
+
+        String realPath, realPathPdf;
+        realPath = General.readyFilesFolderHtml + grade + " " + longTaskNameWorksheet + " Готовая страница с ответами .html";
+        realPathPdf = readyFilesFolder + grade + " " + longTaskNameWorksheet + " Готовая страница с ответами для Pdf.html";
+
+        if (grade.contains("&nbsp") || grade.contains("G")) {
+            realPath = General.readyFilesFolderHtml + grade + " " + longTaskNameWorksheet + " Ready page with answers .html";
+            realPathPdf = readyFilesFolder + grade + " " + longTaskNameWorksheet + " Ready page with answers for Pdf.html";
+
+        }
+
+        OutputStream os1 = new FileOutputStream(realPath, true);
+        OutputStream os1Pdf = new FileOutputStream(realPathPdf, true);
+
+        System.out.println("-----------" + grade);
+
+            if (grade.contains("&nbsp") || grade.contains("G")) {
+                InputStream in1 = new FileInputStream(readyFilesFolder
+                        + grade + " " + longTaskNameWorksheet + " Pack of " + (totalPageNumbers - 1) + " versions .html");
+
+                InputStream in2 = new FileInputStream(readyFilesFolder
+                        + grade + " " + longTaskNameWorksheet + " Pack of " + (totalPageNumbers - 1) + " versions. Answers .html");
+                String h1Tag = "<h1>Mathematics. " + grade + " " + topic + "</h1>\n";
+                String h2Tag = "<h2>" + h2 + "</h2>\n";
+                String otherLines;
+
+                BufferedWriter bufferedWriter = new BufferedWriter( new FileWriter(realPath));
+                bufferedWriter.write(h1Tag);
+                bufferedWriter.write(h2Tag);
+                otherLines = "<br /><h4>Additional resources for free download<br /> (Google Drive)</h4> \n";
+                bufferedWriter.write(otherLines);
+                otherLines = "<hr> <br /> <strong>Download:</strong> <a href=\"" + driver + "\" title =\"" + grade + " " + topic + " " +
+                        longTaskNameWorksheet + "\">" + longTaskNameWorksheet + "</a> (PDF or JPG) <br /><br /> <hr> \n";
+
+                bufferedWriter.write(otherLines);
+                otherLines = " <br /><br /> " + adsBlock + " <br /> \n";
+                bufferedWriter.write(otherLines);
+                bufferedWriter.close();
+
+
+                byte[] buffer = new byte[1 << 20];  // loads 1 MB of the file
+                int count1;
+                while ((count1 = in1.read(buffer)) != -1) {
+                    os1.write(buffer, 0, count1);
+                    os1Pdf.write(buffer, 0, count1);
+                    os1.flush();
+                    os1Pdf.flush();
+                }
+
+                int count2;
+                while ((count2 = in2.read(buffer)) != -1) {
+                    os1.write(buffer, 0, count2);
+                    os1Pdf.write(buffer, 0, count2);
+                    os1.flush();
+                    os1Pdf.flush();
+                }
+
+            } else {
+                InputStream in1 = new FileInputStream(readyFilesFolder
+                        + grade + " " + longTaskNameWorksheet + " Сборник из " + (totalPageNumbers - 1) + " вариантов .html");
+                InputStream in2 = new FileInputStream(readyFilesFolder
+                        + grade + " " + longTaskNameWorksheet + " Сборник из " + (totalPageNumbers - 1) + " вариантов. Ответы .html");
+
+                String h1Tag = "<h1>Математика. " + grade + " " + topic + "</h1> \n";
+                String h2Tag = "<h2>" + h2 + "</h2>\n";
+                String otherLines;
 
                 BufferedWriter bufferedWriter = new BufferedWriter( new FileWriter(realPath));
                 bufferedWriter.write(h1Tag);

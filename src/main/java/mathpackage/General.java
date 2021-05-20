@@ -1,12 +1,12 @@
 package mathpackage;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
+import org.apache.pdfbox.multipdf.PDFMergerUtility;
+
+import java.io.*;
+import java.util.*;
 
 /**
- * Class contains all general settings and utils for all classes
+ * Class contains all general settings and methods for all classes
  */
 
 public class General {
@@ -19,10 +19,12 @@ public class General {
     static public String workingFolder = mainRoot + "Temp/";
     static public String readyFilesFolder = mainRoot + "ReadyWorksheets/";
     static public String readyFilesFolderPdf = mainRoot + "Pdf/";
+    static public String finalPdfWorksheets = mainRoot + "FinalPdf/";
     static public String readyFilesFolderHtml = mainRoot + "Html/";
     static public String readyFilesFolderObjects = mainRoot + "SavedObjects/";
     static public String googleDrive = "https://drive.google.com/drive/folders/1qZ8_2nDdjA7_e9EpdQaJTQIqehY4E5s0?usp=sharing";
     static public String yandexDisk = "https://disk.yandex.ru/d/VYRDjGJEYcxGKA?w=1";
+    public static boolean topicIsReady = false;
     static public String googleAdsBlockRus = "<div id=”ad1?>\n" +
             "<script async src=\"https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js\"></script>\n" +
             "<!-- netboard_580x400_1_kl_All -->\n" +
@@ -101,9 +103,8 @@ public class General {
     public static final String[] HUNDREDS = { "сто", "двести", "триста", "четыреста", "пятьсот", "шестьсот", "семьсот", "восемьсот", "деятьсот", "тысяча" };
 */
 
-    public static void main(String[] args) throws IOException {
-        finalRenameFiles("d:/Java_Math/Html/");
-        finalRenameFiles("D:\\Java_Math\\Pdf");
+    public static void main(String[] args) throws Exception {
+        emptyFolder("D:\\Java_Math\\Pdf");
     }
 
     public static double stringEvaluate(final String str) {
@@ -210,6 +211,12 @@ public class General {
 
             for (File file: new File(folder).listFiles()) {
                 if (file.isFile()) file.delete();
+                if (file.isDirectory()) {
+                    for (File subfile: new File(String.valueOf(file)).listFiles()) {
+                        subfile.delete();
+                    }
+                }
+                file.delete();
             }
         }
 
@@ -246,24 +253,6 @@ public class General {
 
     }
 
-    //Convert digits to Words. Numbers up to 100
-/*
-    public static String digitToWord100Rus(int number) {
-
-        if ( number < 20 )
-             return BELOW_TWENTY[number];
-        else if ( number < 100 ) {
-            int high = number / 10;
-            int low = number % 10;
-            String text = TENS[high];
-            if ( low != 0 )
-                text = text + " " + BELOW_TWENTY[low];
-            return text;
-        }
-        else
-            return TENS[0];
-    }
-*/
 
     public static void saveObject(Object worksheetToSave) throws IOException {
         FileOutputStream fos = new FileOutputStream(readyFilesFolderObjects + worksheetToSave.getClass().getName() + ".dat");
@@ -275,5 +264,46 @@ public class General {
         System.out.println("Object = " + worksheetToSave.getClass().getName() + " saved.");
     }
 
+    // Merge Pdf files
+    public static void mergePDF(String folderOfPdfFiles) throws IOException {
+        String mergedFilesName = "", newMergedFilesName = "";
+        PDFMergerUtility mergePdfFiles = new PDFMergerUtility();
+        List<File> listOfPdfFiles = new ArrayList<>();
+        listOfPdfFiles = Arrays.asList(new File(folderOfPdfFiles).listFiles());
+        Collections.sort(listOfPdfFiles);
+
+        for (final File fileEntry : listOfPdfFiles) {
+
+            if(fileEntry.getName().endsWith(".pdf")) {
+                mergePdfFiles.addSource(fileEntry);
+                mergedFilesName = fileEntry.getName();
+            }
+        }
+        if (mergedFilesName.contains("Version")) {
+            newMergedFilesName = mergedFilesName.replaceFirst("Version.{2,20}", "");
+            mergePdfFiles.setDestinationFileName(folderOfPdfFiles + newMergedFilesName + "Final.pdf");
+            mergePdfFiles.mergeDocuments();
+
+        }
+        if (mergedFilesName.contains("Вариант")) {
+            newMergedFilesName = mergedFilesName.replaceFirst("Вариант.{2,20}", "");
+            mergePdfFiles.setDestinationFileName(folderOfPdfFiles + newMergedFilesName + "Полная версия.pdf");
+            mergePdfFiles.mergeDocuments();
+
+        }
+
+    }
+
+    //Transfer ready Pdf files from ReadyPdf folder to Google and Yandex drivers
+//    public static void transferPdfToDisks() {
+//        File fileMetadata = new File();
+//        fileMetadata.setName("photo.jpg");
+//        java.io.File filePath = new java.io.File("files/photo.jpg");
+//        FileContent mediaContent = new FileContent("image/jpeg", filePath);
+//        File file = driveService.files().create(fileMetadata, mediaContent)
+//                .setFields("id")
+//                .execute();
+//        System.out.println("File ID: " + file.getId());
+//    }
 
 }

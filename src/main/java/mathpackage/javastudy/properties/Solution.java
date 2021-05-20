@@ -1,5 +1,11 @@
 package mathpackage.javastudy.properties;
 
+//import com.itextpdf.html2pdf.HtmlConverter;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.pdf.PdfWriter;
+import com.itextpdf.tool.xml.XMLWorkerHelper;
+
 import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
@@ -11,25 +17,16 @@ import java.util.Properties;
 
 public class Solution {
 
-    public static Map<String, String> runtimeStorage = new HashMap<>();
+    public static String htmlFiles = "d:/Java_Math/Pdf/Add two-digit numbers. Version 1.html";
+    public static String pdfFiles = "d:/Java_Math/Pdf/Add two-digit numbers. Version 1.pdf";
 
-    public static void save(OutputStream outputStream) throws Exception {
-        //напишите тут ваш код
-    }
+    public static void main(String[] args) throws IOException, DocumentException {
 
-    public static void load(InputStream inputStream) throws IOException {
-        //напишите тут ваш код
-    }
-
-    public static void main(String[] args) {
-        try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-             FileInputStream fos = new FileInputStream(reader.readLine())) {
-            load(fos);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        System.out.println(runtimeStorage);
+        Document document = new Document();
+        PdfWriter writer = PdfWriter.getInstance(document,
+                new FileOutputStream(pdfFiles));
+        document.open();
+        XMLWorkerHelper.getInstance().parseXHtml(writer, document, new FileInputStream(htmlFiles));
+        document.close();
     }
 }
-

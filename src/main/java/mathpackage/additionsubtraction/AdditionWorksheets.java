@@ -1,6 +1,5 @@
 package mathpackage.additionsubtraction;
 
-import mathpackage.General;
 import mathpackage.WorksheetTemplate;
 
 import java.io.*;
@@ -10,12 +9,36 @@ import static mathpackage.General.workingFolder;
 import static mathpackage.Matrix.*;
 
 /**
- * Class generating addition worksheets. Part 1
- * Author: Grigorii Andreev
+ * Class generating addition worksheets. Part 1, addition in line
+ * @ Grigorii Andreev
  * Date: 05 January 2021
  */
 
 public class AdditionWorksheets extends WorksheetTemplate implements Serializable{
+
+    static public String diskRus = "https://disk.yandex.ru/d/IrYNy1rdUnTPgg";
+    static public String diskEng = "https://drive.google.com/drive/folders/1bCcQcAeggiH28hnMduHXIrXrWdZ5NTNl?usp=sharing";
+    static public String adsBlockRus = "<div id=”ad1?>\n" +
+            "<script async src=\"https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js\"></script>\n" +
+            "<!-- netboard_580x400_1_kl_All -->\n" +
+            "<ins class=\"adsbygoogle\"\n" +
+            "     style=\"display:block\"\n" +
+            "     data-ad-client=\"ca-pub-3061518079340402\"\n" +
+            "     data-ad-slot=\"4709942115\"\n" +
+            "     data-ad-format=\"auto\"\n" +
+            "     data-full-width-responsive=\"true\"></ins>\n" +
+            "<script>\n" +
+            "     (adsbygoogle = window.adsbygoogle || []).push({});\n" +
+            "</script>\n" +
+            "</div>";
+
+    static public String adsBlockEng = "<script async src=\"//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js\"></script>\n" +
+            "<script>\n" +
+            "     (adsbygoogle = window.adsbygoogle || []).push({\n" +
+            "          google_ad_client: \"ca-pub-3061518079340402\",\n" +
+            "          enable_page_level_ads: true\n" +
+            "     });\n" +
+            "</script>";
 
     public AdditionWorksheets(
             String gradeRus,
@@ -54,7 +77,7 @@ public class AdditionWorksheets extends WorksheetTemplate implements Serializabl
 
         ArrayList<AdditionWorksheets> additionWorksheets = new ArrayList<>();
 
-        General.emptyAllFolders();
+        emptyAllFolders();
 
         //All topics for primary school. Addition in line
         additionWorksheets.add( new AdditionWorksheets(
@@ -80,16 +103,17 @@ public class AdditionWorksheets extends WorksheetTemplate implements Serializabl
                 additionWorksheets.get(0).numbersRangeStart, additionWorksheets.get(0).numbersRangeEnd, 13, 5);
         bottomWorksheet(workingFolder, additionWorksheets.get(0).gradeRus, additionWorksheets.get(0).totalPageOfWorksheets,
                 additionWorksheets.get(0).shortProblemDescriptionRus, additionWorksheets.get(0).longProblemDescriptionRus);
-        fullWorksheet(workingFolder, General.readyFilesFolder, additionWorksheets.get(0).gradeRus, additionWorksheets.get(0).totalPageOfWorksheets,
+        fullWorksheet(workingFolder, readyFilesFolder, additionWorksheets.get(0).gradeRus, additionWorksheets.get(0).totalPageOfWorksheets,
                 additionWorksheets.get(0).shortProblemDescriptionRus, additionWorksheets.get(0).longProblemDescriptionRus);
-        fullWorksheetPdf(workingFolder, General.readyFilesFolderPdf, additionWorksheets.get(0).gradeRus, additionWorksheets.get(0).totalPageOfWorksheets,
+        fullWorksheetPdf(workingFolder, readyFilesFolderPdf, additionWorksheets.get(0).gradeRus, additionWorksheets.get(0).totalPageOfWorksheets,
                 additionWorksheets.get(0).shortProblemDescriptionRus, additionWorksheets.get(0).longProblemDescriptionRus);
-        fullWorksheetHtmlAnswer(workingFolder, General.readyFilesFolder, additionWorksheets.get(0).gradeRus, additionWorksheets.get(0).totalPageOfWorksheets,
+        fullWorksheetHtmlAnswer(workingFolder, readyFilesFolder, additionWorksheets.get(0).gradeRus, additionWorksheets.get(0).totalPageOfWorksheets,
                 additionWorksheets.get(0).shortProblemDescriptionRus, additionWorksheets.get(0).longProblemDescriptionRus);
-        allSameWorksheets(workingFolder, General.readyFilesFolder, additionWorksheets.get(0).gradeRus, additionWorksheets.get(0).totalPageOfWorksheets,
+        allSameWorksheets(workingFolder, readyFilesFolder, additionWorksheets.get(0).gradeRus, additionWorksheets.get(0).totalPageOfWorksheets,
                 additionWorksheets.get(0).shortProblemDescriptionRus, additionWorksheets.get(0).longProblemDescriptionRus);
-        finalHtmlPageSingleTopic(workingFolder, General.readyFilesFolder, additionWorksheets.get(0).gradeRus, additionWorksheets.get(0).totalPageOfWorksheets, additionWorksheets.get(0).topicRus,
-                additionWorksheets.get(0).h2Rus, additionWorksheets.get(0).shortProblemDescriptionRus, additionWorksheets.get(0).longProblemDescriptionRus);
+        finalHtmlPageSingleTopic2(workingFolder, readyFilesFolder, additionWorksheets.get(0).gradeRus, additionWorksheets.get(0).totalPageOfWorksheets,
+                additionWorksheets.get(0).topicRus, additionWorksheets.get(0).h2Rus, additionWorksheets.get(0).shortProblemDescriptionRus,
+                additionWorksheets.get(0).longProblemDescriptionRus, diskRus, adsBlockRus);
 
         topWorksheet(workingFolder, additionWorksheets.get(0).gradeEng, additionWorksheets.get(0).totalPageOfWorksheets,
                 additionWorksheets.get(0).shortProblemDescriptionEng, additionWorksheets.get(0).longProblemDescriptionEng );
@@ -102,19 +126,17 @@ public class AdditionWorksheets extends WorksheetTemplate implements Serializabl
                 additionWorksheets.get(0).numbersRangeStart, additionWorksheets.get(0).numbersRangeEnd, 13, 5);
         bottomWorksheet(workingFolder, additionWorksheets.get(0).gradeEng, additionWorksheets.get(0).totalPageOfWorksheets,
                 additionWorksheets.get(0).shortProblemDescriptionEng, additionWorksheets.get(0).longProblemDescriptionEng);
-        fullWorksheet(workingFolder, General.readyFilesFolder, additionWorksheets.get(0).gradeEng, additionWorksheets.get(0).totalPageOfWorksheets,
+        fullWorksheet(workingFolder, readyFilesFolder, additionWorksheets.get(0).gradeEng, additionWorksheets.get(0).totalPageOfWorksheets,
                 additionWorksheets.get(0).shortProblemDescriptionEng, additionWorksheets.get(0).longProblemDescriptionEng);
-        fullWorksheetPdf(workingFolder, General.readyFilesFolderPdf, additionWorksheets.get(0).gradeEng, additionWorksheets.get(0).totalPageOfWorksheets,
+        fullWorksheetPdf(workingFolder, readyFilesFolderPdf, additionWorksheets.get(0).gradeEng, additionWorksheets.get(0).totalPageOfWorksheets,
                 additionWorksheets.get(0).shortProblemDescriptionEng, additionWorksheets.get(0).longProblemDescriptionEng);
-        fullWorksheetHtmlAnswer(workingFolder, General.readyFilesFolder, additionWorksheets.get(0).gradeEng, additionWorksheets.get(0).totalPageOfWorksheets,
+        fullWorksheetHtmlAnswer(workingFolder, readyFilesFolder, additionWorksheets.get(0).gradeEng, additionWorksheets.get(0).totalPageOfWorksheets,
                 additionWorksheets.get(0).shortProblemDescriptionEng, additionWorksheets.get(0).longProblemDescriptionEng);
-        allSameWorksheets(workingFolder, General.readyFilesFolder, additionWorksheets.get(0).gradeEng, additionWorksheets.get(0).totalPageOfWorksheets,
+        allSameWorksheets(workingFolder, readyFilesFolder, additionWorksheets.get(0).gradeEng, additionWorksheets.get(0).totalPageOfWorksheets,
                 additionWorksheets.get(0).shortProblemDescriptionEng, additionWorksheets.get(0).longProblemDescriptionEng);
-        finalHtmlPageSingleTopic(workingFolder, General.readyFilesFolder, additionWorksheets.get(0).gradeEng, additionWorksheets.get(0).totalPageOfWorksheets, additionWorksheets.get(0).topicEng,
-                additionWorksheets.get(0).h2Eng, additionWorksheets.get(0).shortProblemDescriptionEng, additionWorksheets.get(0).longProblemDescriptionEng);
-
-
-
+        finalHtmlPageSingleTopic2(workingFolder, readyFilesFolder, additionWorksheets.get(0).gradeEng, additionWorksheets.get(0).totalPageOfWorksheets,
+                additionWorksheets.get(0).topicEng, additionWorksheets.get(0).h2Eng, additionWorksheets.get(0).shortProblemDescriptionEng,
+                additionWorksheets.get(0).longProblemDescriptionEng, diskEng, adsBlockEng);
         additionWorksheets.add( new AdditionWorksheets(
                 "&thinsp;", "&nbsp;",
                 "Сложение. Сложение чисел до 20.","Addition. Addition numbers up to 20.",
@@ -127,8 +149,6 @@ public class AdditionWorksheets extends WorksheetTemplate implements Serializabl
                 "Add numbers up to 20.",
                 0, 20, 11));
 
-
-
         topWorksheet(workingFolder, additionWorksheets.get(1).gradeRus, additionWorksheets.get(1).totalPageOfWorksheets,
                 additionWorksheets.get(1).shortProblemDescriptionRus, additionWorksheets.get(1).longProblemDescriptionRus );
         topWorksheetPdf(workingFolder, additionWorksheets.get(1).gradeRus, additionWorksheets.get(1).totalPageOfWorksheets,
@@ -140,16 +160,16 @@ public class AdditionWorksheets extends WorksheetTemplate implements Serializabl
                 additionWorksheets.get(1).numbersRangeStart, additionWorksheets.get(1).numbersRangeEnd, 13, 5);
         bottomWorksheet(workingFolder, additionWorksheets.get(1).gradeRus, additionWorksheets.get(1).totalPageOfWorksheets,
                 additionWorksheets.get(1).shortProblemDescriptionRus, additionWorksheets.get(1).longProblemDescriptionRus);
-        fullWorksheet(workingFolder, General.readyFilesFolder, additionWorksheets.get(1).gradeRus, additionWorksheets.get(1).totalPageOfWorksheets,
+        fullWorksheet(workingFolder, readyFilesFolder, additionWorksheets.get(1).gradeRus, additionWorksheets.get(1).totalPageOfWorksheets,
                 additionWorksheets.get(1).shortProblemDescriptionRus, additionWorksheets.get(1).longProblemDescriptionRus);
-        fullWorksheetPdf(workingFolder, General.readyFilesFolderPdf, additionWorksheets.get(1).gradeRus, additionWorksheets.get(1).totalPageOfWorksheets,
+        fullWorksheetPdf(workingFolder, readyFilesFolderPdf, additionWorksheets.get(1).gradeRus, additionWorksheets.get(1).totalPageOfWorksheets,
                 additionWorksheets.get(1).shortProblemDescriptionRus, additionWorksheets.get(1).longProblemDescriptionRus);
-        fullWorksheetHtmlAnswer(workingFolder, General.readyFilesFolder, additionWorksheets.get(1).gradeRus, additionWorksheets.get(1).totalPageOfWorksheets,
+        fullWorksheetHtmlAnswer(workingFolder, readyFilesFolder, additionWorksheets.get(1).gradeRus, additionWorksheets.get(1).totalPageOfWorksheets,
                 additionWorksheets.get(1).shortProblemDescriptionRus, additionWorksheets.get(1).longProblemDescriptionRus);
-        allSameWorksheets(workingFolder, General.readyFilesFolder, additionWorksheets.get(1).gradeRus, additionWorksheets.get(1).totalPageOfWorksheets,
+        allSameWorksheets(workingFolder, readyFilesFolder, additionWorksheets.get(1).gradeRus, additionWorksheets.get(1).totalPageOfWorksheets,
                 additionWorksheets.get(1).shortProblemDescriptionRus, additionWorksheets.get(1).longProblemDescriptionRus);
-        finalHtmlPageSingleTopic(workingFolder, General.readyFilesFolder, additionWorksheets.get(1).gradeRus, additionWorksheets.get(1).totalPageOfWorksheets, additionWorksheets.get(1).topicRus,
-                additionWorksheets.get(1).h2Rus, additionWorksheets.get(1).shortProblemDescriptionRus, additionWorksheets.get(1).longProblemDescriptionRus);
+        finalHtmlPageSingleTopic2(workingFolder, readyFilesFolder, additionWorksheets.get(1).gradeRus, additionWorksheets.get(1).totalPageOfWorksheets, additionWorksheets.get(1).topicRus,
+                additionWorksheets.get(1).h2Rus, additionWorksheets.get(1).shortProblemDescriptionRus, additionWorksheets.get(1).longProblemDescriptionRus, diskRus, adsBlockRus);
 
         topWorksheet(workingFolder, additionWorksheets.get(1).gradeEng, additionWorksheets.get(1).totalPageOfWorksheets,
                 additionWorksheets.get(1).shortProblemDescriptionEng, additionWorksheets.get(1).longProblemDescriptionEng );
@@ -162,16 +182,16 @@ public class AdditionWorksheets extends WorksheetTemplate implements Serializabl
                 additionWorksheets.get(1).numbersRangeStart, additionWorksheets.get(1).numbersRangeEnd, 13, 5);
         bottomWorksheet(workingFolder, additionWorksheets.get(1).gradeEng, additionWorksheets.get(1).totalPageOfWorksheets,
                 additionWorksheets.get(1).shortProblemDescriptionEng, additionWorksheets.get(1).longProblemDescriptionEng);
-        fullWorksheet(workingFolder, General.readyFilesFolder, additionWorksheets.get(1).gradeEng, additionWorksheets.get(1).totalPageOfWorksheets,
+        fullWorksheet(workingFolder, readyFilesFolder, additionWorksheets.get(1).gradeEng, additionWorksheets.get(1).totalPageOfWorksheets,
                 additionWorksheets.get(1).shortProblemDescriptionEng, additionWorksheets.get(1).longProblemDescriptionEng);
-        fullWorksheetPdf(workingFolder, General.readyFilesFolderPdf, additionWorksheets.get(1).gradeEng, additionWorksheets.get(1).totalPageOfWorksheets,
+        fullWorksheetPdf(workingFolder, readyFilesFolderPdf, additionWorksheets.get(1).gradeEng, additionWorksheets.get(1).totalPageOfWorksheets,
                 additionWorksheets.get(1).shortProblemDescriptionEng, additionWorksheets.get(1).longProblemDescriptionEng);
-        fullWorksheetHtmlAnswer(workingFolder, General.readyFilesFolder, additionWorksheets.get(1).gradeEng, additionWorksheets.get(1).totalPageOfWorksheets,
+        fullWorksheetHtmlAnswer(workingFolder, readyFilesFolder, additionWorksheets.get(1).gradeEng, additionWorksheets.get(1).totalPageOfWorksheets,
                 additionWorksheets.get(1).shortProblemDescriptionEng, additionWorksheets.get(1).longProblemDescriptionEng);
-        allSameWorksheets(workingFolder, General.readyFilesFolder, additionWorksheets.get(1).gradeEng, additionWorksheets.get(1).totalPageOfWorksheets,
+        allSameWorksheets(workingFolder, readyFilesFolder, additionWorksheets.get(1).gradeEng, additionWorksheets.get(1).totalPageOfWorksheets,
                 additionWorksheets.get(1).shortProblemDescriptionEng, additionWorksheets.get(1).longProblemDescriptionEng);
-        finalHtmlPageSingleTopic(workingFolder, General.readyFilesFolder, additionWorksheets.get(1).gradeEng, additionWorksheets.get(1).totalPageOfWorksheets, additionWorksheets.get(1).topicEng,
-                additionWorksheets.get(1).h2Eng, additionWorksheets.get(1).shortProblemDescriptionEng, additionWorksheets.get(1).longProblemDescriptionEng);
+        finalHtmlPageSingleTopic2(workingFolder, readyFilesFolder, additionWorksheets.get(1).gradeEng, additionWorksheets.get(1).totalPageOfWorksheets, additionWorksheets.get(1).topicEng,
+                additionWorksheets.get(1).h2Eng, additionWorksheets.get(1).shortProblemDescriptionEng, additionWorksheets.get(1).longProblemDescriptionEng, diskEng, adsBlockEng);
 
         additionWorksheets.add( new AdditionWorksheets(
                 "&thinsp;", "&nbsp;",
@@ -185,7 +205,6 @@ public class AdditionWorksheets extends WorksheetTemplate implements Serializabl
                 "Add two-digit numbers.",
                 10, 99, 11));
 
-
         topWorksheet(workingFolder, additionWorksheets.get(2).gradeRus, additionWorksheets.get(2).totalPageOfWorksheets,
                 additionWorksheets.get(2).shortProblemDescriptionRus, additionWorksheets.get(2).longProblemDescriptionRus );
         topWorksheetPdf(workingFolder, additionWorksheets.get(2).gradeRus, additionWorksheets.get(2).totalPageOfWorksheets,
@@ -197,16 +216,16 @@ public class AdditionWorksheets extends WorksheetTemplate implements Serializabl
                 additionWorksheets.get(2).numbersRangeStart, additionWorksheets.get(2).numbersRangeEnd, 13, 5);
         bottomWorksheet(workingFolder, additionWorksheets.get(2).gradeRus, additionWorksheets.get(2).totalPageOfWorksheets,
                 additionWorksheets.get(2).shortProblemDescriptionRus, additionWorksheets.get(2).longProblemDescriptionRus);
-        fullWorksheet(workingFolder, General.readyFilesFolder, additionWorksheets.get(2).gradeRus, additionWorksheets.get(2).totalPageOfWorksheets,
+        fullWorksheet(workingFolder, readyFilesFolder, additionWorksheets.get(2).gradeRus, additionWorksheets.get(2).totalPageOfWorksheets,
                 additionWorksheets.get(2).shortProblemDescriptionRus, additionWorksheets.get(2).longProblemDescriptionRus);
-        fullWorksheetPdf(workingFolder, General.readyFilesFolderPdf, additionWorksheets.get(2).gradeRus, additionWorksheets.get(2).totalPageOfWorksheets,
+        fullWorksheetPdf(workingFolder, readyFilesFolderPdf, additionWorksheets.get(2).gradeRus, additionWorksheets.get(2).totalPageOfWorksheets,
                 additionWorksheets.get(2).shortProblemDescriptionRus, additionWorksheets.get(2).longProblemDescriptionRus);
-        fullWorksheetHtmlAnswer(workingFolder, General.readyFilesFolder, additionWorksheets.get(2).gradeRus, additionWorksheets.get(2).totalPageOfWorksheets,
+        fullWorksheetHtmlAnswer(workingFolder, readyFilesFolder, additionWorksheets.get(2).gradeRus, additionWorksheets.get(2).totalPageOfWorksheets,
                 additionWorksheets.get(2).shortProblemDescriptionRus, additionWorksheets.get(2).longProblemDescriptionRus);
-        allSameWorksheets(workingFolder, General.readyFilesFolder, additionWorksheets.get(2).gradeRus, additionWorksheets.get(2).totalPageOfWorksheets,
+        allSameWorksheets(workingFolder, readyFilesFolder, additionWorksheets.get(2).gradeRus, additionWorksheets.get(2).totalPageOfWorksheets,
                 additionWorksheets.get(2).shortProblemDescriptionRus, additionWorksheets.get(2).longProblemDescriptionRus);
-        finalHtmlPageSingleTopic(workingFolder, General.readyFilesFolder, additionWorksheets.get(2).gradeRus, additionWorksheets.get(2).totalPageOfWorksheets, additionWorksheets.get(2).topicRus,
-                additionWorksheets.get(2).h2Rus, additionWorksheets.get(2).shortProblemDescriptionRus, additionWorksheets.get(2).longProblemDescriptionRus);
+        finalHtmlPageSingleTopic2(workingFolder, readyFilesFolder, additionWorksheets.get(2).gradeRus, additionWorksheets.get(2).totalPageOfWorksheets, additionWorksheets.get(2).topicRus,
+                additionWorksheets.get(2).h2Rus, additionWorksheets.get(2).shortProblemDescriptionRus, additionWorksheets.get(2).longProblemDescriptionRus, diskRus, adsBlockRus);
 
         topWorksheet(workingFolder, additionWorksheets.get(2).gradeEng, additionWorksheets.get(2).totalPageOfWorksheets,
                 additionWorksheets.get(2).shortProblemDescriptionEng, additionWorksheets.get(2).longProblemDescriptionEng );
@@ -219,16 +238,16 @@ public class AdditionWorksheets extends WorksheetTemplate implements Serializabl
                 additionWorksheets.get(2).numbersRangeStart, additionWorksheets.get(2).numbersRangeEnd, 13, 5);
         bottomWorksheet(workingFolder, additionWorksheets.get(2).gradeEng, additionWorksheets.get(2).totalPageOfWorksheets,
                 additionWorksheets.get(2).shortProblemDescriptionEng, additionWorksheets.get(2).longProblemDescriptionEng);
-        fullWorksheet(workingFolder, General.readyFilesFolder, additionWorksheets.get(2).gradeEng, additionWorksheets.get(2).totalPageOfWorksheets,
+        fullWorksheet(workingFolder, readyFilesFolder, additionWorksheets.get(2).gradeEng, additionWorksheets.get(2).totalPageOfWorksheets,
                 additionWorksheets.get(2).shortProblemDescriptionEng, additionWorksheets.get(2).longProblemDescriptionEng);
-        fullWorksheetPdf(workingFolder, General.readyFilesFolderPdf, additionWorksheets.get(2).gradeEng, additionWorksheets.get(2).totalPageOfWorksheets,
+        fullWorksheetPdf(workingFolder, readyFilesFolderPdf, additionWorksheets.get(2).gradeEng, additionWorksheets.get(2).totalPageOfWorksheets,
                 additionWorksheets.get(2).shortProblemDescriptionEng, additionWorksheets.get(2).longProblemDescriptionEng);
-        fullWorksheetHtmlAnswer(workingFolder, General.readyFilesFolder, additionWorksheets.get(2).gradeEng, additionWorksheets.get(2).totalPageOfWorksheets,
+        fullWorksheetHtmlAnswer(workingFolder, readyFilesFolder, additionWorksheets.get(2).gradeEng, additionWorksheets.get(2).totalPageOfWorksheets,
                 additionWorksheets.get(2).shortProblemDescriptionEng, additionWorksheets.get(2).longProblemDescriptionEng);
-        allSameWorksheets(workingFolder, General.readyFilesFolder, additionWorksheets.get(2).gradeEng, additionWorksheets.get(2).totalPageOfWorksheets,
+        allSameWorksheets(workingFolder, readyFilesFolder, additionWorksheets.get(2).gradeEng, additionWorksheets.get(2).totalPageOfWorksheets,
                 additionWorksheets.get(2).shortProblemDescriptionEng, additionWorksheets.get(2).longProblemDescriptionEng);
-        finalHtmlPageSingleTopic(workingFolder, General.readyFilesFolder, additionWorksheets.get(2).gradeEng, additionWorksheets.get(2).totalPageOfWorksheets, additionWorksheets.get(2).topicEng,
-                additionWorksheets.get(2).h2Eng, additionWorksheets.get(2).shortProblemDescriptionEng, additionWorksheets.get(2).longProblemDescriptionEng);
+        finalHtmlPageSingleTopic2(workingFolder, readyFilesFolder, additionWorksheets.get(2).gradeEng, additionWorksheets.get(2).totalPageOfWorksheets, additionWorksheets.get(2).topicEng,
+                additionWorksheets.get(2).h2Eng, additionWorksheets.get(2).shortProblemDescriptionEng, additionWorksheets.get(2).longProblemDescriptionEng, diskEng, adsBlockEng);
 
         additionWorksheets.add( new AdditionWorksheets(
                 "&thinsp;", "&nbsp;",
@@ -253,16 +272,16 @@ public class AdditionWorksheets extends WorksheetTemplate implements Serializabl
                 additionWorksheets.get(3).numbersRangeStart, additionWorksheets.get(3).numbersRangeEnd, 13, 5);
         bottomWorksheet(workingFolder, additionWorksheets.get(3).gradeRus, additionWorksheets.get(3).totalPageOfWorksheets,
                 additionWorksheets.get(3).shortProblemDescriptionRus, additionWorksheets.get(3).longProblemDescriptionRus);
-        fullWorksheet(workingFolder, General.readyFilesFolder, additionWorksheets.get(3).gradeRus, additionWorksheets.get(3).totalPageOfWorksheets,
+        fullWorksheet(workingFolder, readyFilesFolder, additionWorksheets.get(3).gradeRus, additionWorksheets.get(3).totalPageOfWorksheets,
                 additionWorksheets.get(3).shortProblemDescriptionRus, additionWorksheets.get(3).longProblemDescriptionRus);
-        fullWorksheetPdf(workingFolder, General.readyFilesFolderPdf, additionWorksheets.get(3).gradeRus, additionWorksheets.get(3).totalPageOfWorksheets,
+        fullWorksheetPdf(workingFolder, readyFilesFolderPdf, additionWorksheets.get(3).gradeRus, additionWorksheets.get(3).totalPageOfWorksheets,
                 additionWorksheets.get(3).shortProblemDescriptionRus, additionWorksheets.get(3).longProblemDescriptionRus);
-        fullWorksheetHtmlAnswer(workingFolder, General.readyFilesFolder, additionWorksheets.get(3).gradeRus, additionWorksheets.get(3).totalPageOfWorksheets,
+        fullWorksheetHtmlAnswer(workingFolder, readyFilesFolder, additionWorksheets.get(3).gradeRus, additionWorksheets.get(3).totalPageOfWorksheets,
                 additionWorksheets.get(3).shortProblemDescriptionRus, additionWorksheets.get(3).longProblemDescriptionRus);
-        allSameWorksheets(workingFolder, General.readyFilesFolder, additionWorksheets.get(3).gradeRus, additionWorksheets.get(3).totalPageOfWorksheets,
+        allSameWorksheets(workingFolder, readyFilesFolder, additionWorksheets.get(3).gradeRus, additionWorksheets.get(3).totalPageOfWorksheets,
                 additionWorksheets.get(3).shortProblemDescriptionRus, additionWorksheets.get(3).longProblemDescriptionRus);
-        finalHtmlPageSingleTopic(workingFolder, General.readyFilesFolder, additionWorksheets.get(3).gradeRus, additionWorksheets.get(3).totalPageOfWorksheets, additionWorksheets.get(3).topicRus,
-                additionWorksheets.get(3).h2Rus, additionWorksheets.get(3).shortProblemDescriptionRus, additionWorksheets.get(3).longProblemDescriptionRus);
+        finalHtmlPageSingleTopic2(workingFolder, readyFilesFolder, additionWorksheets.get(3).gradeRus, additionWorksheets.get(3).totalPageOfWorksheets, additionWorksheets.get(3).topicRus,
+                additionWorksheets.get(3).h2Rus, additionWorksheets.get(3).shortProblemDescriptionRus, additionWorksheets.get(3).longProblemDescriptionRus, diskRus, adsBlockRus);
 
         topWorksheet(workingFolder, additionWorksheets.get(3).gradeEng, additionWorksheets.get(3).totalPageOfWorksheets,
                 additionWorksheets.get(3).shortProblemDescriptionEng, additionWorksheets.get(3).longProblemDescriptionEng );
@@ -275,18 +294,16 @@ public class AdditionWorksheets extends WorksheetTemplate implements Serializabl
                 additionWorksheets.get(3).numbersRangeStart, additionWorksheets.get(3).numbersRangeEnd, 13, 5);
         bottomWorksheet(workingFolder, additionWorksheets.get(3).gradeEng, additionWorksheets.get(3).totalPageOfWorksheets,
                 additionWorksheets.get(3).shortProblemDescriptionEng, additionWorksheets.get(3).longProblemDescriptionEng);
-        fullWorksheet(workingFolder, General.readyFilesFolder, additionWorksheets.get(3).gradeEng, additionWorksheets.get(3).totalPageOfWorksheets,
+        fullWorksheet(workingFolder, readyFilesFolder, additionWorksheets.get(3).gradeEng, additionWorksheets.get(3).totalPageOfWorksheets,
                 additionWorksheets.get(3).shortProblemDescriptionEng, additionWorksheets.get(3).longProblemDescriptionEng);
-        fullWorksheetPdf(workingFolder, General.readyFilesFolderPdf, additionWorksheets.get(3).gradeEng, additionWorksheets.get(3).totalPageOfWorksheets,
+        fullWorksheetPdf(workingFolder, readyFilesFolderPdf, additionWorksheets.get(3).gradeEng, additionWorksheets.get(3).totalPageOfWorksheets,
                 additionWorksheets.get(3).shortProblemDescriptionEng, additionWorksheets.get(3).longProblemDescriptionEng);
-        fullWorksheetHtmlAnswer(workingFolder, General.readyFilesFolder, additionWorksheets.get(3).gradeEng, additionWorksheets.get(3).totalPageOfWorksheets,
+        fullWorksheetHtmlAnswer(workingFolder, readyFilesFolder, additionWorksheets.get(3).gradeEng, additionWorksheets.get(3).totalPageOfWorksheets,
                 additionWorksheets.get(3).shortProblemDescriptionEng, additionWorksheets.get(3).longProblemDescriptionEng);
-        allSameWorksheets(workingFolder, General.readyFilesFolder, additionWorksheets.get(3).gradeEng, additionWorksheets.get(3).totalPageOfWorksheets,
+        allSameWorksheets(workingFolder, readyFilesFolder, additionWorksheets.get(3).gradeEng, additionWorksheets.get(3).totalPageOfWorksheets,
                 additionWorksheets.get(3).shortProblemDescriptionEng, additionWorksheets.get(3).longProblemDescriptionEng);
-        finalHtmlPageSingleTopic(workingFolder, General.readyFilesFolder, additionWorksheets.get(3).gradeEng, additionWorksheets.get(3).totalPageOfWorksheets, additionWorksheets.get(3).topicEng,
-                additionWorksheets.get(3).h2Eng, additionWorksheets.get(3).shortProblemDescriptionEng, additionWorksheets.get(3).longProblemDescriptionEng);
-
-
+        finalHtmlPageSingleTopic2(workingFolder, readyFilesFolder, additionWorksheets.get(3).gradeEng, additionWorksheets.get(3).totalPageOfWorksheets, additionWorksheets.get(3).topicEng,
+                additionWorksheets.get(3).h2Eng, additionWorksheets.get(3).shortProblemDescriptionEng, additionWorksheets.get(3).longProblemDescriptionEng, diskEng, adsBlockEng);
 
         additionWorksheets.add( new AdditionWorksheets(
                 "&thinsp;", "&nbsp;",
@@ -311,16 +328,16 @@ public class AdditionWorksheets extends WorksheetTemplate implements Serializabl
                 additionWorksheets.get(4).numbersRangeStart, additionWorksheets.get(4).numbersRangeEnd, 13, 5);
         bottomWorksheet(workingFolder, additionWorksheets.get(4).gradeRus, additionWorksheets.get(4).totalPageOfWorksheets,
                 additionWorksheets.get(4).shortProblemDescriptionRus, additionWorksheets.get(4).longProblemDescriptionRus);
-        fullWorksheet(workingFolder, General.readyFilesFolder, additionWorksheets.get(4).gradeRus, additionWorksheets.get(4).totalPageOfWorksheets,
+        fullWorksheet(workingFolder, readyFilesFolder, additionWorksheets.get(4).gradeRus, additionWorksheets.get(4).totalPageOfWorksheets,
                 additionWorksheets.get(4).shortProblemDescriptionRus, additionWorksheets.get(4).longProblemDescriptionRus);
-        fullWorksheetPdf(workingFolder, General.readyFilesFolderPdf, additionWorksheets.get(4).gradeRus, additionWorksheets.get(4).totalPageOfWorksheets,
+        fullWorksheetPdf(workingFolder, readyFilesFolderPdf, additionWorksheets.get(4).gradeRus, additionWorksheets.get(4).totalPageOfWorksheets,
                 additionWorksheets.get(4).shortProblemDescriptionRus, additionWorksheets.get(4).longProblemDescriptionRus);
-        fullWorksheetHtmlAnswer(workingFolder, General.readyFilesFolder, additionWorksheets.get(4).gradeRus, additionWorksheets.get(4).totalPageOfWorksheets,
+        fullWorksheetHtmlAnswer(workingFolder, readyFilesFolder, additionWorksheets.get(4).gradeRus, additionWorksheets.get(4).totalPageOfWorksheets,
                 additionWorksheets.get(4).shortProblemDescriptionRus, additionWorksheets.get(4).longProblemDescriptionRus);
-        allSameWorksheets(workingFolder, General.readyFilesFolder, additionWorksheets.get(4).gradeRus, additionWorksheets.get(4).totalPageOfWorksheets,
+        allSameWorksheets(workingFolder, readyFilesFolder, additionWorksheets.get(4).gradeRus, additionWorksheets.get(4).totalPageOfWorksheets,
                 additionWorksheets.get(4).shortProblemDescriptionRus, additionWorksheets.get(4).longProblemDescriptionRus);
-        finalHtmlPageSingleTopic(workingFolder, General.readyFilesFolder, additionWorksheets.get(4).gradeRus, additionWorksheets.get(4).totalPageOfWorksheets, additionWorksheets.get(4).topicRus,
-                additionWorksheets.get(4).h2Rus, additionWorksheets.get(4).shortProblemDescriptionRus, additionWorksheets.get(4).longProblemDescriptionRus);
+        finalHtmlPageSingleTopic2(workingFolder, readyFilesFolder, additionWorksheets.get(4).gradeRus, additionWorksheets.get(4).totalPageOfWorksheets, additionWorksheets.get(4).topicRus,
+                additionWorksheets.get(4).h2Rus, additionWorksheets.get(4).shortProblemDescriptionRus, additionWorksheets.get(4).longProblemDescriptionRus, diskEng, adsBlockEng);
 
         topWorksheet(workingFolder, additionWorksheets.get(4).gradeEng, additionWorksheets.get(4).totalPageOfWorksheets,
                 additionWorksheets.get(4).shortProblemDescriptionEng, additionWorksheets.get(4).longProblemDescriptionEng );
@@ -333,16 +350,16 @@ public class AdditionWorksheets extends WorksheetTemplate implements Serializabl
                 additionWorksheets.get(4).numbersRangeStart, additionWorksheets.get(4).numbersRangeEnd, 13, 5);
         bottomWorksheet(workingFolder, additionWorksheets.get(4).gradeEng, additionWorksheets.get(4).totalPageOfWorksheets,
                 additionWorksheets.get(4).shortProblemDescriptionEng, additionWorksheets.get(4).longProblemDescriptionEng);
-        fullWorksheet(workingFolder, General.readyFilesFolder, additionWorksheets.get(4).gradeEng, additionWorksheets.get(4).totalPageOfWorksheets,
+        fullWorksheet(workingFolder, readyFilesFolder, additionWorksheets.get(4).gradeEng, additionWorksheets.get(4).totalPageOfWorksheets,
                 additionWorksheets.get(4).shortProblemDescriptionEng, additionWorksheets.get(4).longProblemDescriptionEng);
-        fullWorksheetPdf(workingFolder, General.readyFilesFolderPdf, additionWorksheets.get(4).gradeEng, additionWorksheets.get(4).totalPageOfWorksheets,
+        fullWorksheetPdf(workingFolder, readyFilesFolderPdf, additionWorksheets.get(4).gradeEng, additionWorksheets.get(4).totalPageOfWorksheets,
                 additionWorksheets.get(4).shortProblemDescriptionEng, additionWorksheets.get(4).longProblemDescriptionEng);
-        fullWorksheetHtmlAnswer(workingFolder, General.readyFilesFolder, additionWorksheets.get(4).gradeEng, additionWorksheets.get(4).totalPageOfWorksheets,
+        fullWorksheetHtmlAnswer(workingFolder, readyFilesFolder, additionWorksheets.get(4).gradeEng, additionWorksheets.get(4).totalPageOfWorksheets,
                 additionWorksheets.get(4).shortProblemDescriptionEng, additionWorksheets.get(4).longProblemDescriptionEng);
-        allSameWorksheets(workingFolder, General.readyFilesFolder, additionWorksheets.get(4).gradeEng, additionWorksheets.get(4).totalPageOfWorksheets,
+        allSameWorksheets(workingFolder, readyFilesFolder, additionWorksheets.get(4).gradeEng, additionWorksheets.get(4).totalPageOfWorksheets,
                 additionWorksheets.get(4).shortProblemDescriptionEng, additionWorksheets.get(4).longProblemDescriptionEng);
-        finalHtmlPageSingleTopic(workingFolder, General.readyFilesFolder, additionWorksheets.get(4).gradeEng, additionWorksheets.get(4).totalPageOfWorksheets, additionWorksheets.get(4).topicEng,
-                additionWorksheets.get(4).h2Eng, additionWorksheets.get(4).shortProblemDescriptionEng, additionWorksheets.get(4).longProblemDescriptionEng);
+        finalHtmlPageSingleTopic2(workingFolder, readyFilesFolder, additionWorksheets.get(4).gradeEng, additionWorksheets.get(4).totalPageOfWorksheets, additionWorksheets.get(4).topicEng,
+                additionWorksheets.get(4).h2Eng, additionWorksheets.get(4).shortProblemDescriptionEng, additionWorksheets.get(4).longProblemDescriptionEng, diskEng, adsBlockEng);
 
         additionWorksheets.add( new AdditionWorksheets(
                 "&thinsp;", "&nbsp;",
@@ -367,16 +384,16 @@ public class AdditionWorksheets extends WorksheetTemplate implements Serializabl
                 additionWorksheets.get(5).numbersRangeStart, additionWorksheets.get(5).numbersRangeEnd, 13, 5);
         bottomWorksheet(workingFolder, additionWorksheets.get(5).gradeRus, additionWorksheets.get(5).totalPageOfWorksheets,
                 additionWorksheets.get(5).shortProblemDescriptionRus, additionWorksheets.get(5).longProblemDescriptionRus);
-        fullWorksheet(workingFolder, General.readyFilesFolder, additionWorksheets.get(5).gradeRus, additionWorksheets.get(5).totalPageOfWorksheets,
+        fullWorksheet(workingFolder, readyFilesFolder, additionWorksheets.get(5).gradeRus, additionWorksheets.get(5).totalPageOfWorksheets,
                 additionWorksheets.get(5).shortProblemDescriptionRus, additionWorksheets.get(5).longProblemDescriptionRus);
-        fullWorksheetPdf(workingFolder, General.readyFilesFolderPdf, additionWorksheets.get(5).gradeRus, additionWorksheets.get(5).totalPageOfWorksheets,
+        fullWorksheetPdf(workingFolder, readyFilesFolderPdf, additionWorksheets.get(5).gradeRus, additionWorksheets.get(5).totalPageOfWorksheets,
                 additionWorksheets.get(5).shortProblemDescriptionRus, additionWorksheets.get(5).longProblemDescriptionRus);
-        fullWorksheetHtmlAnswer(workingFolder, General.readyFilesFolder, additionWorksheets.get(5).gradeRus, additionWorksheets.get(5).totalPageOfWorksheets,
+        fullWorksheetHtmlAnswer(workingFolder, readyFilesFolder, additionWorksheets.get(5).gradeRus, additionWorksheets.get(5).totalPageOfWorksheets,
                 additionWorksheets.get(5).shortProblemDescriptionRus, additionWorksheets.get(5).longProblemDescriptionRus);
-        allSameWorksheets(workingFolder, General.readyFilesFolder, additionWorksheets.get(5).gradeRus, additionWorksheets.get(5).totalPageOfWorksheets,
+        allSameWorksheets(workingFolder, readyFilesFolder, additionWorksheets.get(5).gradeRus, additionWorksheets.get(5).totalPageOfWorksheets,
                 additionWorksheets.get(5).shortProblemDescriptionRus, additionWorksheets.get(5).longProblemDescriptionRus);
-        finalHtmlPageSingleTopic(workingFolder, General.readyFilesFolder, additionWorksheets.get(5).gradeRus, additionWorksheets.get(5).totalPageOfWorksheets, additionWorksheets.get(5).topicRus,
-                additionWorksheets.get(5).h2Rus, additionWorksheets.get(5).shortProblemDescriptionRus, additionWorksheets.get(5).longProblemDescriptionRus);
+        finalHtmlPageSingleTopic2(workingFolder, readyFilesFolder, additionWorksheets.get(5).gradeRus, additionWorksheets.get(5).totalPageOfWorksheets, additionWorksheets.get(5).topicRus,
+                additionWorksheets.get(5).h2Rus, additionWorksheets.get(5).shortProblemDescriptionRus, additionWorksheets.get(5).longProblemDescriptionRus, diskRus, adsBlockRus);
 
         topWorksheet(workingFolder, additionWorksheets.get(5).gradeEng, additionWorksheets.get(5).totalPageOfWorksheets,
                 additionWorksheets.get(5).shortProblemDescriptionEng, additionWorksheets.get(5).longProblemDescriptionEng );
@@ -389,17 +406,16 @@ public class AdditionWorksheets extends WorksheetTemplate implements Serializabl
                 additionWorksheets.get(5).numbersRangeStart, additionWorksheets.get(5).numbersRangeEnd, 13, 5);
         bottomWorksheet(workingFolder, additionWorksheets.get(5).gradeEng, additionWorksheets.get(5).totalPageOfWorksheets,
                 additionWorksheets.get(5).shortProblemDescriptionEng, additionWorksheets.get(5).longProblemDescriptionEng);
-        fullWorksheet(workingFolder, General.readyFilesFolder, additionWorksheets.get(5).gradeEng, additionWorksheets.get(5).totalPageOfWorksheets,
+        fullWorksheet(workingFolder, readyFilesFolder, additionWorksheets.get(5).gradeEng, additionWorksheets.get(5).totalPageOfWorksheets,
                 additionWorksheets.get(5).shortProblemDescriptionEng, additionWorksheets.get(5).longProblemDescriptionEng);
-        fullWorksheetPdf(workingFolder, General.readyFilesFolderPdf, additionWorksheets.get(5).gradeEng, additionWorksheets.get(5).totalPageOfWorksheets,
+        fullWorksheetPdf(workingFolder, readyFilesFolderPdf, additionWorksheets.get(5).gradeEng, additionWorksheets.get(5).totalPageOfWorksheets,
                 additionWorksheets.get(5).shortProblemDescriptionEng, additionWorksheets.get(5).longProblemDescriptionEng);
-        fullWorksheetHtmlAnswer(workingFolder, General.readyFilesFolder, additionWorksheets.get(5).gradeEng, additionWorksheets.get(5).totalPageOfWorksheets,
+        fullWorksheetHtmlAnswer(workingFolder, readyFilesFolder, additionWorksheets.get(5).gradeEng, additionWorksheets.get(5).totalPageOfWorksheets,
                 additionWorksheets.get(5).shortProblemDescriptionEng, additionWorksheets.get(5).longProblemDescriptionEng);
-        allSameWorksheets(workingFolder, General.readyFilesFolder, additionWorksheets.get(5).gradeEng, additionWorksheets.get(5).totalPageOfWorksheets,
+        allSameWorksheets(workingFolder, readyFilesFolder, additionWorksheets.get(5).gradeEng, additionWorksheets.get(5).totalPageOfWorksheets,
                 additionWorksheets.get(5).shortProblemDescriptionEng, additionWorksheets.get(5).longProblemDescriptionEng);
-        finalHtmlPageSingleTopic(workingFolder, General.readyFilesFolder, additionWorksheets.get(5).gradeEng, additionWorksheets.get(5).totalPageOfWorksheets, additionWorksheets.get(5).topicEng,
-                additionWorksheets.get(5).h2Eng, additionWorksheets.get(5).shortProblemDescriptionEng, additionWorksheets.get(5).longProblemDescriptionEng);
-
+        finalHtmlPageSingleTopic2(workingFolder, readyFilesFolder, additionWorksheets.get(5).gradeEng, additionWorksheets.get(5).totalPageOfWorksheets, additionWorksheets.get(5).topicEng,
+                additionWorksheets.get(5).h2Eng, additionWorksheets.get(5).shortProblemDescriptionEng, additionWorksheets.get(5).longProblemDescriptionEng, diskEng, adsBlockEng);
 
         additionWorksheets.add( new AdditionWorksheets(
                 "&thinsp;", "&nbsp;",
@@ -424,16 +440,16 @@ public class AdditionWorksheets extends WorksheetTemplate implements Serializabl
                 additionWorksheets.get(6).numbersRangeStart, additionWorksheets.get(6).numbersRangeEnd, 13, 5);
         bottomWorksheet(workingFolder, additionWorksheets.get(6).gradeRus, additionWorksheets.get(6).totalPageOfWorksheets,
                 additionWorksheets.get(6).shortProblemDescriptionRus, additionWorksheets.get(6).longProblemDescriptionRus);
-        fullWorksheet(workingFolder, General.readyFilesFolder, additionWorksheets.get(6).gradeRus, additionWorksheets.get(6).totalPageOfWorksheets,
+        fullWorksheet(workingFolder, readyFilesFolder, additionWorksheets.get(6).gradeRus, additionWorksheets.get(6).totalPageOfWorksheets,
                 additionWorksheets.get(6).shortProblemDescriptionRus, additionWorksheets.get(6).longProblemDescriptionRus);
-        fullWorksheetPdf(workingFolder, General.readyFilesFolderPdf, additionWorksheets.get(6).gradeRus, additionWorksheets.get(6).totalPageOfWorksheets,
+        fullWorksheetPdf(workingFolder, readyFilesFolderPdf, additionWorksheets.get(6).gradeRus, additionWorksheets.get(6).totalPageOfWorksheets,
                 additionWorksheets.get(6).shortProblemDescriptionRus, additionWorksheets.get(6).longProblemDescriptionRus);
-        fullWorksheetHtmlAnswer(workingFolder, General.readyFilesFolder, additionWorksheets.get(6).gradeRus, additionWorksheets.get(6).totalPageOfWorksheets,
+        fullWorksheetHtmlAnswer(workingFolder, readyFilesFolder, additionWorksheets.get(6).gradeRus, additionWorksheets.get(6).totalPageOfWorksheets,
                 additionWorksheets.get(6).shortProblemDescriptionRus, additionWorksheets.get(6).longProblemDescriptionRus);
-        allSameWorksheets(workingFolder, General.readyFilesFolder, additionWorksheets.get(6).gradeRus, additionWorksheets.get(6).totalPageOfWorksheets,
+        allSameWorksheets(workingFolder, readyFilesFolder, additionWorksheets.get(6).gradeRus, additionWorksheets.get(6).totalPageOfWorksheets,
                 additionWorksheets.get(6).shortProblemDescriptionRus, additionWorksheets.get(6).longProblemDescriptionRus);
-        finalHtmlPageSingleTopic(workingFolder, General.readyFilesFolder, additionWorksheets.get(6).gradeRus, additionWorksheets.get(6).totalPageOfWorksheets, additionWorksheets.get(6).topicRus,
-                additionWorksheets.get(6).h2Rus, additionWorksheets.get(6).shortProblemDescriptionRus, additionWorksheets.get(6).longProblemDescriptionRus);
+        finalHtmlPageSingleTopic2(workingFolder, readyFilesFolder, additionWorksheets.get(6).gradeRus, additionWorksheets.get(6).totalPageOfWorksheets, additionWorksheets.get(6).topicRus,
+                additionWorksheets.get(6).h2Rus, additionWorksheets.get(6).shortProblemDescriptionRus, additionWorksheets.get(6).longProblemDescriptionRus, diskRus, adsBlockRus);
 
         topWorksheet(workingFolder, additionWorksheets.get(6).gradeEng, additionWorksheets.get(6).totalPageOfWorksheets,
                 additionWorksheets.get(6).shortProblemDescriptionEng, additionWorksheets.get(6).longProblemDescriptionEng );
@@ -446,17 +462,16 @@ public class AdditionWorksheets extends WorksheetTemplate implements Serializabl
                 additionWorksheets.get(6).numbersRangeStart, additionWorksheets.get(6).numbersRangeEnd, 13, 5);
         bottomWorksheet(workingFolder, additionWorksheets.get(6).gradeEng, additionWorksheets.get(6).totalPageOfWorksheets,
                 additionWorksheets.get(6).shortProblemDescriptionEng, additionWorksheets.get(6).longProblemDescriptionEng);
-        fullWorksheet(workingFolder, General.readyFilesFolder, additionWorksheets.get(6).gradeEng, additionWorksheets.get(6).totalPageOfWorksheets,
+        fullWorksheet(workingFolder, readyFilesFolder, additionWorksheets.get(6).gradeEng, additionWorksheets.get(6).totalPageOfWorksheets,
                 additionWorksheets.get(6).shortProblemDescriptionEng, additionWorksheets.get(6).longProblemDescriptionEng);
-        fullWorksheetPdf(workingFolder, General.readyFilesFolderPdf, additionWorksheets.get(6).gradeEng, additionWorksheets.get(6).totalPageOfWorksheets,
+        fullWorksheetPdf(workingFolder, readyFilesFolderPdf, additionWorksheets.get(6).gradeEng, additionWorksheets.get(6).totalPageOfWorksheets,
                 additionWorksheets.get(6).shortProblemDescriptionEng, additionWorksheets.get(6).longProblemDescriptionEng);
-        fullWorksheetHtmlAnswer(workingFolder, General.readyFilesFolder, additionWorksheets.get(6).gradeEng, additionWorksheets.get(6).totalPageOfWorksheets,
+        fullWorksheetHtmlAnswer(workingFolder, readyFilesFolder, additionWorksheets.get(6).gradeEng, additionWorksheets.get(6).totalPageOfWorksheets,
                 additionWorksheets.get(6).shortProblemDescriptionEng, additionWorksheets.get(6).longProblemDescriptionEng);
-        allSameWorksheets(workingFolder, General.readyFilesFolder, additionWorksheets.get(6).gradeEng, additionWorksheets.get(6).totalPageOfWorksheets,
+        allSameWorksheets(workingFolder, readyFilesFolder, additionWorksheets.get(6).gradeEng, additionWorksheets.get(6).totalPageOfWorksheets,
                 additionWorksheets.get(6).shortProblemDescriptionEng, additionWorksheets.get(6).longProblemDescriptionEng);
-        finalHtmlPageSingleTopic(workingFolder, General.readyFilesFolder, additionWorksheets.get(6).gradeEng, additionWorksheets.get(6).totalPageOfWorksheets, additionWorksheets.get(6).topicEng,
-                additionWorksheets.get(6).h2Eng, additionWorksheets.get(6).shortProblemDescriptionEng, additionWorksheets.get(6).longProblemDescriptionEng);
-
+        finalHtmlPageSingleTopic2(workingFolder, readyFilesFolder, additionWorksheets.get(6).gradeEng, additionWorksheets.get(6).totalPageOfWorksheets, additionWorksheets.get(6).topicEng,
+                additionWorksheets.get(6).h2Eng, additionWorksheets.get(6).shortProblemDescriptionEng, additionWorksheets.get(6).longProblemDescriptionEng,  diskEng, adsBlockEng);
 
         additionWorksheets.add( new AdditionWorksheets(
                 "&thinsp;", "&nbsp;",
@@ -481,16 +496,16 @@ public class AdditionWorksheets extends WorksheetTemplate implements Serializabl
                 additionWorksheets.get(7).numbersRangeStart, additionWorksheets.get(7).numbersRangeEnd, 13, 5);
         bottomWorksheet(workingFolder, additionWorksheets.get(7).gradeRus, additionWorksheets.get(7).totalPageOfWorksheets,
                 additionWorksheets.get(7).shortProblemDescriptionRus, additionWorksheets.get(7).longProblemDescriptionRus);
-        fullWorksheet(workingFolder, General.readyFilesFolder, additionWorksheets.get(7).gradeRus, additionWorksheets.get(7).totalPageOfWorksheets,
+        fullWorksheet(workingFolder, readyFilesFolder, additionWorksheets.get(7).gradeRus, additionWorksheets.get(7).totalPageOfWorksheets,
                 additionWorksheets.get(7).shortProblemDescriptionRus, additionWorksheets.get(7).longProblemDescriptionRus);
-        fullWorksheetPdf(workingFolder, General.readyFilesFolderPdf, additionWorksheets.get(7).gradeRus, additionWorksheets.get(7).totalPageOfWorksheets,
+        fullWorksheetPdf(workingFolder, readyFilesFolderPdf, additionWorksheets.get(7).gradeRus, additionWorksheets.get(7).totalPageOfWorksheets,
                 additionWorksheets.get(7).shortProblemDescriptionRus, additionWorksheets.get(7).longProblemDescriptionRus);
-        fullWorksheetHtmlAnswer(workingFolder, General.readyFilesFolder, additionWorksheets.get(7).gradeRus, additionWorksheets.get(7).totalPageOfWorksheets,
+        fullWorksheetHtmlAnswer(workingFolder, readyFilesFolder, additionWorksheets.get(7).gradeRus, additionWorksheets.get(7).totalPageOfWorksheets,
                 additionWorksheets.get(7).shortProblemDescriptionRus, additionWorksheets.get(7).longProblemDescriptionRus);
-        allSameWorksheets(workingFolder, General.readyFilesFolder, additionWorksheets.get(7).gradeRus, additionWorksheets.get(7).totalPageOfWorksheets,
+        allSameWorksheets(workingFolder, readyFilesFolder, additionWorksheets.get(7).gradeRus, additionWorksheets.get(7).totalPageOfWorksheets,
                 additionWorksheets.get(7).shortProblemDescriptionRus, additionWorksheets.get(7).longProblemDescriptionRus);
-        finalHtmlPageSingleTopic(workingFolder, General.readyFilesFolder, additionWorksheets.get(7).gradeRus, additionWorksheets.get(7).totalPageOfWorksheets, additionWorksheets.get(7).topicRus,
-                additionWorksheets.get(7).h2Rus, additionWorksheets.get(7).shortProblemDescriptionRus, additionWorksheets.get(7).longProblemDescriptionRus);
+        finalHtmlPageSingleTopic2(workingFolder, readyFilesFolder, additionWorksheets.get(7).gradeRus, additionWorksheets.get(7).totalPageOfWorksheets, additionWorksheets.get(7).topicRus,
+                additionWorksheets.get(7).h2Rus, additionWorksheets.get(7).shortProblemDescriptionRus, additionWorksheets.get(7).longProblemDescriptionRus, diskRus, adsBlockRus);
 
         topWorksheet(workingFolder, additionWorksheets.get(7).gradeEng, additionWorksheets.get(7).totalPageOfWorksheets,
                 additionWorksheets.get(7).shortProblemDescriptionEng, additionWorksheets.get(7).longProblemDescriptionEng );
@@ -503,17 +518,16 @@ public class AdditionWorksheets extends WorksheetTemplate implements Serializabl
                 additionWorksheets.get(7).numbersRangeStart, additionWorksheets.get(7).numbersRangeEnd, 13, 5);
         bottomWorksheet(workingFolder, additionWorksheets.get(7).gradeEng, additionWorksheets.get(7).totalPageOfWorksheets,
                 additionWorksheets.get(7).shortProblemDescriptionEng, additionWorksheets.get(7).longProblemDescriptionEng);
-        fullWorksheet(workingFolder, General.readyFilesFolder, additionWorksheets.get(7).gradeEng, additionWorksheets.get(7).totalPageOfWorksheets,
+        fullWorksheet(workingFolder, readyFilesFolder, additionWorksheets.get(7).gradeEng, additionWorksheets.get(7).totalPageOfWorksheets,
                 additionWorksheets.get(7).shortProblemDescriptionEng, additionWorksheets.get(7).longProblemDescriptionEng);
-        fullWorksheetPdf(workingFolder, General.readyFilesFolderPdf, additionWorksheets.get(7).gradeEng, additionWorksheets.get(7).totalPageOfWorksheets,
+        fullWorksheetPdf(workingFolder, readyFilesFolderPdf, additionWorksheets.get(7).gradeEng, additionWorksheets.get(7).totalPageOfWorksheets,
                 additionWorksheets.get(7).shortProblemDescriptionEng, additionWorksheets.get(7).longProblemDescriptionEng);
-        fullWorksheetHtmlAnswer(workingFolder, General.readyFilesFolder, additionWorksheets.get(7).gradeEng, additionWorksheets.get(7).totalPageOfWorksheets,
+        fullWorksheetHtmlAnswer(workingFolder, readyFilesFolder, additionWorksheets.get(7).gradeEng, additionWorksheets.get(7).totalPageOfWorksheets,
                 additionWorksheets.get(7).shortProblemDescriptionEng, additionWorksheets.get(7).longProblemDescriptionEng);
-        allSameWorksheets(workingFolder, General.readyFilesFolder, additionWorksheets.get(7).gradeEng, additionWorksheets.get(7).totalPageOfWorksheets,
+        allSameWorksheets(workingFolder, readyFilesFolder, additionWorksheets.get(7).gradeEng, additionWorksheets.get(7).totalPageOfWorksheets,
                 additionWorksheets.get(7).shortProblemDescriptionEng, additionWorksheets.get(7).longProblemDescriptionEng);
-        finalHtmlPageSingleTopic(workingFolder, General.readyFilesFolder, additionWorksheets.get(7).gradeEng, additionWorksheets.get(7).totalPageOfWorksheets, additionWorksheets.get(7).topicEng,
-                additionWorksheets.get(7).h2Eng, additionWorksheets.get(7).shortProblemDescriptionEng, additionWorksheets.get(7).longProblemDescriptionEng);
-
+        finalHtmlPageSingleTopic2(workingFolder, readyFilesFolder, additionWorksheets.get(7).gradeEng, additionWorksheets.get(7).totalPageOfWorksheets, additionWorksheets.get(7).topicEng,
+                additionWorksheets.get(7).h2Eng, additionWorksheets.get(7).shortProblemDescriptionEng, additionWorksheets.get(7).longProblemDescriptionEng, diskEng, adsBlockEng);
 
         additionWorksheets.add( new AdditionWorksheets(
                 "&thinsp;", "&nbsp;",
@@ -527,8 +541,6 @@ public class AdditionWorksheets extends WorksheetTemplate implements Serializabl
                 "Add numbers up to 50.",
                 0, 50, 11));
 
-
-
         topWorksheet(workingFolder, additionWorksheets.get(8).gradeRus, additionWorksheets.get(8).totalPageOfWorksheets,
                 additionWorksheets.get(8).shortProblemDescriptionRus, additionWorksheets.get(8).longProblemDescriptionRus );
         topWorksheetPdf(workingFolder, additionWorksheets.get(8).gradeRus, additionWorksheets.get(8).totalPageOfWorksheets,
@@ -540,16 +552,16 @@ public class AdditionWorksheets extends WorksheetTemplate implements Serializabl
                 additionWorksheets.get(8).numbersRangeStart, additionWorksheets.get(8).numbersRangeEnd, 13, 5);
         bottomWorksheet(workingFolder, additionWorksheets.get(8).gradeRus, additionWorksheets.get(8).totalPageOfWorksheets,
                 additionWorksheets.get(8).shortProblemDescriptionRus, additionWorksheets.get(8).longProblemDescriptionRus);
-        fullWorksheet(workingFolder, General.readyFilesFolder, additionWorksheets.get(8).gradeRus, additionWorksheets.get(8).totalPageOfWorksheets,
+        fullWorksheet(workingFolder, readyFilesFolder, additionWorksheets.get(8).gradeRus, additionWorksheets.get(8).totalPageOfWorksheets,
                 additionWorksheets.get(8).shortProblemDescriptionRus, additionWorksheets.get(8).longProblemDescriptionRus);
-        fullWorksheetPdf(workingFolder, General.readyFilesFolderPdf, additionWorksheets.get(8).gradeRus, additionWorksheets.get(8).totalPageOfWorksheets,
+        fullWorksheetPdf(workingFolder, readyFilesFolderPdf, additionWorksheets.get(8).gradeRus, additionWorksheets.get(8).totalPageOfWorksheets,
                 additionWorksheets.get(8).shortProblemDescriptionRus, additionWorksheets.get(8).longProblemDescriptionRus);
-        fullWorksheetHtmlAnswer(workingFolder, General.readyFilesFolder, additionWorksheets.get(8).gradeRus, additionWorksheets.get(8).totalPageOfWorksheets,
+        fullWorksheetHtmlAnswer(workingFolder, readyFilesFolder, additionWorksheets.get(8).gradeRus, additionWorksheets.get(8).totalPageOfWorksheets,
                 additionWorksheets.get(8).shortProblemDescriptionRus, additionWorksheets.get(8).longProblemDescriptionRus);
-        allSameWorksheets(workingFolder, General.readyFilesFolder, additionWorksheets.get(8).gradeRus, additionWorksheets.get(8).totalPageOfWorksheets,
+        allSameWorksheets(workingFolder, readyFilesFolder, additionWorksheets.get(8).gradeRus, additionWorksheets.get(8).totalPageOfWorksheets,
                 additionWorksheets.get(8).shortProblemDescriptionRus, additionWorksheets.get(8).longProblemDescriptionRus);
-        finalHtmlPageSingleTopic(workingFolder, General.readyFilesFolder, additionWorksheets.get(8).gradeRus, additionWorksheets.get(8).totalPageOfWorksheets, additionWorksheets.get(8).topicRus,
-                additionWorksheets.get(8).h2Rus, additionWorksheets.get(8).shortProblemDescriptionRus, additionWorksheets.get(8).longProblemDescriptionRus);
+        finalHtmlPageSingleTopic2(workingFolder, readyFilesFolder, additionWorksheets.get(8).gradeRus, additionWorksheets.get(8).totalPageOfWorksheets, additionWorksheets.get(8).topicRus,
+                additionWorksheets.get(8).h2Rus, additionWorksheets.get(8).shortProblemDescriptionRus, additionWorksheets.get(8).longProblemDescriptionRus, diskRus, adsBlockRus);
 
         topWorksheet(workingFolder, additionWorksheets.get(8).gradeEng, additionWorksheets.get(8).totalPageOfWorksheets,
                 additionWorksheets.get(8).shortProblemDescriptionEng, additionWorksheets.get(8).longProblemDescriptionEng );
@@ -562,25 +574,246 @@ public class AdditionWorksheets extends WorksheetTemplate implements Serializabl
                 additionWorksheets.get(8).numbersRangeStart, additionWorksheets.get(8).numbersRangeEnd, 13, 5);
         bottomWorksheet(workingFolder, additionWorksheets.get(8).gradeEng, additionWorksheets.get(8).totalPageOfWorksheets,
                 additionWorksheets.get(8).shortProblemDescriptionEng, additionWorksheets.get(8).longProblemDescriptionEng);
-        fullWorksheet(workingFolder, General.readyFilesFolder, additionWorksheets.get(8).gradeEng, additionWorksheets.get(8).totalPageOfWorksheets,
+        fullWorksheet(workingFolder, readyFilesFolder, additionWorksheets.get(8).gradeEng, additionWorksheets.get(8).totalPageOfWorksheets,
                 additionWorksheets.get(8).shortProblemDescriptionEng, additionWorksheets.get(8).longProblemDescriptionEng);
-        fullWorksheetPdf(workingFolder, General.readyFilesFolderPdf, additionWorksheets.get(8).gradeEng, additionWorksheets.get(8).totalPageOfWorksheets,
+        fullWorksheetPdf(workingFolder, readyFilesFolderPdf, additionWorksheets.get(8).gradeEng, additionWorksheets.get(8).totalPageOfWorksheets,
                 additionWorksheets.get(8).shortProblemDescriptionEng, additionWorksheets.get(8).longProblemDescriptionEng);
-        fullWorksheetHtmlAnswer(workingFolder, General.readyFilesFolder, additionWorksheets.get(8).gradeEng, additionWorksheets.get(8).totalPageOfWorksheets,
+        fullWorksheetHtmlAnswer(workingFolder, readyFilesFolder, additionWorksheets.get(8).gradeEng, additionWorksheets.get(8).totalPageOfWorksheets,
                 additionWorksheets.get(8).shortProblemDescriptionEng, additionWorksheets.get(8).longProblemDescriptionEng);
-        allSameWorksheets(workingFolder, General.readyFilesFolder, additionWorksheets.get(8).gradeEng, additionWorksheets.get(8).totalPageOfWorksheets,
+        allSameWorksheets(workingFolder, readyFilesFolder, additionWorksheets.get(8).gradeEng, additionWorksheets.get(8).totalPageOfWorksheets,
                 additionWorksheets.get(8).shortProblemDescriptionEng, additionWorksheets.get(8).longProblemDescriptionEng);
-        finalHtmlPageSingleTopic(workingFolder, General.readyFilesFolder, additionWorksheets.get(8).gradeEng, additionWorksheets.get(8).totalPageOfWorksheets, additionWorksheets.get(8).topicEng,
-                additionWorksheets.get(8).h2Eng, additionWorksheets.get(8).shortProblemDescriptionEng, additionWorksheets.get(8).longProblemDescriptionEng);
+        finalHtmlPageSingleTopic2(workingFolder, readyFilesFolder, additionWorksheets.get(8).gradeEng, additionWorksheets.get(8).totalPageOfWorksheets, additionWorksheets.get(8).topicEng,
+                additionWorksheets.get(8).h2Eng, additionWorksheets.get(8).shortProblemDescriptionEng, additionWorksheets.get(8).longProblemDescriptionEng, diskEng, adsBlockEng);
+
+        additionWorksheets.add( new AdditionWorksheets(
+                "&thinsp;", "&nbsp;",
+                "Сложение, сумма чисел до 50.","Addition numbers. Sums up to 50.",
+                "Задачи по математике на тему:<br />Сложение, сумма чисел до 50. Задачи с ответами. Скачать pdf или jpg.",
+                "Mathematics worksheets:<br />Addition numbers. Sums up to 50. Worksheets with answers. Download pdf or jpg.",
+                "", "",
+                "Сложение чисел. Сумма чисел до 50.",
+                "Addition of numbers. Sums up to 50.",
+                "Сложи числа. Сумма чисел до 50.",
+                "Add numbers. Sums up to 50.",
+                0, 50, 11));
+
+        topWorksheet(workingFolder, additionWorksheets.get(9).gradeRus, additionWorksheets.get(9).totalPageOfWorksheets,
+                additionWorksheets.get(9).shortProblemDescriptionRus, additionWorksheets.get(9).longProblemDescriptionRus );
+        topWorksheetPdf(workingFolder, additionWorksheets.get(9).gradeRus, additionWorksheets.get(9).totalPageOfWorksheets,
+                additionWorksheets.get(9).shortProblemDescriptionRus, additionWorksheets.get(9).longProblemDescriptionRus );
+        topWorksheetHtmlAnswers(workingFolder, additionWorksheets.get(9).gradeRus, additionWorksheets.get(9).totalPageOfWorksheets,
+                additionWorksheets.get(9).shortProblemDescriptionRus, additionWorksheets.get(9).longProblemDescriptionRus );
+        addA1_B1LineWorksheetA4(workingFolder, additionWorksheets.get(9).gradeRus, additionWorksheets.get(9).totalPageOfWorksheets,
+                additionWorksheets.get(9).longProblemDescriptionRus,
+                additionWorksheets.get(9).numbersRangeStart, additionWorksheets.get(9).numbersRangeEnd, 13, 5);
+        bottomWorksheet(workingFolder, additionWorksheets.get(9).gradeRus, additionWorksheets.get(9).totalPageOfWorksheets,
+                additionWorksheets.get(9).shortProblemDescriptionRus, additionWorksheets.get(9).longProblemDescriptionRus);
+        fullWorksheet(workingFolder, readyFilesFolder, additionWorksheets.get(9).gradeRus, additionWorksheets.get(9).totalPageOfWorksheets,
+                additionWorksheets.get(9).shortProblemDescriptionRus, additionWorksheets.get(9).longProblemDescriptionRus);
+        fullWorksheetPdf(workingFolder, readyFilesFolderPdf, additionWorksheets.get(9).gradeRus, additionWorksheets.get(9).totalPageOfWorksheets,
+                additionWorksheets.get(9).shortProblemDescriptionRus, additionWorksheets.get(9).longProblemDescriptionRus);
+        fullWorksheetHtmlAnswer(workingFolder, readyFilesFolder, additionWorksheets.get(9).gradeRus, additionWorksheets.get(9).totalPageOfWorksheets,
+                additionWorksheets.get(9).shortProblemDescriptionRus, additionWorksheets.get(9).longProblemDescriptionRus);
+        allSameWorksheets(workingFolder, readyFilesFolder, additionWorksheets.get(9).gradeRus, additionWorksheets.get(9).totalPageOfWorksheets,
+                additionWorksheets.get(9).shortProblemDescriptionRus, additionWorksheets.get(9).longProblemDescriptionRus);
+        finalHtmlPageSingleTopic2(workingFolder, readyFilesFolder, additionWorksheets.get(9).gradeRus, additionWorksheets.get(9).totalPageOfWorksheets, additionWorksheets.get(9).topicRus,
+                additionWorksheets.get(9).h2Rus, additionWorksheets.get(9).shortProblemDescriptionRus, additionWorksheets.get(9).longProblemDescriptionRus, diskRus, adsBlockRus);
+
+        topWorksheet(workingFolder, additionWorksheets.get(9).gradeEng, additionWorksheets.get(9).totalPageOfWorksheets,
+                additionWorksheets.get(9).shortProblemDescriptionEng, additionWorksheets.get(9).longProblemDescriptionEng );
+        topWorksheetPdf(workingFolder, additionWorksheets.get(9).gradeEng, additionWorksheets.get(9).totalPageOfWorksheets,
+                additionWorksheets.get(9).shortProblemDescriptionEng, additionWorksheets.get(9).longProblemDescriptionEng );
+        topWorksheetHtmlAnswers(workingFolder, additionWorksheets.get(9).gradeEng, additionWorksheets.get(9).totalPageOfWorksheets,
+                additionWorksheets.get(9).shortProblemDescriptionEng, additionWorksheets.get(9).longProblemDescriptionEng );
+        addA1_B1LineWorksheetA4(workingFolder, additionWorksheets.get(9).gradeEng, additionWorksheets.get(9).totalPageOfWorksheets,
+                additionWorksheets.get(9).longProblemDescriptionEng,
+                additionWorksheets.get(9).numbersRangeStart, additionWorksheets.get(9).numbersRangeEnd, 13, 5);
+        bottomWorksheet(workingFolder, additionWorksheets.get(9).gradeEng, additionWorksheets.get(9).totalPageOfWorksheets,
+                additionWorksheets.get(9).shortProblemDescriptionEng, additionWorksheets.get(9).longProblemDescriptionEng);
+        fullWorksheet(workingFolder, readyFilesFolder, additionWorksheets.get(9).gradeEng, additionWorksheets.get(9).totalPageOfWorksheets,
+                additionWorksheets.get(9).shortProblemDescriptionEng, additionWorksheets.get(9).longProblemDescriptionEng);
+        fullWorksheetPdf(workingFolder, readyFilesFolderPdf, additionWorksheets.get(9).gradeEng, additionWorksheets.get(9).totalPageOfWorksheets,
+                additionWorksheets.get(9).shortProblemDescriptionEng, additionWorksheets.get(9).longProblemDescriptionEng);
+        fullWorksheetHtmlAnswer(workingFolder, readyFilesFolder, additionWorksheets.get(9).gradeEng, additionWorksheets.get(9).totalPageOfWorksheets,
+                additionWorksheets.get(9).shortProblemDescriptionEng, additionWorksheets.get(9).longProblemDescriptionEng);
+        allSameWorksheets(workingFolder, readyFilesFolder, additionWorksheets.get(9).gradeEng, additionWorksheets.get(9).totalPageOfWorksheets,
+                additionWorksheets.get(9).shortProblemDescriptionEng, additionWorksheets.get(9).longProblemDescriptionEng);
+        finalHtmlPageSingleTopic2(workingFolder, readyFilesFolder, additionWorksheets.get(9).gradeEng, additionWorksheets.get(9).totalPageOfWorksheets, additionWorksheets.get(9).topicEng,
+                additionWorksheets.get(9).h2Eng, additionWorksheets.get(9).shortProblemDescriptionEng, additionWorksheets.get(9).longProblemDescriptionEng, diskEng, adsBlockEng);
+
+        additionWorksheets.add( new AdditionWorksheets(
+                "&thinsp;", "&nbsp;",
+                "Сложение, сумма чисел до 100.","Addition numbers. Sums up to 100.",
+                "Задачи по математике на тему:<br />Сложение, сумма чисел до 100. Задачи с ответами. Скачать pdf или jpg.",
+                "Mathematics worksheets:<br />Addition numbers. Sums up to 100. Worksheets with answers. Download pdf or jpg.",
+                "", "",
+                "Сложение чисел. Сумма чисел до 100.",
+                "Addition of numbers. Sums up to 100.",
+                "Сложи числа. Сумма чисел до 100.",
+                "Add numbers. Sums up to 100.",
+                0, 100, 11));
+
+        topWorksheet(workingFolder, additionWorksheets.get(10).gradeRus, additionWorksheets.get(10).totalPageOfWorksheets,
+                additionWorksheets.get(10).shortProblemDescriptionRus, additionWorksheets.get(10).longProblemDescriptionRus );
+        topWorksheetPdf(workingFolder, additionWorksheets.get(10).gradeRus, additionWorksheets.get(10).totalPageOfWorksheets,
+                additionWorksheets.get(10).shortProblemDescriptionRus, additionWorksheets.get(10).longProblemDescriptionRus );
+        topWorksheetHtmlAnswers(workingFolder, additionWorksheets.get(10).gradeRus, additionWorksheets.get(10).totalPageOfWorksheets,
+                additionWorksheets.get(10).shortProblemDescriptionRus, additionWorksheets.get(10).longProblemDescriptionRus );
+        addA1_B1LineWorksheetA4(workingFolder, additionWorksheets.get(10).gradeRus, additionWorksheets.get(10).totalPageOfWorksheets,
+                additionWorksheets.get(10).longProblemDescriptionRus,
+                additionWorksheets.get(10).numbersRangeStart, additionWorksheets.get(10).numbersRangeEnd, 13, 5);
+        bottomWorksheet(workingFolder, additionWorksheets.get(10).gradeRus, additionWorksheets.get(10).totalPageOfWorksheets,
+                additionWorksheets.get(10).shortProblemDescriptionRus, additionWorksheets.get(10).longProblemDescriptionRus);
+        fullWorksheet(workingFolder, readyFilesFolder, additionWorksheets.get(10).gradeRus, additionWorksheets.get(10).totalPageOfWorksheets,
+                additionWorksheets.get(10).shortProblemDescriptionRus, additionWorksheets.get(10).longProblemDescriptionRus);
+        fullWorksheetPdf(workingFolder, readyFilesFolderPdf, additionWorksheets.get(10).gradeRus, additionWorksheets.get(10).totalPageOfWorksheets,
+                additionWorksheets.get(10).shortProblemDescriptionRus, additionWorksheets.get(10).longProblemDescriptionRus);
+        fullWorksheetHtmlAnswer(workingFolder, readyFilesFolder, additionWorksheets.get(10).gradeRus, additionWorksheets.get(10).totalPageOfWorksheets,
+                additionWorksheets.get(10).shortProblemDescriptionRus, additionWorksheets.get(10).longProblemDescriptionRus);
+        allSameWorksheets(workingFolder, readyFilesFolder, additionWorksheets.get(10).gradeRus, additionWorksheets.get(10).totalPageOfWorksheets,
+                additionWorksheets.get(10).shortProblemDescriptionRus, additionWorksheets.get(10).longProblemDescriptionRus);
+        finalHtmlPageSingleTopic2(workingFolder, readyFilesFolder, additionWorksheets.get(10).gradeRus, additionWorksheets.get(10).totalPageOfWorksheets, additionWorksheets.get(10).topicRus,
+                additionWorksheets.get(10).h2Rus, additionWorksheets.get(10).shortProblemDescriptionRus, additionWorksheets.get(10).longProblemDescriptionRus, diskRus, adsBlockRus);
+
+        topWorksheet(workingFolder, additionWorksheets.get(10).gradeEng, additionWorksheets.get(10).totalPageOfWorksheets,
+                additionWorksheets.get(10).shortProblemDescriptionEng, additionWorksheets.get(10).longProblemDescriptionEng );
+        topWorksheetPdf(workingFolder, additionWorksheets.get(10).gradeEng, additionWorksheets.get(10).totalPageOfWorksheets,
+                additionWorksheets.get(10).shortProblemDescriptionEng, additionWorksheets.get(10).longProblemDescriptionEng );
+        topWorksheetHtmlAnswers(workingFolder, additionWorksheets.get(10).gradeEng, additionWorksheets.get(10).totalPageOfWorksheets,
+                additionWorksheets.get(10).shortProblemDescriptionEng, additionWorksheets.get(10).longProblemDescriptionEng );
+        addA1_B1LineWorksheetA4(workingFolder, additionWorksheets.get(10).gradeEng, additionWorksheets.get(10).totalPageOfWorksheets,
+                additionWorksheets.get(10).longProblemDescriptionEng,
+                additionWorksheets.get(10).numbersRangeStart, additionWorksheets.get(10).numbersRangeEnd, 13, 5);
+        bottomWorksheet(workingFolder, additionWorksheets.get(10).gradeEng, additionWorksheets.get(10).totalPageOfWorksheets,
+                additionWorksheets.get(10).shortProblemDescriptionEng, additionWorksheets.get(10).longProblemDescriptionEng);
+        fullWorksheet(workingFolder, readyFilesFolder, additionWorksheets.get(10).gradeEng, additionWorksheets.get(10).totalPageOfWorksheets,
+                additionWorksheets.get(10).shortProblemDescriptionEng, additionWorksheets.get(10).longProblemDescriptionEng);
+        fullWorksheetPdf(workingFolder, readyFilesFolderPdf, additionWorksheets.get(10).gradeEng, additionWorksheets.get(10).totalPageOfWorksheets,
+                additionWorksheets.get(10).shortProblemDescriptionEng, additionWorksheets.get(10).longProblemDescriptionEng);
+        fullWorksheetHtmlAnswer(workingFolder, readyFilesFolder, additionWorksheets.get(10).gradeEng, additionWorksheets.get(10).totalPageOfWorksheets,
+                additionWorksheets.get(10).shortProblemDescriptionEng, additionWorksheets.get(10).longProblemDescriptionEng);
+        allSameWorksheets(workingFolder, readyFilesFolder, additionWorksheets.get(10).gradeEng, additionWorksheets.get(10).totalPageOfWorksheets,
+                additionWorksheets.get(10).shortProblemDescriptionEng, additionWorksheets.get(10).longProblemDescriptionEng);
+        finalHtmlPageSingleTopic2(workingFolder, readyFilesFolder, additionWorksheets.get(10).gradeEng, additionWorksheets.get(10).totalPageOfWorksheets, additionWorksheets.get(10).topicEng,
+                additionWorksheets.get(10).h2Eng, additionWorksheets.get(10).shortProblemDescriptionEng, additionWorksheets.get(10).longProblemDescriptionEng, diskEng, adsBlockEng);
+
+        additionWorksheets.add( new AdditionWorksheets(
+                "&thinsp;", "&nbsp;",
+                "Сложение, сумма чисел до 10.","Addition numbers. Sums up to 10.",
+                "Задачи по математике на тему:<br />Сложение, сумма чисел до 10. Задачи с ответами. Скачать pdf или jpg.",
+                "Mathematics worksheets:<br />Addition numbers. Sums up to 10. Worksheets with answers. Download pdf or jpg.",
+                "", "",
+                "Сложение чисел. Сумма чисел до 10.",
+                "Addition of numbers. Sums up to 10.",
+                "Сложи числа. Сумма чисел до 10.",
+                "Add numbers. Sums up to 10.",
+                0, 10, 11));
+
+        topWorksheet(workingFolder, additionWorksheets.get(11).gradeRus, additionWorksheets.get(11).totalPageOfWorksheets,
+                additionWorksheets.get(11).shortProblemDescriptionRus, additionWorksheets.get(11).longProblemDescriptionRus );
+        topWorksheetPdf(workingFolder, additionWorksheets.get(11).gradeRus, additionWorksheets.get(11).totalPageOfWorksheets,
+                additionWorksheets.get(11).shortProblemDescriptionRus, additionWorksheets.get(11).longProblemDescriptionRus );
+        topWorksheetHtmlAnswers(workingFolder, additionWorksheets.get(11).gradeRus, additionWorksheets.get(11).totalPageOfWorksheets,
+                additionWorksheets.get(11).shortProblemDescriptionRus, additionWorksheets.get(11).longProblemDescriptionRus );
+        addA1_B1LineWorksheetA4(workingFolder, additionWorksheets.get(11).gradeRus, additionWorksheets.get(11).totalPageOfWorksheets,
+                additionWorksheets.get(11).longProblemDescriptionRus,
+                additionWorksheets.get(11).numbersRangeStart, additionWorksheets.get(11).numbersRangeEnd, 13, 5);
+        bottomWorksheet(workingFolder, additionWorksheets.get(11).gradeRus, additionWorksheets.get(11).totalPageOfWorksheets,
+                additionWorksheets.get(11).shortProblemDescriptionRus, additionWorksheets.get(11).longProblemDescriptionRus);
+        fullWorksheet(workingFolder, readyFilesFolder, additionWorksheets.get(11).gradeRus, additionWorksheets.get(11).totalPageOfWorksheets,
+                additionWorksheets.get(11).shortProblemDescriptionRus, additionWorksheets.get(11).longProblemDescriptionRus);
+        fullWorksheetPdf(workingFolder, readyFilesFolderPdf, additionWorksheets.get(11).gradeRus, additionWorksheets.get(11).totalPageOfWorksheets,
+                additionWorksheets.get(11).shortProblemDescriptionRus, additionWorksheets.get(11).longProblemDescriptionRus);
+        fullWorksheetHtmlAnswer(workingFolder, readyFilesFolder, additionWorksheets.get(11).gradeRus, additionWorksheets.get(11).totalPageOfWorksheets,
+                additionWorksheets.get(11).shortProblemDescriptionRus, additionWorksheets.get(11).longProblemDescriptionRus);
+        allSameWorksheets(workingFolder, readyFilesFolder, additionWorksheets.get(11).gradeRus, additionWorksheets.get(11).totalPageOfWorksheets,
+                additionWorksheets.get(11).shortProblemDescriptionRus, additionWorksheets.get(11).longProblemDescriptionRus);
+        finalHtmlPageSingleTopic2(workingFolder, readyFilesFolder, additionWorksheets.get(11).gradeRus, additionWorksheets.get(11).totalPageOfWorksheets, additionWorksheets.get(11).topicRus,
+                additionWorksheets.get(11).h2Rus, additionWorksheets.get(11).shortProblemDescriptionRus, additionWorksheets.get(11).longProblemDescriptionRus, diskRus, adsBlockRus);
+
+        topWorksheet(workingFolder, additionWorksheets.get(11).gradeEng, additionWorksheets.get(11).totalPageOfWorksheets,
+                additionWorksheets.get(11).shortProblemDescriptionEng, additionWorksheets.get(11).longProblemDescriptionEng );
+        topWorksheetPdf(workingFolder, additionWorksheets.get(11).gradeEng, additionWorksheets.get(11).totalPageOfWorksheets,
+                additionWorksheets.get(11).shortProblemDescriptionEng, additionWorksheets.get(11).longProblemDescriptionEng );
+        topWorksheetHtmlAnswers(workingFolder, additionWorksheets.get(11).gradeEng, additionWorksheets.get(11).totalPageOfWorksheets,
+                additionWorksheets.get(11).shortProblemDescriptionEng, additionWorksheets.get(11).longProblemDescriptionEng );
+        addA1_B1LineWorksheetA4(workingFolder, additionWorksheets.get(11).gradeEng, additionWorksheets.get(11).totalPageOfWorksheets,
+                additionWorksheets.get(11).longProblemDescriptionEng,
+                additionWorksheets.get(11).numbersRangeStart, additionWorksheets.get(11).numbersRangeEnd, 13, 5);
+        bottomWorksheet(workingFolder, additionWorksheets.get(11).gradeEng, additionWorksheets.get(11).totalPageOfWorksheets,
+                additionWorksheets.get(11).shortProblemDescriptionEng, additionWorksheets.get(11).longProblemDescriptionEng);
+        fullWorksheet(workingFolder, readyFilesFolder, additionWorksheets.get(11).gradeEng, additionWorksheets.get(11).totalPageOfWorksheets,
+                additionWorksheets.get(11).shortProblemDescriptionEng, additionWorksheets.get(11).longProblemDescriptionEng);
+        fullWorksheetPdf(workingFolder, readyFilesFolderPdf, additionWorksheets.get(11).gradeEng, additionWorksheets.get(11).totalPageOfWorksheets,
+                additionWorksheets.get(11).shortProblemDescriptionEng, additionWorksheets.get(11).longProblemDescriptionEng);
+        fullWorksheetHtmlAnswer(workingFolder, readyFilesFolder, additionWorksheets.get(11).gradeEng, additionWorksheets.get(11).totalPageOfWorksheets,
+                additionWorksheets.get(11).shortProblemDescriptionEng, additionWorksheets.get(11).longProblemDescriptionEng);
+        allSameWorksheets(workingFolder, readyFilesFolder, additionWorksheets.get(11).gradeEng, additionWorksheets.get(11).totalPageOfWorksheets,
+                additionWorksheets.get(11).shortProblemDescriptionEng, additionWorksheets.get(11).longProblemDescriptionEng);
+        finalHtmlPageSingleTopic2(workingFolder, readyFilesFolder, additionWorksheets.get(11).gradeEng, additionWorksheets.get(11).totalPageOfWorksheets, additionWorksheets.get(11).topicEng,
+                additionWorksheets.get(11).h2Eng, additionWorksheets.get(11).shortProblemDescriptionEng, additionWorksheets.get(11).longProblemDescriptionEng, diskEng, adsBlockEng);
+
+        additionWorksheets.add( new AdditionWorksheets(
+                "&thinsp;", "&nbsp;",
+                "Сложение, сумма чисел до 20.","Addition numbers. Sums up to 20.",
+                "Задачи по математике на тему:<br />Сложение, сумма чисел до 20. Задачи с ответами. Скачать pdf или jpg.",
+                "Mathematics worksheets:<br />Addition numbers. Sums up to 20. Worksheets with answers. Download pdf or jpg.",
+                "", "",
+                "Сложение чисел. Сумма чисел до 20.",
+                "Addition of numbers. Sums up to 20.",
+                "Сложи числа. Сумма чисел до 20.",
+                "Add numbers. Sums up to 20.",
+                0, 20, 11));
+
+        topWorksheet(workingFolder, additionWorksheets.get(12).gradeRus, additionWorksheets.get(12).totalPageOfWorksheets,
+                additionWorksheets.get(12).shortProblemDescriptionRus, additionWorksheets.get(12).longProblemDescriptionRus );
+        topWorksheetPdf(workingFolder, additionWorksheets.get(12).gradeRus, additionWorksheets.get(12).totalPageOfWorksheets,
+                additionWorksheets.get(12).shortProblemDescriptionRus, additionWorksheets.get(12).longProblemDescriptionRus );
+        topWorksheetHtmlAnswers(workingFolder, additionWorksheets.get(12).gradeRus, additionWorksheets.get(12).totalPageOfWorksheets,
+                additionWorksheets.get(12).shortProblemDescriptionRus, additionWorksheets.get(12).longProblemDescriptionRus );
+        addA1_B1LineWorksheetA4(workingFolder, additionWorksheets.get(12).gradeRus, additionWorksheets.get(12).totalPageOfWorksheets,
+                additionWorksheets.get(12).longProblemDescriptionRus,
+                additionWorksheets.get(12).numbersRangeStart, additionWorksheets.get(12).numbersRangeEnd, 13, 5);
+        bottomWorksheet(workingFolder, additionWorksheets.get(12).gradeRus, additionWorksheets.get(12).totalPageOfWorksheets,
+                additionWorksheets.get(12).shortProblemDescriptionRus, additionWorksheets.get(12).longProblemDescriptionRus);
+        fullWorksheet(workingFolder, readyFilesFolder, additionWorksheets.get(12).gradeRus, additionWorksheets.get(12).totalPageOfWorksheets,
+                additionWorksheets.get(12).shortProblemDescriptionRus, additionWorksheets.get(12).longProblemDescriptionRus);
+        fullWorksheetPdf(workingFolder, readyFilesFolderPdf, additionWorksheets.get(12).gradeRus, additionWorksheets.get(12).totalPageOfWorksheets,
+                additionWorksheets.get(12).shortProblemDescriptionRus, additionWorksheets.get(12).longProblemDescriptionRus);
+        fullWorksheetHtmlAnswer(workingFolder, readyFilesFolder, additionWorksheets.get(12).gradeRus, additionWorksheets.get(12).totalPageOfWorksheets,
+                additionWorksheets.get(12).shortProblemDescriptionRus, additionWorksheets.get(12).longProblemDescriptionRus);
+        allSameWorksheets(workingFolder, readyFilesFolder, additionWorksheets.get(12).gradeRus, additionWorksheets.get(12).totalPageOfWorksheets,
+                additionWorksheets.get(12).shortProblemDescriptionRus, additionWorksheets.get(12).longProblemDescriptionRus);
+        finalHtmlPageSingleTopic2(workingFolder, readyFilesFolder, additionWorksheets.get(12).gradeRus, additionWorksheets.get(12).totalPageOfWorksheets, additionWorksheets.get(12).topicRus,
+                additionWorksheets.get(12).h2Rus, additionWorksheets.get(12).shortProblemDescriptionRus, additionWorksheets.get(12).longProblemDescriptionRus, diskRus, adsBlockRus);
+
+        topWorksheet(workingFolder, additionWorksheets.get(12).gradeEng, additionWorksheets.get(12).totalPageOfWorksheets,
+                additionWorksheets.get(12).shortProblemDescriptionEng, additionWorksheets.get(12).longProblemDescriptionEng );
+        topWorksheetPdf(workingFolder, additionWorksheets.get(12).gradeEng, additionWorksheets.get(12).totalPageOfWorksheets,
+                additionWorksheets.get(12).shortProblemDescriptionEng, additionWorksheets.get(12).longProblemDescriptionEng );
+        topWorksheetHtmlAnswers(workingFolder, additionWorksheets.get(12).gradeEng, additionWorksheets.get(12).totalPageOfWorksheets,
+                additionWorksheets.get(12).shortProblemDescriptionEng, additionWorksheets.get(12).longProblemDescriptionEng );
+        addA1_B1LineWorksheetA4(workingFolder, additionWorksheets.get(12).gradeEng, additionWorksheets.get(12).totalPageOfWorksheets,
+                additionWorksheets.get(12).longProblemDescriptionEng,
+                additionWorksheets.get(12).numbersRangeStart, additionWorksheets.get(12).numbersRangeEnd, 13, 5);
+        bottomWorksheet(workingFolder, additionWorksheets.get(12).gradeEng, additionWorksheets.get(12).totalPageOfWorksheets,
+                additionWorksheets.get(12).shortProblemDescriptionEng, additionWorksheets.get(12).longProblemDescriptionEng);
+        fullWorksheet(workingFolder, readyFilesFolder, additionWorksheets.get(12).gradeEng, additionWorksheets.get(12).totalPageOfWorksheets,
+                additionWorksheets.get(12).shortProblemDescriptionEng, additionWorksheets.get(12).longProblemDescriptionEng);
+        fullWorksheetPdf(workingFolder, readyFilesFolderPdf, additionWorksheets.get(12).gradeEng, additionWorksheets.get(12).totalPageOfWorksheets,
+                additionWorksheets.get(12).shortProblemDescriptionEng, additionWorksheets.get(12).longProblemDescriptionEng);
+        fullWorksheetHtmlAnswer(workingFolder, readyFilesFolder, additionWorksheets.get(12).gradeEng, additionWorksheets.get(12).totalPageOfWorksheets,
+                additionWorksheets.get(12).shortProblemDescriptionEng, additionWorksheets.get(12).longProblemDescriptionEng);
+        allSameWorksheets(workingFolder, readyFilesFolder, additionWorksheets.get(12).gradeEng, additionWorksheets.get(12).totalPageOfWorksheets,
+                additionWorksheets.get(12).shortProblemDescriptionEng, additionWorksheets.get(12).longProblemDescriptionEng);
+        finalHtmlPageSingleTopic2(workingFolder, readyFilesFolder, additionWorksheets.get(12).gradeEng, additionWorksheets.get(12).totalPageOfWorksheets, additionWorksheets.get(12).topicEng,
+                additionWorksheets.get(12).h2Eng, additionWorksheets.get(12).shortProblemDescriptionEng, additionWorksheets.get(12).longProblemDescriptionEng, diskEng, adsBlockEng);
 
 
         finalRenameFiles(readyFilesFolderHtml);
-        finalRenameFiles(readyFilesFolderPdf);
-        finalRenameFiles(readyFilesFolder);
 
 // Serialization of Objects
         try{
-//            System.setProperty("file.encoding", "UTF-8");
             FileOutputStream fos= new FileOutputStream("D:/Java_Math/SavedObjects/" + "additionWorksheets.dat");
             ObjectOutputStream oos= new ObjectOutputStream(fos);
             for(WorksheetTemplate item : additionWorksheets) {
@@ -607,22 +840,16 @@ public class AdditionWorksheets extends WorksheetTemplate implements Serializabl
         }catch(IOException ioe){
             ioe.printStackTrace();
         }
-
-
-
     }
 
     public static void addA1_B1LineWorksheetA4(String workingFolder, String grade, int totalPageNumbers, String longTaskNameWorksheet,
                                                int numbersRangeStart, int numbersRangeEnd, int problemsLines, int problemsCols) throws IOException {
         System.out.println("Тема: " + longTaskNameWorksheet);
 
-
         int[][] argument1 = new int[problemsLines][problemsCols];
         int[][] argument2 = new int[problemsLines][problemsCols];
 
         for (int k = 1; k < totalPageNumbers ; k++) {
-
-
             for (int i = 0; i < problemsLines; i++) {
                 for (int j = 0; j < problemsCols; j++) {
                     argument1[i][j] = (int) (Math.random() * (numbersRangeEnd - numbersRangeStart) + numbersRangeStart);
@@ -631,7 +858,6 @@ public class AdditionWorksheets extends WorksheetTemplate implements Serializabl
             }
 
             if (longTaskNameWorksheet.contains("четные") || longTaskNameWorksheet.contains("even")) {
-//                System.out.println("Четные числа");
                 int tempNumber;
                 for (int i = 0; i < problemsLines; i++)
                     for (int j = 0; j < problemsCols; j++) {
@@ -645,7 +871,6 @@ public class AdditionWorksheets extends WorksheetTemplate implements Serializabl
             }
 
             if (longTaskNameWorksheet.contains("нечетные") || longTaskNameWorksheet.contains("odd")) {
-//                System.out.println("Четные числа");
                 int tempNumber;
                 for (int i = 0; i < problemsLines; i++)
                     for (int j = 0; j < problemsCols; j++) {
@@ -662,7 +887,39 @@ public class AdditionWorksheets extends WorksheetTemplate implements Serializabl
                 for (int i = 0; i < problemsLines; i++)
                     for (int j = 0; j < problemsCols; j++) {
                         argument1[i][j] = (int) (Math.random() * (numbersRangeEnd - numbersRangeStart) + numbersRangeStart);
-                        argument2[i][j] = (int) (Math.random() * (numbersRangeEnd - numbersRangeStart) + numbersRangeStart);
+                        argument2[i][j] = argument1[i][j];
+                    }
+            }
+
+            if (longTaskNameWorksheet.contains("Сумма чисел до 10") || longTaskNameWorksheet.contains("Sums up to 10")) {
+                for (int i = 0; i < problemsLines; i++)
+                    for (int j = 0; j < problemsCols; j++) {
+                        argument1[i][j] = (int) (Math.random() * 10);
+                        argument2[i][j] = (int) (Math.random() * (10 - argument1[i][j]));
+                    }
+            }
+
+            if (longTaskNameWorksheet.contains("Сумма чисел до 20") || longTaskNameWorksheet.contains("Sums up to 20")) {
+                for (int i = 0; i < problemsLines; i++)
+                    for (int j = 0; j < problemsCols; j++) {
+                        argument1[i][j] = (int) (Math.random() * 20);
+                        argument2[i][j] = (int) (Math.random() * (20 - argument1[i][j]));
+                    }
+            }
+
+            if (longTaskNameWorksheet.contains("Сумма чисел до 50") || longTaskNameWorksheet.contains("Sums up to 50")) {
+                for (int i = 0; i < problemsLines; i++)
+                    for (int j = 0; j < problemsCols; j++) {
+                        argument1[i][j] = (int) (Math.random() * 50);
+                        argument2[i][j] = (int) (Math.random() * (50 - argument1[i][j]));
+                    }
+            }
+
+            if (longTaskNameWorksheet.contains("Сумма чисел до 100") || longTaskNameWorksheet.contains("Sums up to 100")) {
+                for (int i = 0; i < problemsLines; i++)
+                    for (int j = 0; j < problemsCols; j++) {
+                        argument1[i][j] = (int) (Math.random() * 100);
+                        argument2[i][j] = (int) (Math.random() * (100 - argument1[i][j]));
                     }
             }
 
@@ -698,9 +955,8 @@ public class AdditionWorksheets extends WorksheetTemplate implements Serializabl
                 fileAnswerWriter.write("</tr>\n");
 
                 //Empty line in html table
-                fileWriter.write("<tr><td style=\"width: 20;\" colspan=\"5\">&nbsp;<br /><br /></td> </tr>\n");
-                fileAnswerWriter.write("<tr><td style=\"width: 20;\" colspan=\"5\">&nbsp;<br /><br /></td> </tr>\n");
-
+                fileWriter.write("<tr><td colspan=\"5\">&nbsp;<br /><br /></td> </tr>\n");
+                fileAnswerWriter.write("<tr><td colspan=\"5\">&nbsp;<br /><br /></td> </tr>\n");
             }
 
             fileWriter.write("</tbody></table>\n");
